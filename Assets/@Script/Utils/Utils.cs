@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using UnityEngine;
-using static Define;
 
 public class Utils
 {
@@ -54,14 +53,14 @@ public class Utils
         return null;
     }
 
-	public static string GetText(string textID)
+/*	public static string GetText(string textID)
 	{
 		// TEMP : 일단은 한국어로
 		if (Managers.Data.Texts.TryGetValue(textID, out TextData textData))
 			return textData.Kor;
 
 		return textID;
-	}
+	}*/
 
 	public static string GetGoldText(long gold)
 	{

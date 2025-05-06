@@ -10,7 +10,7 @@ public class Manager : MonoBehaviour
     private UIManager _ui = new UIManager();
     public static UIManager UI { get { return Instance._ui; } }
 
-    private static void Init()
+    public static void Init()
     {
         if(_instance != null)
             return;

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Spine.Unity;
+
 
 public abstract class UI_Base : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public abstract class UI_Base : MonoBehaviour
 		if (_init)
 			return false;
 
-		Managers.Init();
+		Manager.Init();
 
 		_init = true;
 		return true;
@@ -69,7 +69,7 @@ public abstract class UI_Base : MonoBehaviour
 	protected Image GetImage(int idx) { return Get<Image>(idx); }
 	protected Slider GetSlider(int idx) { return Get<Slider>(idx); }
 
-	public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
+	/*public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
 	{  
 		UI_EventHandler evt = Utils.GetOrAddComponent<UI_EventHandler>(go);
 
@@ -85,5 +85,5 @@ public abstract class UI_Base : MonoBehaviour
 				evt.OnPressHandler += action;
 				break;
 		}
-	}
+	}*/
 }
