@@ -1,0 +1,62 @@
+ "Animations": [
+    {
+      "AnimationID": 1,
+      "AnimationPre": "Anim_1"
+    },
+    {
+      "AnimationID": 2,
+      "AnimationPre": "Anim_2"
+    },
+    {
+      "AnimationID": 3,
+      "AnimationPre": "Anim_3"
+    },
+    {
+      "AnimationID": 4,
+      "AnimationPre": "Anim_4"
+    },
+    {
+      "AnimationID": 5,
+      "AnimationPre": "Anim_5"
+    },
+    {
+      "AnimationID": 6,
+      "AnimationPre": "Anim_6"
+    },
+    {
+      "AnimationID": 7,
+      "AnimationPre": "Anim_7"
+    },
+    {
+      "AnimationID": 8,
+      "AnimationPre": "Anim_8"
+    },
+    {
+      "AnimationID": 9,
+      "AnimationPre": "Anim_9"
+    },
+    {
+      "AnimationID": 10,
+      "AnimationPre": "Anim_10"
+    },
+    {
+      "AnimationID": 11,
+      "AnimationPre": "Anim_11"
+    },
+    {
+      "AnimationID": 12,
+      "AnimationPre": "Anim_12"
+    },
+    {
+      "AnimationID": 13,
+      "AnimationPre": "Anim_13"
+    },
+    {
+      "AnimationID": 14,
+      "AnimationPre": "Anim_14"
+    },
+    {
+      "AnimationID": 15,
+      "AnimationPre": "Anim_15"
+    }
+  ]

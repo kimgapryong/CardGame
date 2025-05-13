@@ -1,0 +1,337 @@
+ "Heroes": [
+    {
+      "HeroID": 1,
+      "HeroName": "Hero_1",
+      "ElementType": "어둠",
+      "ArangeType": "Long",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 26.2,
+              "Arange": 1.7,
+              "AtkSpeed": 1.6,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 1,
+              "AnimationID": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 2,
+      "HeroName": "Hero_2",
+      "ElementType": "어둠",
+      "ArangeType": "Long",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 10.4,
+              "Arange": 1.4,
+              "AtkSpeed": 1.4,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 2,
+              "AnimationID": 2
+            }
+          ]
+        },
+        {
+          "Level": 2,
+          "HeroLevelData": [
+            {
+              "Attack": 21.0,
+              "Arange": 1.8,
+              "AtkSpeed": 1.2,
+              "Upgrade": 200
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 2,
+              "AnimationID": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 3,
+      "HeroName": "Hero_3",
+      "ElementType": "땅",
+      "ArangeType": "Long",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 22.1,
+              "Arange": 1.0,
+              "AtkSpeed": 1.9,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 3,
+              "AnimationID": 3
+            }
+          ]
+        },
+        {
+          "Level": 2,
+          "HeroLevelData": [
+            {
+              "Attack": 18.3,
+              "Arange": 1.6,
+              "AtkSpeed": 1.6,
+              "Upgrade": 200
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 3,
+              "AnimationID": 3
+            }
+          ]
+        },
+        {
+          "Level": 3,
+          "HeroLevelData": [
+            {
+              "Attack": 27.7,
+              "Arange": 1.6,
+              "AtkSpeed": 1.1,
+              "Upgrade": 300
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 3,
+              "AnimationID": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 4,
+      "HeroName": "Hero_4",
+      "ElementType": "어둠",
+      "ArangeType": "Medium",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 20.9,
+              "Arange": 1.0,
+              "AtkSpeed": 1.7,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 4,
+              "AnimationID": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 5,
+      "HeroName": "Hero_5",
+      "ElementType": "땅",
+      "ArangeType": "Long",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 23.2,
+              "Arange": 1.7,
+              "AtkSpeed": 1.7,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 5,
+              "AnimationID": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 6,
+      "HeroName": "Hero_6",
+      "ElementType": "바람",
+      "ArangeType": "Medium",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 15.1,
+              "Arange": 1.5,
+              "AtkSpeed": 1.2,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 6,
+              "AnimationID": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 7,
+      "HeroName": "Hero_7",
+      "ElementType": "불",
+      "ArangeType": "Long",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 25.3,
+              "Arange": 1.5,
+              "AtkSpeed": 1.8,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 7,
+              "AnimationID": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 8,
+      "HeroName": "Hero_8",
+      "ElementType": "바람",
+      "ArangeType": "Close",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 24.0,
+              "Arange": 1.0,
+              "AtkSpeed": 1.8,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 8,
+              "AnimationID": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 9,
+      "HeroName": "Hero_9",
+      "ElementType": "물",
+      "ArangeType": "Close",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 13.2,
+              "Arange": 1.4,
+              "AtkSpeed": 1.1,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 9,
+              "AnimationID": 9
+            }
+          ]
+        },
+        {
+          "Level": 2,
+          "HeroLevelData": [
+            {
+              "Attack": 16.7,
+              "Arange": 1.9,
+              "AtkSpeed": 1.5,
+              "Upgrade": 200
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 9,
+              "AnimationID": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "HeroID": 10,
+      "HeroName": "Hero_10",
+      "ElementType": "어둠",
+      "ArangeType": "Close",
+      "LevelData": [
+        {
+          "Level": 1,
+          "HeroLevelData": [
+            {
+              "Attack": 24.2,
+              "Arange": 2.0,
+              "AtkSpeed": 1.2,
+              "Upgrade": 100
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 10,
+              "AnimationID": 10
+            }
+          ]
+        },
+        {
+          "Level": 2,
+          "HeroLevelData": [
+            {
+              "Attack": 10.7,
+              "Arange": 2.0,
+              "AtkSpeed": 1.8,
+              "Upgrade": 200
+            }
+          ],
+          "SkillMapData": [
+            {
+              "SkillID": 10,
+              "AnimationID": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
