@@ -9,6 +9,7 @@ public class HeroData
     public int HeroID;
     public string HeroName;
     public string ElementType;
+    public string Sprite;
     public HeroType ArangeType;
     public List<LevelData> LevelData = new List<LevelData>();
 }
