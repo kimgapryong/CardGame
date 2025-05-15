@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7315328640750504503}
   - component: {fileID: 8988319620579305993}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HeroImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4291708272931739762}
   - component: {fileID: 7203944439427879748}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: CardName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,9 +289,9 @@ RectTransform:
   - {fileID: 2714759592843335544}
   m_Father: {fileID: 7073314926821316381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8024758477509287616
@@ -325,9 +325,9 @@ RectTransform:
   - {fileID: 5622940270581923193}
   m_Father: {fileID: 7073314926821316381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8247512662647889012
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 343755902383841980}
   - component: {fileID: 4682809925364943009}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TextImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

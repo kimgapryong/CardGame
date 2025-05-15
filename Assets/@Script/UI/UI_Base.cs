@@ -50,7 +50,8 @@ public abstract class UI_Base : MonoBehaviour
 
 	protected void BindObject(Type type) { Bind<GameObject>(type);  }
 	protected void BindImage(Type type) { Bind<Image>(type);  }
-	protected void BindText(Type type) { Bind<TextMeshProUGUI>(type);  }
+	protected void BindTextPro(Type type) { Bind<TextMeshProUGUI>(type);  }
+	protected void BindText(Type type) { Bind<Text>(type); }
 	protected void BindButton(Type type) { Bind<Button>(type);  }
 	protected void BindSlider(Type type) { Bind<Slider>(type); }
 
@@ -64,12 +65,13 @@ public abstract class UI_Base : MonoBehaviour
 	}
 
 	protected GameObject GetObject(int idx) { return Get<GameObject>(idx); }
-	protected TextMeshProUGUI GetText(int idx) { return Get<TextMeshProUGUI>(idx); }
+	protected TextMeshProUGUI GetTextPro(int idx) { return Get<TextMeshProUGUI>(idx); }
+	protected Text GetText(int idx) { return Get<Text>(idx); }
 	protected Button GetButton(int idx) { return Get<Button>(idx); }
 	protected Image GetImage(int idx) { return Get<Image>(idx); }
 	protected Slider GetSlider(int idx) { return Get<Slider>(idx); }
 
-	/*public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
+	public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
 	{  
 		UI_EventHandler evt = Utils.GetOrAddComponent<UI_EventHandler>(go);
 
@@ -85,5 +87,5 @@ public abstract class UI_Base : MonoBehaviour
 				evt.OnPressHandler += action;
 				break;
 		}
-	}*/
+	}
 }

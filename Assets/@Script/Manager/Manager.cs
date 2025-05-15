@@ -9,6 +9,10 @@ public class Manager : MonoBehaviour
     public static ResourceManager Resource { get { return Instance._resources; } }
     private UIManager _ui = new UIManager();
     public static UIManager UI { get { return Instance._ui; } }
+    private GameManager _game = new GameManager();
+    public static GameManager Game { get { return Instance._game; } }
+    private DataManager _data = new DataManager();
+    public static DataManager Data { get { return Instance._data; } }
 
     public static void Init()
     {

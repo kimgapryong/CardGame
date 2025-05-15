@@ -8,4 +8,11 @@ public class Define
         Medium,
         Long,
     }
+    public enum UIEvent
+    {
+        Click,
+        Press,
+    }
+
+    public const int HERO_COUNT = 10;
 }
