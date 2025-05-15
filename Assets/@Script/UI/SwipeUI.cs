@@ -174,7 +174,7 @@ public class SwipeUI : MonoBehaviour
 			if ( scrollBar.value < scrollPageValues[i] + (valueDistance / 2) && scrollBar.value > scrollPageValues[i] - (valueDistance / 2) )
 			{
 				circleContents[i].localScale					= Vector2.one * circleContentScale;
-				circleContents[i].GetComponent<Image>().color	= Color.black;
+				circleContents[i].GetComponent<Image>().color	= Color.white;
 			}
 		}
 	}
