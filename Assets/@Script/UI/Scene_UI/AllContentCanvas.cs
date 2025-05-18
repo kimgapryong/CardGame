@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 using static Define;
 
 public class AllContentCanvas : UI_Scene
 {
-    enum GameObjects
+    enum Objects
     {
         SetCard,
-        CardContent,
+        Card_Content,
     }
 
     public override bool Init()
@@ -14,12 +15,22 @@ public class AllContentCanvas : UI_Scene
         if (base.Init() == false)
             return false;
 
-        BindObject(typeof(GameObjects));
+        BindObject(typeof(Objects));
 
         for (int i = 0; i < HERO_COUNT; i++)
         {
-            HeroData _heroData = Manager.Data.HeroDatas[i];
+            int index = i; 
+            HeroData _heroData = Manager.Data.HeroDatas[index + 1];
+
+            Manager.UI.MakeSubItem<CardFragment>(
+                GetObject((int)Objects.Card_Content).transform,
+                callback: (card) =>
+                {
+                    card.SetInfo(_heroData, index);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Card_Content).transform);
+                });
         }
+
 
         return true;
     }

@@ -14,7 +14,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 706cf52625e7dd24ab7ad56cd55ae90a
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1c6816ebb4929fc4c93da83e83d81adf
+    m_Address: EventSystem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 310fe20069990ba40aa0f88e593b30b1
+    m_Address: HeroCardPop_Fragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31b282dbb5c39894696c9031d63e2383
+    m_Address: Upgrade_Fragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9733049522a5aa04cbf5de102044099a
+    m_Address: SkillData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f4390db109eecd4cbcc3a1f5c7a1deb
+    m_Address: AnimData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c41222699a720154daf09b72f1a993a6
+    m_Address: HeroData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d93594a3d7fd5f744b55fae35184ae25
+    m_Address: CardFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eff4a9ad093411d4dbe49b126e79ce06
+    m_Address: HeroCardPop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdad5765cd992304aae0257f464f2a3f
+    m_Address: AllContentCanvas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 80bf1cb28a22f3043ab090d3c028771c, type: 2}
   m_SchemaSet:

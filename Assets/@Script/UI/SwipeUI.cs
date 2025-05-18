@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +26,8 @@ public class SwipeUI : MonoBehaviour
 
 	private void Awake()
 	{
+		if(circleContents.Length < 0)
+			return;
 		// 스크롤 되는 페이지의 각 value 값을 저장하는 배열 메모리 할당
 		scrollPageValues = new float[transform.childCount];
 
@@ -42,8 +46,10 @@ public class SwipeUI : MonoBehaviour
 
 	private void Start()
 	{
-		// 최초 시작할 때 0번 페이지를 볼 수 있도록 설정
-		SetScrollBarValue(0);
+        if (circleContents.Length < 0)
+            return;
+        // 최초 시작할 때 0번 페이지를 볼 수 있도록 설정
+        SetScrollBarValue(0);
 	}
 
 	public void SetScrollBarValue(int index)
@@ -51,8 +57,27 @@ public class SwipeUI : MonoBehaviour
 		currentPage		= index;
 		scrollBar.value	= scrollPageValues[index];
 	}
+    public void SetCircelContents(List<Transform> circleTrans)
+    {
+        Debug.Log(circleTrans.Count);
+        circleContents = new Transform[circleTrans.Count];
 
-	private void Update()
+        for (int i = 0; i < circleTrans.Count; i++)
+            circleContents[i] = circleTrans[i];
+
+        // 여기서 transform.childCount가 아니라 전달받은 circleTrans.Count 기준으로 처리
+        scrollPageValues = new float[circleTrans.Count];
+        valueDistance = 1f / (scrollPageValues.Length - 1f);
+
+        for (int i = 0; i < scrollPageValues.Length; ++i)
+            scrollPageValues[i] = valueDistance * i;
+
+        maxPage = circleTrans.Count;
+
+        SetScrollBarValue(0);
+    }
+
+    private void Update()
 	{
 		UpdateInput();
 

@@ -1,4 +1,5 @@
- "Animations": [
+{
+  "anims": [
     {
       "AnimationID": 1,
       "AnimationPre": "Anim_1"
@@ -60,3 +61,4 @@
       "AnimationPre": "Anim_15"
     }
   ]
+}

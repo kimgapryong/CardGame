@@ -7,16 +7,18 @@ using static Define;
 public class HeroData
 {
     public int HeroID;
-    public string HeroName;
     public string ElementType;
-    public string Sprite;
     public HeroType ArangeType;
+    public HeroRating HeroRating;
     public List<LevelData> LevelData = new List<LevelData>();
 }
 [Serializable]
 public class LevelData
 {
+    public string HeroName;
     public int Level;
+    public string Sprite;
+    public string HeroInduce;
     public List<HeroLevelData> HeroLevelData = new List<HeroLevelData>();
     public List<SkillMapping> SkillMapData = new List<SkillMapping>();
 
@@ -35,14 +37,17 @@ public class SkillMapping
     public int SkillID;
     public int AnimationID;
 }
+
+[Serializable]
 public class HeroLoader : ILoader<int, HeroData>
 {
-    List<HeroData> data = new List<HeroData> ();
+    public List<HeroData> heroes = new List<HeroData> ();
     public Dictionary<int, HeroData> MakeDic()
     {
         Dictionary<int, HeroData> heroDic = new Dictionary<int, HeroData>();
-        foreach(var hero in data)
+        foreach(var hero in heroes)
             heroDic.Add(hero.HeroID, hero);
+            
 
         return heroDic;
     }
@@ -60,13 +65,14 @@ public class Skills
     public string SkillPre;
 }
 
+[Serializable]
 public class SkillLoader : ILoader<int, Skills>
 {
-    List<Skills> data = new List<Skills>();
+    public List<Skills> skills = new List<Skills>();
     public Dictionary<int, Skills> MakeDic()
     {
         Dictionary<int, Skills> skillDic = new Dictionary<int, Skills>();
-        foreach(var skill in data)
+        foreach(var skill in skills)
             skillDic.Add(skill.SkillID, skill);
 
         return skillDic;
@@ -84,13 +90,14 @@ public class AnimationData
     public int AnimationID;
     public string AnimationPre;
 }
+[Serializable]
 public class AnimationLoader : ILoader<int, AnimationData>
 {
-    List<AnimationData> data = new List<AnimationData>();
+    public List<AnimationData> anims = new List<AnimationData>();
     public Dictionary<int, AnimationData> MakeDic()
     {
         Dictionary<int, AnimationData> animDic = new Dictionary<int, AnimationData>();
-        foreach (var animation in data)
+        foreach (var animation in anims)
             animDic.Add(animation.AnimationID, animation);
 
         return animDic;

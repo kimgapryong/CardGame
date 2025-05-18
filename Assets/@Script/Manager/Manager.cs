@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    private static Manager _instance;
+    private static Manager _instance = null;
     public static Manager Instance { get { Init(); return _instance; } }
 
     private ResourceManager _resources = new ResourceManager();
@@ -27,5 +27,8 @@ public class Manager : MonoBehaviour
         }
         _instance = go.GetComponent<Manager>();
         DontDestroyOnLoad(go);
+
+        _instance._data.Init();
+        _instance._game.Init();
     }
 }

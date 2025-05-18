@@ -12,17 +12,29 @@ public class GameData
 }
 public class GameManager
 {
-    string _path = Application.persistentDataPath + "/savefile.json";
+    string _path;
     bool IsLoaded { get; set; } = false;
 
     private GameData _gameData = new GameData();
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
+    public List<HeroData> Heros { get { return _gameData.heros; } set { _gameData.heros = value; } }
+
     public void Init()
     {
+        Debug.Log("GameManager");
+        _path = Application.persistentDataPath + "/savefile.json";
         if (LoadGame())
             return;
 
+        if (Heros == null)
+            Heros = new List<HeroData>();
+
+       
+
+        //IsLoaded = true;
+
+        //SaveGame();
     }
 
     public void SaveGame()

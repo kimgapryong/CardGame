@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class CardFragment : UI_Base
     {
         CardName,
     }
-    enum GameObjects
+    enum Objects
     {
         CardFragment,
     }
@@ -19,6 +20,7 @@ public class CardFragment : UI_Base
     Image heroImage;
     Text heroName;
 
+    List<LevelData> _level;
     HeroData _heroData;
     public HeroData HeroData { get { return _heroData; } }
     public override bool Init()
@@ -28,25 +30,29 @@ public class CardFragment : UI_Base
 
         BindImage(typeof(Images));
         BindText(typeof(Texts));
-        BindObject(typeof(GameObjects));
+        BindObject(typeof(Objects));
 
         heroImage = GetImage((int)Images.HeroImage);
         heroName = GetText((int)Texts.CardName);
-        GetObject((int)GameObjects.CardFragment).gameObject.BindEvent(ShowCardPop);
+        GetObject((int)Objects.CardFragment).gameObject.BindEvent(ShowCardPop);
 
-
+        Refresh();
         return true;
     }
 
-    public void SetInfo(HeroData heroData)
+    public void SetInfo(HeroData heroData, int myNum)
     {
+        Debug.Log(heroData.LevelData.Count);
+        Debug.Log(myNum);
         _heroData = heroData;
-        Refresh();
+        _level = heroData.LevelData;
+        
     }
     public void Refresh()
     {
-        heroName.text = HeroData.HeroName;
-        Manager.Resource.LoadAsync<Sprite>(HeroData.Sprite, (sprite) =>
+        
+        heroName.text = _level[0].HeroName;
+        Manager.Resource.LoadAsync<Sprite>(_level[0].Sprite, (sprite) =>
         {
             heroImage.sprite = sprite;
         });

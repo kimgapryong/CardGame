@@ -15,6 +15,7 @@ public class DataManager
 
     public void Init()
     {
+        Debug.Log("DataManager");
         LoadJson<HeroLoader, int, HeroData>("HeroData.json", (loader) => { HeroDatas = loader.MakeDic(); });
         LoadJson<SkillLoader, int, Skills>("SkillData.json", (loader) => { SkillDatas = loader.MakeDic(); });
         LoadJson<AnimationLoader, int, AnimationData>("AnimData.json", (loader) => { AnimDatas = loader.MakeDic(); });
@@ -28,5 +29,15 @@ public class DataManager
             callback?.Invoke(loader);
         });
     }
+    public bool Loaded()
+    {
+        if (HeroDatas == null)
+            return false;
+        if (SkillDatas == null)
+            return false;
+        if (AnimDatas == null)
+            return false;
 
+        return true;
+    }
 }
