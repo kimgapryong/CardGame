@@ -8,8 +8,19 @@ public class HeroData
 {
     public int HeroID;
     public string ElementType;
-    public HeroType ArangeType;
-    public HeroRating HeroRating;
+    [SerializeField] private string ArangeType;
+    [SerializeField] private string HeroRating;
+
+    public HeroType Arange_Type => ParseEnumOrDefault(ArangeType, Define.HeroType.Close);
+    public HeroRating Hero_Rating => ParseEnumOrDefault(HeroRating, Define.HeroRating.Common);
+
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
+            return result;
+        return defaultValue;
+    }
+
     public List<LevelData> LevelData = new List<LevelData>();
 }
 [Serializable]

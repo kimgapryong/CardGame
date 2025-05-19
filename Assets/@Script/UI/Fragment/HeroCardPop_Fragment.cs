@@ -51,7 +51,7 @@ public class HeroCardPop_Fragment : UI_Base
     {
         GetText((int)Texts.HeroName).text = _level.HeroName;
         #region 등급
-        switch (_heroData.HeroRating)
+        switch (_heroData.Hero_Rating)
         {
             case HeroRating.Common:
                 heroRating_Image.color = Color.gray;
@@ -62,7 +62,7 @@ public class HeroCardPop_Fragment : UI_Base
                 rating_Txt.text = $"등급: 희귀";
                 break;
             case HeroRating.Epic:
-                heroRating_Image.color = new Color(160,32,240);
+                heroRating_Image.color = new Color(160f / 255f, 32f / 255f, 240f / 255f);
                 rating_Txt.text = $"등급: 영웅";
                 break;
             case HeroRating.Legend:
@@ -73,7 +73,7 @@ public class HeroCardPop_Fragment : UI_Base
         #endregion
 
         #region 유형
-        switch (_heroData.ArangeType)
+        switch (_heroData.Arange_Type)
         {
             case HeroType.Close:
                 heroT_Txt.text = $"유형: 단거리";

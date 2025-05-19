@@ -22,8 +22,10 @@ public class SwipeUI : MonoBehaviour
 	private	float		startTouchX;				// 터치 시작 위치
 	private	float		endTouchX;					// 터치 종료 위치
 	private	bool		isSwipeMode = false;		// 현재 Swipe가 되고 있는지 체크
-	private	float		circleContentScale = 1.6f;	// 현재 페이지의 원 크기(배율)
+	private	float		circleContentScale = 1.6f;  // 현재 페이지의 원 크기(배율)
 
+	private int myNum = 0;
+	public static bool isWipe = false;
 	private void Awake()
 	{
 		if(circleContents.Length < 0)
@@ -46,7 +48,7 @@ public class SwipeUI : MonoBehaviour
 
 	private void Start()
 	{
-        if (circleContents.Length < 0)
+        if (circleContents.Length <= 0)
             return;
         // 최초 시작할 때 0번 페이지를 볼 수 있도록 설정
         SetScrollBarValue(0);
@@ -57,9 +59,9 @@ public class SwipeUI : MonoBehaviour
 		currentPage		= index;
 		scrollBar.value	= scrollPageValues[index];
 	}
-    public void SetCircelContents(List<Transform> circleTrans)
+    public void SetCircelContents(List<Transform> circleTrans, int myNunm)
     {
-        Debug.Log(circleTrans.Count);
+        this.myNum = myNunm;
         circleContents = new Transform[circleTrans.Count];
 
         for (int i = 0; i < circleTrans.Count; i++)
@@ -89,6 +91,7 @@ public class SwipeUI : MonoBehaviour
 	{
 		// 현재 Swipe를 진행중이면 터치 불가
 		if ( isSwipeMode == true ) return;
+		if (isWipe == true && myNum == 0) return;	
 
 		#if UNITY_EDITOR
 		// 마우스 왼쪽 버튼을 눌렀을 때 1회

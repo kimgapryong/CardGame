@@ -8,7 +8,7 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-    public List<HeroData> heros;
+    public List<int> heros;
 }
 public class GameManager
 {
@@ -18,23 +18,24 @@ public class GameManager
     private GameData _gameData = new GameData();
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
-    public List<HeroData> Heros { get { return _gameData.heros; } set { _gameData.heros = value; } }
+    public List<int> Heros { get { return _gameData.heros; } set { _gameData.heros = value; } }
 
     public void Init()
     {
-        Debug.Log("GameManager");
         _path = Application.persistentDataPath + "/savefile.json";
         if (LoadGame())
             return;
 
         if (Heros == null)
-            Heros = new List<HeroData>();
+            Heros = new List<int>();
 
-       
+        Heros.Add(4);
+        Heros.Add(6);
 
-        //IsLoaded = true;
 
-        //SaveGame();
+        IsLoaded = true;
+
+        SaveGame();
     }
 
     public void SaveGame()

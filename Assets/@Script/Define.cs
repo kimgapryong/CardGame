@@ -1,5 +1,7 @@
 
 
+using Newtonsoft.Json;
+
 public class Define
 {
    public enum HeroRating
@@ -9,7 +11,8 @@ public class Define
         Epic,
         Legend,
     }
-   public enum HeroType
+
+    public enum HeroType
     {
         Close,
         Medium,

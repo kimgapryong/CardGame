@@ -20,6 +20,7 @@ public class CardFragment : UI_Base
     Image heroImage;
     Text heroName;
 
+    AllContentCanvas _all;
     List<LevelData> _level;
     HeroData _heroData;
     public HeroData HeroData { get { return _heroData; } }
@@ -40,12 +41,11 @@ public class CardFragment : UI_Base
         return true;
     }
 
-    public void SetInfo(HeroData heroData, int myNum)
+    public void SetInfo(HeroData heroData, AllContentCanvas all)
     {
-        Debug.Log(heroData.LevelData.Count);
-        Debug.Log(myNum);
         _heroData = heroData;
         _level = heroData.LevelData;
+        _all = all;
         
     }
     public void Refresh()
@@ -62,7 +62,7 @@ public class CardFragment : UI_Base
     {
         Manager.UI.ShowPopupUI<HeroCardPop>(callback: (card) =>
         {
-            card.SetInfo(HeroData);
+            card.SetInfo(HeroData, _all);
         });
     }
 }
