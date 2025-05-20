@@ -13,7 +13,8 @@ public class Manager : MonoBehaviour
     public static GameManager Game { get { return Instance._game; } }
     private DataManager _data = new DataManager();
     public static DataManager Data { get { return Instance._data; } }
-
+    private MapManager _map = new MapManager();
+    public static MapManager Map { get { return Instance._map; } }
     public static void Init()
     {
         if(_instance != null)

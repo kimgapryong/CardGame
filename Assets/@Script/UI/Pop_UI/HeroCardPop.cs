@@ -93,11 +93,12 @@ public class HeroCardPop : UI_Popup
 
             GetButton((int)Buttons.Equir_Btn).gameObject.BindEvent(() =>
             {
-                if (Manager.Game.Heros.Count > 8)
-                    return;
-
+                
                 if (checkBtn == false)
                 {
+                    if (Manager.Game.Heros.Count >= 8)
+                        return;
+
                     SwipeUI.isWipe = false;
                     Manager.UI.ClosePopupUI(this);
                     Manager.Game.SaveData.heros.Add(_heroData.HeroID);

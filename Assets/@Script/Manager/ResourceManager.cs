@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.U2D;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using Object = UnityEngine.Object;
 
 public class ResourceManager
@@ -99,5 +102,60 @@ public class ResourceManager
 		yield return new WaitForSeconds(seconds);
 		Addressables.ReleaseInstance(go);
 	}
-	#endregion
+    #endregion
+
+    public void LoadSprite(string spriteKey, Action<Sprite> callback)
+    {
+        if (_resources.TryGetValue(spriteKey, out var cachedResource))
+        {
+            callback?.Invoke(cachedResource as Sprite);
+            return;
+        }
+
+        if (_handles.ContainsKey(spriteKey))
+        {
+            _handles[spriteKey].Completed += (op) =>
+            {
+                var sprite = op.Result as Sprite;
+                if (sprite != null)
+                {
+                    _resources[spriteKey] = sprite;
+                    callback?.Invoke(sprite);
+                }
+            };
+            return;
+        }
+
+        var handle = Addressables.LoadAssetAsync<Sprite>(spriteKey);
+        _handles[spriteKey] = handle;
+
+        handle.Completed += (op) =>
+        {
+            var sprite = op.Result;
+            if (sprite == null)
+            {
+                Debug.LogError($"[Addressables] Sprite '{spriteKey}' 로드 실패");
+                return;
+            }
+
+            _resources[spriteKey] = sprite;
+            callback?.Invoke(sprite);
+        };
+    }
+    public void InstantiateSprite(string name, string spriteKey, Transform parent = null, Action<GameObject> callback = null)
+    {
+        LoadSprite(spriteKey, (sp) =>
+        {
+            GameObject newObj = new GameObject(name);
+            var renderer = newObj.AddComponent<SpriteRenderer>();
+            renderer.sprite = sp;
+
+            if (parent != null)
+                newObj.transform.SetParent(parent);
+
+            callback?.Invoke(newObj);
+        });
+    }
+
+
 }

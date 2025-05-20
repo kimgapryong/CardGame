@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Sprites
   m_GUID: aaba48d0b9e98ac4189df853744195d1
   m_SerializeEntries:
+  - m_GUID: 660b9657bdba8e9478d78d67d39b6661
+    m_Address: Blue_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f08595d880b351145aedd78cd1a0efa8
     m_Address: Hero_1.sprite
     m_ReadOnly: 0

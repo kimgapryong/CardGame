@@ -29,7 +29,13 @@ public class Define
         MainScene,
         GameScene,
         
-        
+    }
+    public enum TileType
+    {
+        Wall,
+        Path,
+        Install,
+        Final
     }
     public const int HERO_COUNT = 10;
 }
