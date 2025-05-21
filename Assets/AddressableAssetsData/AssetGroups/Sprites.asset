@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Sprites
   m_GUID: aaba48d0b9e98ac4189df853744195d1
   m_SerializeEntries:
+  - m_GUID: 262a190c3da35054891c3fffc33fb6d3
+    m_Address: Final_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49283ff5c7cc999409c8fcb3c9170aa4
+    m_Address: Start_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4cc81c63bcf39ab4a947f604582a5ae2
     m_Address: Monster_3
     m_ReadOnly: 0
@@ -25,8 +35,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c1b87b93f99cc74a8910035e73ba451
+    m_Address: Path_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d1b4df1c6c880147aee4f323c369f1d
+    m_Address: Wall_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 660b9657bdba8e9478d78d67d39b6661
     m_Address: Blue_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71302693fe066dc4e831c8c4670b4895
+    m_Address: Install_tile
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

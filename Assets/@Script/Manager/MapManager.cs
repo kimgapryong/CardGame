@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 
 [Serializable]
 public class Tile
@@ -185,23 +186,27 @@ public class MapManager
             {
                 Tile tile = map[x, y];
                 int px = x, py = y;
-                string spriteKey = "Blue_tile[Blue_TileSet_0]";
+                string spriteKey = "Install_tile";
 
                 switch (tile.type)
                 {
                     case TileType.Wall:
-                        spriteKey = "Red_tile[Red_TileSet_0]"; break;
+                        spriteKey = "Wall_tile"; break;
                     case TileType.Path:
-                        spriteKey = "Green_tile[Green_TileSet_0]"; break;
+                        spriteKey = "Path_tile"; break;
                     case TileType.Start:
-                        spriteKey = "Purple_tile[Purple_TileSet_0]"; break;
+                        spriteKey = "Start_tile"; break;
                     case TileType.Final:
-                        spriteKey = "Orange_tile[Orange_TileSet_0]"; break;
+                        spriteKey = "Final_tile"; break;
                 }
 
-                Manager.Resource.InstantiateSprite("Test_Tile", spriteKey, Root.transform, (obj) =>
+                Manager.Resource.LoadAsync<Sprite>(spriteKey, (sp) =>
                 {
-                    obj.transform.localPosition = new Vector3Int(px, py);
+                    GameObject newObj = new GameObject("Tile");
+                    var renderer = newObj.AddComponent<SpriteRenderer>();
+                    newObj.transform.SetParent(Root.transform);
+                    newObj.transform.localPosition = new Vector3Int(px, py);
+                    renderer.sprite = sp;
                 });
             }
         }
