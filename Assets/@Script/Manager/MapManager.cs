@@ -2,6 +2,7 @@ using static Define;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [Serializable]
 public class Tile
@@ -18,8 +19,8 @@ public class Tile
 
 public class MapManager
 {
-    public int width = 9;
-    public int height = 16;
+    public int width = 32;
+    public int height = 14;
     public Tile[,] map;
     public Dictionary<Vector2Int, Tile> pathDict = new Dictionary<Vector2Int, Tile>();
 
@@ -47,102 +48,134 @@ public class MapManager
     {
         map = new Tile[width, height];
 
-        // 시작/도착 설정
         bool startLeft = UnityEngine.Random.value > 0.5f;
         start = startLeft ? new Vector2Int(1, 1) : new Vector2Int(width - 2, 1);
         end = startLeft ? new Vector2Int(width - 2, height - 2) : new Vector2Int(1, height - 2);
 
-        // 전체 초기화
         for (int x = 0; x < width; x++)
+        {
             for (int y = 0; y < height; y++)
-                map[x, y] = new Tile(x, y, (x == 0 || y == 0 || x == width - 1 || y == height - 1) ? TileType.Wall : TileType.Install);
+            {
+                bool isBorder = x == 0 || y == 0 || x == width - 1 || y == height - 1;
+                map[x, y] = new Tile(x, y, isBorder ? TileType.Wall : TileType.Install);
+            }
+        }
 
-        // 경로 생성
-        List<Vector2Int> path = GeneratePerlinPath(start, end);
+        List<Vector2Int> path = GenerateMazePath(start, end);
         foreach (var pos in path)
         {
-            if (pos.x < 0 || pos.y < 0 || pos.x >= width || pos.y >= height)
+            if (pos.x <= 0 || pos.y <= 0 || pos.x >= width || pos.y >= height)
                 continue;
             if (map[pos.x, pos.y] == null)
                 continue;
 
+            if (map[pos.x, pos.y].type == TileType.Wall)
+            {
+                if(pos.y - 1 <= 0)
+                    continue;
+
+                int x = start.x - pos.x > 0 ? pos.x + 1 : pos.x - 1;    
+                map[x,pos.y - 1].type = TileType.Path;
+                pathDict[pos] = map[x, pos.y - 1];
+                continue;
+            }
+                
             map[pos.x, pos.y].type = TileType.Path;
             pathDict[pos] = map[pos.x, pos.y];
         }
 
-        // 시작/끝 타일 설정
         map[start.x, start.y].type = TileType.Start;
         map[end.x, end.y].type = TileType.Final;
     }
 
-    private List<Vector2Int> GeneratePerlinPath(Vector2Int start, Vector2Int end)
+    private List<Vector2Int> GenerateMazePath(Vector2Int start, Vector2Int end)
     {
-        List<Vector2Int> path = new List<Vector2Int>();
-        HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
-        Vector2Int current = start;
-        path.Add(current);
-        visited.Add(current);
+        bool[,] visited = new bool[width, height];
+        List<Vector2Int> path = new();
+        Stack<Vector2Int> stack = new();
+        System.Random rng = new();
 
-        float noiseScale = 0.1f;
-        int maxStep = height * 3;  // 유연하게 퍼질 수 있도록
+        stack.Push(start);
+        visited[start.x, start.y] = true;
+        path.Add(start);
 
-        int step = 0;
-        while (current != end && step++ < maxStep)
+        // 방향 정의 (상하좌우)
+        Vector2Int[] directions = new Vector2Int[]
         {
-            List<Vector2Int> candidates = new();
+        Vector2Int.up,
+        Vector2Int.down,
+        Vector2Int.left,
+        Vector2Int.right
+        };
 
-            // 상하좌우 후보
-            Vector2Int[] directions = new Vector2Int[]
+        while (stack.Count > 0)
+        {
+            Vector2Int current = stack.Peek();
+
+            // 방향 섞기 (랜덤)
+            directions = directions.OrderBy(d => rng.Next()).ToArray();
+            bool moved = false;
+
+            foreach (Vector2Int dir in directions)
             {
-                Vector2Int.up,
-                Vector2Int.left,
-                Vector2Int.right
-            };
+                // 이동 조건 설정
+                int minStep = (dir.x != 0) ? 4 : 2;
+                int maxStep = (dir.x != 0) ? width - 1 : height - 1;
+                int stepCount = rng.Next(minStep, Mathf.Min(maxStep, 6)); // 길이는 랜덤, 너무 길면 미로처럼 안됨
 
-            foreach (var dir in directions)
-            {
-                Vector2Int next = current + dir;
+                Vector2Int next = current;
+                List<Vector2Int> tempPath = new();
 
-                if (next.x <= 0 || next.x >= width - 1 || next.y <= 0 || next.y >= height - 1)
-                    continue;
-                if (visited.Contains(next))
-                    continue;
+                for (int i = 0; i < stepCount; i++)
+                {
+                    next += dir;
+                    if (next.x <= 0 || next.x >= width || next.y <= 0 || next.y >= height)
+                        break;
 
-                float noise = Mathf.PerlinNoise(next.x * noiseScale, next.y * noiseScale);
-                float bias = Mathf.Lerp(0f, 1f, (float)(end.y - next.y) / height); // 위로 갈수록 선택 확률 증가
-                float score = noise + bias;
+                    if (visited[next.x, next.y])
+                        break;
 
-                // 확률적으로 후보에 추가
-                if (score > 0.3f)
-                    candidates.Add(next);
+                    tempPath.Add(next);
+                }
+
+                if (tempPath.Count == stepCount)
+                {
+                    foreach (var p in tempPath)
+                    {
+                        visited[p.x, p.y] = true;
+                        path.Add(p);
+                    }
+                    stack.Push(tempPath.Last());
+                    moved = true;
+                    break;
+                }
             }
 
-            // 후보가 없다면 강제로 위로
-            if (candidates.Count == 0)
-                candidates.Add(current + Vector2Int.up);
+            if (!moved)
+            {
+                stack.Pop(); // 막히면 백트래킹
+            }
 
-            Vector2Int chosen = candidates[UnityEngine.Random.Range(0, candidates.Count)];
-            path.Add(chosen);
-            visited.Add(chosen);
-            current = chosen;
+            // 도착 확인
+            if (path.Contains(end))
+                break;
         }
 
-        // 끝에 도달 못했다면 강제 연결
-        if (current != end)
+        // 도착점으로 이어지는 최종 직선 연결
+        Vector2Int last = path.Last();
+        while (last != end)
         {
-            while (current != end)
-            {
-                if (current.x < end.x) current.x++;
-                else if (current.x > end.x) current.x--;
-                else if (current.y < end.y) current.y++;
-                else if (current.y > end.y) current.y--;
+            if (last.x < end.x) last += Vector2Int.right;
+            else if (last.x > end.x) last += Vector2Int.left;
+            else if (last.y < end.y) last += Vector2Int.up;
+            else if (last.y > end.y) last += Vector2Int.down;
 
-                path.Add(current);
-            }
+            path.Add(last);
         }
 
         return path;
     }
+
 
     public void InstantiateTiles()
     {
@@ -157,17 +190,13 @@ public class MapManager
                 switch (tile.type)
                 {
                     case TileType.Wall:
-                        spriteKey = "Red_tile[Red_TileSet_0]";
-                        break;
+                        spriteKey = "Red_tile[Red_TileSet_0]"; break;
                     case TileType.Path:
-                        spriteKey = "Green_tile[Green_TileSet_0]";
-                        break;
+                        spriteKey = "Green_tile[Green_TileSet_0]"; break;
                     case TileType.Start:
-                        spriteKey = "Purple_tile[Purple_TileSet_0]";
-                        break;
+                        spriteKey = "Purple_tile[Purple_TileSet_0]"; break;
                     case TileType.Final:
-                        spriteKey = "Orange_tile[Orange_TileSet_0]";
-                        break;
+                        spriteKey = "Orange_tile[Orange_TileSet_0]"; break;
                 }
 
                 Manager.Resource.InstantiateSprite("Test_Tile", spriteKey, Root.transform, (obj) =>
