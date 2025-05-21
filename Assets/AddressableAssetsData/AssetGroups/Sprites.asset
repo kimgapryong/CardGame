@@ -15,13 +15,63 @@ MonoBehaviour:
   m_GroupName: Sprites
   m_GUID: aaba48d0b9e98ac4189df853744195d1
   m_SerializeEntries:
+  - m_GUID: 4cc81c63bcf39ab4a947f604582a5ae2
+    m_Address: Monster_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50db04ea26fa1bf48bde8d88239659ba
+    m_Address: Orange_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 660b9657bdba8e9478d78d67d39b6661
     m_Address: Blue_tile
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a20eb712015ac04aa029b901d8ac636
+    m_Address: Green_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f57ac464a24ed44c8bae12d7ca40519
+    m_Address: Purple_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a30277add3ecf3c4f9bca16f781b2c0c
+    m_Address: Monster_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae9c5bc7c7aa9934d8a6b767501ad08a
+    m_Address: Monster_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5522216b6c254140afc7aa5a7b2015f
+    m_Address: Monster_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0a5118209bfa58458712de1de4f46d8
+    m_Address: Monster_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e65297f57c2eac24cb04c80d25ff7a10
+    m_Address: Monster_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f08595d880b351145aedd78cd1a0efa8
     m_Address: Hero_1.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f820d8575c9c9d74780c74abd6197058
+    m_Address: Red_tile
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

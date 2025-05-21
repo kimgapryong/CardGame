@@ -12,13 +12,15 @@ public class DataManager
     public Dictionary<int, HeroData> HeroDatas { get; private set; }
     public Dictionary<int, Skills> SkillDatas { get; private set; }
     public Dictionary<int, AnimationData> AnimDatas { get; private set; }
+    public Dictionary<int, MonsterData> MonDatas { get; private set; }
 
     public void Init()
     {
-        Debug.Log("DataManager");
         LoadJson<HeroLoader, int, HeroData>("HeroData.json", (loader) => { HeroDatas = loader.MakeDic(); });
         LoadJson<SkillLoader, int, Skills>("SkillData.json", (loader) => { SkillDatas = loader.MakeDic(); });
         LoadJson<AnimationLoader, int, AnimationData>("AnimData.json", (loader) => { AnimDatas = loader.MakeDic(); });
+        LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); });
+
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {
@@ -36,6 +38,8 @@ public class DataManager
         if (SkillDatas == null)
             return false;
         if (AnimDatas == null)
+            return false;
+        if (MonDatas == null)
             return false;
 
         return true;

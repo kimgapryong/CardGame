@@ -35,7 +35,9 @@ public class Define
         Wall,
         Path,
         Install,
-        Final
+        Final,
+        Start
     }
+   
     public const int HERO_COUNT = 10;
 }

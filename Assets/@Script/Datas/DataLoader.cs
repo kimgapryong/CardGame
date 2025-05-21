@@ -119,3 +119,30 @@ public class AnimationLoader : ILoader<int, AnimationData>
         return true;
     }
 }
+
+[Serializable]
+public class MonsterData
+{
+    public int MonsterID;
+    public string MonsterName;
+    public float Speed;
+    public float Hp;
+}
+[Serializable]
+public class MonsterLoader : ILoader<int, MonsterData>
+{
+    public List<MonsterData> monsters = new List<MonsterData>();
+    public Dictionary<int, MonsterData> MakeDic()
+    {
+        Dictionary<int, MonsterData> monDic = new Dictionary<int, MonsterData>();
+        foreach (var mon in monsters)
+            monDic.Add(mon.MonsterID, mon);
+
+        return monDic;
+    }
+
+    public bool Validate()
+    {
+        return true;
+    }
+}
