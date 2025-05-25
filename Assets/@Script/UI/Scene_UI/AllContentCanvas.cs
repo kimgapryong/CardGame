@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Define;
 
@@ -10,13 +11,17 @@ public class AllContentCanvas : UI_Scene
         SetCard,
         Card_Content,
     }
-
+    enum Buttons
+    {
+        GameBtn,
+    }
     public override bool Init()
     {
         if (base.Init() == false)
             return false;
 
         BindObject(typeof(Objects));
+        BindButton(typeof(Buttons));
 
         for (int i = 0; i < HERO_COUNT; i++)
         {
@@ -43,7 +48,7 @@ public class AllContentCanvas : UI_Scene
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.SetCard).transform);
                 });
         }
-
+        GetButton((int)Buttons.GameBtn).gameObject.BindEvent(() => SceneManager.LoadScene("GameScene"));
 
         return true;
     }

@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: Sprites
   m_GUID: aaba48d0b9e98ac4189df853744195d1
   m_SerializeEntries:
+  - m_GUID: 0a595043ae1117a4ea8e0ca506733ecc
+    m_Address: Hero_4.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2543b3eff2d6d4e468a98530bf9ab02e
+    m_Address: Hero_9.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 262a190c3da35054891c3fffc33fb6d3
     m_Address: Final_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34aee9ea63a192242973be79a495fe0e
+    m_Address: Lock.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ad77ec962992544b9a0c75f62a3ae63
+    m_Address: Hero_7.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -55,6 +75,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7290bff37a7252346ad0bbd9440ccdbf
+    m_Address: Hero_2.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a20eb712015ac04aa029b901d8ac636
     m_Address: Green_tile
     m_ReadOnly: 0
@@ -65,8 +90,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94b5ab5bf68e9f94ab000e50dc1de33f
+    m_Address: Hero_3.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a30277add3ecf3c4f9bca16f781b2c0c
     m_Address: Monster_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa8aee624437e3c4ca3589dfa30c5b22
+    m_Address: Hero_8.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ade2ad16c59400848bd4222a94d5a966
+    m_Address: Hero_10.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -85,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5a9c5a96b9960f48ba84afade2ae6b2
+    m_Address: Hero_5.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e65297f57c2eac24cb04c80d25ff7a10
     m_Address: Monster_5
     m_ReadOnly: 0
@@ -97,6 +142,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f820d8575c9c9d74780c74abd6197058
     m_Address: Red_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbb27576adbbccc44a9d6397b6501c1c
+    m_Address: Hero_6.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class ObjectManager
 {
+    private float firstDelay = 10f;
+    private bool waitingFirst = true;
+
     private float phaseDuration = 20f;
     private float restDuration = 8f;
     private float spawnDelay = 2f;
@@ -39,30 +42,34 @@ public class ObjectManager
         currentMonsterIndex = 1;
         spawnedCount = 0;
         spawnCountThisPhase = GetSpawnCount(currentMonsterIndex);
+
+        waitingFirst = true; 
     }
 
     public void Update(float deltaTime)
     {
+        if (waitingFirst)
+        {
+            totalTimer += deltaTime;
+            if (totalTimer >= firstDelay)
+            {
+                waitingFirst = false;
+                totalTimer = 0f;
+            }
+            return; 
+        }
+
         totalTimer += deltaTime;
 
         if (isResting)
         {
             if (totalTimer >= restDuration)
             {
-                // 다음 Phase 시작
                 totalTimer = 0f;
                 isResting = false;
 
-                if (isFirstPhase)
-                {
-                    isFirstPhase = false;
-                    currentMonsterIndex = UnityEngine.Random.Range(2, 7);
-                }
-                else
-                {
-                    isFirstPhase = true;
-                    currentMonsterIndex = 1;
-                }
+                isFirstPhase = !isFirstPhase;
+                currentMonsterIndex = isFirstPhase ? 1 : UnityEngine.Random.Range(2, 7);
 
                 spawnedCount = 0;
                 spawnCountThisPhase = GetSpawnCount(currentMonsterIndex);
@@ -79,7 +86,6 @@ public class ObjectManager
             return;
         }
 
-        // 한 마리씩 spawnDelay 간격으로 소환
         spawnTimer += deltaTime;
         if (spawnedCount < spawnCountThisPhase && spawnTimer >= spawnDelay)
         {
@@ -105,7 +111,6 @@ public class ObjectManager
             {
                 mon.SetInfo(enemy);
             });
-            
 
             var find = obj.GetOrAddComponent<FindPathEnemy>();
             find.SetInfo(data);

@@ -14,19 +14,16 @@ public class GameCanvas : UI_Scene
             return false;
 
         BindObject(typeof(Objects));
-        
 
         for (int i = 0; i < GAME_LIST_COUNT; i++)
         {
             int index = i;  
             Manager.UI.MakeSubItem<SpwanFragment>(GetObject((int)Objects.HeroListContent).transform, callback: (spwan) =>
             {
-                HeroData data = Manager.Data.HeroDatas[Manager.Game.Heros[index]];
-                if(data == null)
-                {
-                    Debug.Log("여기에 잠금 버튼을");
+                if(Manager.Game.Heros.Count < index + 1)
                     return;
-                }
+
+                HeroData data = Manager.Data.HeroDatas[Manager.Game.Heros[index]];
                 //여기에 잠금표시 비활성화
                 spwan.SetInfo(data);
             });

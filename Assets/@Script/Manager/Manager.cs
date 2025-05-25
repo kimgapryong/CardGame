@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
     private MapManager _map = new MapManager();
     public static MapManager Map { get { return Instance._map; } }
 
-    private TimeManager _time = new TimeManager(0.03f);
+    private TimeManager _time = new TimeManager(0.005f);
     public static TimeManager Time { get { return Instance._time; } }
     private ObjectManager _obj = new ObjectManager();   
     public static ObjectManager Obj { get { return Instance._obj; } }

@@ -22,6 +22,7 @@ public class Test : MonoBehaviour
             yield return null;
 
         Manager.Map.Init();
+        Manager.Time.Start();
         Manager.Obj.Init();
         IsLoad = true;
     }
