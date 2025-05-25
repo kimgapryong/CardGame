@@ -38,7 +38,16 @@ public class Define
         Final,
         Start
     }
-   
+    public enum Direction
+    {
+        None, 
+        Up, 
+        Down, 
+        Left, 
+        Right
+
+    }
+
     public const int HERO_COUNT = 10;
     public const int GAME_LIST_COUNT = 8;
 }

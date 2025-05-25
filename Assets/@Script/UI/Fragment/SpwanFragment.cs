@@ -19,6 +19,12 @@ public class SpwanFragment : UI_Base
         BindImage(typeof(Images));
         BindText(typeof(Texts));
 
+        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].Sprite, (sprite) =>
+        {
+            GetImage((int)Images.HeroImage).sprite = sprite;
+        });
+        GetText((int)Texts.Money_Txt).text = _heroData.LevelData[0].HeroLevelData[0].Upgrade.ToString();
+        
        
         return true;
     }

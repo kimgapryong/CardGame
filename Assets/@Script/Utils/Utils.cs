@@ -66,4 +66,28 @@ public class Utils
 	{
 		return string.Format("{0:n0}", gold);
 	}
+
+    public static class DirectionUtil
+    {
+        public static Vector2Int ToVector2Int(Define.Direction dir)
+        {
+            switch (dir)
+            {
+                case Define.Direction.Up: return Vector2Int.up;
+                case Define.Direction.Down: return Vector2Int.down;
+                case Define.Direction.Left: return Vector2Int.left;
+                case Define.Direction.Right: return Vector2Int.right;
+                default: return Vector2Int.zero;
+            }
+        }
+
+        public static Define.Direction FromVector2Int(Vector2Int vec)
+        {
+            if (vec == Vector2Int.up) return Define.Direction.Up;
+            if (vec == Vector2Int.down) return Define.Direction.Down;
+            if (vec == Vector2Int.left) return Define.Direction.Left;
+            if (vec == Vector2Int.right) return Define.Direction.Right;
+            return Define.Direction.None;
+        }
+    }
 }

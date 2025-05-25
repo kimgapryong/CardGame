@@ -25,8 +25,9 @@ public class MapManager
     public Tile[,] map;
     public Dictionary<Vector2Int, Tile> pathDict = new Dictionary<Vector2Int, Tile>();
 
-    private Vector2Int start;
-    private Vector2Int end;
+    public Vector2Int start;
+    public Vector2Int end;
+    public List<Vector2Int> aStarPath = new List<Vector2Int>();
 
     public GameObject Root
     {
@@ -62,8 +63,10 @@ public class MapManager
             }
         }
 
-        List<Vector2Int> path = GenerateMazePath(start, end);
-        foreach (var pos in path)
+        // ---- [수정] 여기서 경로 저장 ----
+        aStarPath = GenerateMazePath(start, end);
+
+        foreach (var pos in aStarPath)
         {
             if (pos.x <= 0 || pos.y <= 0 || pos.x >= width || pos.y >= height)
                 continue;
@@ -72,15 +75,15 @@ public class MapManager
 
             if (map[pos.x, pos.y].type == TileType.Wall)
             {
-                if(pos.y - 1 <= 0)
+                if (pos.y - 1 <= 0)
                     continue;
 
-                int x = start.x - pos.x > 0 ? pos.x + 1 : pos.x - 1;    
-                map[x,pos.y - 1].type = TileType.Path;
+                int x = start.x - pos.x > 0 ? pos.x + 1 : pos.x - 1;
+                map[x, pos.y - 1].type = TileType.Path;
                 pathDict[pos] = map[x, pos.y - 1];
                 continue;
             }
-                
+
             map[pos.x, pos.y].type = TileType.Path;
             pathDict[pos] = map[pos.x, pos.y];
         }

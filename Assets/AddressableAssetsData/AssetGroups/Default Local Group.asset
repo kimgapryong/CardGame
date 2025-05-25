@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9abfbe2b487db64984d5f11ea2d543a
+    m_Address: Monster.Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c41222699a720154daf09b72f1a993a6
     m_Address: HeroData.json
     m_ReadOnly: 0

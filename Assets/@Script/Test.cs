@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : MonoBehaviour
@@ -6,7 +7,10 @@ public class Test : MonoBehaviour
     void Start()
     {
         Manager.Map.Init();
+        Manager.Obj.Init();
     }
-
-  
+    private void Update()
+    {
+        Manager.Obj.Update(Time.deltaTime);
+    }
 }
