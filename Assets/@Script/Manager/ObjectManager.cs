@@ -98,11 +98,17 @@ public class ObjectManager
         {
             MonsterData data = Manager.Data.MonDatas[index];
 
-            Enemy enemy = obj.GetOrAddComponent<Enemy>();
+            MonsterController enemy = obj.GetOrAddComponent<MonsterController>();
             enemy.SetInfo(data, data.Hp * Manager.Time.GetHealthMultiplier());
 
+            Manager.UI.MakeSubItem<MonsterHealth>(obj.transform, callback: (mon) =>
+            {
+                mon.SetInfo(enemy);
+            });
+            
+
             var find = obj.GetOrAddComponent<FindPathEnemy>();
-            find.SetInfo(enemy);
+            find.SetInfo(data);
 
             var moveStyles = Enum.GetValues(typeof(FindPathEnemy.MoveStyle));
             var style = (FindPathEnemy.MoveStyle)UnityEngine.Random.Range(0, moveStyles.Length);

@@ -32,9 +32,9 @@ public class FindPathEnemy : MonoBehaviour
         else if (end.y > start.y) curDir = Vector2Int.up;
         else curDir = Vector2Int.down;
     }
-    public void SetInfo(Enemy enemy)
+    public void SetInfo(MonsterData data)
     {
-        speed = enemy.Speed;
+        speed = data.Speed;
     }
     Vector2Int[] GetDirectionOrder(Vector2Int dir, MoveStyle style)
     {

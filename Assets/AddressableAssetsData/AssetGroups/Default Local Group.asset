@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89ffec936c1f10c4ea8a9a901c61f666
+    m_Address: MonsterHealth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9733049522a5aa04cbf5de102044099a
     m_Address: SkillData.json
     m_ReadOnly: 0
