@@ -1,0 +1,46 @@
+{
+  "monsters": [
+    {
+      "MonsterID": 1,
+      "MonsterName": "몬스터",
+      "Speed": 1.2,
+      "Hp": 200,
+      "Money": 20
+    },
+    {
+      "MonsterID": 2,
+      "MonsterName": "소녀 괴물",
+      "Speed": 2.5,
+      "Hp": 100,
+      "Money": 10
+    },
+    {
+      "MonsterID": 3,
+      "MonsterName": "공룡",
+      "Speed": 1.8,
+      "Hp": 150,
+      "Money": 15
+    },
+    {
+      "MonsterID": 4,
+      "MonsterName": "변종 괴물",
+      "Speed": 1.2,
+      "Hp": 200,
+      "Money": 20
+    },
+    {
+      "MonsterID": 5,
+      "MonsterName": "진흙 괴물",
+      "Speed": 1.0,
+      "Hp": 300,
+      "Money": 50
+    },
+    {
+      "MonsterID": 6,
+      "MonsterName": "기가몬스터",
+      "Speed": 0.5,
+      "Hp": 500,
+      "Money": 150
+    }
+  ]
+}

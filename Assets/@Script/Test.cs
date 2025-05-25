@@ -1,16 +1,28 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool IsLoad =false;
     void Start()
     {
-        Manager.Map.Init();
-        Manager.Obj.Init();
+        StartCoroutine(CoWait());
     }
     private void Update()
     {
+        if(!IsLoad)
+            return;
+
         Manager.Obj.Update(Time.deltaTime);
+    }
+    public IEnumerator CoWait()
+    {
+        while (!Manager.Data.Loaded())
+            yield return null;
+
+        Manager.Map.Init();
+        Manager.Obj.Init();
+        IsLoad = true;
     }
 }

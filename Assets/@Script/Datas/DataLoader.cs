@@ -127,6 +127,7 @@ public class MonsterData
     public string MonsterName;
     public float Speed;
     public float Hp;
+    public float Money;
 }
 [Serializable]
 public class MonsterLoader : ILoader<int, MonsterData>

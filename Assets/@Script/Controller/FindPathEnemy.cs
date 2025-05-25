@@ -7,7 +7,7 @@ public class FindPathEnemy : MonoBehaviour
 {
     public TileType[,] map;
     public int mapWidth, mapHeight;
-    public float speed = 3f;
+    private float speed;
     public Vector2Int start, end;
 
     public enum MoveStyle { RightHand, LeftHand, StraightFirst, AStar }
@@ -32,7 +32,10 @@ public class FindPathEnemy : MonoBehaviour
         else if (end.y > start.y) curDir = Vector2Int.up;
         else curDir = Vector2Int.down;
     }
-
+    public void SetInfo(Enemy enemy)
+    {
+        speed = enemy.Speed;
+    }
     Vector2Int[] GetDirectionOrder(Vector2Int dir, MoveStyle style)
     {
         int idx = System.Array.IndexOf(DIRS, dir);
