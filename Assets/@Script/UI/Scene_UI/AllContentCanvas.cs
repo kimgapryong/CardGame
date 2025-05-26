@@ -14,6 +14,7 @@ public class AllContentCanvas : UI_Scene
     enum Buttons
     {
         GameBtn,
+        GamePreBtn,
     }
     public override bool Init()
     {
@@ -49,7 +50,7 @@ public class AllContentCanvas : UI_Scene
                 });
         }
         GetButton((int)Buttons.GameBtn).gameObject.BindEvent(() => SceneManager.LoadScene("GameScene"));
-
+        GetButton((int)Buttons.GamePreBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Pre_Pop>());
         return true;
     }
 

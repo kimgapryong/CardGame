@@ -51,7 +51,7 @@ public class SwipeUI : MonoBehaviour
         if (circleContents.Length <= 0)
             return;
         // 최초 시작할 때 0번 페이지를 볼 수 있도록 설정
-        SetScrollBarValue(0);
+        SetScrollBarValue(1);
 	}
 
 	public void SetScrollBarValue(int index)

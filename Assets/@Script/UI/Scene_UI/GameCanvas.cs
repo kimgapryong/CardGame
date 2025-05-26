@@ -10,7 +10,7 @@ public class GameCanvas : UI_Scene
     }
     enum Texts
     {
-        Money_Txt,
+        Money_Txts,
     }
     enum Images
     {
@@ -113,7 +113,7 @@ public class GameCanvas : UI_Scene
 
     void ChangeMoney(float money)
     {
-        GetText((int)Texts.Money_Txt).text = money.ToString();
+        GetText((int)Texts.Money_Txts).text = money.ToString();
     }
 
     void DieAction()
