@@ -11,7 +11,10 @@ public class GameCanvas : UI_Scene
     {
         Money_Txt,
     }
-    
+    enum Images
+    {
+        Hp_Slider,
+    }
     public override bool Init()
     {
         if (base.Init() == false)
@@ -24,6 +27,7 @@ public class GameCanvas : UI_Scene
     {
         BindObject(typeof(Objects));
         BindText(typeof(Texts));
+        BindImage(typeof(Images));
 
         for (int i = 0; i < GAME_LIST_COUNT; i++)
         {
@@ -43,9 +47,16 @@ public class GameCanvas : UI_Scene
         {
             GetText((int)Texts.Money_Txt).text = money.ToString();
         };
+        Manager.Time.hpAction = ChangeHealth;
 
+        Manager.Time.SetHp(1000);
         Manager.Time.Money = 500;
     }
-
+    void ChangeHealth(float cur, float max)
+    {
+        float hpRatio = Mathf.Max(0, cur / max);
+        GetImage((int)Images.Hp_Slider).fillAmount = hpRatio;
+        
+    }
 
 }

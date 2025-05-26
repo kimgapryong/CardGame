@@ -32,10 +32,12 @@ public class FindPathEnemy : MonoBehaviour
         else if (end.y > start.y) curDir = Vector2Int.up;
         else curDir = Vector2Int.down;
     }
+
     public void SetInfo(MonsterData data)
     {
         speed = data.Speed;
     }
+
     Vector2Int[] GetDirectionOrder(Vector2Int dir, MoveStyle style)
     {
         int idx = System.Array.IndexOf(DIRS, dir);
@@ -56,12 +58,15 @@ public class FindPathEnemy : MonoBehaviour
             aStarPath = FindAStarPath(curPos, end, map);
 
         int stuckCount = 0;
-        int stuckMax = 8; // 8번 막히면 소멸
+        int stuckMax = 8;
 
         while (true)
         {
             if (curPos == end)
+            {
+                OnReachDestination(); // 도착 처리
                 yield break;
+            }
 
             Vector2Int nextPos = curPos;
             bool found = false;
@@ -71,7 +76,6 @@ public class FindPathEnemy : MonoBehaviour
                 int idx = aStarPath.IndexOf(curPos);
                 if (idx < 0 || idx + 1 >= aStarPath.Count)
                 {
-                    // 재탐색(길 사라짐)
                     aStarPath = FindAStarPath(curPos, end, map);
                     if (aStarPath == null || aStarPath.Count < 2)
                     {
@@ -92,8 +96,9 @@ public class FindPathEnemy : MonoBehaviour
                     Vector2Int check = curPos + d;
                     if (check.x < 0 || check.x >= mapWidth || check.y < 0 || check.y >= mapHeight)
                         continue;
+
                     var t = map[check.x, check.y];
-                    if ((t == TileType.Path || t == TileType.Final) && !IsOccupiedByOtherMonster(check))
+                    if (t == TileType.Path || t == TileType.Final)
                     {
                         nextPos = check;
                         curDir = d;
@@ -102,15 +107,14 @@ public class FindPathEnemy : MonoBehaviour
                     }
                 }
 
-                // 막혔으면 A* 경로 재탐색
                 if (!found)
                 {
                     var newAStar = FindAStarPath(curPos, end, map);
                     if (newAStar != null && newAStar.Count > 1)
                     {
                         aStarPath = newAStar;
-                        style = MoveStyle.AStar; // 일시적으로 A*로 강제
-                        continue; // 바로 재진입
+                        style = MoveStyle.AStar;
+                        continue;
                     }
                 }
             }
@@ -120,7 +124,7 @@ public class FindPathEnemy : MonoBehaviour
                 stuckCount++;
                 if (stuckCount > stuckMax)
                 {
-                    Destroy(gameObject); // 일정 횟수 막히면 삭제
+                    Destroy(gameObject);
                     yield break;
                 }
                 yield return new WaitForSeconds(0.5f);
@@ -206,20 +210,16 @@ public class FindPathEnemy : MonoBehaviour
 
     private int Heuristic(Vector2Int a, Vector2Int b) => Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
 
-    bool IsOccupiedByOtherMonster(Vector2Int pos)
+    private void OnReachDestination()
     {
-        // 2D 기준, 1x1 셀 안에 "FindPathEnemy"가 자기 자신 이외 있으면 true
-        Collider2D[] hits = Physics2D.OverlapBoxAll(new Vector2(pos.x, pos.y), Vector2.one * 0.4f, 0);
-        foreach (var hit in hits)
-        {
-            if (hit != null && hit.gameObject != this.gameObject && hit.GetComponent<FindPathEnemy>() != null)
-                return true;
-        }
-        return false;
+        MonsterController mon = gameObject.GetComponent<MonsterController>();
+        if(mon == null)
+            return;
+        Manager.Time.CurHp -= mon.CurHp;
+        Destroy(gameObject);
     }
 }
 
-// --- 심플 우선순위 큐 ---
 public class SimplePriorityQueue<T>
 {
     private List<(T Item, int Priority)> elements = new();

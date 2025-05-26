@@ -11,6 +11,7 @@ public class TimeManager
     private CancellationTokenSource cancellationTokenSource;
 
     public Action<float> moneyAction;
+    public Action<float, float> hpAction;
     private float _money;
     public float Money
     {
@@ -21,7 +22,23 @@ public class TimeManager
             moneyAction.Invoke(value);
         }
     }
-    public TimeManager(float growthRatePerSecond = 0.01f)
+    public float Max { get; set; }
+    private float curHp;
+    public float CurHp
+    {
+        get { return curHp; }
+        set
+        {
+            curHp = value;
+            hpAction.Invoke(value, Max);
+        }
+    }
+    public void SetHp(float hp)
+    {
+        Max = hp;
+        curHp = hp;
+    }
+    public TimeManager(float growthRatePerSecond = 0.007f)
     {
         this.growthRate = growthRatePerSecond;
     }
