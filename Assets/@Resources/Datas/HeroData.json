@@ -26,7 +26,7 @@
         {
           "HeroName": "스피드의 바트",
           "Level": 2,
-          "Sprite": "Hero_1.sprite",
+          "Sprite": "Hero_11.sprite",
           "HeroInduce": "더 빠르고, 더 영리하게 장난치는 법을 터득했다!\n\n번개처럼 교실을 가로지르며 적을 교란하고\n치고 빠지는 전술에 있어서는 누구도 그를 따라올 수 없다.\n스케이트보드 위에서 펼쳐지는 장난의 향연!\n그의 미소는 문제의 전조다!",
           "HeroSprite": "Bart_2",
           "HeroLevelData": {
@@ -43,7 +43,7 @@
         {
           "HeroName": "폭주의 바트",
           "Level": 3,
-          "Sprite": "Hero_1.sprite",
+          "Sprite": "Hero_12.sprite",
           "HeroInduce": "지옥에서 튀어나온 장난꾸러기, 이제는 진심이다!\n\n불꽃이 이는 슬링샷과 유령처럼 질주하는 스케이트보드.\n그가 나타나면 전장은 혼돈 그 자체가 된다.\n규칙 따윈 이미 불태워버린지 오래!\n세상에서 가장 위험한 장난감이 돌아왔다!",
           "HeroSprite": "Bart_3",
           "HeroLevelData": {
@@ -85,7 +85,7 @@
         {
           "HeroName": "지휘의 리사",
           "Level": 2,
-          "Sprite": "Hero_1.sprite",
+          "Sprite": "Hero_14.sprite",
           "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
           "HeroSprite": "Lisa_2",
           "HeroLevelData": {
@@ -127,7 +127,7 @@
         {
           "HeroName": "도넛전사 호머",
           "Level": 2,
-          "Sprite": "Hero_3.sprite",
+          "Sprite": "Hero_15.sprite",
           "HeroInduce": "도넛이 연료! 분노가 무기!\n\n폭발적인 힘으로 적을 산산조각낸다.\n무시무시한 돌진은 누구도 막지 못하고\n불꽃처럼 타오르는 전장의 광란.\n무적의 괴력을 지금 확인하라!",
           "HeroSprite": "Homer_2",
           "HeroLevelData": {
@@ -144,7 +144,7 @@
         {
           "HeroName": "기관차 호머",
           "Level": 3,
-          "Sprite": "Hero_1.sprite",
+          "Sprite": "Hero_16.sprite",
           "HeroInduce": "멈출 수 없는 힘! 돌진의 화신!\n\n기관차처럼 전장을 가로지르며 모든 것을 파괴한다.\n적들은 그가 다가오는 소리만으로도 후퇴한다.\n호머의 진화는 끝이 없다!\n이제 그 누구도 그의 분노를 막을 수 없다!",
           "HeroSprite": "Homer_3",
           "HeroLevelData": {
@@ -211,7 +211,7 @@
         {
           "HeroName": "심판자 모의부인 - 강화 2단계",
           "Level": 2,
-          "Sprite": "Hero_1.sprite",
+          "Sprite": "Hero_18.sprite",
           "HeroInduce": "더 강해지고 더 빠르게 진화한 심판자!\n\n그녀의 발걸음은 바람보다 빠르고,\n그녀의 결의는 강철처럼 단단하다.\n적들은 그녀가 나타난 순간부터 이미 패배를 예감한다.\n그녀는 냉철한 판단력으로 동료들을 보호하고,\n전장의 주인이 되어 적을 무자비하게 응징한다.\n심판의 바람이 다시 불어온다!",
           "HeroSprite": "Mo_2",
           "HeroLevelData": {
@@ -278,7 +278,7 @@
         {
           "HeroName": "천사의 매기 - 강화 2단계",
           "Level": 2,
-          "Sprite": "Hero_1.sprite",
+          "Sprite": "Hero_17.sprite",
           "HeroInduce": "더욱 날카로워진 천사의 화살!\n\n매기는 적진 한가운데서도 흔들리지 않는다.\n그녀의 사격은 더욱 정밀해지고,\n움직임은 더욱 부드러워졌다.\n그녀는 전장의 빛이 되어\n동료들에게 용기와 희망을 선사한다.\n적들은 그녀를 두려워하고, 동료들은 그녀를 따른다.",
           "HeroSprite": "Maggie_2",
           "HeroLevelData": {

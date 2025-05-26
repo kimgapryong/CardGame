@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpwanFragment : UI_Base
@@ -38,6 +39,7 @@ public class SpwanFragment : UI_Base
     {
         if (_heroData == null)
         {
+            
             GetImage((int)Images.LockImage).gameObject.SetActive(true);
             isLock = true;
             return;
@@ -66,9 +68,13 @@ public class SpwanFragment : UI_Base
             {
                 obj.GetOrAddComponent<SpriteRenderer>().sprite = sprite;
                 obj.transform.Find("Arange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange;
-                _click.HeroCursor(obj);
+                obj.transform.Find("AtkArange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange;
+                _click.HeroCursor(obj, _heroData);
             });
 
+            obj.transform.Find("AtkArange").GetOrAddComponent<AtkArange>();
+            HeroController hero = obj.GetOrAddComponent<HeroController>();
+            hero.SetInfo(_heroData);
         });
 
 

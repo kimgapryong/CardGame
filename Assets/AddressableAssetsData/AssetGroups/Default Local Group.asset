@@ -90,6 +90,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f742d8c7e8898954fa32c9fcd9e0f2b7
+    m_Address: Skill_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdad5765cd992304aae0257f464f2a3f
     m_Address: AllContentCanvas
     m_ReadOnly: 0

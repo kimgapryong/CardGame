@@ -11,6 +11,7 @@ public class MonsterController : BaseController
     {
         _monsterData = data;
         _maxHp = Hp;
+        _curHp = Hp;
     }
     private float _maxHp;
     public float MaxHp { get { return _maxHp; } private set { _maxHp = value; } }
@@ -24,7 +25,7 @@ public class MonsterController : BaseController
             _curHp = value;
         }
     }
-    protected virtual void OnDamage(BaseController controller, float damage)
+    public virtual void OnDamage(BaseController controller, float damage)
     {
         CurHp -= damage;
         if(CurHp <= 0 )
@@ -33,6 +34,7 @@ public class MonsterController : BaseController
 
     protected virtual void OnDie()
     {
+        Manager.Time.Money += _monsterData.Money;
         Destroy(gameObject);
     }
 

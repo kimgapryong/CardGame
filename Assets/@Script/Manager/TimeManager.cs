@@ -48,17 +48,28 @@ public class TimeManager
 
     private async void RunAsync(CancellationToken token)
     {
+        float moneyTimer = 0f;
+
         try
         {
             while (!token.IsCancellationRequested)
             {
                 await Task.Delay(1000, token);
+
                 elapsedTime += 1f;
+                moneyTimer += 1f;
                 healthMultiplier = 1f + (elapsedTime * growthRate);
+
+                if (moneyTimer >= 10f)
+                {
+                    Money += 50;
+                    moneyTimer = 0f;
+                }
             }
         }
         catch (TaskCanceledException)
         {
+            // 중단 시 아무것도 안 함
         }
     }
 }

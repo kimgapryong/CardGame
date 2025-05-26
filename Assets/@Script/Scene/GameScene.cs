@@ -11,6 +11,7 @@ public class GameScene : BaseScene
             return false;
 
         SceneType = Define.SceneType.GameScene;
+        Screen.SetResolution(1920, 1080, false);
         Manager.UI.ShowSceneUI<GameCanvas>(callback: (gameCanvas) =>
         {
             Manager.Resource.Instantiate("ClickController", callback: (obj) =>

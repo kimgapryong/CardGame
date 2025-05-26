@@ -7,6 +7,10 @@ public class GameCanvas : UI_Scene
     {
         HeroListContent,
     }
+    enum Texts
+    {
+        Money_Txt,
+    }
     
     public override bool Init()
     {
@@ -18,8 +22,9 @@ public class GameCanvas : UI_Scene
     }
     public void SetInfo(ClickCotroller click)
     {
-        Debug.Log($"과연{click}");
         BindObject(typeof(Objects));
+        BindText(typeof(Texts));
+
         for (int i = 0; i < GAME_LIST_COUNT; i++)
         {
             int index = i;
@@ -29,9 +34,18 @@ public class GameCanvas : UI_Scene
                     return;
 
                 HeroData data = Manager.Data.HeroDatas[Manager.Game.Heros[index]];
-                //여기에 잠금표시 비활성화
                 spwan.SetInfo(data, click);
+                
             });
         }
+        
+        Manager.Time.moneyAction += (money) =>
+        {
+            GetText((int)Texts.Money_Txt).text = money.ToString();
+        };
+
+        Manager.Time.Money = 500;
     }
+
+
 }

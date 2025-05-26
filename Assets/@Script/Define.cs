@@ -47,6 +47,16 @@ public class Define
         Right
 
     }
+    public enum State
+    {
+        Idle,
+        Attack,
+    }
+    public enum AtkArange
+    {
+        Aoe,
+        Single,
+    }
 
     public const int HERO_COUNT = 10;
     public const int GAME_LIST_COUNT = 8;

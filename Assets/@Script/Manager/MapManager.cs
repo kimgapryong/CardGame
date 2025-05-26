@@ -60,7 +60,15 @@ public class MapManager
             for (int y = 0; y < height; y++)
             {
                 bool isBorder = x == 0 || y == 0 || x == width - 1 || y == height - 1;
-                map[x, y] = new Tile(x, y, isBorder ? TileType.Wall : TileType.Install);
+                var tileType = isBorder ? TileType.Wall : TileType.Install;
+                map[x, y] = new Tile(x, y, tileType);
+
+                
+                if (!isBorder)
+                {
+                    Vector2Int pos = new Vector2Int(x, y);
+                    pathDict[pos] = map[x, y];
+                }
             }
         }
 

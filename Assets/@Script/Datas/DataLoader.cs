@@ -30,7 +30,6 @@ public class LevelData
     public int Level;
     public string Sprite;
     public string HeroInduce;
-    public string HeroPrefab;
     public string HeroSprite;
     public HeroLevelData HeroLevelData;
     public SkillMapping SkillMapData;

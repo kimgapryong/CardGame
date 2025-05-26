@@ -29,11 +29,13 @@ public class MonsterHealth : UI_Base
     {
         _monster = data;
     }
-  
+
     void ChangeHealth(float cur, float max)
     {
-        float hp = Mathf.Max(0, cur/ max);
-        GetImage((int)Images.Hp_Slider).fillAmount = hp;
-        GetText((int)Texts.Hp_Txt).text = $"{hp}/{_monster.MaxHp}";
+        float hpRatio = Mathf.Max(0, cur / max);
+        float displayHp = Mathf.Round(cur * 10f) / 10f;
+
+        GetImage((int)Images.Hp_Slider).fillAmount = hpRatio;
+        GetText((int)Texts.Hp_Txt).text = $"{displayHp}/{_monster.MaxHp}";
     }
 }
