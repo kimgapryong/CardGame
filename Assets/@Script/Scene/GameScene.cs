@@ -11,7 +11,17 @@ public class GameScene : BaseScene
             return false;
 
         SceneType = Define.SceneType.GameScene;
-        Screen.SetResolution(1280, 720, false);
+
+        // 현재 해상도 정보 가져오기
+        Resolution currentRes = Screen.currentResolution;
+
+        // 현재 해상도의 16:9 비율 해상도 계산
+        int height = currentRes.height;
+        int width = (int)(height * 16f / 9f);
+
+        // 전체 화면 설정
+        Screen.SetResolution(width, height, true); // true == fullscreen
+
         Manager.UI.ShowSceneUI<GameCanvas>(callback: (gameCanvas) =>
         {
             Manager.Resource.Instantiate("ClickController", callback: (obj) =>
@@ -19,10 +29,11 @@ public class GameScene : BaseScene
                 gameCanvas.SetInfo(obj.GetOrAddComponent<ClickCotroller>());
                 StartCoroutine(CoWait());
             });
-        } );
-        
+        });
+
         return true;
     }
+
     private void Update()
     {
         if (!IsLoad)
