@@ -12,8 +12,8 @@ public class SwipeUI : MonoBehaviour
 	private	Transform[]	circleContents;				// 현재 페이지를 나타내는 원 Image UI들의 Transform
 	[SerializeField]
 	private	float		swipeTime = 0.2f;			// 페이지가 Swipe 되는 시간
-	[SerializeField]
-	private	float		swipeDistance = 100.0f;		// 페이지가 Swipe되기 위해 움직여야 하는 최소 거리
+	
+	private	float		swipeDistance = 20f;		// 페이지가 Swipe되기 위해 움직여야 하는 최소 거리
 
 	private	float[]		scrollPageValues;			// 각 페이지의 위치 값 [0.0 - 1.0]
 	private	float		valueDistance = 0;			// 각 페이지 사이의 거리

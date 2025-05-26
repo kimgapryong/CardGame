@@ -8,7 +8,7 @@ public class StartScene : BaseScene
             return false;
 
         SceneType = Define.SceneType.MainScene;
-        Screen.SetResolution(1080, 1920, false);
+        Screen.SetResolution(540, 960, false);
         Manager.UI.ShowSceneUI<AllContentCanvas>();
         return true;
     }
