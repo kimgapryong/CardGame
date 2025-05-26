@@ -13,7 +13,7 @@ public class SwipeUI : MonoBehaviour
 	[SerializeField]
 	private	float		swipeTime = 0.2f;			// 페이지가 Swipe 되는 시간
 	[SerializeField]
-	private	float		swipeDistance = 50.0f;		// 페이지가 Swipe되기 위해 움직여야 하는 최소 거리
+	private	float		swipeDistance = 100.0f;		// 페이지가 Swipe되기 위해 움직여야 하는 최소 거리
 
 	private	float[]		scrollPageValues;			// 각 페이지의 위치 값 [0.0 - 1.0]
 	private	float		valueDistance = 0;			// 각 페이지 사이의 거리
@@ -130,46 +130,42 @@ public class SwipeUI : MonoBehaviour
 		#endif
 	}
 
-	private void UpdateSwipe()
-	{
-		// 너무 작은 거리를 움직였을 때는 Swipe X
-		if ( Mathf.Abs(startTouchX-endTouchX) < swipeDistance )
-		{
-			// 원래 페이지로 Swipe해서 돌아간다
-			StartCoroutine(OnSwipeOneStep(currentPage));
-			return;
-		}
+    private void UpdateSwipe()
+    {
+        // 이동 거리 계산 (가로 방향만)
+        float deltaX = endTouchX - startTouchX;
 
-		// Swipe 방향
-		bool isLeft = startTouchX < endTouchX ? true : false;
+        // 너무 작은 이동은 스와이프 아님
+        if (Mathf.Abs(deltaX) < swipeDistance)
+        {
+            StartCoroutine(OnSwipeOneStep(currentPage));
+            return;
+        }
 
-		// 이동 방향이 왼쪽일 때
-		if ( isLeft == true )
-		{
-			// 현재 페이지가 왼쪽 끝이면 종료
-			if ( currentPage == 0 ) return;
+        // 스와이프 방향 판별
+        bool isLeft = deltaX > 0;
 
-			// 왼쪽으로 이동을 위해 현재 페이지를 1 감소
-			currentPage --;
-		}
-		// 이동 방향이 오른쪽일 떄
-		else
-		{
-			// 현재 페이지가 오른쪽 끝이면 종료
-			if ( currentPage == maxPage - 1 ) return;
+        if (isLeft)
+        {
+            if (currentPage == 0)
+                return;
 
-			// 오른쪽으로 이동을 위해 현재 페이지를 1 증가
-			currentPage ++;
-		}
+            currentPage--;
+        }
+        else
+        {
+            if (currentPage == maxPage - 1)
+                return;
 
-		// currentIndex번째 페이지로 Swipe해서 이동
-		StartCoroutine(OnSwipeOneStep(currentPage));
-	}
+            currentPage++;
+        }
 
-	/// <summary>
-	/// 페이지를 한 장 옆으로 넘기는 Swipe 효과 재생
-	/// </summary>
-	private IEnumerator OnSwipeOneStep(int index)
+        StartCoroutine(OnSwipeOneStep(currentPage));
+    }
+    /// <summary>
+    /// 페이지를 한 장 옆으로 넘기는 Swipe 효과 재생
+    /// </summary>
+    private IEnumerator OnSwipeOneStep(int index)
 	{
 		float start		= scrollBar.value;
 		float current	= 0;

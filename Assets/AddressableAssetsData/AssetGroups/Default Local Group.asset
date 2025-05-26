@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 706cf52625e7dd24ab7ad56cd55ae90a
   m_SerializeEntries:
+  - m_GUID: 02704c630115a8040888ea8cccb7d510
+    m_Address: Skill_7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 027b12885831e53429f4c852995e5ae7
+    m_Address: Skill_8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c6816ebb4929fc4c93da83e83d81adf
     m_Address: EventSystem
     m_ReadOnly: 0
@@ -40,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a57a28135d543348b703b5ccf977dd3
+    m_Address: Skill_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5dcbda03e361dff498d79e357186ec9e
     m_Address: SpwanFragment
     m_ReadOnly: 0
@@ -55,13 +70,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f2f653859ebf2548a1efae76792b6e4
+    m_Address: ExitFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f4390db109eecd4cbcc3a1f5c7a1deb
     m_Address: AnimData.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1724e89fbaee1d42959c0f0b80a36b5
+    m_Address: Skill_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9abfbe2b487db64984d5f11ea2d543a
     m_Address: Monster.Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbed905041c43524dbde8efaf8502f60
+    m_Address: Skill_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf2878ec66c72214fb94de0959f93750
+    m_Address: Skill_6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -77,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbd68bb992d30954da07f66a6a4aa5d4
     m_Address: HeroPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5d7dfafafc267f47867f50d361e704b
+    m_Address: Skill_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

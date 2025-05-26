@@ -1,6 +1,8 @@
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+
 
 public class TimeManager
 {
@@ -12,12 +14,14 @@ public class TimeManager
 
     public Action<float> moneyAction;
     public Action<float, float> hpAction;
+    public Action dieAction;
     private float _money;
     public float Money
     {
         get { return _money; }
         set
         {
+            UnityEngine.Debug.Log(value);
             _money = value;
             moneyAction.Invoke(value);
         }
@@ -79,6 +83,7 @@ public class TimeManager
 
                 if (moneyTimer >= 10f)
                 {
+                    
                     Money += 50;
                     moneyTimer = 0f;
                 }
@@ -88,5 +93,17 @@ public class TimeManager
         {
             // 중단 시 아무것도 안 함
         }
+    }
+
+    public void ResetAll()
+    {
+        Stop();  // 기존 루프 종료
+        moneyAction = null;
+        hpAction = null;
+        dieAction = null;
+        elapsedTime = 0f;
+        healthMultiplier = 1f;
+        _money = 0f;
+        curHp = 0f;
     }
 }

@@ -216,6 +216,9 @@ public class FindPathEnemy : MonoBehaviour
         if(mon == null)
             return;
         Manager.Time.CurHp -= mon.CurHp;
+
+        if (Manager.Time.CurHp <= 0)
+            Manager.Time.dieAction?.Invoke();
         Destroy(gameObject);
     }
 }

@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 289e478de3d12724788e9bd8e33fd6ac
+    m_Address: Homer_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34aee9ea63a192242973be79a495fe0e
     m_Address: Lock.sprite
     m_ReadOnly: 0
@@ -130,6 +135,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4700b1142218374d981c3ac7ac6566f
+    m_Address: Maggie_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa8aee624437e3c4ca3589dfa30c5b22
     m_Address: Hero_8.sprite
     m_ReadOnly: 0
@@ -155,6 +165,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdc75b95813da2f4692083c753917169
+    m_Address: Lisa_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0a5118209bfa58458712de1de4f46d8
     m_Address: Monster_1
     m_ReadOnly: 0
@@ -172,6 +187,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e65297f57c2eac24cb04c80d25ff7a10
     m_Address: Monster_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e81a85d10245dd44aa994cc35bb408d2
+    m_Address: Mo_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
