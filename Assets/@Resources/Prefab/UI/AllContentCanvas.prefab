@@ -542,7 +542,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6930621113763122513}
   m_HandleRect: {fileID: 1761013422729762444}
   m_Direction: 0
-  m_Value: 0.375
+  m_Value: 0.5625
   m_Size: 0.33333334
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -661,7 +661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -810, y: 0}
+  m_AnchoredPosition: {x: -1215, y: 0}
   m_SizeDelta: {x: 3240, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1307491676269110811
@@ -722,7 +722,6 @@ MonoBehaviour:
   - {fileID: 3270633413637532131}
   - {fileID: 1658713826900207276}
   swipeTime: 0.2
-  swipeDistance: 50
 --- !u!1 &5060173024840633497
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,8 +734,8 @@ GameObject:
   - component: {fileID: 8690730704379408649}
   - component: {fileID: 707785126966908482}
   m_Layer: 5
-  m_Name: Image (2)
-  m_TagString: Untagged
+  m_Name: Page
+  m_TagString: Page
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -810,8 +809,8 @@ GameObject:
   - component: {fileID: 5181971651031788975}
   - component: {fileID: 4794826084351954057}
   m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
+  m_Name: Page
+  m_TagString: Page
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2101,8 +2100,8 @@ GameObject:
   - component: {fileID: 2799074800016389983}
   - component: {fileID: 7139735129143393973}
   m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
+  m_Name: Page
+  m_TagString: Page
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

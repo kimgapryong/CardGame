@@ -26,27 +26,38 @@ public class SwipeUI : MonoBehaviour
 
 	private int myNum = 0;
 	public static bool isWipe = false;
-	private void Awake()
-	{
-		if(circleContents.Length < 0)
-			return;
-		// 스크롤 되는 페이지의 각 value 값을 저장하는 배열 메모리 할당
-		scrollPageValues = new float[transform.childCount];
+    private void Awake()
+    {
+        if (circleContents == null || circleContents.Length == 0)
+        {
+            // 자동으로 자식 중 "Circle" 태그 혹은 이름으로 가져오기
+            circleContents = GetComponentsInChildren<Transform>();
+        }
 
-		// 스크롤 되는 페이지 사이의 거리
-		valueDistance = 1f / (scrollPageValues.Length - 1f);
+        // 불필요한 자기 자신 포함 제거
+        List<Transform> temp = new List<Transform>();
+        foreach (var tr in circleContents)
+        {
+            if (tr != this.transform)
+                temp.Add(tr);
+        }
+        circleContents = temp.ToArray();
 
-		// 스크롤 되는 페이지의 각 value 위치 설정 [0 <= value <= 1]
-		for (int i = 0; i < scrollPageValues.Length; ++ i )
-		{
-			scrollPageValues[i] = valueDistance * i;
-		}
+        if (circleContents.Length < 2)
+        {
+            Debug.LogError("circleContents가 제대로 초기화되지 않았습니다.");
+            return;
+        }
 
-		// 최대 페이지의 수
-		maxPage = transform.childCount;
-	}
+        scrollPageValues = new float[circleContents.Length];
+        valueDistance = 1f / (scrollPageValues.Length - 1f);
 
-	private void Start()
+        for (int i = 0; i < scrollPageValues.Length; ++i)
+            scrollPageValues[i] = valueDistance * i;
+
+        maxPage = circleContents.Length;
+    }
+    private void Start()
 	{
         if (circleContents.Length <= 0)
             return;
