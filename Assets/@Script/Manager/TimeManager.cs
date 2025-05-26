@@ -10,6 +10,17 @@ public class TimeManager
     private bool isRunning = false;
     private CancellationTokenSource cancellationTokenSource;
 
+    public Action<float> moneyAction;
+    private float _money;
+    public float Money
+    {
+        get { return _money; }
+        set
+        {
+            _money = value;
+            moneyAction.Invoke(value);
+        }
+    }
     public TimeManager(float growthRatePerSecond = 0.01f)
     {
         this.growthRate = growthRatePerSecond;

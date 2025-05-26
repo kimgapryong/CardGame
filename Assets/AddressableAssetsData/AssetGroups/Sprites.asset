@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42480f9d268812545ad9b34d6ed160a7
+    m_Address: Bart_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49283ff5c7cc999409c8fcb3c9170aa4
     m_Address: Start_tile
     m_ReadOnly: 0

@@ -7,27 +7,31 @@ public class GameCanvas : UI_Scene
     {
         HeroListContent,
     }
-
+    
     public override bool Init()
     {
-        if(base.Init() == false)
+        if (base.Init() == false)
             return false;
 
+    
+        return true;
+    }
+    public void SetInfo(ClickCotroller click)
+    {
+        Debug.Log($"과연{click}");
         BindObject(typeof(Objects));
-
         for (int i = 0; i < GAME_LIST_COUNT; i++)
         {
-            int index = i;  
+            int index = i;
             Manager.UI.MakeSubItem<SpwanFragment>(GetObject((int)Objects.HeroListContent).transform, callback: (spwan) =>
             {
-                if(Manager.Game.Heros.Count < index + 1)
+                if (Manager.Game.Heros.Count < index + 1)
                     return;
 
                 HeroData data = Manager.Data.HeroDatas[Manager.Game.Heros[index]];
                 //여기에 잠금표시 비활성화
-                spwan.SetInfo(data);
+                spwan.SetInfo(data, click);
             });
         }
-        return true;
     }
 }

@@ -30,8 +30,10 @@ public class LevelData
     public int Level;
     public string Sprite;
     public string HeroInduce;
-    public List<HeroLevelData> HeroLevelData = new List<HeroLevelData>();
-    public List<SkillMapping> SkillMapData = new List<SkillMapping>();
+    public string HeroPrefab;
+    public string HeroSprite;
+    public HeroLevelData HeroLevelData;
+    public SkillMapping SkillMapData;
 
 }
 [Serializable]

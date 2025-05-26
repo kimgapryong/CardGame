@@ -102,7 +102,7 @@ public class HeroCardPop_Fragment : UI_Base
     {
         _heroData = heroData;
         _level = heroData.LevelData[myNum];
-        _levelData = _level.HeroLevelData[0];
+        _levelData = _level.HeroLevelData;
     }
 
 }

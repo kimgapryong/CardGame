@@ -11,8 +11,15 @@ public class GameScene : BaseScene
             return false;
 
         SceneType = Define.SceneType.GameScene;
-        Manager.UI.ShowSceneUI<GameCanvas>();
-        StartCoroutine(CoWait());
+        Manager.UI.ShowSceneUI<GameCanvas>(callback: (gameCanvas) =>
+        {
+            Manager.Resource.Instantiate("ClickController", callback: (obj) =>
+            {
+                gameCanvas.SetInfo(obj.GetOrAddComponent<ClickCotroller>());
+                StartCoroutine(CoWait());
+            });
+        } );
+        
         return true;
     }
     private void Update()

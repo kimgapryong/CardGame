@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2543b3eff2d6d4e468a98530bf9ab02e
+guid: ade2ad16c59400848bd4222a94d5a966
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7163489836394018334
-    second: Hero9_0
+      213: -869483732668778715
+    second: Hero10_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,11 +109,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero9_0
+      name: Hero10_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e90d9592fb269c90800000000000000
-      internalID: -7163489836394018334
+      spriteID: 527fb40e629fee3f0800000000000000
+      internalID: -869483732668778715
       vertices: []
       indices: 
       edges: []
@@ -147,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hero10_0: -869483732668778715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
