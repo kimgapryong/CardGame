@@ -41,13 +41,14 @@ public class ClickCotroller : MonoBehaviour
 
         if (Manager.Map.pathDict.TryGetValue(cellPos, out Tile tile))
         {
-            if (tile.type != Define.TileType.Install)
+            if (tile.type != Define.TileType.Install || tile.hero != null)
             {
                 DeleteCurHero();
                 return;
             }
 
             // 여기서 실제 설치 로직 진행 예정 (예: 배치 확정)
+
             heroCur = false;
             curHero = null;
         }

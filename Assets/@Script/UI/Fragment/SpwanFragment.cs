@@ -31,7 +31,6 @@ public class SpwanFragment : UI_Base
 
     public void SetInfo(HeroData heroData, ClickCotroller click)
     {
-        Debug.Log(click);
         _heroData = heroData;
         _click = click;
     }
@@ -56,7 +55,6 @@ public class SpwanFragment : UI_Base
     }
     void SpwanHero()
     {
-        Debug.Log("클릭이 되냐?");
         if (isLock)
             return;
         if (_click.heroCur)

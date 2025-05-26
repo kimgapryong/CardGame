@@ -16,6 +16,7 @@ public class Tile
         this.y = y;
         this.type = type;
     }
+    public GameObject hero;
 }
 
 public class MapManager
