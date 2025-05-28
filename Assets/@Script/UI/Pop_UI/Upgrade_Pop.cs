@@ -27,6 +27,7 @@ public class Upgrade_Pop : UI_Popup
     {
         if(base.Init() == false)
             return false;
+
         BindText(typeof(Texts));
         BindImage(typeof(Images));
         BindButton(typeof(Buttons));
