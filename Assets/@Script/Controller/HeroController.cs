@@ -6,9 +6,9 @@ public class HeroController : BaseController
     public bool SetTile { get; set; } = false;
     private bool isLoaded = false;
     private bool isAttacking = false;
-    private int curLevel = 0;
+    public int curLevel { get; private set; } = 0;
 
-    private HeroData _heroData;
+    public HeroData _heroData { get; private set; }
     private GameObject skillPre;
     private AtkArange atkArg;
     private Define.State _state;
@@ -53,7 +53,14 @@ public class HeroController : BaseController
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
     }
+    public void UpgradeLevel()
+    {
+        if(_heroData.LevelData.Count > curLevel)
+            return;
 
+        curLevel++;
+    }
+    
     private void TryAttack()
     {
         if (atkArg.targets.Count == 0 || isAttacking)

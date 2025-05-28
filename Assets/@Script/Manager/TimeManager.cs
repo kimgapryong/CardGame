@@ -70,6 +70,7 @@ public class TimeManager
     private async void RunAsync(CancellationToken token)
     {
         float moneyTimer = 0f;
+        float growthTimer = 0f;
 
         try
         {
@@ -79,11 +80,17 @@ public class TimeManager
 
                 elapsedTime += 1f;
                 moneyTimer += 1f;
-                healthMultiplier = 1f + (elapsedTime * growthRate);
+                growthTimer += 1f;
+
+                // 매 60초마다 healthMultiplier 증가
+                if (growthTimer >= 60f)
+                {
+                    healthMultiplier += 0.003f; // 예: 0.003f
+                    growthTimer = 0f;
+                }
 
                 if (moneyTimer >= 10f)
                 {
-                    
                     Money += 50;
                     moneyTimer = 0f;
                 }

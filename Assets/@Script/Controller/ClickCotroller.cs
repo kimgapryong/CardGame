@@ -38,17 +38,19 @@ public class ClickCotroller : MonoBehaviour
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2Int cellPos = (Vector2Int)tilemap.WorldToCell(mouseWorldPos);
-
-        
-        if(Manager.Time.Money < _heroData.LevelData[0].HeroLevelData.Upgrade)
-        {
-            DeleteCurHero();
-            return;
-        }
-            
+       
         if (Manager.Map.pathDict.TryGetValue(cellPos, out Tile tile))
         {
-            
+            if(tile.hero != null)
+            {
+                ShowPlayerStatus(tile.hero);
+                return;
+            }
+            if (Manager.Time.Money < _heroData.LevelData[0].HeroLevelData.Upgrade)
+            {
+                DeleteCurHero();
+                return;
+            }
             if (tile.type != Define.TileType.Install || tile.hero != null)
             {
                 DeleteCurHero();
@@ -102,5 +104,19 @@ public class ClickCotroller : MonoBehaviour
 
         curHero = null;
         _heroData = null;
+    }
+
+    //타일 부분
+    void ShowPlayerStatus(GameObject player)
+    {
+        HeroController hero = player.GetComponent<HeroController>();
+        HeroData data = hero._heroData;
+
+        Manager.UI.CloseAllPopupUI();
+        Manager.UI.ShowPopupUI<Upgrade_Pop>(callback: (pop) =>
+        {
+            pop.SetInfo(data,hero);
+        });
+
     }
 }
