@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dd82677d935c2449afb95bfa4e5e112
+    m_Address: Bart_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34aee9ea63a192242973be79a495fe0e
     m_Address: Lock.sprite
     m_ReadOnly: 0
@@ -177,6 +182,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5a9c5a96b9960f48ba84afade2ae6b2
     m_Address: Hero_5.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd7692db0419d154798afa5e68d9f439
+    m_Address: Bart_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

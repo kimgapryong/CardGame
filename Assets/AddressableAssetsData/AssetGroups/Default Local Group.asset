@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81f7c1b152b3bc749a7d023777a295e2
+    m_Address: Upgrade_Pop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89ffec936c1f10c4ea8a9a901c61f666
     m_Address: MonsterHealth
     m_ReadOnly: 0

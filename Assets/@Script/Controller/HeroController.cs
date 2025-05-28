@@ -55,10 +55,20 @@ public class HeroController : BaseController
     }
     public void UpgradeLevel()
     {
-        if(_heroData.LevelData.Count > curLevel)
+        if (curLevel + 1 > _heroData.LevelData.Count - 1)
             return;
 
         curLevel++;
+
+        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[curLevel].Sprite, (sprite) =>
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
+        });
+        Manager.Resource.LoadAsync<GameObject>(Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID].SkillPre, (obj) =>
+        {
+            skillPre = obj;
+        });
+        
     }
     
     private void TryAttack()

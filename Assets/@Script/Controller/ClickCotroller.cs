@@ -36,6 +36,7 @@ public class ClickCotroller : MonoBehaviour
 
     public void TileCheck()
     {
+        Debug.Log("히어로 클릭1222");
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2Int cellPos = (Vector2Int)tilemap.WorldToCell(mouseWorldPos);
        
@@ -43,7 +44,8 @@ public class ClickCotroller : MonoBehaviour
         {
             if(tile.hero != null)
             {
-                ShowPlayerStatus(tile.hero);
+                Debug.Log("히어로 클릭1");
+                ShowPlayerStatus(tile.hero, tile);
                 return;
             }
             if (Manager.Time.Money < _heroData.LevelData[0].HeroLevelData.Upgrade)
@@ -53,6 +55,7 @@ public class ClickCotroller : MonoBehaviour
             }
             if (tile.type != Define.TileType.Install || tile.hero != null)
             {
+
                 DeleteCurHero();
                 return;
             }
@@ -75,6 +78,7 @@ public class ClickCotroller : MonoBehaviour
         }
       
     }
+    
 
     public void HeroCursor(GameObject hero, HeroData data)
     {
@@ -107,15 +111,16 @@ public class ClickCotroller : MonoBehaviour
     }
 
     //타일 부분
-    void ShowPlayerStatus(GameObject player)
+    void ShowPlayerStatus(GameObject player, Tile tile)
     {
+        Debug.Log("히어로 클릭1");
         HeroController hero = player.GetComponent<HeroController>();
         HeroData data = hero._heroData;
 
         Manager.UI.CloseAllPopupUI();
         Manager.UI.ShowPopupUI<Upgrade_Pop>(callback: (pop) =>
         {
-            pop.SetInfo(data,hero);
+            pop.SetInfo(data,hero, tile);
         });
 
     }
