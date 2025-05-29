@@ -124,10 +124,24 @@ public class HeroController : BaseController
 
     private void Attack(MonsterController target)
     {
-        if (target == null) return;
+        switch (_heroData.Hero_Ability)
+        {
+            case Define.HeroAbility.Atkker:
+                {
+                    if (target == null) return;
 
-        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
-        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+                    GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+                    go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+                }
+                break;
+            case Define.HeroAbility.Money:
+                {
+                    Debug.Log("±×·²¼öÀÖ´Ù");
+                    Manager.Time.Money += _heroData.LevelData[curLevel].HeroLevelData.Attack;
+                }
+                break;
+        }
+       
     }
 
     public void SetInfo(HeroData data)

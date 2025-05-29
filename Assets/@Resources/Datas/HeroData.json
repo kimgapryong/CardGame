@@ -5,6 +5,7 @@
       "ElementType": "어둠",
       "ArangeType": "Long",
       "HeroRating": "Legend",
+      "HeroAbility":  "Atkker",
       "LevelData": [
         {
           "HeroName": "장난의 바트",
@@ -63,7 +64,8 @@
       "HeroID": 2,
       "ElementType": "물",
       "ArangeType": "Medium",
-      "HeroRating": "Epic",
+      "HeroRating": "Legend",
+      "HeroAbility": "Money",
       "LevelData": [
         {
           "HeroName": "전략가 리사",
@@ -72,10 +74,10 @@
           "HeroInduce": "똑똑함은 최고의 무기!\n\n리사는 상황을 분석하고 적의 허점을 꿰뚫는 천재 지휘관.\n빠른 판단과 정확한 명령으로 전장을 지배한다.\n단순한 소녀가 아니다, 모두의 두뇌다!\n패배를 원하지 않는다면 그녀를 따르라.",
           "HeroSprite": "Lisa_1",
           "HeroLevelData": {
-            "Attack": 82,
-            "Arange": 4.5,
-            "AtkSpeed": 2,
-            "Upgrade": 150
+            "Attack": 100,
+            "Arange": 10,
+            "AtkSpeed": 10,
+            "Upgrade": 350
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -89,10 +91,61 @@
           "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
           "HeroSprite": "Lisa_2",
           "HeroLevelData": {
-            "Attack": 520.5,
-            "Arange": 1.8,
-            "AtkSpeed": 1.5,
+            "Attack": 520,
+            "Arange": 10,
+            "AtkSpeed": 10,
             "Upgrade": 1200
+          },
+          "SkillMapData": {
+            "SkillID": 2,
+            "AnimationID": 2
+          }
+        },
+        {
+          "HeroName": "초월자 리사",
+          "Level": 3,
+          "Sprite": "Hero_14.sprite",
+          "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
+          "HeroSprite": "Lisa_2",
+          "HeroLevelData": {
+            "Attack": 800,
+            "Arange": 5,
+            "AtkSpeed": 6,
+            "Upgrade": 4000
+          },
+          "SkillMapData": {
+            "SkillID": 2,
+            "AnimationID": 2
+          }
+        },
+        {
+          "HeroName": "신의 리사",
+          "Level": 4,
+          "Sprite": "Hero_14.sprite",
+          "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
+          "HeroSprite": "Lisa_2",
+          "HeroLevelData": {
+            "Attack": 1200,
+            "Arange": 4,
+            "AtkSpeed": 4,
+            "Upgrade": 7500
+          },
+          "SkillMapData": {
+            "SkillID": 2,
+            "AnimationID": 2
+          }
+        },
+        {
+          "HeroName": "리사(THE END)",
+          "Level": 5,
+          "Sprite": "Hero_14.sprite",
+          "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
+          "HeroSprite": "Lisa_2",
+          "HeroLevelData": {
+            "Attack": 1000,
+            "Arange": 1,
+            "AtkSpeed": 1,
+            "Upgrade": 12000
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -106,6 +159,7 @@
       "ElementType": "불",
       "ArangeType": "Close",
       "HeroRating": "Legend",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "분노의 호머",
@@ -165,6 +219,7 @@
       "ElementType": "불",
       "ArangeType": "Medium",
       "HeroRating": "Normal",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "불같은 마지",
@@ -190,6 +245,7 @@
       "ElementType": "바람",
       "ArangeType": "Long",
       "HeroRating": "Epic",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "심판자 모의부인",
@@ -232,13 +288,14 @@
       "ElementType": "땅",
       "ArangeType": "Medium",
       "HeroRating": "Common",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "장군의 그랜파",
           "Level": 1,
           "Sprite": "Hero_7.sprite",
           "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
-          "HeroSprite":  "Warlord_1",
+          "HeroSprite": "Warlord_1",
           "HeroLevelData": {
             "Attack": 41.5,
             "Arange": 5.6,
@@ -257,6 +314,7 @@
       "ElementType": "물",
       "ArangeType": "Long",
       "HeroRating": "Legend",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "천사의 매기",
@@ -299,6 +357,7 @@
       "ElementType": "땅",
       "ArangeType": "Close",
       "HeroRating": "Normal",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "반항의 넬슨",
@@ -324,6 +383,7 @@
       "ElementType": "어둠",
       "ArangeType": "Medium",
       "HeroRating": "Epic",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "수수께끼의 밀하우스",
@@ -348,6 +408,7 @@
       "ElementType": "불",
       "ArangeType": "Long",
       "HeroRating": "Normal",
+      "HeroAbility": "Atkker",
       "LevelData": [
         {
           "HeroName": "불사의 크러스티",
