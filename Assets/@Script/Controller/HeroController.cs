@@ -77,7 +77,9 @@ public class HeroController : BaseController
 
         float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
         argTrans.localScale = new Vector2(curSize, curSize);
-        
+        transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
+
+
     }
     public void OffArg()
     {

@@ -1,8 +1,8 @@
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class TimeManager
 {
@@ -22,7 +22,7 @@ public class TimeManager
         get { return _money; }
         set
         {
-            UnityEngine.Debug.Log(value);
+            
             _money = value;
             moneyAction?.Invoke(value);
         }
@@ -54,6 +54,7 @@ public class TimeManager
 
     public void Start()
     {
+        UnityEngine.Debug.Log("게임 시작");
         if (isRunning) return;
 
         isRunning = true;
@@ -74,9 +75,10 @@ public class TimeManager
         return healthMultiplier;
     }
 
+    
     public int GetSpawnMultiplier()
     {
-        return (int)Mathf.Pow(2, (int)(elapsedTime / 120f));
+        return (int)Mathf.Pow(3, (int)(elapsedTime / 60f));
     }
 
     private async void RunAsync(CancellationToken token)
@@ -94,23 +96,23 @@ public class TimeManager
                 moneyTimer += 1f;
 
                 
-                float baseGrowth = growthRate; // 0.007f 등
-                float exponentFactor = Mathf.Exp(elapsedTime / 300f); // 5분마다 e배 증가
-                float increase = baseGrowth * exponentFactor;
+                float baseGrowth = growthRate; // ex: 0.007f
+                float growthStep = (float)Math.Pow(3, (int)(elapsedTime / 60f)); // 1분마다 3배
+                float increase = baseGrowth * growthStep;
                 healthMultiplier += increase;
 
                 
                 if (moneyTimer >= 10f)
                 {
                     moneyCycleCount++;
-                    Money += 20 * moneyCycleCount;
+                    Money += 10 * moneyCycleCount;
                     moneyTimer = 0f;
                 }
             }
         }
         catch (TaskCanceledException)
         {
-            // 정상 취소 시 무시
+            // 무시
         }
     }
 

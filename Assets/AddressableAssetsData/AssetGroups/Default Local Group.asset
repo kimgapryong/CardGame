@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aaa4f8224768f749941811c33123002
+    m_Address: Warlord_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c6816ebb4929fc4c93da83e83d81adf
     m_Address: EventSystem
     m_ReadOnly: 0

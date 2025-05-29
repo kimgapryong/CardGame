@@ -44,8 +44,15 @@ public class GameCanvas : UI_Scene
         // 버튼 이벤트 연결
         GetButton((int)Buttons.RePlayBtn)?.gameObject.BindEvent(() =>
         {
+            Manager.Time.ResetAll();
             SceneManager.sceneLoaded += OnGameSceneLoaded;
             SceneManager.LoadScene("GameScene");
+
+            void OnGameSceneLoaded(Scene scene, LoadSceneMode mode)
+            {
+                SceneManager.sceneLoaded -= OnGameSceneLoaded;
+                UnityEngine.Object.Destroy(gameObject);
+            }
         });
 
         GetButton((int)Buttons.GameExitBtn)?.gameObject.BindEvent(() =>
