@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 public class ObjectManager
 {
@@ -105,6 +106,7 @@ public class ObjectManager
             MonsterData data = Manager.Data.MonDatas[index];
 
             MonsterController enemy = obj.GetOrAddComponent<MonsterController>();
+
             enemy.SetInfo(data, data.Hp * Manager.Time.GetHealthMultiplier());
 
             Manager.UI.MakeSubItem<MonsterHealth>(obj.transform, callback: (mon) =>

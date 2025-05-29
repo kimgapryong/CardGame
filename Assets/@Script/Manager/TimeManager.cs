@@ -49,7 +49,9 @@ public class TimeManager
 
     public void Start()
     {
+        
         if (isRunning) return;
+        
         isRunning = true;
         cancellationTokenSource = new CancellationTokenSource();
         RunAsync(cancellationTokenSource.Token);
@@ -70,7 +72,9 @@ public class TimeManager
     private async void RunAsync(CancellationToken token)
     {
         float moneyTimer = 0f;
-        float growthTimer = 0f;
+        float growthUpgradeTimer = 0f;
+
+        float currentGrowthRate = growthRate; // 실시간 성장률
 
         try
         {
@@ -80,13 +84,16 @@ public class TimeManager
 
                 elapsedTime += 1f;
                 moneyTimer += 1f;
-                growthTimer += 1f;
+                growthUpgradeTimer += 1f;
 
-                // 매 60초마다 healthMultiplier 증가
-                if (growthTimer >= 60f)
+                // 매 1초마다 현재 성장률만큼 증가
+                healthMultiplier += currentGrowthRate;
+
+                // 매 60초마다 성장률 증가
+                if (growthUpgradeTimer >= 60f)
                 {
-                    healthMultiplier += 0.003f; // 예: 0.003f
-                    growthTimer = 0f;
+                    currentGrowthRate += 0.003f;
+                    growthUpgradeTimer = 0f;
                 }
 
                 if (moneyTimer >= 10f)
@@ -98,7 +105,7 @@ public class TimeManager
         }
         catch (TaskCanceledException)
         {
-            // 중단 시 아무것도 안 함
+            // 취소되었을 경우 무시
         }
     }
 

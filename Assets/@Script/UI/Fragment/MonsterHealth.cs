@@ -19,7 +19,7 @@ public class MonsterHealth : UI_Base
         BindImage(typeof(Images));
         BindText(typeof(Texts));
 
-        GetText((int)Texts.Hp_Txt).text = $"{_monster.MaxHp}/{_monster.MaxHp}";
+        GetText((int)Texts.Hp_Txt).text = $"{_monster.MaxHp:F1}/{_monster.MaxHp:F1}";
         _monster.hpAction = ChangeHealth;
 
         return true;
@@ -33,9 +33,9 @@ public class MonsterHealth : UI_Base
     void ChangeHealth(float cur, float max)
     {
         float hpRatio = Mathf.Max(0, cur / max);
-        float displayHp = Mathf.Round(cur * 10f) / 10f;
+        float displayHp = Mathf.Clamp(cur, 0, max);
 
         GetImage((int)Images.Hp_Slider).fillAmount = hpRatio;
-        GetText((int)Texts.Hp_Txt).text = $"{displayHp}/{_monster.MaxHp}";
+        GetText((int)Texts.Hp_Txt).text = $"{displayHp:F1}/{_monster.MaxHp:F1}";
     }
 }

@@ -9,6 +9,7 @@ public class MonsterController : BaseController
     MonsterData _monsterData;
     public void SetInfo(MonsterData data, float Hp)
     {
+        Debug.Log($"ÇöÀç HP {Hp}");
         _monsterData = data;
         _maxHp = Hp;
         _curHp = Hp;

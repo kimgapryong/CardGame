@@ -60,7 +60,7 @@ public class HeroController : BaseController
 
         curLevel++;
 
-        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[curLevel].Sprite, (sprite) =>
+        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[curLevel].HeroSprite, (sprite) =>
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
         });
