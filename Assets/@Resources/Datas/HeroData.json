@@ -72,8 +72,8 @@
           "HeroInduce": "똑똑함은 최고의 무기!\n\n리사는 상황을 분석하고 적의 허점을 꿰뚫는 천재 지휘관.\n빠른 판단과 정확한 명령으로 전장을 지배한다.\n단순한 소녀가 아니다, 모두의 두뇌다!\n패배를 원하지 않는다면 그녀를 따르라.",
           "HeroSprite": "Lisa_1",
           "HeroLevelData": {
-            "Attack": 42,
-            "Arange": 3.5,
+            "Attack": 82,
+            "Arange": 4.5,
             "AtkSpeed": 2,
             "Upgrade": 150
           },
@@ -89,10 +89,10 @@
           "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
           "HeroSprite": "Lisa_2",
           "HeroLevelData": {
-            "Attack": 28.5,
+            "Attack": 520.5,
             "Arange": 1.8,
             "AtkSpeed": 1.5,
-            "Upgrade": 200
+            "Upgrade": 1200
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -131,10 +131,10 @@
           "HeroInduce": "도넛이 연료! 분노가 무기!\n\n폭발적인 힘으로 적을 산산조각낸다.\n무시무시한 돌진은 누구도 막지 못하고\n불꽃처럼 타오르는 전장의 광란.\n무적의 괴력을 지금 확인하라!",
           "HeroSprite": "Homer_2",
           "HeroLevelData": {
-            "Attack": 35,
-            "Arange": 1.2,
-            "AtkSpeed": 1.3,
-            "Upgrade": 200
+            "Attack": 200,
+            "Arange": 4.2,
+            "AtkSpeed": 0.3,
+            "Upgrade": 1200
           },
           "SkillMapData": {
             "SkillID": 3,
@@ -148,10 +148,10 @@
           "HeroInduce": "멈출 수 없는 힘! 돌진의 화신!\n\n기관차처럼 전장을 가로지르며 모든 것을 파괴한다.\n적들은 그가 다가오는 소리만으로도 후퇴한다.\n호머의 진화는 끝이 없다!\n이제 그 누구도 그의 분노를 막을 수 없다!",
           "HeroSprite": "Homer_3",
           "HeroLevelData": {
-            "Attack": 47.5,
-            "Arange": 1.5,
-            "AtkSpeed": 1.4,
-            "Upgrade": 300
+            "Attack": 430,
+            "Arange": 8,
+            "AtkSpeed": 0.05,
+            "Upgrade": 5000
           },
           "SkillMapData": {
             "SkillID": 3,
@@ -173,9 +173,9 @@
           "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
           "HeroSprite": "marge_1",
           "HeroLevelData": {
-            "Attack": 18.2,
-            "Arange": 1.3,
-            "AtkSpeed": 1.2,
+            "Attack": 51,
+            "Arange": 11.5,
+            "AtkSpeed": 2,
             "Upgrade": 100
           },
           "SkillMapData": {
@@ -198,10 +198,10 @@
           "HeroInduce": "바람처럼 빠르고 치명적인 심판자!\n\n모의부인은 적의 허를 찌르는 공격으로 전장을 지배한다.\n그녀의 한 마디면 모두가 조용해지고,\n그녀의 발걸음은 사뿐하지만 위험 천만하다.\n정의감 넘치는 그녀는 혼돈 속에서도 질서를 세우며,\n누구도 그녀의 심판을 피할 수 없다.\n그녀의 눈빛은 차갑지만 마음은 뜨겁다.",
           "HeroSprite": "Mo_1",
           "HeroLevelData": {
-            "Attack": 22,
-            "Arange": 21,
+            "Attack": 120,
+            "Arange": 25,
             "AtkSpeed": 2.5,
-            "Upgrade": 250
+            "Upgrade": 550
           },
           "SkillMapData": {
             "SkillID": 5,
@@ -213,12 +213,12 @@
           "Level": 2,
           "Sprite": "Hero_18.sprite",
           "HeroInduce": "더 강해지고 더 빠르게 진화한 심판자!\n\n그녀의 발걸음은 바람보다 빠르고,\n그녀의 결의는 강철처럼 단단하다.\n적들은 그녀가 나타난 순간부터 이미 패배를 예감한다.\n그녀는 냉철한 판단력으로 동료들을 보호하고,\n전장의 주인이 되어 적을 무자비하게 응징한다.\n심판의 바람이 다시 불어온다!",
-          "HeroSprite": "Mo_2",
+          "HeroSprite": "Mo_1",
           "HeroLevelData": {
-            "Attack": 29.5,
-            "Arange": 2,
-            "AtkSpeed": 1.8,
-            "Upgrade": 200
+            "Attack": 1200,
+            "Arange": 35,
+            "AtkSpeed": 7,
+            "Upgrade": 1500
           },
           "SkillMapData": {
             "SkillID": 5,
@@ -240,9 +240,9 @@
           "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
           "HeroSprite":  "Warlord_1",
           "HeroLevelData": {
-            "Attack": 15.5,
-            "Arange": 1.4,
-            "AtkSpeed": 1,
+            "Attack": 41.5,
+            "Arange": 5.6,
+            "AtkSpeed": 2.5,
             "Upgrade": 100
           },
           "SkillMapData": {
@@ -266,7 +266,7 @@
           "HeroSprite": "Maggie_1",
           "HeroLevelData": {
             "Attack": 250,
-            "Arange": 5,
+            "Arange": 8,
             "AtkSpeed": 6.2,
             "Upgrade": 320
           },
@@ -280,12 +280,12 @@
           "Level": 2,
           "Sprite": "Hero_17.sprite",
           "HeroInduce": "더욱 날카로워진 천사의 화살!\n\n매기는 적진 한가운데서도 흔들리지 않는다.\n그녀의 사격은 더욱 정밀해지고,\n움직임은 더욱 부드러워졌다.\n그녀는 전장의 빛이 되어\n동료들에게 용기와 희망을 선사한다.\n적들은 그녀를 두려워하고, 동료들은 그녀를 따른다.",
-          "HeroSprite": "Maggie_2",
+          "HeroSprite": "Maggie_1",
           "HeroLevelData": {
-            "Attack": 38,
-            "Arange": 2.2,
-            "AtkSpeed": 2,
-            "Upgrade": 200
+            "Attack": 665,
+            "Arange": 11,
+            "AtkSpeed": 4.5,
+            "Upgrade": 2000
           },
           "SkillMapData": {
             "SkillID": 7,
@@ -307,10 +307,10 @@
           "HeroInduce": "주먹과 조롱으로 세상을 뒤흔든다.\n\n넬슨은 누구보다 강한 카리스마를 가졌고,\n그의 반항 정신은 모두에게 경외심을 불러일으킨다.\n싸움이 일어나면 항상 앞장서서 돌진하며,\n그의 주먹 한 방은 적들에게 큰 상처를 남긴다.\n친구든 적이든 그 앞에서는 누구도 무시할 수 없다.\n거친 도시의 전사, 반항의 아이콘!",
           "HeroSprite": "Nelson_1",
           "HeroLevelData": {
-            "Attack": 19.2,
-            "Arange": 1.1,
-            "AtkSpeed": 1.3,
-            "Upgrade": 100
+            "Attack": 51,
+            "Arange": 5.6,
+            "AtkSpeed": 2.1,
+            "Upgrade": 1000
           },
           "SkillMapData": {
             "SkillID": 8,
@@ -356,10 +356,10 @@
           "HeroInduce": "광대의 웃음 뒤에 숨겨진 광기와 힘!\n\n크러스티는 아무리 맞아도 다시 일어난다.\n불사신 같은 그의 존재는 적들에게 공포 그 자체.\n폭발적인 개그와 전투력으로 적들을 무너뜨리고,\n그의 웃음소리는 전장에 울려 퍼진다.\n무대 위의 스타, 전장의 전설!",
           "HeroSprite": "Milhouse_1",
           "HeroLevelData": {
-            "Attack": 20.2,
-            "Arange": 1.7,
-            "AtkSpeed": 1.5,
-            "Upgrade": 100
+            "Attack": 40.2,
+            "Arange": 2.7,
+            "AtkSpeed": 4.5,
+            "Upgrade": 300
           },
           "SkillMapData": {
             "SkillID": 3,
