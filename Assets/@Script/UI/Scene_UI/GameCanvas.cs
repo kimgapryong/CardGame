@@ -119,6 +119,7 @@ public class GameCanvas : UI_Scene
     void DieAction()
     {
         Manager.Time.Stop();
+        Manager.UI.CloseAllPopupUI();
         GetImage((int)Images.DeathImage).gameObject.SetActive(true);
     }
 }

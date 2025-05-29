@@ -31,8 +31,8 @@
           "HeroSprite": "Bart_2",
           "HeroLevelData": {
             "Attack": 150.2,
-            "Arange": 6.7,
-            "AtkSpeed": 1.7,
+            "Arange": 7.7,
+            "AtkSpeed": 1.3,
             "Upgrade": 500
           },
           "SkillMapData": {
@@ -48,8 +48,8 @@
           "HeroSprite": "Bart_3",
           "HeroLevelData": {
             "Attack": 550.7,
-            "Arange": 10,
-            "AtkSpeed": 1.9,
+            "Arange": 15,
+            "AtkSpeed": 0.9,
             "Upgrade": 1500
           },
           "SkillMapData": {

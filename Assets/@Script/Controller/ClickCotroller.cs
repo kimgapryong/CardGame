@@ -120,10 +120,10 @@ public class ClickCotroller : MonoBehaviour
     //타일 부분
     void ShowPlayerStatus(GameObject player, Tile tile)
     {
-        Debug.Log("히어로 클릭1");
         HeroController hero = player.GetComponent<HeroController>();
         HeroData data = hero._heroData;
 
+        hero.OnArg();
         Manager.UI.CloseAllPopupUI();
         Manager.UI.ShowPopupUI<Upgrade_Pop>(callback: (pop) =>
         {

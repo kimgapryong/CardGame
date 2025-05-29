@@ -9,7 +9,11 @@ public class HeroController : BaseController
     public int curLevel { get; private set; } = 0;
 
     public HeroData _heroData { get; private set; }
+
     private GameObject skillPre;
+    private Transform argTrans;
+    private Collider2D coll;
+
     private AtkArange atkArg;
     private Define.State _state;
     private MonsterController curTarget;
@@ -27,6 +31,8 @@ public class HeroController : BaseController
 
         StartCoroutine(CoWaitForSkill());
 
+        argTrans = transform.Find("Arange");
+        coll = transform.Find("AtkArange").GetComponent<Collider2D>();
         atkArg = transform.Find("AtkArange").GetComponent<AtkArange>();
         State = Define.State.Idle;
 
@@ -68,9 +74,19 @@ public class HeroController : BaseController
         {
             skillPre = obj;
         });
+
+        float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        argTrans.localScale = new Vector2(curSize, curSize);
         
     }
-    
+    public void OffArg()
+    {
+        argTrans.gameObject.SetActive(false);
+    }
+    public void OnArg()
+    {
+        argTrans.gameObject.SetActive(true);
+    }
     private void TryAttack()
     {
         if (atkArg.targets.Count == 0 || isAttacking)

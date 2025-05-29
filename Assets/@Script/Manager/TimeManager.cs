@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-
+using UnityEngine;
 
 public class TimeManager
 {
@@ -15,6 +15,7 @@ public class TimeManager
     public Action<float> moneyAction;
     public Action<float, float> hpAction;
     public Action dieAction;
+
     private float _money;
     public float Money
     {
@@ -23,10 +24,12 @@ public class TimeManager
         {
             UnityEngine.Debug.Log(value);
             _money = value;
-            moneyAction.Invoke(value);
+            moneyAction?.Invoke(value);
         }
     }
+
     public float Max { get; set; }
+
     private float curHp;
     public float CurHp
     {
@@ -34,14 +37,16 @@ public class TimeManager
         set
         {
             curHp = value;
-            hpAction.Invoke(value, Max);
+            hpAction?.Invoke(value, Max);
         }
     }
+
     public void SetHp(float hp)
     {
         Max = hp;
         curHp = hp;
     }
+
     public TimeManager(float growthRatePerSecond = 0.007f)
     {
         this.growthRate = growthRatePerSecond;
@@ -49,9 +54,8 @@ public class TimeManager
 
     public void Start()
     {
-        
         if (isRunning) return;
-        
+
         isRunning = true;
         cancellationTokenSource = new CancellationTokenSource();
         RunAsync(cancellationTokenSource.Token);
@@ -60,6 +64,7 @@ public class TimeManager
     public void Stop()
     {
         if (!isRunning) return;
+
         isRunning = false;
         cancellationTokenSource?.Cancel();
     }
@@ -69,12 +74,15 @@ public class TimeManager
         return healthMultiplier;
     }
 
+    public int GetSpawnMultiplier()
+    {
+        return (int)Mathf.Pow(2, (int)(elapsedTime / 120f));
+    }
+
     private async void RunAsync(CancellationToken token)
     {
         float moneyTimer = 0f;
-        float growthUpgradeTimer = 0f;
-
-        float currentGrowthRate = growthRate; // 실시간 성장률
+        int moneyCycleCount = 0;
 
         try
         {
@@ -84,34 +92,31 @@ public class TimeManager
 
                 elapsedTime += 1f;
                 moneyTimer += 1f;
-                growthUpgradeTimer += 1f;
 
-                // 매 1초마다 현재 성장률만큼 증가
-                healthMultiplier += currentGrowthRate;
+                
+                float baseGrowth = growthRate; // 0.007f 등
+                float exponentFactor = Mathf.Exp(elapsedTime / 300f); // 5분마다 e배 증가
+                float increase = baseGrowth * exponentFactor;
+                healthMultiplier += increase;
 
-                // 매 60초마다 성장률 증가
-                if (growthUpgradeTimer >= 60f)
-                {
-                    currentGrowthRate += 0.003f;
-                    growthUpgradeTimer = 0f;
-                }
-
+                
                 if (moneyTimer >= 10f)
                 {
-                    Money += 50;
+                    moneyCycleCount++;
+                    Money += 20 * moneyCycleCount;
                     moneyTimer = 0f;
                 }
             }
         }
         catch (TaskCanceledException)
         {
-            // 취소되었을 경우 무시
+            // 정상 취소 시 무시
         }
     }
 
     public void ResetAll()
     {
-        Stop();  // 기존 루프 종료
+        Stop();
         moneyAction = null;
         hpAction = null;
         dieAction = null;
