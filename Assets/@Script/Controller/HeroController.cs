@@ -36,6 +36,11 @@ public class HeroController : BaseController
         atkArg = transform.Find("AtkArange").GetComponent<AtkArange>();
         State = Define.State.Idle;
 
+        if (_heroData != null && _heroData.Hero_Ability == Define.HeroAbility.Money)
+        {
+            coll.enabled = false;
+        }
+
         return true;
     }
 
@@ -91,14 +96,20 @@ public class HeroController : BaseController
     }
     private void TryAttack()
     {
-        if (atkArg.targets.Count == 0 || isAttacking)
+        if (isAttacking)
+            return;
+
+        if (_heroData.Hero_Ability == Define.HeroAbility.Money)
+        {
+            StartCoroutine(CoMoneyTick());
+            return;
+        }
+
+        if (atkArg.targets.Count == 0)
             return;
 
         curTarget = atkArg.targets[0];
-        if (curTarget != null)
-        {
-            StartCoroutine(CoAttack(curTarget));
-        }
+        StartCoroutine(CoAttack(curTarget));
     }
 
     private IEnumerator CoAttack(MonsterController target)
@@ -121,27 +132,30 @@ public class HeroController : BaseController
         isAttacking = false;
         State = Define.State.Idle;
     }
+    private IEnumerator CoMoneyTick()
+    {
+        isAttacking = true;
+        State = Define.State.Attack;
 
+        yield return new WaitForSeconds(10f);
+
+        while (true)
+        {
+            // µ· »ý¼º
+            Manager.Resource.Instantiate("MoneyParticle", transform);
+            Manager.Time.Money += _heroData.LevelData[curLevel].HeroLevelData.Attack;
+
+            float delay = _heroData.LevelData[curLevel].HeroLevelData.AtkSpeed;
+            yield return new WaitForSeconds(delay);
+        }
+    }
     private void Attack(MonsterController target)
     {
-        switch (_heroData.Hero_Ability)
-        {
-            case Define.HeroAbility.Atkker:
-                {
-                    if (target == null) return;
+        
+        if (target == null) return;
 
-                    GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
-                    go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, _heroData.LevelData[curLevel].HeroLevelData.Attack);
-                }
-                break;
-            case Define.HeroAbility.Money:
-                {
-                    Debug.Log("±×·²¼öÀÖ´Ù");
-                    Manager.Time.Money += _heroData.LevelData[curLevel].HeroLevelData.Attack;
-                }
-                break;
-        }
-       
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, _heroData.LevelData[curLevel].HeroLevelData.Attack);
     }
 
     public void SetInfo(HeroData data)

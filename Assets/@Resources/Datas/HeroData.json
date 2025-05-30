@@ -15,7 +15,7 @@
           "HeroSprite": "Bart_1",
           "HeroLevelData": {
             "Attack": 48.5,
-            "Arange": 5,
+            "Arange": 7,
             "AtkSpeed": 1.5,
             "Upgrade": 100
           },
@@ -31,8 +31,8 @@
           "HeroInduce": "더 빠르고, 더 영리하게 장난치는 법을 터득했다!\n\n번개처럼 교실을 가로지르며 적을 교란하고\n치고 빠지는 전술에 있어서는 누구도 그를 따라올 수 없다.\n스케이트보드 위에서 펼쳐지는 장난의 향연!\n그의 미소는 문제의 전조다!",
           "HeroSprite": "Bart_2",
           "HeroLevelData": {
-            "Attack": 150.2,
-            "Arange": 7.7,
+            "Attack": 200.2,
+            "Arange": 9.7,
             "AtkSpeed": 1.3,
             "Upgrade": 500
           },
@@ -48,10 +48,10 @@
           "HeroInduce": "지옥에서 튀어나온 장난꾸러기, 이제는 진심이다!\n\n불꽃이 이는 슬링샷과 유령처럼 질주하는 스케이트보드.\n그가 나타나면 전장은 혼돈 그 자체가 된다.\n규칙 따윈 이미 불태워버린지 오래!\n세상에서 가장 위험한 장난감이 돌아왔다!",
           "HeroSprite": "Bart_3",
           "HeroLevelData": {
-            "Attack": 550.7,
-            "Arange": 15,
-            "AtkSpeed": 0.9,
-            "Upgrade": 1500
+            "Attack": 1200.7,
+            "Arange": 30,
+            "AtkSpeed": 0.7,
+            "Upgrade": 2500
           },
           "SkillMapData": {
             "SkillID": 1,
@@ -94,7 +94,7 @@
             "Attack": 520,
             "Arange": 10,
             "AtkSpeed": 10,
-            "Upgrade": 1200
+            "Upgrade": 4000
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -108,10 +108,10 @@
           "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
           "HeroSprite": "Lisa_2",
           "HeroLevelData": {
-            "Attack": 800,
+            "Attack": 1200,
             "Arange": 5,
-            "AtkSpeed": 6,
-            "Upgrade": 4000
+            "AtkSpeed": 10,
+            "Upgrade": 8000
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -125,10 +125,10 @@
           "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
           "HeroSprite": "Lisa_2",
           "HeroLevelData": {
-            "Attack": 1200,
-            "Arange": 4,
-            "AtkSpeed": 4,
-            "Upgrade": 7500
+            "Attack": 3500,
+            "Arange": 10,
+            "AtkSpeed": 10,
+            "Upgrade": 17500
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -142,10 +142,10 @@
           "HeroInduce": "한 손엔 지휘봉, 한 손엔 승리의 전략!\n\n작전 실행 속도는 번개보다 빠르며\n그녀의 명령은 병사들의 생명을 살린다.\n전술적 천재가 되어 적을 몰아붙인다!\n전장은 이제 그녀의 무대다.",
           "HeroSprite": "Lisa_2",
           "HeroLevelData": {
-            "Attack": 1000,
-            "Arange": 1,
+            "Attack": 10000,
+            "Arange": 10,
             "AtkSpeed": 1,
-            "Upgrade": 12000
+            "Upgrade": 50000
           },
           "SkillMapData": {
             "SkillID": 2,
@@ -188,7 +188,7 @@
             "Attack": 200,
             "Arange": 4.2,
             "AtkSpeed": 0.3,
-            "Upgrade": 1200
+            "Upgrade": 3200
           },
           "SkillMapData": {
             "SkillID": 3,
@@ -205,7 +205,7 @@
             "Attack": 430,
             "Arange": 8,
             "AtkSpeed": 0.05,
-            "Upgrade": 5000
+            "Upgrade": 15000
           },
           "SkillMapData": {
             "SkillID": 3,
@@ -244,7 +244,7 @@
       "HeroID": 5,
       "ElementType": "바람",
       "ArangeType": "Long",
-      "HeroRating": "Epic",
+      "HeroRating": "Legend",
       "HeroAbility": "Atkker",
       "LevelData": [
         {
@@ -254,7 +254,7 @@
           "HeroInduce": "바람처럼 빠르고 치명적인 심판자!\n\n모의부인은 적의 허를 찌르는 공격으로 전장을 지배한다.\n그녀의 한 마디면 모두가 조용해지고,\n그녀의 발걸음은 사뿐하지만 위험 천만하다.\n정의감 넘치는 그녀는 혼돈 속에서도 질서를 세우며,\n누구도 그녀의 심판을 피할 수 없다.\n그녀의 눈빛은 차갑지만 마음은 뜨겁다.",
           "HeroSprite": "Mo_1",
           "HeroLevelData": {
-            "Attack": 120,
+            "Attack": 220,
             "Arange": 25,
             "AtkSpeed": 2.5,
             "Upgrade": 550
@@ -271,10 +271,10 @@
           "HeroInduce": "더 강해지고 더 빠르게 진화한 심판자!\n\n그녀의 발걸음은 바람보다 빠르고,\n그녀의 결의는 강철처럼 단단하다.\n적들은 그녀가 나타난 순간부터 이미 패배를 예감한다.\n그녀는 냉철한 판단력으로 동료들을 보호하고,\n전장의 주인이 되어 적을 무자비하게 응징한다.\n심판의 바람이 다시 불어온다!",
           "HeroSprite": "Mo_1",
           "HeroLevelData": {
-            "Attack": 1200,
+            "Attack": 2200,
             "Arange": 35,
-            "AtkSpeed": 7,
-            "Upgrade": 1500
+            "AtkSpeed": 5,
+            "Upgrade": 1800
           },
           "SkillMapData": {
             "SkillID": 5,
@@ -323,7 +323,7 @@
           "HeroInduce": "차가운 눈빛 속 숨겨진 따뜻함.\n\n매기는 정확한 사격으로 적을 단번에 무력화시킨다.\n그녀의 움직임은 물처럼 부드럽지만\n필요할 땐 차가운 칼날처럼 날카롭다.\n상처 입은 동료를 돌보는 천사 같은 마음,\n전장을 지배하는 냉혹한 전사, 두 얼굴을 가진 존재다.\n그녀가 나타나면 희망이 보인다.",
           "HeroSprite": "Maggie_1",
           "HeroLevelData": {
-            "Attack": 250,
+            "Attack": 550,
             "Arange": 8,
             "AtkSpeed": 6.2,
             "Upgrade": 320
@@ -340,7 +340,7 @@
           "HeroInduce": "더욱 날카로워진 천사의 화살!\n\n매기는 적진 한가운데서도 흔들리지 않는다.\n그녀의 사격은 더욱 정밀해지고,\n움직임은 더욱 부드러워졌다.\n그녀는 전장의 빛이 되어\n동료들에게 용기와 희망을 선사한다.\n적들은 그녀를 두려워하고, 동료들은 그녀를 따른다.",
           "HeroSprite": "Maggie_1",
           "HeroLevelData": {
-            "Attack": 665,
+            "Attack": 2500,
             "Arange": 11,
             "AtkSpeed": 4.5,
             "Upgrade": 2000
