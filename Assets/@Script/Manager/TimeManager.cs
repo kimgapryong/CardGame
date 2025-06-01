@@ -12,7 +12,7 @@ public class TimeManager
     private bool isRunning = false;
     private CancellationTokenSource cancellationTokenSource;
 
-    public string PlayerName { get; set; } // �ܺο��� ����
+    public string PlayerName { get; set; } 
 
     public DateTime StartTime { get; private set; }
     public TimeSpan PlayDuration => DateTime.Now - StartTime;
@@ -132,9 +132,9 @@ public class TimeManager
         }
         catch (TaskCanceledException)
         {
-            // ����
+            
         }
-        catch (TaskCanceledException) { }
+        
     }
 
     public void ResetAll()
