@@ -15,6 +15,7 @@ public class AllContentCanvas : UI_Scene
     {
         GameBtn,
         GamePreBtn,
+        RankingBtn,
     }
     public override bool Init()
     {
@@ -51,6 +52,10 @@ public class AllContentCanvas : UI_Scene
         }
         GetButton((int)Buttons.GameBtn).gameObject.BindEvent(() => SceneManager.LoadScene("GameScene"));
         GetButton((int)Buttons.GamePreBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Pre_Pop>());
+        GetButton((int)Buttons.RankingBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Ranking_Pop>(callback: (pop) =>
+        {
+            pop.SetInfo(Manager.Rank.LoadRankings());
+        }));
         return true;
     }
 

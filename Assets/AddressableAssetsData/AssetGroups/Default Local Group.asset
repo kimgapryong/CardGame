@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4408a00e3a34fab46aaf2b46e38d1e5c
+    m_Address: EmptyImage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 586cb299ecfaba44bb6c2645d50208c5
     m_Address: MonData.json
     m_ReadOnly: 0
@@ -65,8 +70,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 639cb4b33e5acbb4ea17db8560bb042a
+    m_Address: NameInputPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81f7c1b152b3bc749a7d023777a295e2
     m_Address: Upgrade_Pop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 869d46397a7512e41b877e9ce44e7607
+    m_Address: RankFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -107,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf2878ec66c72214fb94de0959f93750
     m_Address: Skill_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15f756f52e186343b4d1e98c2addd1a
+    m_Address: Ranking_Pop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

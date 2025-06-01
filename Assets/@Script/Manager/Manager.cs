@@ -20,6 +20,9 @@ public class Manager : MonoBehaviour
     public static TimeManager Time { get { return Instance._time; } }
     private ObjectManager _obj = new ObjectManager();   
     public static ObjectManager Obj { get { return Instance._obj; } }
+
+    private RankingManager _rank = new RankingManager();
+    public static RankingManager Rank { get { return Instance._rank; } }    
     public static void Init()
     {
         if(_instance != null)

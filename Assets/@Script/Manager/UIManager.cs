@@ -134,4 +134,9 @@ public class UIManager
 		CloseAllPopupUI();
 		SceneUI = null;
 	}
+
+    internal void ShowPopupUI<T>(Action<object> value)
+    {
+        throw new NotImplementedException();
+    }
 }

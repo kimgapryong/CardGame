@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 public class TimeManager
 {
     private float elapsedTime = 0f;
@@ -11,6 +10,11 @@ public class TimeManager
     private readonly float growthRate;
     private bool isRunning = false;
     private CancellationTokenSource cancellationTokenSource;
+
+    public string PlayerName { get; set; } // 외부에서 설정
+
+    public DateTime StartTime { get; private set; }
+    public TimeSpan PlayDuration => DateTime.Now - StartTime;
 
     public Action<float> moneyAction;
     public Action<float, float> hpAction;
@@ -23,7 +27,7 @@ public class TimeManager
         {
             UnityEngine.Debug.Log(value);
             _money = value;
-            moneyAction.Invoke(value);
+            moneyAction?.Invoke(value);
         }
     }
     public float Max { get; set; }
@@ -34,7 +38,7 @@ public class TimeManager
         set
         {
             curHp = value;
-            hpAction.Invoke(value, Max);
+            hpAction?.Invoke(value, Max);
         }
     }
     public void SetHp(float hp)
@@ -50,6 +54,7 @@ public class TimeManager
     public void Start()
     {
         if (isRunning) return;
+        StartTime = DateTime.Now;
         isRunning = true;
         cancellationTokenSource = new CancellationTokenSource();
         RunAsync(cancellationTokenSource.Token);
@@ -60,6 +65,15 @@ public class TimeManager
         if (!isRunning) return;
         isRunning = false;
         cancellationTokenSource?.Cancel();
+
+        Manager.UI.ShowPopupUI<NameInputPopup>(callback: (popup) =>
+        {
+            popup.onConfirm = (playerName) =>
+            {
+                var rankingManager = new RankingManager();
+                rankingManager.SaveRanking(playerName, PlayDuration);
+            };
+        });
     }
 
     public float GetHealthMultiplier()
@@ -82,10 +96,9 @@ public class TimeManager
                 moneyTimer += 1f;
                 growthTimer += 1f;
 
-                // 매 60초마다 healthMultiplier 증가
                 if (growthTimer >= 60f)
                 {
-                    healthMultiplier += 0.003f; // 예: 0.003f
+                    healthMultiplier += 0.003f;
                     growthTimer = 0f;
                 }
 
@@ -96,15 +109,12 @@ public class TimeManager
                 }
             }
         }
-        catch (TaskCanceledException)
-        {
-            // 중단 시 아무것도 안 함
-        }
+        catch (TaskCanceledException) { }
     }
 
     public void ResetAll()
     {
-        Stop();  // 기존 루프 종료
+        Stop();
         moneyAction = null;
         hpAction = null;
         dieAction = null;
