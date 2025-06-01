@@ -1,8 +1,8 @@
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class TimeManager
 {
@@ -12,7 +12,7 @@ public class TimeManager
     private bool isRunning = false;
     private CancellationTokenSource cancellationTokenSource;
 
-    public string PlayerName { get; set; } 
+    public string PlayerName { get; set; } // 외부에서 설정
 
     public DateTime StartTime { get; private set; }
     public TimeSpan PlayDuration => DateTime.Now - StartTime;
@@ -27,7 +27,6 @@ public class TimeManager
         get { return _money; }
         set
         {
-            
             _money = value;
             moneyAction?.Invoke(value);
         }
@@ -59,7 +58,7 @@ public class TimeManager
 
     public void Start()
     {
-        UnityEngine.Debug.Log("���� ����");
+        UnityEngine.Debug.Log("게임 시작");
         if (isRunning) return;
 
         StartTime = DateTime.Now;
@@ -90,7 +89,6 @@ public class TimeManager
         return healthMultiplier;
     }
 
-    
     public int GetSpawnMultiplier()
     {
         return (int)Mathf.Pow(3, (int)(elapsedTime / 60f));
@@ -110,18 +108,11 @@ public class TimeManager
                 elapsedTime += 1f;
                 moneyTimer += 1f;
 
-                
                 float baseGrowth = growthRate; // ex: 0.007f
-                float growthStep = (float)Math.Pow(3, (int)(elapsedTime / 60f)); // 1�и��� 3��
+                float growthStep = Mathf.Pow(3, (int)(elapsedTime / 60f)); // 1분마다 3배 증가
                 float increase = baseGrowth * growthStep;
                 healthMultiplier += increase;
-                if (growthTimer >= 60f)
-                {
-                    healthMultiplier += 0.003f;
-                    growthTimer = 0f;
-                }
 
-                
                 if (moneyTimer >= 10f)
                 {
                     moneyCycleCount++;
@@ -132,9 +123,8 @@ public class TimeManager
         }
         catch (TaskCanceledException)
         {
-            
+            // 무시
         }
-        
     }
 
     public void ResetAll()
