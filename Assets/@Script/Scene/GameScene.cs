@@ -48,6 +48,8 @@ public class GameScene : BaseScene
             yield return null;
 
         Manager.Map.Init();
+        Debug.Log("GameScene");
+        Debug.Log(Manager.Time);
         Manager.Time.Start();
         Manager.Obj.Init();
         IsLoad = true;

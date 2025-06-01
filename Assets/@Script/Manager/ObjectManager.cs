@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 public class ObjectManager
 {
@@ -9,8 +10,8 @@ public class ObjectManager
     private bool waitingFirst = true;
 
     private float phaseDuration = 20f;
-    private float restDuration = 8f;
-    private float spawnDelay = 2f;
+    private float restDuration = 5f;
+    private float spawnDelay = 1f;
 
     private float totalTimer = 0f;
     private float spawnTimer = 0f;
@@ -72,7 +73,7 @@ public class ObjectManager
                 currentMonsterIndex = isFirstPhase ? 1 : UnityEngine.Random.Range(2, 7);
 
                 spawnedCount = 0;
-                spawnCountThisPhase = GetSpawnCount(currentMonsterIndex);
+                UpdateSpawnSettings(); 
                 spawnTimer = 0f;
             }
 
@@ -105,6 +106,7 @@ public class ObjectManager
             MonsterData data = Manager.Data.MonDatas[index];
 
             MonsterController enemy = obj.GetOrAddComponent<MonsterController>();
+
             enemy.SetInfo(data, data.Hp * Manager.Time.GetHealthMultiplier());
 
             Manager.UI.MakeSubItem<MonsterHealth>(obj.transform, callback: (mon) =>
@@ -152,5 +154,13 @@ public class ObjectManager
             for (int y = 0; y < h; y++)
                 result[x, y] = tileMap[x, y].type;
         return result;
+    }
+
+    private void UpdateSpawnSettings()
+    {
+        int baseCount = GetSpawnCount(currentMonsterIndex);
+        int multiplier = Manager.Time.GetSpawnMultiplier();
+
+        spawnCountThisPhase = baseCount * multiplier;
     }
 }

@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c53a7d65f15c1a4ca76ff02d2724503
+    m_Address: Lisa_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 201964ee2ae7f5944aab8b28599091c5
     m_Address: Hero_17.sprite
     m_ReadOnly: 0
@@ -117,6 +122,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a20eb712015ac04aa029b901d8ac636
     m_Address: Green_tile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7aafd3d93bb8bab41a98b969d8a79e35
+    m_Address: Homer_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d86e9283d514e940bd37ddb508300e6
+    m_Address: Homer_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

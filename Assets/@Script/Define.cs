@@ -57,6 +57,11 @@ public class Define
         Aoe,
         Single,
     }
+    public enum HeroAbility
+    {
+        Money,
+        Atkker,
+    }
 
     public const int HERO_COUNT = 10;
     public const int GAME_LIST_COUNT = 8;

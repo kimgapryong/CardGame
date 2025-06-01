@@ -10,9 +10,10 @@ public class HeroData
     public string ElementType;
     [SerializeField] private string ArangeType;
     [SerializeField] private string HeroRating;
-
+    [SerializeField] private string HeroAbility;
     public HeroType Arange_Type => ParseEnumOrDefault(ArangeType, Define.HeroType.Close);
     public HeroRating Hero_Rating => ParseEnumOrDefault(HeroRating, Define.HeroRating.Common);
+    public HeroAbility Hero_Ability => ParseEnumOrDefault(HeroAbility, Define.HeroAbility.Atkker);
 
     private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
     {

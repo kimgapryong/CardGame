@@ -1,7 +1,8 @@
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class TimeManager
 {
@@ -11,7 +12,7 @@ public class TimeManager
     private bool isRunning = false;
     private CancellationTokenSource cancellationTokenSource;
 
-    public string PlayerName { get; set; } // ¿ÜºÎ¿¡¼­ ¼³Á¤
+    public string PlayerName { get; set; } // ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public DateTime StartTime { get; private set; }
     public TimeSpan PlayDuration => DateTime.Now - StartTime;
@@ -19,18 +20,21 @@ public class TimeManager
     public Action<float> moneyAction;
     public Action<float, float> hpAction;
     public Action dieAction;
+
     private float _money;
     public float Money
     {
         get { return _money; }
         set
         {
-            UnityEngine.Debug.Log(value);
+            
             _money = value;
             moneyAction?.Invoke(value);
         }
     }
+
     public float Max { get; set; }
+
     private float curHp;
     public float CurHp
     {
@@ -41,11 +45,13 @@ public class TimeManager
             hpAction?.Invoke(value, Max);
         }
     }
+
     public void SetHp(float hp)
     {
         Max = hp;
         curHp = hp;
     }
+
     public TimeManager(float growthRatePerSecond = 0.007f)
     {
         this.growthRate = growthRatePerSecond;
@@ -53,7 +59,9 @@ public class TimeManager
 
     public void Start()
     {
+        UnityEngine.Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         if (isRunning) return;
+
         StartTime = DateTime.Now;
         isRunning = true;
         cancellationTokenSource = new CancellationTokenSource();
@@ -63,6 +71,7 @@ public class TimeManager
     public void Stop()
     {
         if (!isRunning) return;
+
         isRunning = false;
         cancellationTokenSource?.Cancel();
 
@@ -81,10 +90,16 @@ public class TimeManager
         return healthMultiplier;
     }
 
+    
+    public int GetSpawnMultiplier()
+    {
+        return (int)Mathf.Pow(3, (int)(elapsedTime / 60f));
+    }
+
     private async void RunAsync(CancellationToken token)
     {
         float moneyTimer = 0f;
-        float growthTimer = 0f;
+        int moneyCycleCount = 0;
 
         try
         {
@@ -94,20 +109,30 @@ public class TimeManager
 
                 elapsedTime += 1f;
                 moneyTimer += 1f;
-                growthTimer += 1f;
 
+                
+                float baseGrowth = growthRate; // ex: 0.007f
+                float growthStep = (float)Math.Pow(3, (int)(elapsedTime / 60f)); // 1ï¿½Ð¸ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+                float increase = baseGrowth * growthStep;
+                healthMultiplier += increase;
                 if (growthTimer >= 60f)
                 {
                     healthMultiplier += 0.003f;
                     growthTimer = 0f;
                 }
 
+                
                 if (moneyTimer >= 10f)
                 {
-                    Money += 50;
+                    moneyCycleCount++;
+                    Money += 10 * moneyCycleCount;
                     moneyTimer = 0f;
                 }
             }
+        }
+        catch (TaskCanceledException)
+        {
+            // ï¿½ï¿½ï¿½ï¿½
         }
         catch (TaskCanceledException) { }
     }

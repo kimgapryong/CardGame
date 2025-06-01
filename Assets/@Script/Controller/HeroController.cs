@@ -9,7 +9,11 @@ public class HeroController : BaseController
     public int curLevel { get; private set; } = 0;
 
     public HeroData _heroData { get; private set; }
+
     private GameObject skillPre;
+    private Transform argTrans;
+    private Collider2D coll;
+
     private AtkArange atkArg;
     private Define.State _state;
     private MonsterController curTarget;
@@ -27,8 +31,15 @@ public class HeroController : BaseController
 
         StartCoroutine(CoWaitForSkill());
 
+        argTrans = transform.Find("Arange");
+        coll = transform.Find("AtkArange").GetComponent<Collider2D>();
         atkArg = transform.Find("AtkArange").GetComponent<AtkArange>();
         State = Define.State.Idle;
+
+        if (_heroData != null && _heroData.Hero_Ability == Define.HeroAbility.Money)
+        {
+            coll.enabled = false;
+        }
 
         return true;
     }
@@ -60,7 +71,7 @@ public class HeroController : BaseController
 
         curLevel++;
 
-        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[curLevel].Sprite, (sprite) =>
+        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[curLevel].HeroSprite, (sprite) =>
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
         });
@@ -68,19 +79,37 @@ public class HeroController : BaseController
         {
             skillPre = obj;
         });
-        
+
+        float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        argTrans.localScale = new Vector2(curSize, curSize);
+        transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
+
+
     }
-    
+    public void OffArg()
+    {
+        argTrans.gameObject.SetActive(false);
+    }
+    public void OnArg()
+    {
+        argTrans.gameObject.SetActive(true);
+    }
     private void TryAttack()
     {
-        if (atkArg.targets.Count == 0 || isAttacking)
+        if (isAttacking)
+            return;
+
+        if (_heroData.Hero_Ability == Define.HeroAbility.Money)
+        {
+            StartCoroutine(CoMoneyTick());
+            return;
+        }
+
+        if (atkArg.targets.Count == 0)
             return;
 
         curTarget = atkArg.targets[0];
-        if (curTarget != null)
-        {
-            StartCoroutine(CoAttack(curTarget));
-        }
+        StartCoroutine(CoAttack(curTarget));
     }
 
     private IEnumerator CoAttack(MonsterController target)
@@ -103,9 +132,26 @@ public class HeroController : BaseController
         isAttacking = false;
         State = Define.State.Idle;
     }
+    private IEnumerator CoMoneyTick()
+    {
+        isAttacking = true;
+        State = Define.State.Attack;
 
+        yield return new WaitForSeconds(10f);
+
+        while (true)
+        {
+            // µ· »ý¼º
+            Manager.Resource.Instantiate("MoneyParticle", transform);
+            Manager.Time.Money += _heroData.LevelData[curLevel].HeroLevelData.Attack;
+
+            float delay = _heroData.LevelData[curLevel].HeroLevelData.AtkSpeed;
+            yield return new WaitForSeconds(delay);
+        }
+    }
     private void Attack(MonsterController target)
     {
+        
         if (target == null) return;
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);

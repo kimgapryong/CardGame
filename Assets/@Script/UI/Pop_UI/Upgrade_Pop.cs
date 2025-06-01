@@ -35,7 +35,7 @@ public class Upgrade_Pop : UI_Popup
 
         GetButton((int)Buttons.UpgradeBtn).gameObject.BindEvent(Upgrade);
         GetButton((int)Buttons.SellBtn).gameObject.BindEvent(Sell);
-        GetButton((int)Buttons.ExitBtn).gameObject.BindEvent(() => Manager.UI.CloseAllPopupUI());
+        GetButton((int)Buttons.ExitBtn).gameObject.BindEvent(() => { myHero.OffArg(); Manager.UI.CloseAllPopupUI(); });
         Refresh();
         return true;
     }
