@@ -21,7 +21,7 @@ public class MonsterController : BaseController
         get { return _curHp; }
         set
         {
-            hpAction.Invoke(value, _maxHp);
+            hpAction?.Invoke(value, _maxHp);
             _curHp = value;
         }
     }

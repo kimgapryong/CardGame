@@ -23,7 +23,7 @@ public class GameCanvas : UI_Scene
         GameExitBtn,
         SetBtn,
     }
-
+    private bool isDie = false;
     public override bool Init()
     {
         if (base.Init() == false)
@@ -125,6 +125,11 @@ public class GameCanvas : UI_Scene
 
     void DieAction()
     {
+        if(isDie) 
+            return;
+
+        isDie = true;
+
         Manager.Time.Stop();
         Manager.UI.CloseAllPopupUI();
         GetImage((int)Images.DeathImage).gameObject.SetActive(true);

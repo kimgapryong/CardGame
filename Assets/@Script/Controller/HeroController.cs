@@ -109,6 +109,7 @@ public class HeroController : BaseController
             return;
 
         curTarget = atkArg.targets[0];
+        Debug.Log(curTarget);
         StartCoroutine(CoAttack(curTarget));
     }
 
