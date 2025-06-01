@@ -29,6 +29,7 @@ public class NameInputPopup : UI_Popup
 
         GetButton((int)Buttons.ConfirmBtn).gameObject.BindEvent(() =>
         {
+            Debug.Log("여기가 왜 실행되냐");
             string name = nameInput.text.Trim();
 
             if (string.IsNullOrEmpty(name))

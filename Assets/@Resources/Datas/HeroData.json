@@ -47,15 +47,16 @@
           "Sprite": "Hero_12.sprite",
           "HeroInduce": "지옥에서 튀어나온 장난꾸러기, 이제는 진심이다!\n\n불꽃이 이는 슬링샷과 유령처럼 질주하는 스케이트보드.\n그가 나타나면 전장은 혼돈 그 자체가 된다.\n규칙 따윈 이미 불태워버린지 오래!\n세상에서 가장 위험한 장난감이 돌아왔다!",
           "HeroSprite": "Bart_3",
+          "AtkArange": "Aoe",
           "HeroLevelData": {
             "Attack": 1200.7,
-            "Arange": 30,
-            "AtkSpeed": 0.7,
-            "Upgrade": 2500
+            "Arange": 21,
+            "AtkSpeed": 3.4,
+            "Upgrade": 12500
           },
           "SkillMapData": {
-            "SkillID": 1,
-            "AnimationID": 1
+            "SkillID": 11,
+            "AnimationID": 11
           }
         }
       ]
@@ -296,6 +297,7 @@
           "Sprite": "Hero_7.sprite",
           "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
           "HeroSprite": "Warlord_1",
+          "AtkArange": "Aoe",
           "HeroLevelData": {
             "Attack": 41.5,
             "Arange": 5.6,
@@ -390,6 +392,7 @@
           "Level": 1,
           "Sprite": "Hero_10.sprite",
           "HeroInduce": "비밀과 미스터리의 소년.\n\n밀하우스는 항상 어딘가 모르게 특별하다.\n그가 가진 힘의 근원은 아무도 모른다.\n위기의 순간에만 빛나는 숨겨진 능력은\n동료들에게 희망과 혼란을 동시에 준다.\n그의 존재는 미지의 영역,\n어둠 속에서 빛나는 작은 별이다.",
+          "AtkArange": "Aoe",
           "HeroLevelData": {
             "Attack": 23.5,
             "Arange": 1.6,

@@ -124,7 +124,19 @@ public class HeroController : BaseController
             yield break;
         }
 
-        Attack(target);
+        switch (_heroData.LevelData[curLevel].Atk_Arange)
+        {
+            case Define.AtkArange.Single:
+                Attack(target);
+                break;
+            case Define.AtkArange.Aoe:
+                AoeAttack();
+                break;
+            default:
+                Attack(target);
+                break;
+        }
+        
 
         float delay = _heroData.LevelData[curLevel].HeroLevelData.AtkSpeed;
         yield return new WaitForSeconds(delay);
@@ -158,6 +170,19 @@ public class HeroController : BaseController
         go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, _heroData.LevelData[curLevel].HeroLevelData.Attack);
     }
 
+    private void AoeAttack()
+    {
+        if (atkArg.targets.Count <= 0)
+            return;
+
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        for (int i = 0; i < atkArg.targets.Count; i++)
+        {
+            var monster = atkArg.targets[i];
+            if (monster != null)
+                monster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+        }
+    }
     public void SetInfo(HeroData data)
     {
         _heroData = data;

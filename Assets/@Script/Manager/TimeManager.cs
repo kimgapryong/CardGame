@@ -74,14 +74,7 @@ public class TimeManager
         isRunning = false;
         cancellationTokenSource?.Cancel();
 
-        Manager.UI.ShowPopupUI<NameInputPopup>(callback: (popup) =>
-        {
-            popup.onConfirm = (playerName) =>
-            {
-                var rankingManager = new RankingManager();
-                rankingManager.SaveRanking(playerName, PlayDuration);
-            };
-        });
+      
     }
 
     public float GetHealthMultiplier()

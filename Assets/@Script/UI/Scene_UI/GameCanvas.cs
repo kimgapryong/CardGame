@@ -128,5 +128,13 @@ public class GameCanvas : UI_Scene
         Manager.Time.Stop();
         Manager.UI.CloseAllPopupUI();
         GetImage((int)Images.DeathImage).gameObject.SetActive(true);
+
+        Manager.UI.ShowPopupUI<NameInputPopup>(callback: (popup) =>
+        {
+            popup.onConfirm = (playerName) =>
+            {
+                Manager.Rank.SaveRanking(playerName, Manager.Time.PlayDuration);
+            };
+        });
     }
 }

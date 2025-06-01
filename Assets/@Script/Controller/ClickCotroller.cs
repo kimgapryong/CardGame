@@ -32,6 +32,11 @@ public class ClickCotroller : MonoBehaviour
 
             TileCheck(); 
         }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Manager.Time.Money += 100000f;
+        }
     }
 
     public void TileCheck()
@@ -45,7 +50,6 @@ public class ClickCotroller : MonoBehaviour
      
         if (tile.hero != null)
         {
-            Debug.Log("히어로 클릭1");
             ShowPlayerStatus(tile.hero, tile);
             return;
         }

@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using UnityEngine;
+using UnityEditor;
 
 [System.Serializable]
 public class RankingEntry
 {
     public string playerName;
     public string playTime; // 예: "00:12:34"
-    public List<int> gameData; // 캐릭터 ID 목록, 최대 8개
+    public List<int> gameData; // 캐릭터 ID 목록
     public int totalSeconds; // 비교용 내부 값 (정렬 기준용)
 }
 
@@ -36,13 +37,12 @@ public class RankingManager
     {
         RankingData data = LoadRankings();
 
-        string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}",
-            (int)playTime.TotalHours, playTime.Minutes, playTime.Seconds);
+        // "mm:ss" 형식으로 포맷
+        string formattedTime = string.Format("{0:D2}:{1:D2}",
+            playTime.Minutes, playTime.Seconds);
 
-        // 캐릭터 데이터 정리 (최대 8개, 부족하면 -1로 채움)
+        // 캐릭터 데이터 복사
         List<int> heroData = new List<int>(Manager.Game.Heros);
-        while (heroData.Count < 8)
-            heroData.Add(-1); // 빈 슬롯을 -1로 표시
 
         data.rankings.Add(new RankingEntry
         {
@@ -65,3 +65,4 @@ public class RankingManager
             File.Delete(FilePath);
     }
 }
+

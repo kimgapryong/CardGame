@@ -32,8 +32,19 @@ public class LevelData
     public string Sprite;
     public string HeroInduce;
     public string HeroSprite;
+    
     public HeroLevelData HeroLevelData;
     public SkillMapping SkillMapData;
+
+    [SerializeField] private string AtkArange;  
+    public Define.AtkArange Atk_Arange => ParseEnumOrDefault(AtkArange, Define.AtkArange.Single);
+
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, true, out var result))
+            return result;
+        return defaultValue;
+    }
 
 }
 [Serializable]
