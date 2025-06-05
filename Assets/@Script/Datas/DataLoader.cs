@@ -158,5 +158,28 @@ public class MonsterLoader : ILoader<int, MonsterData>
     public bool Validate()
     {
         return true;
+    }SS
+}
+[Serializable]
+public class ProductData
+{
+    public int ProductID;
+    public string ProductName;
+    public ProductType Type;
+    public string ProductSpriteKey;
+    public int Price;
+    public int CardID;
+    public int GainGoods;
+}
+public class ProductLoader : ILoader<int, ProductData>
+{
+    public Dictionary<int, ProductData> MakeDic()
+    {
+        
+    }
+
+    public bool Validate()
+    {
+        
     }
 }

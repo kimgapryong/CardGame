@@ -62,6 +62,11 @@ public class Define
         Money,
         Atkker,
     }
+    public enum ProductType
+    {
+        Card,
+        Goods,
+    }
     public const int HERO_COUNT = 10;
     public const int GAME_LIST_COUNT = 8;
 }

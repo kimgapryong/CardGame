@@ -70,6 +70,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 596952e7080b1e74c86efa437d8ea1b3
+    m_Address: ProductData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a57a28135d543348b703b5ccf977dd3
     m_Address: Skill_4
     m_ReadOnly: 0

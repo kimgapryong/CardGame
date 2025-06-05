@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "Type": "Card",
+      "ProductID": 0,
+      "ProductSpriteKey": "",
+      "ProductName": "",
+      "Price": 0,
+      "CardID": 0
+    },
+
+    {
+      "Type": "Goods",
+      "ProductID": 1,
+      "ProductSpriteKey": "",
+      "ProductName": "",
+      "Price": 0,
+      "GainGoods": 100
+    }
+  ]
+}
