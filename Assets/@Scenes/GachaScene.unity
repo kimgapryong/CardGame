@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 53468905}
   - component: {fileID: 53468907}
   - component: {fileID: 53468906}
+  - component: {fileID: 53468908}
   m_Layer: 5
   m_Name: Chest
   m_TagString: Untagged
@@ -195,6 +196,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53468904}
   m_CullTransparentMesh: 1
+--- !u!95 &53468908
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53468904}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fa28f89ec8f6054f898bea3a5fdb03f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &216774803
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +307,7 @@ GameObject:
   - component: {fileID: 339097753}
   - component: {fileID: 339097752}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GachaCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
