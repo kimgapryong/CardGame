@@ -1,4 +1,4 @@
-
+﻿
 
 using Newtonsoft.Json;
 
@@ -28,7 +28,7 @@ public class Define
         Unknown,
         MainScene,
         GameScene,
-        
+        GachaScene,
     }
     public enum TileType
     {
