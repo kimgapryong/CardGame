@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
@@ -22,7 +22,11 @@ public class Manager : MonoBehaviour
     public static ObjectManager Obj { get { return Instance._obj; } }
 
     private RankingManager _rank = new RankingManager();
-    public static RankingManager Rank { get { return Instance._rank; } }    
+    public static RankingManager Rank { get { return Instance._rank; } }
+
+    private GachaManager _gacha = new GachaManager();
+    public static GachaManager Gacha { get { return Instance._gacha; } }
+
     public static void Init()
     {
         if(_instance != null)
