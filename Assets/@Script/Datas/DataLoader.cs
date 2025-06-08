@@ -158,7 +158,7 @@ public class MonsterLoader : ILoader<int, MonsterData>
     public bool Validate()
     {
         return true;
-    }SS
+    }
 }
 [Serializable]
 public class ProductData
@@ -173,13 +173,20 @@ public class ProductData
 }
 public class ProductLoader : ILoader<int, ProductData>
 {
+    List<ProductData> products = new List<ProductData>();
     public Dictionary<int, ProductData> MakeDic()
     {
-        
+        Dictionary<int, ProductData> dict = new Dictionary<int, ProductData>();
+
+        for (int i = 0; i  < products.Count; i++)
+        {
+            dict.Add(products[i].ProductID, products[i]);
+        }
+        return dict;
     }
 
     public bool Validate()
     {
-        
+        return true;
     }
 }

@@ -13,9 +13,25 @@
       "Type": "Goods",
       "ProductID": 1,
       "ProductSpriteKey": "",
-      "ProductName": "",
-      "Price": 0,
-      "GainGoods": 100
+      "ProductName": "골드 주머니",
+      "Price": 1000,
+      "GainGoods": 1000
+    },
+    {
+      "Type": "Goods",
+      "ProductID": 2,
+      "ProductSpriteKey": "",
+      "ProductName": "골드 상자",
+      "Price": 2500,
+      "GainGoods": 5000
+    },
+    {
+      "Type": "Goods",
+      "ProductID": 3,
+      "ProductSpriteKey": "",
+      "ProductName": "골드 무더기",
+      "Price": 5000,
+      "GainGoods": 10000
     }
   ]
 }
