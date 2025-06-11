@@ -6,7 +6,9 @@
       "ProductSpriteKey": "",
       "ProductName": "",
       "Price": 0,
-      "CardID": 0
+      "CardID": 0,
+      "Qnt": 1,
+      "Pay" : "Gold"
     },
 
     {
@@ -15,7 +17,8 @@
       "ProductSpriteKey": "",
       "ProductName": "골드 주머니",
       "Price": 1000,
-      "GainGoods": 1000
+      "GainGoods": 1000,
+      "Pay" : "Gem"
     },
     {
       "Type": "Goods",
@@ -23,7 +26,8 @@
       "ProductSpriteKey": "",
       "ProductName": "골드 상자",
       "Price": 2500,
-      "GainGoods": 5000
+      "GainGoods": 5000,
+      "Pay" : "Gem"
     },
     {
       "Type": "Goods",
@@ -31,7 +35,8 @@
       "ProductSpriteKey": "",
       "ProductName": "골드 무더기",
       "Price": 5000,
-      "GainGoods": 10000
+      "GainGoods": 10000,
+      "Pay" : "Gem"
     }
   ]
 }
