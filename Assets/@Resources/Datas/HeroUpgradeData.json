@@ -1,0 +1,154 @@
+{
+  "upgradeData": [
+    {
+      "HeroID": 1,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 97
+        },
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 145.5
+        }
+      ]
+    },
+    {
+      "HeroID": 2,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 200
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 250
+        }
+      ]
+    },
+    {
+      "HeroID": 3,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 750
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 1000
+        }
+      ]
+    },
+    {
+      "HeroID": 4,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 102
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 153
+        }
+      ]
+    },
+    {
+      "HeroID": 5,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 440
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 660
+        }
+      ]
+    },
+    {
+      "HeroID": 6,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 30,
+          "Attack" : 93
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 134.5
+        }
+      ]
+    },
+    {
+      "HeroID": 7,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 1100
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 1650
+        }
+      ]
+    },
+    {
+      "HeroID": 8,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 102
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 153
+        }
+      ]
+    },
+    {
+      "HeroID": 9,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 47
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 70.5
+        }
+      ]
+    },
+    {
+      "HeroID": 10,
+      "level":[
+        {
+          "RequiredCardNumber": 20,
+          "Price": 20,
+          "Attack" : 80.4
+        },
+        {
+          "RequiredCardNumber": 30,
+          "Price": 30,
+          "Attack" : 120.6
+        }
+      ]
+    }
+  ]
+}
