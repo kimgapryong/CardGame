@@ -101,13 +101,13 @@ public class HeroCardPop : UI_Popup
 
                     SwipeUI.isWipe = false;
                     Manager.UI.ClosePopupUI(this);
-                    Manager.Game.SaveData.heros.Add(_heroData.HeroID);
+                    Manager.Game.Heros.Add(_heroData.HeroID);
                 }
                 else
                 {
                     SwipeUI.isWipe = false;
                     Manager.UI.ClosePopupUI(this);
-                    Manager.Game.SaveData.heros.Remove(_heroData.HeroID);
+                    Manager.Game.Heros.Remove(_heroData.HeroID);
                 }
                     
 

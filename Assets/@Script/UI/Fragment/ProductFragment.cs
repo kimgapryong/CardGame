@@ -33,7 +33,7 @@ public class ProductFragment : UI_Base
 
         GetButton((int)Button.ProductFragment).onClick.AddListener(() =>
         {
-            switch (ProductData.Type)
+            switch (ProductData.ProductType)
             {
                 case Define.ProductType.Card:
                     break;
@@ -42,5 +42,15 @@ public class ProductFragment : UI_Base
             }
         });
 
+    }
+    public void Buy()
+    {
+        switch (ProductData.PayType)
+        {
+            case Define.PayType.Gold:
+                break;
+            case Define.PayType.Gem:
+                break;
+        }
     }
 }

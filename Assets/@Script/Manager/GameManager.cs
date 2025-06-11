@@ -8,7 +8,10 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-    public List<int> heros;
+    public List<int> Heros;
+    public int Gem;
+    public int Gold;
+    public List<CardData> GotCard;
 }
 public class GameManager
 {
@@ -18,7 +21,7 @@ public class GameManager
     private GameData _gameData = new GameData();
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
-    public List<int> Heros { get { return _gameData.heros; } set { _gameData.heros = value; } }
+    public List<int> Heros { get { return _gameData.Heros; } set { _gameData.Heros = value; } }
 
     public void Init()
     {
@@ -57,4 +60,14 @@ public class GameManager
         IsLoaded = true;
         return true;
     }
+}
+[Serializable]
+public struct CardData
+{
+    //카드 아이디
+    public int cardId;
+    //카드 레벨
+    public int level;
+    //카드 개수
+    public int qnt;
 }
