@@ -1,8 +1,8 @@
 {
-  "upgradeData": [
+  "upgradeDatas": [
     {
       "HeroID": 1,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -17,7 +17,7 @@
     },
     {
       "HeroID": 2,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -32,7 +32,7 @@
     },
     {
       "HeroID": 3,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -47,7 +47,7 @@
     },
     {
       "HeroID": 4,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -62,7 +62,7 @@
     },
     {
       "HeroID": 5,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -77,7 +77,7 @@
     },
     {
       "HeroID": 6,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 30,
@@ -92,7 +92,7 @@
     },
     {
       "HeroID": 7,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -107,7 +107,7 @@
     },
     {
       "HeroID": 8,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -122,7 +122,7 @@
     },
     {
       "HeroID": 9,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,
@@ -137,7 +137,7 @@
     },
     {
       "HeroID": 10,
-      "level":[
+      "Levels":[
         {
           "RequiredCardNumber": 20,
           "Price": 20,

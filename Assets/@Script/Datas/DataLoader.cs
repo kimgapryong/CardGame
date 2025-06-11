@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using static Define;
 
@@ -35,6 +36,7 @@ public class LevelData
     
     public HeroLevelData HeroLevelData;
     public SkillMapping SkillMapData;
+    public List<float> BaseAttack;
 
     [SerializeField] private string AtkArange;  
     public Define.AtkArange Atk_Arange => ParseEnumOrDefault(AtkArange, Define.AtkArange.Single);
@@ -165,12 +167,24 @@ public class ProductData
 {
     public int ProductID;
     public string ProductName;
-    public ProductType Type;
+    public string Type;
     public string ProductSpriteKey;
     public int Price;
     public int CardID;
     public int GainGoods;
+    public int Qnt;
+    public string Pay;
+    public Define.ProductType ProductType => ParseEnumOrDefault<Define.ProductType>(Type, Define.ProductType.Card);
+    public Define.PayType PayType => ParseEnumOrDefault<Define.PayType>(Pay, Define.PayType.Gold);
+
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, true, out var result))
+            return result;
+        return defaultValue;
+    }
 }
+[Serializable]
 public class ProductLoader : ILoader<int, ProductData>
 {
     List<ProductData> products = new List<ProductData>();
@@ -182,6 +196,38 @@ public class ProductLoader : ILoader<int, ProductData>
         {
             dict.Add(products[i].ProductID, products[i]);
         }
+        return dict;
+    }
+
+    public bool Validate()
+    {
+        return true;
+    }
+}
+[Serializable]
+public class UpgradeData
+{
+    public int HeroID;
+    public List<UpgradeValue> Levels;
+}
+
+[Serializable]
+public class UpgradeValue
+{
+    public int RequiredCardNumber;
+    public int Price;
+    public int Attack;
+}
+
+[Serializable]
+public class UpgradeDataLoader : ILoader<int, UpgradeData>
+{
+    List<UpgradeData> upgrades = new List<UpgradeData>();
+    public Dictionary<int, UpgradeData> MakeDic()
+    {
+        Dictionary<int, UpgradeData> dict = new Dictionary<int, UpgradeData>();
+        foreach(UpgradeData upgrade in upgrades)
+            dict.Add(upgrade.HeroID, upgrade);
         return dict;
     }
 

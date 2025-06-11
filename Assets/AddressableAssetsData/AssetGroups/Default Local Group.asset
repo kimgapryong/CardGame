@@ -95,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8454a13f5e6c6814c943198d8f110465
+    m_Address: HeroUpgradeData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 869d46397a7512e41b877e9ce44e7607
     m_Address: RankFragment
     m_ReadOnly: 0
