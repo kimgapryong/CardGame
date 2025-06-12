@@ -22,6 +22,7 @@ public class GameManager
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
     public List<int> Heros { get { return _gameData.Heros; } set { _gameData.Heros = value; } }
+    public Dictionary<int, CardData> CardDataDict = new Dictionary<int, CardData>();
 
     public void Init()
     {
@@ -56,7 +57,10 @@ public class GameManager
         GameData data = JsonUtility.FromJson<GameData>(fileStr);
         if (data != null)
             Manager.Game.SaveData = data;
-
+        foreach (CardData cardData in data.GotCard)
+        {
+            CardDataDict.Add(cardData.cardId, cardData);
+        }
         IsLoaded = true;
         return true;
     }

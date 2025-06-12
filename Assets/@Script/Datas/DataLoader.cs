@@ -36,7 +36,7 @@ public class LevelData
     
     public HeroLevelData HeroLevelData;
     public SkillMapping SkillMapData;
-    public List<float> BaseAttack;
+    public float BaseAttack;
 
     [SerializeField] private string AtkArange;  
     public Define.AtkArange Atk_Arange => ParseEnumOrDefault(AtkArange, Define.AtkArange.Single);
@@ -71,8 +71,11 @@ public class HeroLoader : ILoader<int, HeroData>
     public Dictionary<int, HeroData> MakeDic()
     {
         Dictionary<int, HeroData> heroDic = new Dictionary<int, HeroData>();
+
         foreach(var hero in heroes)
+        {
             heroDic.Add(hero.HeroID, hero);
+        }
             
 
         return heroDic;
@@ -187,7 +190,7 @@ public class ProductData
 [Serializable]
 public class ProductLoader : ILoader<int, ProductData>
 {
-    List<ProductData> products = new List<ProductData>();
+    public List<ProductData> products = new List<ProductData>();
     public Dictionary<int, ProductData> MakeDic()
     {
         Dictionary<int, ProductData> dict = new Dictionary<int, ProductData>();
@@ -208,7 +211,7 @@ public class ProductLoader : ILoader<int, ProductData>
 public class UpgradeData
 {
     public int HeroID;
-    public List<UpgradeValue> Levels;
+    public List<UpgradeValue> Levels = new List<UpgradeValue>();
 }
 
 [Serializable]
@@ -216,18 +219,21 @@ public class UpgradeValue
 {
     public int RequiredCardNumber;
     public int Price;
-    public int Attack;
+    public float Attack;
 }
 
 [Serializable]
 public class UpgradeDataLoader : ILoader<int, UpgradeData>
 {
-    List<UpgradeData> upgrades = new List<UpgradeData>();
+    public List<UpgradeData> upgradeDatas = new List<UpgradeData>();
     public Dictionary<int, UpgradeData> MakeDic()
     {
         Dictionary<int, UpgradeData> dict = new Dictionary<int, UpgradeData>();
-        foreach(UpgradeData upgrade in upgrades)
+
+        foreach(UpgradeData upgrade in upgradeDatas)
+        {
             dict.Add(upgrade.HeroID, upgrade);
+        }
         return dict;
     }
 

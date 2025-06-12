@@ -26,6 +26,7 @@ public class HeroCardPop_Fragment : UI_Base
     HeroData _heroData;
     LevelData _level;
     HeroLevelData _levelData;
+    UpgradeData _upgardeData;
 
     Text heroT_Txt;
     Text rating_Txt;
@@ -90,19 +91,22 @@ public class HeroCardPop_Fragment : UI_Base
         {
             GetImage((int)Images.HeroImage).sprite = sprite;
         });
-        GetText((int)Texts.Atk_Txt).text = _levelData.Attack.ToString();
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        GetText((int)Texts.Atk_Txt).text = (_levelData.Attack + _upgardeData.Levels[cardLevel].Attack).ToString();
         GetText((int)Texts.Arg_Txt).text = _levelData.Arange.ToString();
-        GetText((int)Texts.Aks_Txt).text = _levelData.AtkSpeed.ToString();  
+        GetText((int)Texts.Aks_Txt).text = _levelData.AtkSpeed.ToString();
         GetText((int)Texts.Money_Txt).text = _levelData.Upgrade.ToString();
         GetText((int)Texts.HeroIntoduce_Txt).text = _level.HeroInduce;
 
 
     }
+
     public void SetInfo(HeroData heroData, int myNum)
     {
         _heroData = heroData;
         _level = heroData.LevelData[myNum];
         _levelData = _level.HeroLevelData;
+        _upgardeData  = Manager.Data.UpgradeDatas[heroData.HeroID];
     }
 
 }

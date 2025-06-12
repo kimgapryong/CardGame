@@ -168,7 +168,10 @@ public class HeroController : BaseController
         if (target == null) return;
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
-        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.UpgradeDatas[_heroData.HeroID].Levels[cardLevel].Attack;
+
+        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
     }
 
     private void AoeAttack()
