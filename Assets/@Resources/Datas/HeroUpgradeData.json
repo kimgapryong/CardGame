@@ -1,204 +1,44 @@
 {
-  "upgradeDatas": [
+  "HeroUpgradeDatas": [
     {
-      "HeroID": 1,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 43.5
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 97
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 145.5
-        }
-      ]
+      "HeroId": 1,
+      "AttackIncreaseAmount": 48.5
     },
     {
-      "HeroID": 2,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 100
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 200
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 250
-        }
-      ]
+      "HeroId": 2,
+      "AttackIncreaseAmount": 100
     },
     {
-      "HeroID": 3,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 500
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 750
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 1000
-        }
-      ]
+      "HeroId": 3,
+      "AttackIncreaseAmount": 250
     },
     {
-      "HeroID": 4,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 51
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 102
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 153
-        }
-      ]
+      "HeroId": 4,
+      "AttackIncreaseAmount": 51
     },
     {
-      "HeroID": 5,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 220
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 440
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 660
-        }
-      ]
+      "HeroId": 5,
+      "AttackIncreaseAmount": 800
     },
     {
-      "HeroID": 6,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 46.5
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 30,
-          "Attack" : 93
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 139.5
-        }
-      ]
+      "HeroId": 6,
+      "AttackIncreaseAmount": 41.5
     },
     {
-      "HeroID": 7,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 550
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 1100
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 1650
-        }
-      ]
+      "HeroId": 7,
+      "AttackIncreaseAmount": 550
     },
     {
-      "HeroID": 8,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 51
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 102
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 153
-        }
-      ]
+      "HeroId": 8,
+      "AttackIncreaseAmount": 51
     },
     {
-      "HeroID": 9,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 23.5
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 47
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 70.5
-        }
-      ]
+      "HeroId": 9,
+      "AttackIncreaseAmount": 450
     },
     {
-      "HeroID": 10,
-      "Levels":[
-        {
-          "RequiredCardNumber": 10,
-          "Price": 10,
-          "Attack" : 40.2
-        },
-        {
-          "RequiredCardNumber": 20,
-          "Price": 20,
-          "Attack" : 80.4
-        },
-        {
-          "RequiredCardNumber": 30,
-          "Price": 30,
-          "Attack" : 120.6
-        }
-      ]
+      "HeroId": 10,
+      "AttackIncreaseAmount": 40
     }
   ]
 }

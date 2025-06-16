@@ -1,0 +1,72 @@
+{
+  "upgradeDatas": [
+    {
+      "Grade": "Common",
+      "Levels":[
+        {
+          "RequiredCardNumber": 10,
+          "Price": 10
+        },
+        {
+          "RequiredCardNumber": 50,
+          "Price": 50
+        },
+        {
+          "RequiredCardNumber": 100,
+          "Price": 100
+        }
+      ]
+    },
+    {
+      "Grade": "Normal",
+      "Levels":[
+        {
+          "RequiredCardNumber": 10,
+          "Price": 10
+        },
+        {
+          "RequiredCardNumber": 100,
+          "Price": 100
+        },
+        {
+          "RequiredCardNumber": 250,
+          "Price": 250
+        }
+      ]
+    },
+    {
+      "Grade": "Epic",
+      "Levels":[
+        {
+          "RequiredCardNumber": 100,
+          "Price": 10
+        },
+        {
+          "RequiredCardNumber": 250,
+          "Price": 250
+        },
+        {
+          "RequiredCardNumber": 400,
+          "Price": 400
+        }
+      ]
+    },
+    {
+      "Grade": "Legend",
+      "Levels":[
+        {
+          "RequiredCardNumber": 250,
+          "Price": 250
+        },
+        {
+          "RequiredCardNumber": 500,
+          "Price": 500
+        },
+        {
+          "RequiredCardNumber": 750,
+          "Price": 750
+        }
+      ]
+    }
+  ]
+}

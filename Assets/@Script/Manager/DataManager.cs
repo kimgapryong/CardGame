@@ -15,7 +15,8 @@ public class DataManager
     public Dictionary<int, AnimationData> AnimDatas { get; private set; }
     public Dictionary<int, MonsterData> MonDatas { get; private set; }
     public Dictionary<int, ProductData> ProductDatas { get; private set; }
-    public Dictionary<int, UpgradeData> UpgradeDatas { get; private set; }
+    public Dictionary<Define.HeroRating, UpgradeData> UpgradeDatas { get; private set; }
+    public Dictionary<int, HeroUpgradeData> HeroUpgradeDatas { get; private set; }
     public void Init()
     {
         LoadJson<HeroLoader, int, HeroData>("HeroData.json", (loader) => { HeroDatas = loader.MakeDic(); });
@@ -23,7 +24,8 @@ public class DataManager
         LoadJson<AnimationLoader, int, AnimationData>("AnimData.json", (loader) => { AnimDatas = loader.MakeDic(); });
         LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); });
         LoadJson<ProductLoader, int, ProductData>("ProductData.json", (loader) => { ProductDatas = loader.MakeDic(); });
-        LoadJson<UpgradeDataLoader, int, UpgradeData>("HeroUpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); });
+        LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); });
+        LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => { HeroUpgradeDatas = loader.MakeDic(); });
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {

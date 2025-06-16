@@ -210,30 +210,61 @@ public class ProductLoader : ILoader<int, ProductData>
 [Serializable]
 public class UpgradeData
 {
-    public int HeroID;
-    public List<UpgradeValue> Levels = new List<UpgradeValue>();
+    public string Grade;
+    public List<UpgradeCondition> Levels = new List<UpgradeCondition>();
+
+    public HeroRating HeroGrade { get { return ParseEnumOrDefault<HeroRating>(Grade, HeroRating.Common); } }
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
+            return result;
+        return defaultValue;
+    }
 }
 
 [Serializable]
-public class UpgradeValue
+public class UpgradeCondition
 {
     public int RequiredCardNumber;
     public int Price;
-    public float Attack;
 }
-
 [Serializable]
-public class UpgradeDataLoader : ILoader<int, UpgradeData>
+public class UpgradeDataLoader : ILoader<HeroRating, UpgradeData>
 {
-    public List<UpgradeData> upgradeDatas = new List<UpgradeData>();
-    public Dictionary<int, UpgradeData> MakeDic()
+    public List<UpgradeData> HeroupgradeDatas = new List<UpgradeData>();
+    public Dictionary<HeroRating, UpgradeData> MakeDic()
     {
-        Dictionary<int, UpgradeData> dict = new Dictionary<int, UpgradeData>();
+        Dictionary<HeroRating, UpgradeData> dict = new Dictionary<HeroRating, UpgradeData>();
 
-        foreach(UpgradeData upgrade in upgradeDatas)
+        foreach(UpgradeData upgrade in HeroupgradeDatas)
         {
-            dict.Add(upgrade.HeroID, upgrade);
+            dict.Add(upgrade.HeroGrade, upgrade);
         }
+        return dict;
+    }
+
+    public bool Validate()
+    {
+        return true;
+    }
+}
+[Serializable]
+public class HeroUpgradeData
+{
+    public int HeroId;
+    public float AttackIncreaseAmount;
+}
+[Serializable]
+public class HeroUpgradeDataLoader : ILoader<int, HeroUpgradeData>
+{
+    public List<HeroUpgradeData> HeroUpgradeDatas = new List<HeroUpgradeData>();
+    public Dictionary<int, HeroUpgradeData> MakeDic()
+    {
+        Dictionary<int, HeroUpgradeData> dict = new Dictionary<int, HeroUpgradeData>();
+
+        foreach(HeroUpgradeData upgrade in HeroUpgradeDatas)
+            dict.Add(upgrade.HeroId, upgrade);
+
         return dict;
     }
 

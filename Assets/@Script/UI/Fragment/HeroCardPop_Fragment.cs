@@ -106,7 +106,7 @@ public class HeroCardPop_Fragment : UI_Base
         _heroData = heroData;
         _level = heroData.LevelData[myNum];
         _levelData = _level.HeroLevelData;
-        _upgardeData  = Manager.Data.UpgradeDatas[heroData.HeroID];
+        _upgardeData  = Manager.Data.UpgradeDatas[heroData.Hero_Rating];
     }
 
 }
