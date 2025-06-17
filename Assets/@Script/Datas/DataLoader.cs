@@ -12,6 +12,7 @@ public class HeroData
     [SerializeField] private string ArangeType;
     [SerializeField] private string HeroRating;
     [SerializeField] private string HeroAbility;
+    public float BaseAttack;
     public HeroType Arange_Type => ParseEnumOrDefault(ArangeType, Define.HeroType.Close);
     public HeroRating Hero_Rating => ParseEnumOrDefault(HeroRating, Define.HeroRating.Common);
     public HeroAbility Hero_Ability => ParseEnumOrDefault(HeroAbility, Define.HeroAbility.Atkker);
@@ -231,12 +232,12 @@ public class UpgradeCondition
 [Serializable]
 public class UpgradeDataLoader : ILoader<HeroRating, UpgradeData>
 {
-    public List<UpgradeData> HeroupgradeDatas = new List<UpgradeData>();
+    public List<UpgradeData> upgradeDatas = new List<UpgradeData>();
     public Dictionary<HeroRating, UpgradeData> MakeDic()
     {
         Dictionary<HeroRating, UpgradeData> dict = new Dictionary<HeroRating, UpgradeData>();
 
-        foreach(UpgradeData upgrade in HeroupgradeDatas)
+        foreach(UpgradeData upgrade in upgradeDatas)
         {
             dict.Add(upgrade.HeroGrade, upgrade);
         }

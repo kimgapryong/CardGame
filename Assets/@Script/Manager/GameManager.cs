@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 
@@ -35,7 +36,8 @@ public class GameManager
 
         Heros.Add(4);
         Heros.Add(6);
-
+        foreach( CardData cardData in SaveData.GotCard )
+            CardDataDict.Add(cardData.cardId, cardData);
 
         IsLoaded = true;
 
@@ -44,6 +46,7 @@ public class GameManager
 
     public void SaveGame()
     {
+        SaveData.GotCard = CardDataDict.Values.ToList();
         string jsonStr = JsonUtility.ToJson(Manager.Game.SaveData);
         File.WriteAllText(_path, jsonStr);
     }

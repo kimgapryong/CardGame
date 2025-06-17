@@ -43,7 +43,8 @@ public class HeroController : BaseController
         {
             coll.enabled = false;
         }
-
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        LvAttack = Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel;
         return true;
     }
 
@@ -171,9 +172,9 @@ public class HeroController : BaseController
         if (target == null) return;
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
-        
 
-        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel - 1;
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + LvAttack;
 
         go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
     }

@@ -9,6 +9,7 @@ public class HeroCardPop : UI_Popup
     bool checkBtn = false;
     SwipeUI swip_UI;
     List<Transform> upgrade_Trans = new List<Transform>();
+    UpgradeSystem UpgradeSystem = new UpgradeSystem();
     enum Objects
     {
         Status_Content,
@@ -18,20 +19,30 @@ public class HeroCardPop : UI_Popup
     {
         Equir_Btn,
         Close_Btn,
+        Upgrade_Btn
     }
     enum Texts
     {
         Equir_Txt,
+        Upgrade_Txt
     }
 
     AllContentCanvas _all;
     HeroData _heroData;
     GameObject status_Content;
     GameObject upgrade_Content;
+
+    int requiredCardNumber;
+    int currentGainCardNumber;
+    List<HeroCardPop_Fragment> heroCardPop_Fragments;
     public override bool Init()
     {
         if (base.Init() == false)
             return false;
+
+        //업그레이드에 필요한 카드 개수를 가져옴
+        requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
+        currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
 
         BindObject(typeof(Objects));
         BindButton(typeof(Buttons));
@@ -50,6 +61,7 @@ public class HeroCardPop : UI_Popup
             Manager.UI.MakeSubItem<HeroCardPop_Fragment>(status_Content.transform, callback: (fragment) =>
             {
                 fragment.SetInfo(_heroData, index);
+                heroCardPop_Fragments.Add(fragment);
                 LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)status_Content.transform);
             });
 
@@ -116,7 +128,21 @@ public class HeroCardPop : UI_Popup
                 // UI 갱신
                 _all?.RefreshSetCard();
             });
+        GetText((int)Texts.Upgrade_Txt).text = $"업그레이드({currentGainCardNumber}/{requiredCardNumber})";
 
+        GetButton((int)Buttons.Upgrade_Btn).gameObject.BindEvent(() =>
+        {
+            if (UpgradeSystem.UpGrade(_heroData.HeroID))
+            {
+                foreach(HeroCardPop_Fragment fragment in heroCardPop_Fragments)
+                {
+                    fragment.Refresh();
+                }
+                requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
+                currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
+                GetText((int)Texts.Upgrade_Txt).text = $"업그레이드({currentGainCardNumber}/{requiredCardNumber})";
+            }
+        });
        
 
         return true;
@@ -125,5 +151,7 @@ public class HeroCardPop : UI_Popup
     {
         _all = all;
         _heroData = heroData;
+
+        heroCardPop_Fragments = new List<HeroCardPop_Fragment>();
     }
 }
