@@ -53,11 +53,11 @@ public class Upgrade_Pop : UI_Popup
         // 이름은 항상 표시
         GetText((int)Texts.Name_Txt).text = curLevel.HeroName;
         GetText((int)Texts.Sell_Txt).text = $"판매: {(heroLevel.Upgrade * 0.3f):N0}";
-
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         // 최대 레벨일 경우
         if (myHero.curLevel + 1 > _heroData.LevelData.Count - 1)
         {
-            GetText((int)Texts.Atk_Txt).text = $"{heroLevel.Attack:N0}";
+            GetText((int)Texts.Atk_Txt).text = $"{heroLevel.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack:N0}";
             GetText((int)Texts.Arg_Txt).text = $"{heroLevel.Arange:N0}";
             GetText((int)Texts.Ats_Txt).text = $"{heroLevel.AtkSpeed:N1}";
             GetText((int)Texts.Upgrade_Txt).text = "최대";
@@ -67,7 +67,7 @@ public class Upgrade_Pop : UI_Popup
         LevelData nextLevel = _heroData.LevelData[myHero.curLevel + 1];
         HeroLevelData nextHeroLevel = nextLevel.HeroLevelData;
 
-        GetText((int)Texts.Atk_Txt).text = $"{heroLevel.Attack:N0} → {nextHeroLevel.Attack:N0}";
+        GetText((int)Texts.Atk_Txt).text = $"{heroLevel.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack:N0} → {nextHeroLevel.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack:N0}";
         GetText((int)Texts.Arg_Txt).text = $"{heroLevel.Arange:N0} → {nextHeroLevel.Arange:N0}";
         GetText((int)Texts.Ats_Txt).text = $"{heroLevel.AtkSpeed:N1} → {nextHeroLevel.AtkSpeed:N1}";
         GetText((int)Texts.Upgrade_Txt).text = $"업그레이드: {nextHeroLevel.Upgrade:N0}";

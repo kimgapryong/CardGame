@@ -18,9 +18,6 @@ public class HeroController : BaseController
     private Define.State _state;
     private MonsterController curTarget;
 
-    //카드 업그레이드로 얻는 공격력.
-    private float LvAttack;
-
     public Define.State State
     {
         get => _state;
@@ -43,8 +40,6 @@ public class HeroController : BaseController
         {
             coll.enabled = false;
         }
-        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
-        LvAttack = Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel;
         return true;
     }
 
@@ -174,7 +169,7 @@ public class HeroController : BaseController
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
 
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
-        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + LvAttack;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
 
         go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
     }

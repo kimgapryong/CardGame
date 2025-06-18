@@ -37,7 +37,6 @@ public class LevelData
     
     public HeroLevelData HeroLevelData;
     public SkillMapping SkillMapData;
-    public float BaseAttack;
 
     [SerializeField] private string AtkArange;  
     public Define.AtkArange Atk_Arange => ParseEnumOrDefault(AtkArange, Define.AtkArange.Single);
