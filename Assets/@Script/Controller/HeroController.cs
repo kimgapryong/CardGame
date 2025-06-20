@@ -170,7 +170,7 @@ public class HeroController : BaseController
 
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
-
+        //if (_heroData.LevelData[curLevel].SkillMapData)
         go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
     }
 

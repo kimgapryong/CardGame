@@ -2,63 +2,83 @@
   "skills": [
     {
       "SkillID": 1,
-      "SkillPre": "Skill_1"
+      "SkillPre": "Skill_1",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 2,
-      "SkillPre": "Skill_2"
+      "SkillPre": "Skill_2",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 3,
-      "SkillPre": "Skill_3"
+      "SkillPre": "Skill_3",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 4,
-      "SkillPre": "Skill_4"
+      "SkillPre": "Skill_4",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 5,
-      "SkillPre": "Skill_5"
+      "SkillPre": "Skill_5",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 6,
-      "SkillPre": "Skill_6"
+      "SkillPre": "Skill_6",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 7,
-      "SkillPre": "Skill_7"
+      "SkillPre": "Skill_7",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 8,
-      "SkillPre": "Skill_8"
+      "SkillPre": "Skill_8",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 9,
-      "SkillPre": "Skill_9"
+      "SkillPre": "Skill_9",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 10,
-      "SkillPre": "Skill_10"
+      "SkillPre": "Skill_10",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 11,
-      "SkillPre": "Skill_11"
+      "SkillPre": "Skill_11",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 12,
-      "SkillPre": "Skill_12"
+      "SkillPre": "Skill_12",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 13,
-      "SkillPre": "Skill_13"
+      "SkillPre": "Skill_13",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 14,
-      "SkillPre": "Skill_14"
+      "SkillPre": "Skill_14",
+      "SkillType" : "Projectile"
     },
     {
       "SkillID": 15,
-      "SkillPre": "Skill_15"
+      "SkillPre": "Skill_15",
+      "SkillType" : "Projectile"
+    },
+    {
+      "SkillID": 16,
+      "SkillPre": "Skill_16",
+      "SkillType" : "Laser"
     }
   ]
 }

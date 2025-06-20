@@ -23,7 +23,20 @@ public class Skill_12 : Skill
         }
         mesh.SetVertices(vertices);
 
-        //int[] triangles = new int[];
-    }
+        int[] triangles = new int[vertices.Count];
 
+        for (int i = 0; i < triangles.Length; i++)
+            triangles[i] = i;
+
+        mesh.triangles = triangles;
+
+        gameObject.AddComponent<MeshCollider>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        MonsterController mController= gameObject.GetComponent<MonsterController>();
+        if (mController == null)
+            return;
+        mController.OnDamage(Owner, Damage);
+    }
 }
