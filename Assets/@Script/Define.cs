@@ -72,6 +72,11 @@ public class Define
         Gold,
         Gem
     }
+    public enum SkillType
+    {
+        Single,
+        Plural
+    }
     public const int HERO_COUNT = 10;
     public const int GAME_LIST_COUNT = 8;
 }

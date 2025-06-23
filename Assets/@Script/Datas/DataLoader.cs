@@ -92,6 +92,15 @@ public class Skills
 {
     public int SkillID;
     public string SkillPre;
+    public string SkillType;
+
+    public SkillType SkillT { get { return ParseEnumOrDefault<SkillType>(SkillType, Define.SkillType.Single); } }
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
+            return result;
+        return defaultValue;
+    }
 }
 
 [Serializable]

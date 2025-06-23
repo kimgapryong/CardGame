@@ -170,8 +170,16 @@ public class HeroController : BaseController
 
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
-        //if (_heroData.LevelData[curLevel].SkillMapData)
-        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
+        Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
+        if (skills.SkillT == Define.SkillType.Plural)
+        {
+            go.GetComponent<Skill>().UseSkill();
+        }
+        else if (skills.SkillT == Define.SkillType.Single)
+        {
+            go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
+        }
+        
     }
 
     private void AoeAttack()
