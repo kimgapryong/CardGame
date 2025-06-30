@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class HeroController : BaseController
@@ -60,7 +60,7 @@ public class HeroController : BaseController
                 break;
 
             case Define.State.Attack:
-                break; // ÄÚ·çÆ¾À¸·Î Ã³¸®µÇ¹Ç·Î ¿©±â¼± ´ë±â
+                break; // ì½”ë£¨í‹´ìœ¼ë¡œ ì²˜ë¦¬ë˜ë¯€ë¡œ ì—¬ê¸°ì„  ëŒ€ê¸°
         }
     }
     public void UpgradeLevel()
@@ -153,7 +153,7 @@ public class HeroController : BaseController
 
         while (true)
         {
-            // µ· »ı¼º
+            // ëˆ ìƒì„±
             Manager.Resource.Instantiate("MoneyParticle", transform);
             Manager.Time.Money += _heroData.LevelData[curLevel].HeroLevelData.Attack;
 
@@ -173,7 +173,7 @@ public class HeroController : BaseController
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         if (skills.SkillT == Define.SkillType.Plural)
         {
-            go.GetComponent<Skill>().UseSkill(target.transform, attack);
+            //go.GetComponent<Skill>().UseSkill(target.transform, attack);
         }
         else if (skills.SkillT == Define.SkillType.Single)
         {

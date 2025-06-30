@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,15 +10,15 @@ public class Skill_12 : Skill
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
 
-    //Å×½ºÆ® ¿ëµµ °´Ã¼ ³ªÁß¿¡ ÁÖ¼® Ã³¸®
+    //í…ŒìŠ¤íŠ¸ ìš©ë„ ê°ì²´ ë‚˜ì¤‘ì— ì£¼ì„ ì²˜ë¦¬
     public Transform testTarget;
     private void Start()
     {
-        //Å×½ºÆ® ¿ëµµ
+        //í…ŒìŠ¤íŠ¸ ìš©ë„
         //UseSkill(testTarget);
     }
-    //½ºÅ³ ¹ß»çÇÏ´Â °Å
-    //Æ¯Á¤ ¹æÇâ¿¡¼­ °¢µµ ¿ÀÇÁ¼Â 15µµ Á¤µµ Áà¼­ ¿øÇüÀ¸·Î µÇ°Ô ÇÔ.
+    //ìŠ¤í‚¬ ë°œì‚¬í•˜ëŠ” ê±°
+    //íŠ¹ì • ë°©í–¥ì—ì„œ ê°ë„ ì˜¤í”„ì…‹ 15ë„ ì •ë„ ì¤˜ì„œ ì›í˜•ìœ¼ë¡œ ë˜ê²Œ í•¨.
     public override void UseSkill(Transform targetTransform, HeroLevelData heroLevelData)
     {
         this.heroLevelData = heroLevelData;
@@ -72,6 +72,6 @@ public class Skill_12 : Skill
         MonsterController mController = gameObject.GetComponent<MonsterController>();
         if (mController == null)
             return;
-        mController.OnDamage(Owner, Damage);
+        //mController.OnDamage(Owner, Damage);
     }
 }

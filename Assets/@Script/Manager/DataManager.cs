@@ -15,6 +15,8 @@ public class DataManager
     public Dictionary<int, AnimationData> AnimDatas { get; private set; }
     public Dictionary<int, MonsterData> MonDatas { get; private set; }
     public Dictionary<int, ChestData> ChestDatas { get; private set; }
+    public Dictionary<Define.HeroRating, UpgradeData> UpgradeDatas { get; private set; }
+    public Dictionary<int, HeroUpgradeData> HeroUpgradeDatas { get; private set; }
 
 
     public void Init()
@@ -23,6 +25,8 @@ public class DataManager
         LoadJson<SkillLoader, int, Skills>("SkillData.json", (loader) => { SkillDatas = loader.MakeDic(); });
         LoadJson<AnimationLoader, int, AnimationData>("AnimData.json", (loader) => { AnimDatas = loader.MakeDic(); });
         LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); });
+        LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); });
+        LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => HeroUpgradeDatas = loader.MakeDic());
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {
