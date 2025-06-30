@@ -1,0 +1,37 @@
+﻿{
+  "chestDatas": [
+    {
+      "ChestID":  0,
+      "ChestName": "Bronze",
+      "CoinRange": [ 10, 50 ],
+      "GradeProbabilities": {
+        "Common": 0.65,
+        "Nomal": 0.25,
+        "Epic": 0.08,
+        "Legendary": 0.02
+      }
+    },
+    {
+      "ChestID":  1,
+      "ChestName": "Silver",
+      "CoinRange": [ 30, 100 ],
+      "GradeProbabilities": {
+        "Common": 0.35,
+        "Nomal": 0.4,
+        "Epic": 0.2,
+        "Legendary": 0.05
+      }
+    },
+    {
+      "ChestID": 1,
+      "ChestName": "Gold",
+      "CoinRange": [ 80, 300 ],
+      "GradeProbabilities": {
+        "Common": 0.1,
+        "Nomal": 0.3,
+        "Epic": 0.4,
+        "Legendary": 0.2
+      }
+    }
+  ]
+}

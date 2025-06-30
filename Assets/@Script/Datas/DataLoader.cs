@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -280,5 +280,21 @@ public class HeroUpgradeDataLoader : ILoader<int, HeroUpgradeData>
     public bool Validate()
     {
         return true;
+    }
+}
+
+[Serializable]
+public class ChestData
+{
+    public int ChestID;
+    public string ChestName;
+    public int[] CoinRange;
+    public Dictionary<Define.HeroRating, float> GradeProbabilities;
+
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
+            return result;
+        return defaultValue;
     }
 }
