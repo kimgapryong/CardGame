@@ -173,7 +173,8 @@ public class HeroController : BaseController
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         if (skills.SkillT == Define.SkillType.Plural)
         {
-            //go.GetComponent<Skill>().UseSkill(target.transform, attack);
+            go.GetComponent<Skill>().Owner = this;
+            go.GetComponent<Skill>().UseSkill(target.transform, attack, _heroData.LevelData[curLevel].HeroLevelData.Arange);
         }
         else if (skills.SkillT == Define.SkillType.Single)
         {
