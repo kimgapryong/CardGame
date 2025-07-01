@@ -10,7 +10,8 @@ public class AllContentCanvas : UI_Scene
     {
         SetCard,
         Card_Content,
-        Card // 임시로 상자 여기에
+        Card,
+        Chest 
     }
     enum Buttons
     {
@@ -63,11 +64,11 @@ public class AllContentCanvas : UI_Scene
             ChestData chestData = Manager.Data.ChestDatas[i];
 
             Manager.UI.MakeSubItem<ChestFragment>(
-                GetObject((int)Objects.Card).transform,
+                GetObject((int)Objects.Chest).transform,
                 callback: (chestFragment) =>
                 {
                     chestFragment.SetInfo(chestData);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Card).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
                 });
         }
 
