@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0921e56d976904646a8cc9e8e86f37d2
+    m_Address: Chest/Bronze
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c6816ebb4929fc4c93da83e83d81adf
     m_Address: EventSystem
     m_ReadOnly: 0
@@ -57,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36d306fe13655aa439f1bcf8091f9f0c
     m_Address: WhiteWolf-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37f5b182311166f479a80122d1b6f340
+    m_Address: Chest/Silver
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -232,6 +242,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbd68bb992d30954da07f66a6a4aa5d4
     m_Address: HeroPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef6f3f72a9f310441a877d52ffa6c099
+    m_Address: Chest/Gold
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
