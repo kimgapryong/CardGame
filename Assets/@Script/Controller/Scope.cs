@@ -1,32 +1,24 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Skill_12 : Skill
+public class Scope : MonoBehaviour
 {
-    public Material SkillMat;
+    public Material ScopeMaterial;
 
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
 
-    //테스트 용도 객체 나중에 주석 처리
-    //public Transform testTarget;
-    private void Start()
+    Mesh mesh;
+    public void GenerateMesh(float aRange, float offsetAngle)
     {
-
-    }
-    //스킬 발사하는 거
-    //특정 방향에서 각도 오프셋 15도 정도 줘서 원형으로 되게 함.
-    public override void UseSkill(Transform targetTransform, float attack, float aRange)
-    {
-        this.attack= attack;
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
 
-        Mesh mesh = new Mesh();
+        mesh = new Mesh();
 
-        Vector2 destPos = (targetTransform.position - transform.position).normalized * aRange;
+        Vector2 destPos = Vector2.right * aRange;
 
         float angle = Mathf.Atan2(destPos.y, destPos.x) * Mathf.Rad2Deg;
         float destPosLength = destPos.magnitude;
@@ -58,26 +50,17 @@ public class Skill_12 : Skill
         }
 
         mesh.SetTriangles(indices, 0);
-
-        meshFilter.mesh = mesh;
-        meshRenderer.material = SkillMat;
-        //transform.Rotate(180, 0, 0);
-
-        MeshCollider collider = gameObject.AddComponent<MeshCollider>();
-        collider.sharedMesh = mesh;
-
-        StartCoroutine(Disappear());
+        meshRenderer.material = ScopeMaterial;
     }
-    IEnumerator Disappear()
+    public void SetMeshActive(bool isActive)
     {
-        yield return new WaitForSeconds(1f);
-        //Destroy(gameObject);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        MonsterController mController = gameObject.GetComponent<MonsterController>();
-        if (mController == null)
-            return;
-        mController.OnDamage(Owner, attack);
+        if (!isActive)
+        {
+            meshFilter.mesh = mesh;
+        }
+        else
+        {
+            meshFilter.mesh = null;
+        }
     }
 }

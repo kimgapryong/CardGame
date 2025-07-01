@@ -171,12 +171,7 @@ public class HeroController : BaseController
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
-        if (skills.SkillT == Define.SkillType.Plural)
-        {
-            go.GetComponent<Skill>().Owner = this;
-            go.GetComponent<Skill>().UseSkill(target.transform, attack, _heroData.LevelData[curLevel].HeroLevelData.Arange);
-        }
-        else if (skills.SkillT == Define.SkillType.Single)
+        if (skills.SkillT == Define.SkillType.Single)
         {
             go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
         }

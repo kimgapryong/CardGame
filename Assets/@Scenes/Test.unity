@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skill_12
       objectReference: {fileID: 0}
+    - target: {fileID: 6523664526645085653, guid: c0fc6f4102147c84aa17ac3652f25146, type: 3}
+      propertyPath: testTarget
+      value: 
+      objectReference: {fileID: 599684086}
     - target: {fileID: 6802069181094908810, guid: c0fc6f4102147c84aa17ac3652f25146, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
