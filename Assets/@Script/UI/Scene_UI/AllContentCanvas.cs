@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +10,8 @@ public class AllContentCanvas : UI_Scene
     {
         SetCard,
         Card_Content,
+        Card,
+        Chest 
     }
     enum Buttons
     {
@@ -56,6 +58,21 @@ public class AllContentCanvas : UI_Scene
         {
             pop.SetInfo(Manager.Rank.LoadRankings());
         }));
+
+        for (int i = 0; i < Manager.Data.ChestDatas.Count; i++)
+        {
+            ChestData chestData = Manager.Data.ChestDatas[i];
+
+            Manager.UI.MakeSubItem<ChestFragment>(
+                GetObject((int)Objects.Chest).transform,
+                callback: (chestFragment) =>
+                {
+                    chestFragment.Init();
+                    chestFragment.SetInfo(chestData);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
+                });
+        }
+
         return true;
     }
 
@@ -63,11 +80,11 @@ public class AllContentCanvas : UI_Scene
     {
         Transform setCardRoot = GetObject((int)Objects.SetCard).transform;
 
-        // ±âÁ¸ Ä«µå Á¦°Å
+        // ê¸°ì¡´ ì¹´ë“œ ì œê±°
         foreach (Transform child in setCardRoot)
             GameObject.Destroy(child.gameObject);
 
-        // ´Ù½Ã Ãß°¡
+        // ë‹¤ì‹œ ì¶”ê°€
         for (int i = 0; i < Manager.Game.Heros.Count; i++)
         {
             HeroData _heroData = Manager.Data.HeroDatas[Manager.Game.Heros[i]];

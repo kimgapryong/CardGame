@@ -288,13 +288,43 @@ public class ChestData
 {
     public int ChestID;
     public string ChestName;
+    public string SpritePath;
+    public int Price;
     public int[] CoinRange;
-    public Dictionary<Define.HeroRating, float> GradeProbabilities;
+    public HeroRatingProbabilitiesData GradeProbabilities;
 
     private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
     {
         if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
             return result;
         return defaultValue;
+    }
+}
+[Serializable]
+public class HeroRatingProbabilitiesData
+{
+    public float Common;
+    public float Nomal;
+    public float Epic;
+    public float Legendary;
+}
+
+[Serializable]
+public class ChestDataLoader : ILoader<int, ChestData>
+{
+    public List<ChestData> ChestDatas = new List<ChestData>();
+    public Dictionary<int, ChestData> MakeDic()
+    {
+        Dictionary<int, ChestData> dict = new Dictionary<int, ChestData>();
+
+        foreach (ChestData chestData in ChestDatas)
+            dict.Add(chestData.ChestID, chestData);
+
+        return dict;
+    }
+
+    public bool Validate()
+    {
+        return true;
     }
 }

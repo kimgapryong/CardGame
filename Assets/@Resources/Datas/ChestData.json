@@ -1,8 +1,10 @@
 ﻿{
-  "chestDatas": [
+  "ChestDatas": [
     {
       "ChestID":  0,
       "ChestName": "Bronze",
+      "SpritePath": "Chest/Bronze",
+      "Price": 200,
       "CoinRange": [ 10, 50 ],
       "GradeProbabilities": {
         "Common": 0.65,
@@ -12,9 +14,11 @@
       }
     },
     {
-      "ChestID":  1,
+      "ChestID": 1,
       "ChestName": "Silver",
+      "SpritePath": "Chest/Silver",
       "CoinRange": [ 30, 100 ],
+      "Price": 500,
       "GradeProbabilities": {
         "Common": 0.35,
         "Nomal": 0.4,
@@ -23,9 +27,11 @@
       }
     },
     {
-      "ChestID": 1,
+      "ChestID": 2,
       "ChestName": "Gold",
+      "SpritePath": "Chest/Gold",
       "CoinRange": [ 80, 300 ],
+      "Price": 900,
       "GradeProbabilities": {
         "Common": 0.1,
         "Nomal": 0.3,
