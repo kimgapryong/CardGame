@@ -23,7 +23,7 @@ public class ChestFragment : UI_Base
 
         
 
-        Manager.Resource.LoadAsync<Sprite>(_chestData.SpritePath, (sprite) =>
+        Manager.Resource.LoadAsync<Sprite>(_chestData.Sprite, (sprite) =>
         {
             GetObject((int)Objects.Image).GetComponent<Image>().sprite = sprite;
             GetObject((int)Objects.NameText).GetComponent<Text>().text = _chestData.ChestName;

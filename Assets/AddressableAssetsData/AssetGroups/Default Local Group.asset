@@ -95,8 +95,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6191700e5033c944980b82acbf7ecee8
+    m_Address: Chest/Bronze_Open
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 639cb4b33e5acbb4ea17db8560bb042a
     m_Address: NameInputPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73afb1e0f374adf4cb568c481f1e74ff
+    m_Address: Chest/Silver_Open.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -207,6 +217,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eff4a9ad093411d4dbe49b126e79ce06
     m_Address: HeroCardPop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1383152f436ac540a79cfb49aa5a056
+    m_Address: Chest/Gold_Open.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
