@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3767897264348544836}
   - component: {fileID: 6519437832825055392}
   m_Layer: 5
-  m_Name: ' Price'
+  m_Name: PriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 4446799111776898341}
   - component: {fileID: 3677724504542894571}
   m_Layer: 5
-  m_Name: Name
+  m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

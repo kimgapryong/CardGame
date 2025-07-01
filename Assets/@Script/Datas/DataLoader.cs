@@ -288,6 +288,8 @@ public class ChestData
 {
     public int ChestID;
     public string ChestName;
+    public string SpritePath;
+    public int Price;
     public int[] CoinRange;
     public HeroRatingProbabilitiesData GradeProbabilities;
 
