@@ -39,6 +39,17 @@ public class GameManager
         IsLoaded = true;
         Heros.Add(4);
         Heros.Add(6);
+
+        for (int i = 1; i < 12; i++)
+        {
+            CardData cData = new CardData();
+            cData.cardId = i;
+            SaveData.GotCard.Add(cData);
+        }
+
+        foreach (CardData cardData in SaveData.GotCard)
+            if (!CardDataDict.ContainsKey(cardData.cardId))
+                CardDataDict.Add(cardData.cardId, cardData);
         SaveGame();
     }
 
