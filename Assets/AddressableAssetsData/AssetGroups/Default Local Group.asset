@@ -120,8 +120,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bade914a05226b4a9d8f6ebd1496389
+    m_Address: ChestData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bdb2eedf7a612648a615e45fa445044
-    m_Address: Assets/@Resources/Prefab/UI/Fragment/ChestFragment.prefab
+    m_Address: ChestFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

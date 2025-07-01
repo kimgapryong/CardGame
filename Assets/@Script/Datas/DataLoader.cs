@@ -289,7 +289,7 @@ public class ChestData
     public int ChestID;
     public string ChestName;
     public int[] CoinRange;
-    public Dictionary<Define.HeroRating, float> GradeProbabilities;
+    public HeroRatingProbabilitiesData GradeProbabilities;
 
     private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
     {
@@ -298,6 +298,15 @@ public class ChestData
         return defaultValue;
     }
 }
+[Serializable]
+public class HeroRatingProbabilitiesData
+{
+    public float Common;
+    public float Nomal;
+    public float Epic;
+    public float Legendary;
+}
+
 [Serializable]
 public class ChestDataLoader : ILoader<int, ChestData>
 {
