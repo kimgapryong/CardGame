@@ -120,6 +120,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bdb2eedf7a612648a615e45fa445044
+    m_Address: Assets/@Resources/Prefab/UI/Fragment/ChestFragment.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f2f653859ebf2548a1efae76792b6e4
     m_Address: ExitFragment
     m_ReadOnly: 0

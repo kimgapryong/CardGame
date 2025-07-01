@@ -298,3 +298,22 @@ public class ChestData
         return defaultValue;
     }
 }
+[Serializable]
+public class ChestDataLoader : ILoader<int, ChestData>
+{
+    public List<ChestData> ChestDatas = new List<ChestData>();
+    public Dictionary<int, ChestData> MakeDic()
+    {
+        Dictionary<int, ChestData> dict = new Dictionary<int, ChestData>();
+
+        foreach (ChestData chestData in ChestDatas)
+            dict.Add(chestData.ChestID, chestData);
+
+        return dict;
+    }
+
+    public bool Validate()
+    {
+        return true;
+    }
+}
