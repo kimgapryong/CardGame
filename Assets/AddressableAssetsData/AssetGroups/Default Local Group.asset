@@ -106,7 +106,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 72260d444a28f6a47a1549a968fcdcd9
-    m_Address: ChestInfoPop
+    m_Address: ChestPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

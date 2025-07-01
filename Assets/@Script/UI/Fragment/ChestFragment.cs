@@ -21,18 +21,15 @@ public class ChestFragment : UI_Base
         Debug.Log(_chestData);
         BindObject(typeof(Objects));
 
-        
-
         Manager.Resource.LoadAsync<Sprite>(_chestData.Sprite, (sprite) =>
         {
             GetObject((int)Objects.Image).GetComponent<Image>().sprite = sprite;
             GetObject((int)Objects.NameText).GetComponent<Text>().text = _chestData.ChestName;
 
             Debug.Log(GetObject((int)Objects.PriceText));
-            GetObject((int)Objects.PriceText).GetComponent<Text>().text = $"{_chestData.Price}";
+            GetObject((int)Objects.PriceText).GetComponent<Text>().text = $"{_chestData.BuyCost}";
         });
 
-        
         return true;
     }
 
