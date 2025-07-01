@@ -70,7 +70,7 @@ public class AllContentCanvas : UI_Scene
                     chestFragment.SetInfo(chestData);
                     BindEvent(chestFragment.gameObject, () =>
                     {
-                        Manager.UI.ShowPopupUI<ChestPop>(callback: (chestPop) =>
+                        Manager.UI.ShowPopupUI<ChestInfoPop>(callback: (chestPop) =>
                         {
                             chestPop.SetInfo(chestData);
                         });

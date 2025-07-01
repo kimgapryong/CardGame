@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 1086294031724062923}
   - component: {fileID: 926038575505548770}
   m_Layer: 5
-  m_Name: ChestPop
+  m_Name: ChestInfoPop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
