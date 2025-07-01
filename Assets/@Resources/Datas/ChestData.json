@@ -1,5 +1,5 @@
 ﻿{
-  "chestDatas": [
+  "ChestDatas": [
     {
       "ChestID":  0,
       "ChestName": "Bronze",
@@ -23,7 +23,7 @@
       }
     },
     {
-      "ChestID": 1,
+      "ChestID": 2,
       "ChestName": "Gold",
       "CoinRange": [ 80, 300 ],
       "GradeProbabilities": {
