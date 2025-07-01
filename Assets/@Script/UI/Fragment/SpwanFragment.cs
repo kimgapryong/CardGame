@@ -62,16 +62,13 @@ public class SpwanFragment : UI_Base
         if (_click.heroCur)
             _click.DeleteCurHero();
 
-        Manager.Resource.Instantiate("HeroPrefab", callback: (obj) =>
+        Manager.Resource.Instantiate(_heroData.LevelData[0].HeroSprite, callback: (obj) =>
         {
-            Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].HeroSprite, callback: (sprite) =>
-            {
-                obj.GetOrAddComponent<SpriteRenderer>().sprite = sprite;
-                obj.transform.Find("Arange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange;
-                obj.transform.Find("AtkArange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange;
-                _click.HeroCursor(obj, _heroData);
-            });
-
+            float normalScale = 1.0f / obj.transform.localScale.x; //히어로 크기 정규화식
+            obj.transform.Find("Arange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange * normalScale;
+            obj.transform.Find("AtkArange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange * normalScale;
+            _click.HeroCursor(obj, _heroData);
+          
             obj.transform.Find("AtkArange").GetOrAddComponent<AtkArange>();
             HeroController hero = obj.GetOrAddComponent<HeroController>();
             hero.SetInfo(_heroData);

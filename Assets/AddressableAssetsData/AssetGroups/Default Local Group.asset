@@ -15,23 +15,18 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 706cf52625e7dd24ab7ad56cd55ae90a
   m_SerializeEntries:
-  - m_GUID: 02704c630115a8040888ea8cccb7d510
-    m_Address: Skill_7
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 027b12885831e53429f4c852995e5ae7
-    m_Address: Skill_8
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0aaa4f8224768f749941811c33123002
-    m_Address: Warlord_1
+  - m_GUID: 02c2174a7d4dad44fb461d2f7c7919d8
+    m_Address: pug
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c6816ebb4929fc4c93da83e83d81adf
     m_Address: EventSystem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2141e368bcc45a14c9253cc5a8ef5b76
+    m_Address: Eye-2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,8 +45,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 327f7b1e17b1cfb42b5ae4f13fb015dc
+    m_Address: WhiteWolf-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35af1913d43de2d4b9bd38d5ae32bac7
     m_Address: Pre_Pop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36d306fe13655aa439f1bcf8091f9f0c
+    m_Address: WhiteWolf-2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -60,8 +65,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4362abc02672486409c42f56a91a59ee
+    m_Address: Panther
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4408a00e3a34fab46aaf2b46e38d1e5c
     m_Address: EmptyImage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46bb10b29f9db1f4c9037650026faf78
+    m_Address: Possessed-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d10f19c1322324479babed380e360dd
+    m_Address: Wolf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e9462e5bcec9a540a30708f9e355ad9
+    m_Address: Possessed-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53c6e74f29996f94080c73bbcd649506
+    m_Address: Chicken
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -75,11 +105,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5a57a28135d543348b703b5ccf977dd3
-    m_Address: Skill_4
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5dcbda03e361dff498d79e357186ec9e
     m_Address: SpwanFragment
     m_ReadOnly: 0
@@ -90,8 +115,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73c5838bbb780e642931ba3f2619eeb3
+    m_Address: Chick-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76919299059707044816bdea0e039b30
+    m_Address: Wolf-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81f7c1b152b3bc749a7d023777a295e2
     m_Address: Upgrade_Pop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 825d553fa4644534ea091de4a7382e49
+    m_Address: Eye
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -110,13 +150,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ccb620b4425326459017ea4fd5f7c81
+    m_Address: WhiteWolf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cfc878b0b28ffb4990219d52b24adcb
+    m_Address: Wolf-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91597a59afa9b7948ab4821d97578224
+    m_Address: Lion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 922f06178bfefce40bd9bc304e3a20d7
+    m_Address: Chick
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9733049522a5aa04cbf5de102044099a
     m_Address: SkillData.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9a6c7b2e6268a8246bdfc0a4f6a4e9e5
-    m_Address: Skill_11
+  - m_GUID: 9cf3c78b8dabd0743aa0828608a9ca80
+    m_Address: Possessed
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -130,8 +190,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a1724e89fbaee1d42959c0f0b80a36b5
-    m_Address: Skill_3
+  - m_GUID: a98b371bb462c6b4c967a77c1583cd27
+    m_Address: Bear
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -140,18 +200,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bbed905041c43524dbde8efaf8502f60
-    m_Address: Skill_5
+  - m_GUID: ad7321acf885d414c8336180adbc7193
+    m_Address: Monkey
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf2878ec66c72214fb94de0959f93750
-    m_Address: Skill_6
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c0fc6f4102147c84aa17ac3652f25146
-    m_Address: Skill_16
+  - m_GUID: bd1cc0efe4831f144a4cc55e6cb882a1
+    m_Address: Bear-2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -165,6 +220,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d903590d7b3b37e42aa7ed013ce3c74c
+    m_Address: Chicken-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d93594a3d7fd5f744b55fae35184ae25
     m_Address: CardFragment
     m_ReadOnly: 0
@@ -172,11 +232,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbd68bb992d30954da07f66a6a4aa5d4
     m_Address: HeroPrefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e5d7dfafafc267f47867f50d361e704b
-    m_Address: Skill_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -195,8 +250,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f742d8c7e8898954fa32c9fcd9e0f2b7
-    m_Address: Skill_1
+  - m_GUID: f901fbb308f211a45a263734c91dffd6
+    m_Address: piggy
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
