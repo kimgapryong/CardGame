@@ -314,6 +314,24 @@
             "SkillID": 6,
             "AnimationID": 6
           }
+        },
+        {
+          "HeroName": "명장의 그랜파",
+          "Level": 2,
+          "Sprite": "Hero_7.sprite",
+          "HeroInduce": "광대의 웃음 뒤에 숨겨진 광기와 힘!\n\n크러스티는 아무리 맞아도 다시 일어난다.\n불사신 같은 그의 존재는 적들에게 공포 그 자체.\n폭발적인 개그와 전투력으로 적들을 무너뜨리고,\n그의 웃음소리는 전장에 울려 퍼진다.\n무대 위의 스타, 전장의 전설!",
+          "HeroSprite": "Warlord_1",
+          "AtkArange": "Aoe",
+          "HeroLevelData": {
+            "Attack": 30000,
+            "Arange": 15,
+            "AtkSpeed": 4.5,
+            "Upgrade": 300
+          },
+          "SkillMapData": {
+            "SkillID": 16,
+            "AnimationID": 16
+          }
         }
       ]
     },
@@ -438,23 +456,6 @@
           "SkillMapData": {
             "SkillID": 3,
             "AnimationID": 3
-          }
-        },
-        {
-          "HeroName": "불멸의 크러스티",
-          "Level": 2,
-          "Sprite": "Hero_6.sprite",
-          "HeroInduce": "광대의 웃음 뒤에 숨겨진 광기와 힘!\n\n크러스티는 아무리 맞아도 다시 일어난다.\n불사신 같은 그의 존재는 적들에게 공포 그 자체.\n폭발적인 개그와 전투력으로 적들을 무너뜨리고,\n그의 웃음소리는 전장에 울려 퍼진다.\n무대 위의 스타, 전장의 전설!",
-          "HeroSprite": "Milhouse_1",
-          "HeroLevelData": {
-            "Attack": 30000,
-            "Arange": 5,
-            "AtkSpeed": 4.5,
-            "Upgrade": 300
-          },
-          "SkillMapData": {
-            "SkillID": 16,
-            "AnimationID": 16
           }
         }
       ]

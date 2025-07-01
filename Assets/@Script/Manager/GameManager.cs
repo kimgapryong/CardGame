@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +13,7 @@ public class GameData
     public List<int> Heros;
     public int Gem;
     public int Gold;
-    public List<CardData> GotCard;
+    public List<CardData> GotCard = new List<CardData>();
 }
 public class GameManager
 {
@@ -23,6 +24,7 @@ public class GameManager
     public GameData SaveData { get { return _gameData; } set { _gameData = value; } }
 
     public List<int> Heros { get { return _gameData.Heros; } set { _gameData.Heros = value; } }
+
     public Dictionary<int, CardData> CardDataDict = new Dictionary<int, CardData>();
 
     public void Init()
@@ -30,17 +32,13 @@ public class GameManager
         _path = Application.persistentDataPath + "/savefile.json";
         if (LoadGame())
             return;
-
+        Debug.Log("게임 매니저 초기화");
         if (Heros == null)
             Heros = new List<int>();
 
+        IsLoaded = true;
         Heros.Add(4);
         Heros.Add(6);
-        foreach( CardData cardData in SaveData.GotCard )
-            CardDataDict.Add(cardData.cardId, cardData);
-
-        IsLoaded = true;
-
         SaveGame();
     }
 
@@ -53,17 +51,36 @@ public class GameManager
 
     public bool LoadGame()
     {
+        
         if (File.Exists(_path) == false)
             return false;
-
+        Debug.Log("세이브 파일 존재");
         string fileStr = File.ReadAllText(_path);
+        if (fileStr == "" || fileStr == null)
+        {
+            Debug.Log("세이브 파일 비워짐");
+            SaveGame();
+            fileStr = File.ReadAllText(_path);
+        }
         GameData data = JsonUtility.FromJson<GameData>(fileStr);
         if (data != null)
             Manager.Game.SaveData = data;
-        foreach (CardData cardData in data.GotCard)
+
+        if (SaveData.GotCard.Count == 0)
         {
-            CardDataDict.Add(cardData.cardId, cardData);
+            for (int i = 1; i < 12; i++)
+            {
+                CardData cData = new CardData();
+                cData.cardId = i;
+                SaveData.GotCard.Add(cData);
+            }
+            SaveGame();
         }
+
+        foreach (CardData cardData in SaveData.GotCard)
+            if (!CardDataDict.ContainsKey(cardData.cardId))
+                CardDataDict.Add(cardData.cardId, cardData);
+
         IsLoaded = true;
         return true;
     }
