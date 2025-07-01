@@ -68,6 +68,10 @@ public class AllContentCanvas : UI_Scene
                 callback: (chestFragment) =>
                 {
                     chestFragment.SetInfo(chestData);
+                    BindEvent(chestFragment.gameObject, () =>
+                    {
+                        Manager.UI.ShowPopupUI<ChestPop>();
+                    });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
                 });
         }
