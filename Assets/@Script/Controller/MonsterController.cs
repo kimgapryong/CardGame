@@ -52,14 +52,7 @@ public class MonsterController : CretureController
     }
     protected override void TryMove()
     {
-        Debug.Log("ghcnfgksek");
-        if (direct.x < 0 && transform.localScale.x < 0)
-        {
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
-        }
-        if (direct.x > 0 && transform.localScale.x > 0)
+        if (direct.x * transform.localScale.x > 0)
         {
             Vector3 scale = transform.localScale;
             scale.x *= -1;
