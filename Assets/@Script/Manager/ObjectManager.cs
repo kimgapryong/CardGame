@@ -114,7 +114,7 @@ public class ObjectManager
             });
 
             var find = obj.GetOrAddComponent<FindPathEnemy>();
-            find.SetInfo(data);
+            find.SetInfo(data, enemy);
 
             var moveStyles = Enum.GetValues(typeof(FindPathEnemy.MoveStyle));
             var style = (FindPathEnemy.MoveStyle)UnityEngine.Random.Range(0, moveStyles.Length);

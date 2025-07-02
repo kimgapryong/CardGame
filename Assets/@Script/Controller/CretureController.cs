@@ -22,6 +22,11 @@ public class CretureController : BaseController
 
         return true;    
     }
+
+    private void Update()
+    {
+        UpdateMethod();
+    }
     protected virtual void UpdateMethod()
     {
         switch (State)

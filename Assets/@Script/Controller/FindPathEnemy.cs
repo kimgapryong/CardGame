@@ -15,6 +15,7 @@ public class FindPathEnemy : MonoBehaviour
     private Vector2Int curDir;
     private Vector2Int curPos;
 
+    private MonsterController _monster;
     private static readonly Vector2Int[] DIRS = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
 
     public void Init(TileType[,] map, int width, int height, Vector2Int start, Vector2Int end, MoveStyle style)
@@ -33,9 +34,10 @@ public class FindPathEnemy : MonoBehaviour
         else curDir = Vector2Int.down;
     }
 
-    public void SetInfo(MonsterData data)
+    public void SetInfo(MonsterData data, MonsterController monster)
     {
         speed = data.Speed;
+        _monster = monster;
     }
 
     Vector2Int[] GetDirectionOrder(Vector2Int dir, MoveStyle style)
@@ -133,6 +135,7 @@ public class FindPathEnemy : MonoBehaviour
             stuckCount = 0;
 
             Vector3 target = new Vector3(nextPos.x, nextPos.y, 0);
+            _monster.GetNormalizePos((Vector2)curPos, (Vector2)nextPos);
             yield return MoveToPosition(target, speed);
             curPos = nextPos;
         }

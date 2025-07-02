@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MonsterController : CretureController
 {
@@ -8,14 +9,17 @@ public class MonsterController : CretureController
     public Action<float, float> hpAction;
     MonsterData _monsterData;
 
+    private Vector3 direct;
     protected override bool Init()
     {
         if(base.Init() == false)
             return false;
+
+        anim = GetComponent<Animator>();
         State = Define.State.Move;
         return true;
     }
-
+  
     public void SetInfo(MonsterData data, float Hp)
     {
         _monsterData = data;
@@ -46,6 +50,30 @@ public class MonsterController : CretureController
         Manager.Time.Money += _monsterData.Money;
         Destroy(gameObject);
     }
+    protected override void TryMove()
+    {
+        Debug.Log("ghcnfgksek");
+        if (direct.x < 0 && transform.localScale.x < 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
+        if (direct.x > 0 && transform.localScale.x > 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
 
-   
+    }
+
+    public void GetNormalizePos(Vector3 curPos, Vector3 nextPos)
+    {
+        
+        Vector3 normalizePos = (nextPos - curPos).normalized;
+        Debug.Log(normalizePos);
+        direct = normalizePos;
+    }
+
 }
