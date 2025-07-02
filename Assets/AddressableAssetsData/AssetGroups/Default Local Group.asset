@@ -151,7 +151,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0fc6f4102147c84aa17ac3652f25146
-    m_Address: Skill_16
+    m_Address: Scope
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

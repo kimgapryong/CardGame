@@ -329,8 +329,8 @@
             "Upgrade": 300
           },
           "SkillMapData": {
-            "SkillID": 16,
-            "AnimationID": 16
+            "SkillID": 6,
+            "AnimationID": 6
           }
         }
       ]

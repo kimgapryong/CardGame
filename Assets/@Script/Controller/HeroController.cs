@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class HeroController : BaseController
@@ -17,7 +18,8 @@ public class HeroController : BaseController
     private AtkArange atkArg;
     private Define.State _state;
     private MonsterController curTarget;
-
+    Skills skill;
+    Scope scope;
     public Define.State State
     {
         get => _state;
@@ -28,7 +30,7 @@ public class HeroController : BaseController
     {
         if (!base.Init())
             return false;
-
+        skill = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         StartCoroutine(CoWaitForSkill());
 
         argTrans = transform.Find("Arange");
@@ -49,6 +51,8 @@ public class HeroController : BaseController
             return;
 
         UpdateMethod();
+        if (skill.SkillT == Define.SkillType.Plural)
+            ShowRange();
     }
 
     protected virtual void UpdateMethod()
@@ -58,10 +62,13 @@ public class HeroController : BaseController
             case Define.State.Idle:
                 TryAttack();
                 break;
-
             case Define.State.Attack:
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
+    }
+    void ShowRange()
+    {
+
     }
     public void UpgradeLevel()
     {
@@ -80,10 +87,9 @@ public class HeroController : BaseController
         });
 
         float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        skill = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         argTrans.localScale = new Vector2(curSize, curSize);
         transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
-
-
     }
     public void OffArg()
     {
@@ -92,6 +98,7 @@ public class HeroController : BaseController
     public void OnArg()
     {
         argTrans.gameObject.SetActive(true);
+        ShowScope().Forget();
     }
     private void TryAttack()
     {
@@ -170,8 +177,8 @@ public class HeroController : BaseController
 
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
-        Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
-        if (skills.SkillT == Define.SkillType.Single)
+
+        if (skill.SkillT == Define.SkillType.Single)
         {
             go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
         }
@@ -206,5 +213,32 @@ public class HeroController : BaseController
             yield return null;
 
         isLoaded = true;
+    }
+    async UniTaskVoid ShowScope()
+    {
+        if (scope == null)
+        {
+            GameObject scopePrefab = await Manager.Resource.Load<GameObject>("Scope");
+            GameObject go = Instantiate(scopePrefab, transform.position, Quaternion.identity, transform);
+            scope = go.GetComponent<Scope>();
+        }
+        float range = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        
+        scope.GenerateMesh(range, 15);
+        scope.SetMeshActive(true);
+        while (argTrans.gameObject.activeSelf)
+        {
+            await UniTask.Yield();
+            if (range != _heroData.LevelData[curLevel].HeroLevelData.Arange)
+            {
+                range = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                scope.GenerateMesh(range, 15);
+                scope.SetMeshActive(true);
+            }
+            if (curTarget == null)
+                continue;
+            scope.LookAt(curTarget.transform);
+        }
+        scope.SetMeshActive(false);
     }
 }
