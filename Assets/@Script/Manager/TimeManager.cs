@@ -131,4 +131,6 @@ public class TimeManager
         _money = 0f;
         curHp = 0f;
     }
+
+   
 }

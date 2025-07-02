@@ -15,13 +15,13 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 706cf52625e7dd24ab7ad56cd55ae90a
   m_SerializeEntries:
-  - m_GUID: 02c2174a7d4dad44fb461d2f7c7919d8
-    m_Address: pug
+  - m_GUID: 007c74ef2d54b9347997f8aed83e45fb
+    m_Address: Monster_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0921e56d976904646a8cc9e8e86f37d2
-    m_Address: Chest/Bronze
+  - m_GUID: 02c2174a7d4dad44fb461d2f7c7919d8
+    m_Address: Pug
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -65,11 +65,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 37f5b182311166f479a80122d1b6f340
-    m_Address: Chest/Silver
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ce75343ad9c57f4ab4318462e36dbca
     m_Address: MoneyParticle
     m_ReadOnly: 0
@@ -82,6 +77,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4408a00e3a34fab46aaf2b46e38d1e5c
     m_Address: EmptyImage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 454de89a58994ac48adec007a10caeaa
+    m_Address: Monster_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,6 +122,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 639cb4b33e5acbb4ea17db8560bb042a
     m_Address: NameInputPopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d3d5836289d7224994a21bde2dcf46f
+    m_Address: Monster_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f826a4945d401e4e83e5f98f0c07001
+    m_Address: Monster_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -205,11 +215,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a9abfbe2b487db64984d5f11ea2d543a
-    m_Address: Monster.Prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad7321acf885d414c8336180adbc7193
     m_Address: Monkey
     m_ReadOnly: 0
@@ -240,16 +245,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dbd68bb992d30954da07f66a6a4aa5d4
-    m_Address: HeroPrefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef6f3f72a9f310441a877d52ffa6c099
-    m_Address: Chest/Gold
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eff4a9ad093411d4dbe49b126e79ce06
     m_Address: HeroCardPop
     m_ReadOnly: 0
@@ -260,13 +255,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f555503ac6a3ad945a8451fefd9c8db5
+    m_Address: Monster_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6b9d7a1174ffbd4898d1c19bb771dd0
     m_Address: GameCanvas
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f901fbb308f211a45a263734c91dffd6
-    m_Address: piggy
+    m_Address: Piggy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa3d23ddedd3f254493abcd62e3647ca
+    m_Address: Monster_6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

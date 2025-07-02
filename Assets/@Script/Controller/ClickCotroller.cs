@@ -74,7 +74,7 @@ public class ClickCotroller : MonoBehaviour
 
         // 히어로 배치 처리
         Vector3 worldOrigin = tilemap.CellToWorld((Vector3Int)cellPos);
-        curHero.transform.position = new Vector3(worldOrigin.x, worldOrigin.y + 0.5f, 0f);
+        curHero.transform.position = new Vector3(worldOrigin.x, worldOrigin.y, 0f);
         curHero.transform.Find("Arange").gameObject.SetActive(false);
 
         HeroController hero = curHero.GetComponent<HeroController>();
@@ -124,6 +124,9 @@ public class ClickCotroller : MonoBehaviour
     //타일 부분
     void ShowPlayerStatus(GameObject player, Tile tile)
     {
+        if (heroCur)
+            return;
+
         HeroController hero = player.GetComponent<HeroController>();
         HeroData data = hero._heroData;
 

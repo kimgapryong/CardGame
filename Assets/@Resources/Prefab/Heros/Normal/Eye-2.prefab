@@ -544,7 +544,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1441144140542806526}
-  - component: {fileID: 612012524807961923}
   - component: {fileID: 9192083847246565115}
   - component: {fileID: 6217687902501055259}
   - component: {fileID: 1838643099577217781}
@@ -576,27 +575,6 @@ Transform:
   - {fileID: 3875170975015525031}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &612012524807961923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5292534898525739961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b9a7e211ea2074c83a96a2ab1e590f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Head: {fileID: 5928697231120600201}
-  Jaw: {fileID: 0}
-  HeadSprites:
-  - {fileID: -1828946549344447192, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
-  - {fileID: -7252215782646672311, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
-  - {fileID: -1381065623766834176, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
-  JawSprites: []
-  Animator: {fileID: 5190093643526052291}
-  Variations: 0
 --- !u!114 &9192083847246565115
 MonoBehaviour:
   m_ObjectHideFlags: 0

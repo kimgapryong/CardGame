@@ -98,10 +98,9 @@ public class ObjectManager
 
     private void SpawnMonster(int index)
     {
-        string prefabKey = $"Monster.Prefab";
         string spriteKey = $"Monster_{index}";
 
-        Manager.Resource.Instantiate(prefabKey, monsterParent, (obj) =>
+        Manager.Resource.Instantiate(spriteKey, monsterParent, (obj) =>
         {
             MonsterData data = Manager.Data.MonDatas[index];
 
@@ -124,11 +123,6 @@ public class ObjectManager
             find.transform.position = new Vector3(startPos.x, startPos.y, 0);
             find.StartCoroutine(find.MoveWithPreferredPath());
 
-            SpriteRenderer sr = obj.GetOrAddComponent<SpriteRenderer>();
-            Manager.Resource.LoadAsync<Sprite>(spriteKey, (sp) =>
-            {
-                sr.sprite = sp;
-            });
         });
     }
 
