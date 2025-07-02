@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chilcken-2_0: 7819665694654187466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
