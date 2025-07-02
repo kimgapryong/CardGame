@@ -67,8 +67,8 @@ public class AllContentCanvas : UI_Scene
                 GetObject((int)Objects.Chest).transform,
                 callback: (chestFragment) =>
                 {
-                    chestFragment.Init();
                     chestFragment.SetInfo(chestData);
+                    chestFragment.Init();
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
                 });
         }

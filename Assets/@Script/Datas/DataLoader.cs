@@ -288,9 +288,11 @@ public class ChestData
 {
     public int ChestID;
     public string ChestName;
-    public string SpritePath;
-    public int Price;
+    public string Sprite;
+    public string OpenSprite;
+    public int BuyCost;
     public int[] CoinRange;
+    public int CardCount;
     public HeroRatingProbabilitiesData GradeProbabilities;
 
     private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
