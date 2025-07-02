@@ -2,11 +2,20 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class MonsterController : BaseController
+public class MonsterController : CretureController
 {
     
     public Action<float, float> hpAction;
     MonsterData _monsterData;
+
+    protected override bool Init()
+    {
+        if(base.Init() == false)
+            return false;
+        State = Define.State.Move;
+        return true;
+    }
+
     public void SetInfo(MonsterData data, float Hp)
     {
         _monsterData = data;

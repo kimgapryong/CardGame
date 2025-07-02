@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class HeroController : BaseController
+public class HeroController : CretureController
 {
     public bool SetTile { get; set; } = false;
     private bool isLoaded = false;
-    private bool isAttacking = false;
+    
     public int curLevel { get; private set; } = 0;
 
     public HeroData _heroData { get; private set; }
@@ -15,14 +15,10 @@ public class HeroController : BaseController
     private Collider2D coll;
 
     private AtkArange atkArg;
-    private Define.State _state;
+    
     private MonsterController curTarget;
 
-    public Define.State State
-    {
-        get => _state;
-        set => _state = value;
-    }
+   
 
     protected override bool Init()
     {
@@ -51,7 +47,7 @@ public class HeroController : BaseController
         UpdateMethod();
     }
 
-    protected virtual void UpdateMethod()
+    protected override void UpdateMethod()
     {
         switch (State)
         {
@@ -93,7 +89,7 @@ public class HeroController : BaseController
     {
         argTrans.gameObject.SetActive(true);
     }
-    private void TryAttack()
+    protected override void TryAttack()
     {
         if (isAttacking)
             return;

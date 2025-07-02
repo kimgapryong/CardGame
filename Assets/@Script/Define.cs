@@ -51,6 +51,7 @@ public class Define
     {
         Idle,
         Attack,
+        Move,
     }
     public enum AtkArange
     {
