@@ -27,6 +27,10 @@ public class DataManager
         LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); });
         LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); });
         LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => HeroUpgradeDatas = loader.MakeDic());
+        LoadJson<ChestDataLoader, int, ChestData>("ChestData.json", (loader) =>
+        {
+            ChestDatas = loader.MakeDic();
+        });
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {
