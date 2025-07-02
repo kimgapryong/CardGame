@@ -1,11 +1,13 @@
 ﻿{
   "ChestDatas": [
     {
-      "ChestID":  0,
-      "ChestName": "Bronze",
-      "SpritePath": "Chest/Bronze",
-      "Price": 200,
+      "ChestID": 0,
+      "ChestName": "브론즈 상자",
+      "Sprite": "Chest/Bronze",
+      "OpenSprite": "Chest/Bronze_Open",
+      "BuyCost": 200,
       "CoinRange": [ 10, 50 ],
+      "CardCount": 3,
       "GradeProbabilities": {
         "Common": 0.65,
         "Nomal": 0.25,
@@ -15,10 +17,12 @@
     },
     {
       "ChestID": 1,
-      "ChestName": "Silver",
-      "SpritePath": "Chest/Silver",
+      "ChestName": "실버 상자",
+      "Sprite": "Chest/Silver",
+      "OpenSprite": "Chest/Silver_Open",
+      "BuyCost": 500,
       "CoinRange": [ 30, 100 ],
-      "Price": 500,
+      "CardCount": 5,
       "GradeProbabilities": {
         "Common": 0.35,
         "Nomal": 0.4,
@@ -28,10 +32,12 @@
     },
     {
       "ChestID": 2,
-      "ChestName": "Gold",
-      "SpritePath": "Chest/Gold",
+      "ChestName": "골드 상자",
+      "Sprite": "Chest/Gold",
+      "OpenSprite": "Chest/Gold_Open",
+      "BuyCost": 900,
       "CoinRange": [ 80, 300 ],
-      "Price": 900,
+      "CardCount": 9,
       "GradeProbabilities": {
         "Common": 0.1,
         "Nomal": 0.3,

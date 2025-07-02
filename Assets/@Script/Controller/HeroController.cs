@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class HeroController : CretureController
@@ -17,14 +18,14 @@ public class HeroController : CretureController
     private AtkArange atkArg;
     
     private MonsterController curTarget;
-
-   
+    Skills skill;
+    Scope scope;
 
     protected override bool Init()
     {
         if (!base.Init())
             return false;
-
+        skill = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         StartCoroutine(CoWaitForSkill());
 
         argTrans = transform.Find("Arange");
@@ -45,6 +46,8 @@ public class HeroController : CretureController
             return;
 
         UpdateMethod();
+        if (skill.SkillT == Define.SkillType.Plural)
+            ShowRange();
     }
 
     protected override void UpdateMethod()
@@ -54,10 +57,13 @@ public class HeroController : CretureController
             case Define.State.Idle:
                 TryAttack();
                 break;
-
             case Define.State.Attack:
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
+    }
+    void ShowRange()
+    {
+
     }
     public void UpgradeLevel()
     {
@@ -76,10 +82,9 @@ public class HeroController : CretureController
         });
 
         float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        skill = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         argTrans.localScale = new Vector2(curSize, curSize);
         transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
-
-
     }
     public void OffArg()
     {
@@ -88,6 +93,7 @@ public class HeroController : CretureController
     public void OnArg()
     {
         argTrans.gameObject.SetActive(true);
+        ShowScope().Forget();
     }
     protected override void TryAttack()
     {
@@ -166,13 +172,8 @@ public class HeroController : CretureController
 
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
-        Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
-        if (skills.SkillT == Define.SkillType.Plural)
-        {
-            go.GetComponent<Skill>().Owner = this;
-            go.GetComponent<Skill>().UseSkill(target.transform, attack, _heroData.LevelData[curLevel].HeroLevelData.Arange);
-        }
-        else if (skills.SkillT == Define.SkillType.Single)
+
+        if (skill.SkillT == Define.SkillType.Single)
         {
             go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
         }
@@ -207,5 +208,32 @@ public class HeroController : CretureController
             yield return null;
 
         isLoaded = true;
+    }
+    async UniTaskVoid ShowScope()
+    {
+        if (scope == null)
+        {
+            GameObject scopePrefab = await Manager.Resource.Load<GameObject>("Scope");
+            GameObject go = Instantiate(scopePrefab, transform.position, Quaternion.identity, transform);
+            scope = go.GetComponent<Scope>();
+        }
+        float range = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        
+        scope.GenerateMesh(range, 15);
+        scope.SetMeshActive(true);
+        while (argTrans.gameObject.activeSelf)
+        {
+            await UniTask.Yield();
+            if (range != _heroData.LevelData[curLevel].HeroLevelData.Arange)
+            {
+                range = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                scope.GenerateMesh(range, 15);
+                scope.SetMeshActive(true);
+            }
+            if (curTarget == null)
+                continue;
+            scope.LookAt(curTarget.transform);
+        }
+        scope.SetMeshActive(false);
     }
 }

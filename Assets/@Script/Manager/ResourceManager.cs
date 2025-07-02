@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.U2D;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 using Object = UnityEngine.Object;
 
 public class ResourceManager
@@ -45,6 +48,18 @@ public class ResourceManager
 			HandlesCount--;
 		};
 	}
+	//코루틴안에서 로딩을 해야 할 때 사용함
+	public async UniTask<T> Load<T>(string key) where T : UnityEngine.Object
+	{
+        if (_resources.TryGetValue(key, out Object resource))
+            return resource as T;
+
+        _handles.Add(key, Addressables.LoadAssetAsync<T>(key));
+        HandlesCount++;
+		await _handles[key].Task;
+
+        return _handles[key].Result as T;
+    }
 
 	public void Release(string key)
 	{
