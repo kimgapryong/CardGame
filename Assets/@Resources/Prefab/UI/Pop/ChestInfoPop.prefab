@@ -356,7 +356,6 @@ GameObject:
   - component: {fileID: 8133417989827927932}
   - component: {fileID: 6996184090926189915}
   - component: {fileID: 1086294031724062923}
-  - component: {fileID: 926038575505548770}
   m_Layer: 5
   m_Name: ChestInfoPop
   m_TagString: Untagged
@@ -447,18 +446,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &926038575505548770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392670416529842214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1c241feedddaa4982034a8b775244f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1585753326344287961
 GameObject:
   m_ObjectHideFlags: 0
