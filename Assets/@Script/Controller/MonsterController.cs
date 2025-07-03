@@ -15,7 +15,7 @@ public class MonsterController : CretureController
         if(base.Init() == false)
             return false;
 
-        anim = GetComponent<Animator>();
+        
         State = Define.State.Move;
         return true;
     }

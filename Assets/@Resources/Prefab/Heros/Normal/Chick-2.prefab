@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.29, z: 0}
-  m_LocalScale: {x: 25, y: 25, z: 1}
+  m_LocalScale: {x: 57.5, y: 57.5, z: 57.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6914411291248721150}
@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 7984754252819797357}
   - component: {fileID: 8584638208809615910}
   - component: {fileID: 2546589566183375565}
+  - component: {fileID: -2762251778933606476}
   m_Layer: 0
   m_Name: Chick-2
   m_TagString: Untagged
@@ -329,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 3760172130859830690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.237006, y: -3.6994371, z: 0}
+  m_LocalPosition: {x: 9, y: 5, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -386,7 +387,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 200
+  m_SortingOrder: 2
   m_SortAtRoot: 0
 --- !u!95 &8584638208809615910
 Animator:
@@ -447,6 +448,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.41, y: 1.8999999}
   m_Size: {x: 4.15, y: 4.6}
   m_Direction: 0
+--- !u!114 &-2762251778933606476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760172130859830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f215d53f6eb8fc74d85567093e5e4a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4300866718409943037
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +589,7 @@ GameObject:
   - component: {fileID: 674134826259111263}
   - component: {fileID: 1464705859601661812}
   - component: {fileID: 6694424567664770890}
+  - component: {fileID: 5810986016870157292}
   m_Layer: 0
   m_Name: AtkArange
   m_TagString: Untagged
@@ -593,7 +607,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.29, z: 0}
-  m_LocalScale: {x: 25, y: 25, z: 1}
+  m_LocalScale: {x: 57.5, y: 57.5, z: 57.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6914411291248721150}
@@ -689,6 +703,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &5810986016870157292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731753901677769890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bafe87dd54061f4381fefd659ab8cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
 --- !u!1 &5025457964021986337
 GameObject:
   m_ObjectHideFlags: 0

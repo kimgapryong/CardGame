@@ -160,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 858981ffd74f96b4d83240fa5b6f34de
+    m_Address: Wolf_2.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 869d46397a7512e41b877e9ce44e7607
     m_Address: RankFragment
     m_ReadOnly: 0
@@ -282,6 +287,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa3d23ddedd3f254493abcd62e3647ca
     m_Address: Monster_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fce3fb987a439004381ab7c689c63323
+    m_Address: Wolf_1.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

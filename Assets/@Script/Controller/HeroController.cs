@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeroController : CretureController
@@ -17,7 +18,7 @@ public class HeroController : CretureController
     private AtkArange atkArg;
     
     private MonsterController curTarget;
-
+    private Tile _tile;
    
 
     protected override bool Init()
@@ -46,7 +47,11 @@ public class HeroController : CretureController
 
         UpdateMethod();
     }
-
+    public void SetTileCell(Tile tile)
+    {
+        _tile = tile;
+        tile.hero = gameObject;
+    }
     protected override void UpdateMethod()
     {
         switch (State)
@@ -66,20 +71,28 @@ public class HeroController : CretureController
 
         curLevel++;
 
-        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[curLevel].HeroSprite, (sprite) =>
+        Manager.Resource.Instantiate(_heroData.LevelData[curLevel].HeroSprite, callback:(obj) =>
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
+            HeroController hc = obj.GetOrAddComponent<HeroController>();
+            hc.CurLevelUp(curLevel);
+            hc.SetTileCell(_tile);
+            hc.SetInfo(_heroData);
+            
+            obj.transform.position = transform.position;
+
+            Manager.UI.CloseAllPopupUI();
+            Manager.UI.ShowPopupUI<Upgrade_Pop>(callback: (pop) =>
+            {
+                pop.SetInfo(hc._heroData, hc, hc._tile);
+            });
+            Destroy(gameObject);
         });
-        Manager.Resource.LoadAsync<GameObject>(Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID].SkillPre, (obj) =>
-        {
-            skillPre = obj;
-        });
 
-        float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-        argTrans.localScale = new Vector2(curSize, curSize);
-        transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
-
-
+        
+    }
+    public void CurLevelUp(int level)
+    {
+        curLevel= level;
     }
     public void OffArg()
     {
@@ -195,6 +208,12 @@ public class HeroController : CretureController
     public void SetInfo(HeroData data)
     {
         _heroData = data;
+
+        float normalScale = 1.0f / transform.localScale.x; //히어로 크기 정규화식
+        transform.Find("Arange").localScale = Vector3.one * _heroData.LevelData[curLevel].HeroLevelData.Arange * normalScale;
+        transform.Find("AtkArange").localScale = Vector3.one * _heroData.LevelData[curLevel].HeroLevelData.Arange * normalScale;
+        transform.Find("AtkArange").GetOrAddComponent<AtkArange>();
+
         Manager.Resource.LoadAsync<GameObject>(
             Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID].SkillPre,
             (obj) => { skillPre = obj; }
@@ -208,4 +227,5 @@ public class HeroController : CretureController
 
         isLoaded = true;
     }
+   
 }

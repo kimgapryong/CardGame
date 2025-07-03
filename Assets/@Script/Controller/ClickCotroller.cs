@@ -79,7 +79,8 @@ public class ClickCotroller : MonoBehaviour
 
         HeroController hero = curHero.GetComponent<HeroController>();
         hero.SetTile = true;
-        tile.hero = curHero;
+        hero.SetTileCell(tile);
+        
 
         Manager.Time.Money -= _heroData.LevelData[0].HeroLevelData.Upgrade;
 

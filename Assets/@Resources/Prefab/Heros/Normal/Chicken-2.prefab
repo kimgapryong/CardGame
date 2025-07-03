@@ -528,7 +528,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 200
+  m_SortingOrder: 2
   m_SortAtRoot: 0
 --- !u!95 &3409151315747617599
 Animator:

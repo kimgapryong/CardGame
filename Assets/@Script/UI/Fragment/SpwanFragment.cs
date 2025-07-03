@@ -64,12 +64,9 @@ public class SpwanFragment : UI_Base
 
         Manager.Resource.Instantiate(_heroData.LevelData[0].HeroSprite, callback: (obj) =>
         {
-            float normalScale = 1.0f / obj.transform.localScale.x; //히어로 크기 정규화식
-            obj.transform.Find("Arange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange * normalScale;
-            obj.transform.Find("AtkArange").localScale = Vector3.one * _heroData.LevelData[0].HeroLevelData.Arange * normalScale;
+           
             _click.HeroCursor(obj, _heroData);
           
-            obj.transform.Find("AtkArange").GetOrAddComponent<AtkArange>();
             HeroController hero = obj.GetOrAddComponent<HeroController>();
             hero.SetInfo(_heroData);
         });

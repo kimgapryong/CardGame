@@ -18,7 +18,7 @@ public class CretureController : BaseController
     {
         if(base.Init() == false) 
             return false;   
-
+        anim = GetComponent<Animator>();
 
         return true;    
     }
