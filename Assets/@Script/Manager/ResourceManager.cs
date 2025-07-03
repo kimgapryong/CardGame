@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.U2D;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using Object = UnityEngine.Object;
 
 public class ResourceManager
 {
 	// 실제 로드한 리소스.
-	Dictionary<string, UnityEngine.Object> _resources = new Dictionary<string, UnityEngine.Object>();
+	Dictionary<string, Object> _resources = new Dictionary<string, Object>();
 
 	// 비동기 리소스 진행 상황.
 	Dictionary<string, AsyncOperationHandle> _handles = new Dictionary<string, AsyncOperationHandle>();
@@ -45,7 +42,17 @@ public class ResourceManager
 			HandlesCount--;
 		};
 	}
+	public async UniTask<T> LoadAsync<T>(string key)
+	{
+		var task = Addressables.LoadAssetAsync<T>(key);
 
+        _handles.Add(key, task);
+
+		await task;
+        HandlesCount++;
+
+        return task.Result;
+    }
 	public void Release(string key)
 	{
 		if (_resources.TryGetValue(key, out Object resource) == false)
@@ -86,8 +93,14 @@ public class ResourceManager
 		//	onInstantiate?.Invoke(go.Result); 
 		//};
 	}
+    public async UniTask<GameObject> Instantiate(string key, Transform parent = null)
+	{
+		GameObject go = await LoadAsync<GameObject>(key);
+		go = Object.Instantiate(go, parent);
+		return go;
+	}
 
-	public void Destroy(GameObject go, float seconds = 0.0f)
+    public void Destroy(GameObject go, float seconds = 0.0f)
 	{
 		Object.Destroy(go, seconds);
 

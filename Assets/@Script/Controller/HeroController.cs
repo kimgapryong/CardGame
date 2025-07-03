@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ public class HeroController : CretureController
     
     private MonsterController curTarget;
     private Tile _tile;
+    Scope scope;
+
    
 
     protected override bool Init()
@@ -37,9 +40,15 @@ public class HeroController : CretureController
         {
             coll.enabled = false;
         }
+        SetScope();
         return true;
     }
-
+    async void SetScope()
+    {
+        GameObject go = await Manager.Resource.Instantiate("Scope", transform);
+        scope = go.GetComponent<Scope>();
+        scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
+    }
     private void Update()
     {
         if (!isLoaded || !SetTile)
@@ -54,6 +63,7 @@ public class HeroController : CretureController
     }
     protected override void UpdateMethod()
     {
+        
         switch (State)
         {
             case Define.State.Idle:
@@ -63,6 +73,12 @@ public class HeroController : CretureController
             case Define.State.Attack:
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
+
+        if (scope == null)
+            return;
+        if (curTarget == null)
+            return;
+        scope.LookAt(curTarget.transform);
     }
     public void UpgradeLevel()
     {
@@ -88,7 +104,11 @@ public class HeroController : CretureController
             Destroy(gameObject);
         });
 
-        
+        float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+        argTrans.localScale = new Vector2(curSize, curSize);
+        transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
+        scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
+
     }
     public void CurLevelUp(int level)
     {
@@ -97,10 +117,18 @@ public class HeroController : CretureController
     public void OffArg()
     {
         argTrans.gameObject.SetActive(false);
+
+        if (scope == null)
+            return;
+        scope.SetMeshActive(false);
     }
     public void OnArg()
     {
         argTrans.gameObject.SetActive(true);
+
+        if (scope == null)
+            return;
+        scope.SetMeshActive(true);
     }
     protected override void TryAttack()
     {
@@ -180,16 +208,7 @@ public class HeroController : CretureController
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
-        if (skills.SkillT == Define.SkillType.Plural)
-        {
-            go.GetComponent<Skill>().Owner = this;
-            go.GetComponent<Skill>().UseSkill(target.transform, attack, _heroData.LevelData[curLevel].HeroLevelData.Arange);
-        }
-        else if (skills.SkillT == Define.SkillType.Single)
-        {
-            go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);
-        }
-        
+        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);        
     }
 
     private void AoeAttack()
@@ -198,11 +217,22 @@ public class HeroController : CretureController
             return;
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
-        for (int i = 0; i < atkArg.targets.Count; i++)
+        if (_heroData.LevelData[curLevel].AngleOffset == 0)
         {
-            var monster = atkArg.targets[i];
-            if (monster != null)
-                monster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+            for (int i = 0; i < atkArg.targets.Count; i++)
+            {
+                var monster = atkArg.targets[i];
+                if (monster != null)
+                    monster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+            }
+        }
+        else
+        {
+            List<MonsterController> targetMonsters = scope.GetTargets();
+            foreach (var targetMonster in targetMonsters)
+            {
+                targetMonster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+            }
         }
     }
     public void SetInfo(HeroData data)
