@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework.Internal;
 using UnityEngine;
 
@@ -9,10 +10,12 @@ public class Scope : MonoBehaviour
 
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
+    PolygonCollider2D polygonCollider;
 
     Mesh mesh;
     public void GenerateMesh(float aRange, float offsetAngle)
     {
+        polygonCollider = GetComponent<PolygonCollider2D>();
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
 
@@ -51,6 +54,13 @@ public class Scope : MonoBehaviour
 
         mesh.SetTriangles(indices, 0);
         meshRenderer.material = ScopeMaterial;
+
+        Vector2[] colliderPoints = new Vector2[vertices.Count];
+        for (int i = 0; i < colliderPoints.Count(); i++)
+            colliderPoints[i] = vertices[i];
+
+        polygonCollider.points = colliderPoints;
+
     }
     public void SetMeshActive(bool isActive)
     {
@@ -73,4 +83,25 @@ public class Scope : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
     }
+
+    public List<MonsterController> GetTargets()
+    {
+        ContactFilter2D filter2D = new ContactFilter2D();
+        filter2D.NoFilter();
+
+        List<Collider2D> colliders = new List<Collider2D>();
+        polygonCollider.Overlap(filter2D, colliders);
+
+        List<MonsterController> targets = new List<MonsterController>();
+        
+        foreach (Collider2D collider in colliders)
+        {
+            MonsterController mController = collider.GetComponent<MonsterController>();
+            if (mController == null)
+                continue;
+            targets.Add(mController);
+        }
+        return targets;
+    }
+
 }
