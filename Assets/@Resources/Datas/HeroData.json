@@ -255,9 +255,9 @@
           "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
           "HeroSprite": "Pug",
           "AtkArange": "Aoe",
-          "AngleOffsset" : 15,
+          "AngleOffset" : 15,
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 1000,
             "Arange": 5.6,
             "AtkSpeed": 2.5,
             "Upgrade": 100
