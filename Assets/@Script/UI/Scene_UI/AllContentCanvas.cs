@@ -10,8 +10,8 @@ public class AllContentCanvas : UI_Scene
     {
         SetCard,
         Card_Content,
-        Card,
-        Chest 
+        Chest, 
+        Hero,
     }
     enum Buttons
     {
@@ -71,14 +71,14 @@ public class AllContentCanvas : UI_Scene
         {
             ChestData chestData = Manager.Data.ChestDatas[i];
 
-            Manager.UI.MakeSubItem<ChestFragment>(
+            Manager.UI.MakeSubItem<ShopChestFragment>(
                 GetObject((int)Objects.Chest).transform,
                 callback: (chestFragment) =>
                 {
                     chestFragment.SetInfo(chestData);
                     BindEvent(chestFragment.gameObject, () =>
                     {
-                        Manager.UI.ShowPopupUI<ChestInfoPop>(callback: (chestPop) =>
+                        Manager.UI.ShowPopupUI<ShopChestInfoPop>(callback: (chestPop) =>
                         {
                             chestPop.SetInfo(chestData);
                             chestPop.OnClickBuyButton += () =>
@@ -90,6 +90,7 @@ public class AllContentCanvas : UI_Scene
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
                 });
         }
+
 
         return true;
     }

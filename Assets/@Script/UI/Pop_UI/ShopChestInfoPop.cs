@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChestInfoPop : UI_Popup
+public class ShopChestInfoPop : UI_Popup
 {
     private ChestData _chestData;
 

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6945604608803916793}
   - component: {fileID: 1470451980647415311}
   m_Layer: 5
-  m_Name: ChestFragment
+  m_Name: ShopChestFragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
