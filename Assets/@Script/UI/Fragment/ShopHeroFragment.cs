@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class ShopHeroFragment : UI_Base
 {
@@ -15,6 +16,7 @@ public class ShopHeroFragment : UI_Base
     }
 
     HeroData _heroData;
+    int _priceGold;
 
     public override bool Init()
     {
@@ -27,22 +29,23 @@ public class ShopHeroFragment : UI_Base
         return true;
     }
 
-    private void LateUpdate()
-    {
-        //GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _chestData.BuyCost ? Color.black : Color.red;
-    }
-
     public void SetInfo(HeroData heroData)
     {
         _heroData = heroData;
+        _priceGold = Manager.Data.HeroRatingPriceDatas[_heroData.Hero_Rating].gold;
 
         Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].Sprite, (sprite) =>
         {
             GetImage((int)Images.ProfileImage).sprite = sprite;
             GetText((int)Texts.NameText).text = _heroData.LevelData[0].HeroName;
             GetText((int)Texts.RatingText).text = _heroData.Hero_Rating.ToString();
-            GetText((int)Texts.PriceText).text = Manager.Data.HeroRatingPriceDatas[_heroData.Hero_Rating].gold.ToString();
+            GetText((int)Texts.PriceText).text = _priceGold.ToString();
+            GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _priceGold ? Color.white : Color.red;
         });
     }
 
+    private void LateUpdate()
+    {
+        GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _priceGold ? Color.white : Color.red;
+    }
 }

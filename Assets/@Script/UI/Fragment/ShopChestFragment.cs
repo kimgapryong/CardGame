@@ -39,7 +39,7 @@ public class ShopChestFragment : UI_Base
 
     private void LateUpdate()
     {
-        GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _chestData.BuyCost ? Color.black : Color.red;
+        GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _chestData.BuyCost ? Color.white : Color.red;
     }
 
     public void SetInfo(ChestData chestData)
