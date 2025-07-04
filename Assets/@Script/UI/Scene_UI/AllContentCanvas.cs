@@ -19,6 +19,12 @@ public class AllContentCanvas : UI_Scene
         GamePreBtn,
         RankingBtn,
     }
+    enum Texts
+    {
+        GoldCountText,
+        GemCountText
+    }
+
     public override bool Init()
     {
         if (base.Init() == false)
@@ -26,6 +32,7 @@ public class AllContentCanvas : UI_Scene
 
         BindObject(typeof(Objects));
         BindButton(typeof(Buttons));
+        BindText(typeof(Texts));
 
         for (int i = 0; i < HERO_COUNT; i++)
         {
@@ -105,4 +112,18 @@ public class AllContentCanvas : UI_Scene
         }
     }
 
+    private void LateUpdate()
+    {
+        GetText((int)Texts.GoldCountText).text = $"{Manager.Game.SaveData.Gold:N0}";
+        GetText((int)Texts.GemCountText).text = $"{Manager.Game.SaveData.Gem:N0}";
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Manager.Game.SaveData.Gold++;
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Manager.Game.SaveData.Gem++;
+        }
+    }
 }
