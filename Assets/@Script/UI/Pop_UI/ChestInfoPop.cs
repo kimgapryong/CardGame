@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ChestInfoPop : UI_Popup
 {
     private ChestData _chestData;
+
+    public Action OnClickBuyButton;
 
     public enum Objects
     {
@@ -43,6 +46,11 @@ public class ChestInfoPop : UI_Popup
         GetText((int)Texts.CardCountText).text = $"x{_chestData.CardCount}";
         GetText((int)Texts.BuyCostText).text = $"{_chestData.BuyCost}";
         GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gem >= _chestData.BuyCost ? Color.white : Color.red;
+
+        BindEvent(GetObject((int)Objects.BuyButton), () =>
+        {
+            OnClickBuyButton?.Invoke();
+        });
 
         return true;
     }

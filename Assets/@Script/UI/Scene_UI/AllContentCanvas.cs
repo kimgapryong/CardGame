@@ -81,6 +81,10 @@ public class AllContentCanvas : UI_Scene
                         Manager.UI.ShowPopupUI<ChestInfoPop>(callback: (chestPop) =>
                         {
                             chestPop.SetInfo(chestData);
+                            chestPop.OnClickBuyButton += () =>
+                            {
+
+                            };
                         });
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
