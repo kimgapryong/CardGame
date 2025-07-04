@@ -74,11 +74,14 @@ public class AllContentCanvas : UI_Scene
                 callback: (chestFragment) =>
                 {
                     chestFragment.SetInfo(chestData);
+                    // UI 눌렀을 때
                     BindEvent(chestFragment.gameObject, () =>
                     {
+                        // 팝업창 띄우기
                         Manager.UI.ShowPopupUI<ShopChestInfoPop>(callback: (chestPop) =>
                         {
                             chestPop.SetInfo(chestData);
+                            // 팝업 창에서 구매 버튼 눌렀을 때
                             chestPop.OnClickBuyButton += () =>
                             {
 
@@ -89,6 +92,7 @@ public class AllContentCanvas : UI_Scene
                 });
         }
 
+        // 상점에 영웅 ui들 생성
         for (int i = 0; i < Manager.Data.HeroDatas.Count; i++)
         {
             HeroData heroData = Manager.Data.HeroDatas[i + 1];
@@ -98,6 +102,13 @@ public class AllContentCanvas : UI_Scene
                 callback: (heroFragment) =>
                 {
                     heroFragment.SetInfo(heroData);
+                    // UI 눌렀을 때
+                    BindEvent(heroFragment.gameObject, () =>
+                    {
+                        // 팝업창 띄우기
+
+                    });
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
                 });
         }
 
