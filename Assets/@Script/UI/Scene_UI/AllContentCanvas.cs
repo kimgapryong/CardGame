@@ -66,6 +66,8 @@ public class AllContentCanvas : UI_Scene
             pop.SetInfo(Manager.Rank.LoadRankings());
         }));
 
+        #region shop ui
+
         // 상점에 상자 ui들 생성
         foreach (ChestData chestData in Manager.Data.ChestDatas.Values)
         {
@@ -111,6 +113,7 @@ public class AllContentCanvas : UI_Scene
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
                 });
         }
+        #endregion
 
         return true;
     }
