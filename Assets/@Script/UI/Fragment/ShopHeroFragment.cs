@@ -41,7 +41,7 @@ public class ShopHeroFragment : UI_Base
             GetImage((int)Images.ProfileImage).sprite = sprite;
             GetText((int)Texts.NameText).text = _heroData.LevelData[0].HeroName;
             GetText((int)Texts.RatingText).text = _heroData.Hero_Rating.ToString();
-            GetText((int)Texts.PriceText).text = _heroData.Hero_Rating.ToString();
+            GetText((int)Texts.PriceText).text = Manager.Data.HeroRatingPriceDatas[_heroData.Hero_Rating].gold.ToString();
         });
     }
 
