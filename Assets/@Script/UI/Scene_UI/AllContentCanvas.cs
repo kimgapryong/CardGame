@@ -119,11 +119,11 @@ public class AllContentCanvas : UI_Scene
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Manager.Game.SaveData.Gold += 10;
+            Manager.Game.SaveData.Gold += 100;
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Manager.Game.SaveData.Gem += 10;
+            Manager.Game.SaveData.Gem += 100;
         }
     }
 }
