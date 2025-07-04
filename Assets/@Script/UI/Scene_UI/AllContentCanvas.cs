@@ -108,6 +108,15 @@ public class AllContentCanvas : UI_Scene
                     BindEvent(heroFragment.gameObject, () =>
                     {
                         // 팝업창 띄우기
+                        Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
+                        {
+                            heroPop.SetInfo(heroData);
+                            // 팝업 창에서 구매 버튼 눌렀을 때
+                            heroPop.OnClickBuyButton += () =>
+                            {
+
+                            };
+                        });
 
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
