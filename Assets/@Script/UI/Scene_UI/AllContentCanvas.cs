@@ -66,6 +66,7 @@ public class AllContentCanvas : UI_Scene
             pop.SetInfo(Manager.Rank.LoadRankings());
         }));
 
+        // 상점에 상자 ui들 생성
         for (int i = 0; i < Manager.Data.ChestDatas.Count; i++)
         {
             ChestData chestData = Manager.Data.ChestDatas[i];
@@ -114,16 +115,14 @@ public class AllContentCanvas : UI_Scene
 
     private void LateUpdate()
     {
+        // 골드, 보석 텍스트 갱신
         GetText((int)Texts.GoldCountText).text = $"{Manager.Game.SaveData.Gold:N0}";
         GetText((int)Texts.GemCountText).text = $"{Manager.Game.SaveData.Gem:N0}";
 
+        // 치트키
         if (Input.GetKeyDown(KeyCode.F1))
-        {
             Manager.Game.SaveData.Gold += 100;
-        }
         if (Input.GetKeyDown(KeyCode.F2))
-        {
             Manager.Game.SaveData.Gem += 100;
-        }
     }
 }
