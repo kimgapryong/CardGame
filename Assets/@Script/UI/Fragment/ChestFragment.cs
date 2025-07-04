@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class ChestFragment : UI_Base
 {
-    public enum Objects
+    public enum Images
     {
         Image,
+    }
+
+    public enum Texts
+    {
         NameText,
         PriceText,
     }
+
+
     ChestData _chestData;
 
     public override bool Init()
@@ -18,19 +24,22 @@ public class ChestFragment : UI_Base
         if(base.Init() == false)
             return false;
 
-        Debug.Log(_chestData);
-        BindObject(typeof(Objects));
+        BindImage(typeof(Images));
+        BindText(typeof(Texts));
 
         Manager.Resource.LoadAsync<Sprite>(_chestData.Sprite, (sprite) =>
         {
-            GetObject((int)Objects.Image).GetComponent<Image>().sprite = sprite;
-            GetObject((int)Objects.NameText).GetComponent<Text>().text = _chestData.ChestName;
-
-            Debug.Log(GetObject((int)Objects.PriceText));
-            GetObject((int)Objects.PriceText).GetComponent<Text>().text = $"{_chestData.BuyCost}";
+            GetImage((int)Images.Image).sprite = sprite;
+            GetText((int)Texts.NameText).text = _chestData.ChestName;
+            GetText((int)Texts.PriceText).text = $"{_chestData.BuyCost}";
         });
 
         return true;
+    }
+
+    private void LateUpdate()
+    {
+        GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _chestData.BuyCost ? Color.black : Color.red;
     }
 
     public void SetInfo(ChestData chestData)

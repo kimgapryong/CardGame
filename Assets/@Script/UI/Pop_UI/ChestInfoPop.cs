@@ -42,6 +42,7 @@ public class ChestInfoPop : UI_Popup
         GetText((int)Texts.CoinCountText).text = $"x{_chestData.CoinRange[0]}~{_chestData.CoinRange[1]}";
         GetText((int)Texts.CardCountText).text = $"x{_chestData.CardCount}";
         GetText((int)Texts.BuyCostText).text = $"{_chestData.BuyCost}";
+        GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gem >= _chestData.BuyCost ? Color.white : Color.red;
 
         return true;
     }
