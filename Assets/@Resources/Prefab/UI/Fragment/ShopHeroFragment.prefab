@@ -315,9 +315,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -3967053753820135251, guid: 57c7f16217436f646b9417e44cfe6615, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -405,7 +405,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uC804\uC124 \uD0B9 \uC0C1\uC790"
+  m_Text: "\uC601\uC6C5 \uC774\uB984"
 --- !u!114 &3404328099814364504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,8 +473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 63.180984, y: -35}
-  m_SizeDelta: {x: 126.36197, y: 0}
+  m_AnchoredPosition: {x: 66, y: -35}
+  m_SizeDelta: {x: 132, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4907997498533582994
 CanvasRenderer:

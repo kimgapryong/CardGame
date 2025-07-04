@@ -67,10 +67,8 @@ public class AllContentCanvas : UI_Scene
         }));
 
         // 상점에 상자 ui들 생성
-        for (int i = 0; i < Manager.Data.ChestDatas.Count; i++)
+        foreach (ChestData chestData in Manager.Data.ChestDatas.Values)
         {
-            ChestData chestData = Manager.Data.ChestDatas[i];
-
             Manager.UI.MakeSubItem<ShopChestFragment>(
                 GetObject((int)Objects.Chest).transform,
                 callback: (chestFragment) =>
@@ -91,6 +89,17 @@ public class AllContentCanvas : UI_Scene
                 });
         }
 
+        for (int i = 0; i < Manager.Data.HeroDatas.Count; i++)
+        {
+            HeroData heroData = Manager.Data.HeroDatas[i + 1];
+
+            Manager.UI.MakeSubItem<ShopHeroFragment>(
+                GetObject((int)Objects.Hero).transform,
+                callback: (heroFragment) =>
+                {
+                    heroFragment.SetInfo(heroData);
+                });
+        }
 
         return true;
     }
