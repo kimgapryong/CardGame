@@ -220,25 +220,28 @@ public class HeroController : CretureController
     {
         if (atkArg.targets.Count <= 0)
             return;
-
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+
         if (_heroData.LevelData[curLevel].AngleOffset == 0)
         {
             for (int i = 0; i < atkArg.targets.Count; i++)
             {
                 var monster = atkArg.targets[i];
                 if (monster != null)
-                    monster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+                    monster.OnDamage(this, attack);
             }
         }
         else
         {
             
             List<MonsterController> targetMonsters = scope.GetTargets();
-            Debug.Log(targetMonsters.Count);
+            AoeProjectile proj = go.GetComponent<AoeProjectile>();
+            proj.SetTarget(this, _heroData.LevelData[curLevel].HeroLevelData.Arange, (curTarget.transform.position - transform.position).normalized);
             foreach (var targetMonster in targetMonsters)
             {
-                targetMonster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+                targetMonster.OnDamage(this, attack);
             }
         }
     }

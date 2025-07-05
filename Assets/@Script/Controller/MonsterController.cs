@@ -42,7 +42,7 @@ public class MonsterController : CretureController
     {
         CurHp -= damage;
         Debug.Log($"원래 체력 : {CurHp + damage}, 현재 남은 체력 : {CurHp}");
-        if(CurHp <= 0 )
+        if(CurHp <= 0)
             OnDie();
     }
 
