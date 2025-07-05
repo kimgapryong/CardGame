@@ -45,8 +45,9 @@ public class HeroController : CretureController
     }
     async void SetScope()
     {
-        GameObject go = await Manager.Resource.Instantiate("Scope", transform);
+        GameObject go = await Manager.Resource.Instantiate("Scope", null);
         scope = go.GetComponent<Scope>();
+        scope.transform.position = transform.position;
         scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
     }
     private void Update()
@@ -74,10 +75,14 @@ public class HeroController : CretureController
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
 
+        if (scope.transform.position != transform.position)
+            scope.transform.position = transform.position;
+
         if (scope == null)
             return;
         if (curTarget == null)
             return;
+        
         scope.LookAt(curTarget.transform);
     }
     public void UpgradeLevel()
@@ -228,7 +233,9 @@ public class HeroController : CretureController
         }
         else
         {
+            
             List<MonsterController> targetMonsters = scope.GetTargets();
+            Debug.Log(targetMonsters.Count);
             foreach (var targetMonster in targetMonsters)
             {
                 targetMonster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);

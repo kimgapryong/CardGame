@@ -12,30 +12,30 @@ public class Scope : MonoBehaviour
     MeshFilter meshFilter;
     PolygonCollider2D polygonCollider;
 
-    Mesh mesh;
-    public void GenerateMesh(float aRange, float offsetAngle)
+    public Mesh mesh;
+    public void GenerateMesh(float aRange, float offsetAngle, float normalizedScaler = 1)
     {
+        Debug.Log($"aRange : {aRange}, {offsetAngle}");
         polygonCollider = GetComponent<PolygonCollider2D>();
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
 
         mesh = new Mesh();
 
-        Vector2 destPos = Vector2.right * aRange / 2;
+        Vector2 destPos = Vector2.right;
 
         float angle = Mathf.Atan2(destPos.y, destPos.x) * Mathf.Rad2Deg;
-        float destPosLength = destPos.magnitude;
+        float length = aRange / 2;
 
         List<Vector3> vertices = new List<Vector3>();
         List<Vector3> normals = new List<Vector3>();
 
         vertices.Add(Vector3.zero);
-        normals.Add(new Vector3(0, 0, 1));
 
         for (float i = angle - offsetAngle; i <= angle + offsetAngle; i += 0.5f)
         {
-            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i) * destPosLength, Mathf.Sin(Mathf.Deg2Rad * i) * destPosLength, 0);
-            normals.Add(new Vector3(0, 0, 1));
+            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * i), Mathf.Sin(Mathf.Deg2Rad * i), 0);
+            pos *= length;
             vertices.Add(pos);
         }
         mesh.SetVertices(vertices);
