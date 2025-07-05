@@ -22,6 +22,7 @@ public class ShopHeroFragment : UI_Base
     HeroData _heroData;
     Define.HeroRating _heroRating;
     int _priceGold;
+    int _rewardCount;
 
     public override bool Init()
     {
@@ -34,10 +35,11 @@ public class ShopHeroFragment : UI_Base
         return true;
     }
 
-    public void SetInfo(HeroData heroData)
+    public void SetInfo(HeroData heroData, int rewardCount)
     {
         _heroData = heroData;
         _heroRating = _heroData.Hero_Rating;
+        _rewardCount = rewardCount;
         _priceGold = Manager.Data.HeroRatingPriceDatas[_heroRating].gold;
 
         Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].Sprite, (sprite) =>
@@ -45,6 +47,7 @@ public class ShopHeroFragment : UI_Base
             GetImage((int)Images.ProfileImage).sprite = sprite;
             GetText((int)Texts.NameText).text = _heroData.LevelData[0].HeroName;
             GetText((int)Texts.RatingText).text = _heroData.Hero_Rating.ToString();
+            GetText((int)Texts.RewardCountText).text = $"x{_rewardCount}";
             switch (_heroRating)
             {
 
@@ -69,5 +72,8 @@ public class ShopHeroFragment : UI_Base
     private void LateUpdate()
     {
         GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _priceGold ? Color.white : Color.red;
+
+        //int currentCount = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
+        //GetText((int)Texts.CurrentCountText).text = $"{currentCount}";
     }
 }

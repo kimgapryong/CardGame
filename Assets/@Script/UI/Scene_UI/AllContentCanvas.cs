@@ -103,14 +103,14 @@ public class AllContentCanvas : UI_Scene
                 GetObject((int)Objects.Hero).transform,
                 callback: (heroFragment) =>
                 {
-                    heroFragment.SetInfo(heroData);
+                    heroFragment.SetInfo(heroData, 10);
                     // UI 눌렀을 때
                     BindEvent(heroFragment.gameObject, () =>
                     {
                         // 팝업창 띄우기
                         Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
                         {
-                            heroPop.SetInfo(heroData);
+                            heroPop.SetInfo(heroData, 10);
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             heroPop.OnClickBuyButton += () =>
                             {

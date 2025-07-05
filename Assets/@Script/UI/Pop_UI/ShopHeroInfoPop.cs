@@ -8,6 +8,7 @@ public class ShopHeroInfoPop : UI_Popup
     private HeroData _heroData;
     private Define.HeroRating _heroRating;
     private int _priceGold;
+    private int _rewardCount;
 
     public Action OnClickBuyButton;
 
@@ -16,6 +17,7 @@ public class ShopHeroInfoPop : UI_Popup
         CloseButton,
         ProfileImage,
         BuyButton,
+        CurrentCountSlider,
     }
 
     public enum Texts
@@ -23,7 +25,9 @@ public class ShopHeroInfoPop : UI_Popup
         HeroNameText,
         HeroNameText2,
         HeroRatingText,
-        BuyCostText
+        BuyCostText,
+        CurrentCountText,
+        RewardCountText,
     }
 
     public override bool Init()
@@ -46,6 +50,7 @@ public class ShopHeroInfoPop : UI_Popup
 
         GetText((int)Texts.HeroNameText).text = _heroData.LevelData[0].HeroName;
         GetText((int)Texts.HeroNameText2).text = _heroData.LevelData[0].HeroName;
+        GetText((int)Texts.RewardCountText).text = $"x{_rewardCount}";
 
         GetText((int)Texts.HeroRatingText).text = _heroRating.ToString();
         switch (_heroRating)
@@ -76,10 +81,14 @@ public class ShopHeroInfoPop : UI_Popup
         return true;
     }
 
-    public void SetInfo(HeroData heroData)
+    public void SetInfo(HeroData heroData, int rewardCount)
     {
         _heroData = heroData;
         _heroRating = _heroData.Hero_Rating;
+        _rewardCount = rewardCount;
         _priceGold = Manager.Data.HeroRatingPriceDatas[_heroRating].gold;
+
+        //int currentCount = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
+        //GetText((int)Texts.CurrentCountText).text = $"{currentCount}";
     }
 }
