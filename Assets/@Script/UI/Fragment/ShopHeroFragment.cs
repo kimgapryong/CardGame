@@ -7,6 +7,7 @@ public class ShopHeroFragment : UI_Base
     public enum Images
     {
         ProfileImage,
+        CurrentCountSlider,
     }
 
     public enum Texts
@@ -14,6 +15,8 @@ public class ShopHeroFragment : UI_Base
         NameText,
         RatingText,
         PriceText,
+        RewardCountText,
+        CurrentCountText,
     }
 
     HeroData _heroData;
