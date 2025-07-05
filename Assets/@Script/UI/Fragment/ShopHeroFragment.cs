@@ -19,10 +19,11 @@ public class ShopHeroFragment : UI_Base
         CurrentCountText,
     }
 
-    HeroData _heroData;
-    Define.HeroRating _heroRating;
-    int _priceGold;
-    int _rewardCount;
+    private Sprite _sprite;
+    private HeroData _heroData;
+    private Define.HeroRating _heroRating;
+    private int _priceGold;
+    private int _rewardCount;
 
     public override bool Init()
     {
@@ -44,7 +45,8 @@ public class ShopHeroFragment : UI_Base
 
         Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].Sprite, (sprite) =>
         {
-            GetImage((int)Images.ProfileImage).sprite = sprite;
+            _sprite = sprite;
+            GetImage((int)Images.ProfileImage).sprite = _sprite;
             GetText((int)Texts.NameText).text = _heroData.LevelData[0].HeroName;
             GetText((int)Texts.RatingText).text = _heroData.Hero_Rating.ToString();
             GetText((int)Texts.RewardCountText).text = $"x{_rewardCount}";
@@ -65,7 +67,6 @@ public class ShopHeroFragment : UI_Base
                     break;
             }
             GetText((int)Texts.PriceText).text = _priceGold.ToString();
-            GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _priceGold ? Color.white : Color.red;
         });
     }
 

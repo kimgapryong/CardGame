@@ -5,6 +5,7 @@ using static Define;
 
 public class ShopHeroInfoPop : UI_Popup
 {
+    private Sprite _sprite;
     private HeroData _heroData;
     private Define.HeroRating _heroRating;
     private int _priceGold;
@@ -43,11 +44,11 @@ public class ShopHeroInfoPop : UI_Popup
             Manager.UI.ClosePopupUI(this);
         });
 
-        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].Sprite, sprite =>
-        {
-            GetObject((int)Objects.ProfileImage).GetComponent<Image>().sprite = sprite;
+        Manager.Resource.LoadAsync<Sprite>(_heroData.LevelData[0].Sprite, sprite => 
+        { 
+            _sprite = sprite; 
         });
-
+        GetObject((int)Objects.ProfileImage).GetComponent<Image>().sprite = _sprite;
         GetText((int)Texts.HeroNameText).text = _heroData.LevelData[0].HeroName;
         GetText((int)Texts.HeroNameText2).text = _heroData.LevelData[0].HeroName;
         GetText((int)Texts.RewardCountText).text = $"x{_rewardCount}";
@@ -73,10 +74,7 @@ public class ShopHeroInfoPop : UI_Popup
         GetText((int)Texts.BuyCostText).text = $"{_priceGold}";
         GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gold >= _priceGold ? Color.white : Color.red;
 
-        BindEvent(GetObject((int)Objects.BuyButton), () =>
-        {
-            OnClickBuyButton?.Invoke();
-        });
+        BindEvent(GetObject((int)Objects.BuyButton), () => { OnClickBuyButton?.Invoke(); });
 
         return true;
     }
