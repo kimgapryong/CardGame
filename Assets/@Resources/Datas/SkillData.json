@@ -82,22 +82,22 @@
     },
     {
       "SkillID": 17,
-      "SkillPre": "Skill_15",
+      "SkillPre": "Skill_17",
       "SkillType": "Single"
     },
     {
       "SkillID": 18,
-      "SkillPre": "Skill_15",
+      "SkillPre": "Skill_18",
       "SkillType": "Single"
     },
     {
       "SkillID": 19,
-      "SkillPre": "Skill_15",
+      "SkillPre": "Skill_19",
       "SkillType": "Single"
     },
     {
       "SkillID": 20,
-      "SkillPre": "Skill_15",
+      "SkillPre": "Skill_20",
       "SkillType": "Single"
     }
   ]

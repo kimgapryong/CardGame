@@ -22,7 +22,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 1,
+            "SkillID": 19,
             "AnimationID": 1
           }
         },
@@ -39,7 +39,7 @@
             "Upgrade": 500
           },
           "SkillMapData": {
-            "SkillID": 1,
+            "SkillID": 18,
             "AnimationID": 1
           }
         },
@@ -58,7 +58,7 @@
             "Upgrade": 12500
           },
           "SkillMapData": {
-            "SkillID": 11,
+            "SkillID": 20,
             "AnimationID": 11
           }
         }
@@ -112,7 +112,7 @@
             "Upgrade": 0
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 17,
             "AnimationID": 3
           }
         },
@@ -129,7 +129,7 @@
             "Upgrade": 3200
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 16,
             "AnimationID": 3
           }
         },
@@ -146,7 +146,7 @@
             "Upgrade": 15000
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 15,
             "AnimationID": 3
           }
         }
@@ -173,7 +173,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 4,
+            "SkillID": 13,
             "AnimationID": 4
           }
         },
@@ -190,7 +190,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 4,
+            "SkillID": 14,
             "AnimationID": 4
           }
         }
@@ -217,7 +217,7 @@
             "Upgrade": 550
           },
           "SkillMapData": {
-            "SkillID": 5,
+            "SkillID": 11,
             "AnimationID": 5
           }
         },
@@ -234,7 +234,7 @@
             "Upgrade": 1800
           },
           "SkillMapData": {
-            "SkillID": 5,
+            "SkillID": 12,
             "AnimationID": 5
           }
         }
@@ -263,7 +263,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 10,
             "AnimationID": 6
           }
         }
@@ -290,7 +290,7 @@
             "Upgrade": 320
           },
           "SkillMapData": {
-            "SkillID": 7,
+            "SkillID": 9,
             "AnimationID": 7
           }
         },
@@ -307,7 +307,7 @@
             "Upgrade": 2000
           },
           "SkillMapData": {
-            "SkillID": 7,
+            "SkillID": 8,
             "AnimationID": 7
           }
         },
@@ -351,7 +351,7 @@
             "Upgrade": 1000
           },
           "SkillMapData": {
-            "SkillID": 8,
+            "SkillID": 6,
             "AnimationID": 8
           }
         },
@@ -368,7 +368,7 @@
             "Upgrade": 1000
           },
           "SkillMapData": {
-            "SkillID": 8,
+            "SkillID": 6,
             "AnimationID": 8
           }
         }
@@ -397,7 +397,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 5,
             "AnimationID": 6
           }
         }
@@ -424,7 +424,7 @@
             "Upgrade": 300
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 4,
             "AnimationID": 3
           }
         },
@@ -468,7 +468,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 2,
             "AnimationID": 6
           }
         }
@@ -495,7 +495,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 1,
             "AnimationID": 6
           }
         }
