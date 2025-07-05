@@ -903,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6768819677348806372, guid: 352348cb3b9ac3e48945909c8a4987b5, type: 3}
       propertyPath: m_Name
-      value: AtkArange (1)
+      value: AtkArange
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
