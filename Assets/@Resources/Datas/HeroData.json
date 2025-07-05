@@ -167,13 +167,13 @@
           "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
           "HeroSprite": "Chick",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 100,
             "Arange": 11.5,
             "AtkSpeed": 2,
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 13,
+            "SkillID": 14,
             "AnimationID": 4
           }
         },
@@ -184,13 +184,13 @@
           "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
           "HeroSprite": "Chick-2",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 2000,
             "Arange": 11.5,
             "AtkSpeed": 2,
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 14,
+            "SkillID": 13,
             "AnimationID": 4
           }
         }
@@ -217,7 +217,7 @@
             "Upgrade": 550
           },
           "SkillMapData": {
-            "SkillID": 11,
+            "SkillID": 12,
             "AnimationID": 5
           }
         },
@@ -234,7 +234,7 @@
             "Upgrade": 1800
           },
           "SkillMapData": {
-            "SkillID": 12,
+            "SkillID": 11,
             "AnimationID": 5
           }
         }

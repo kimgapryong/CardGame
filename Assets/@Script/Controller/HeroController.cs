@@ -61,6 +61,7 @@ public class HeroController : CretureController
     {
         _tile = tile;
         tile.hero = gameObject;
+        SetTile = true;
     }
     protected override void UpdateMethod()
     {
@@ -106,6 +107,7 @@ public class HeroController : CretureController
             {
                 pop.SetInfo(hc._heroData, hc, hc._tile);
             });
+            Destroy(scope.gameObject);
             Destroy(gameObject);
         });
 
@@ -150,12 +152,12 @@ public class HeroController : CretureController
             return;
 
         curTarget = atkArg.targets[0];
-        Debug.Log(curTarget);
         StartCoroutine(CoAttack(curTarget));
     }
 
     private IEnumerator CoAttack(MonsterController target)
     {
+        Debug.LogWarning(target);
         State = Define.State.Attack;
         isAttacking = true;
 
@@ -208,8 +210,10 @@ public class HeroController : CretureController
         
         if (target == null) return;
 
-        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        
 
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        Debug.LogWarning(go);
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
@@ -259,9 +263,11 @@ public class HeroController : CretureController
 
     private IEnumerator CoWaitForSkill()
     {
+        
         while (skillPre == null)
             yield return null;
 
+        Debug.LogWarning("공격을 시작하지" + _heroData.LevelData[curLevel].HeroName);
         isLoaded = true;
     }
    

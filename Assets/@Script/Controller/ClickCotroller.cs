@@ -78,7 +78,7 @@ public class ClickCotroller : MonoBehaviour
         curHero.transform.Find("Arange").gameObject.SetActive(false);
 
         HeroController hero = curHero.GetComponent<HeroController>();
-        hero.SetTile = true;
+        
         hero.SetTileCell(tile);
         
 
