@@ -245,11 +245,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf2878ec66c72214fb94de0959f93750
-    m_Address: Skill_6
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c15f756f52e186343b4d1e98c2addd1a
     m_Address: Ranking_Pop
     m_ReadOnly: 0
