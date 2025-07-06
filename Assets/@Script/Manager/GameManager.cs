@@ -65,11 +65,11 @@ public class GameManager
         
         if (File.Exists(_path) == false)
             return false;
-        Debug.Log("세이브 파일 존재");
+        //Debug.Log("세이브 파일 존재");
         string fileStr = File.ReadAllText(_path);
         if (fileStr == "" || fileStr == null)
         {
-            Debug.Log("세이브 파일 비워짐");
+            //Debug.Log("세이브 파일 비워짐");
             SaveGame();
             fileStr = File.ReadAllText(_path);
         }

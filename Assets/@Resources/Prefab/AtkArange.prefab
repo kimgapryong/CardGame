@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8895262403985007044}
   - component: {fileID: 2295815270825455339}
   - component: {fileID: 2849032742383775938}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AtkArange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
