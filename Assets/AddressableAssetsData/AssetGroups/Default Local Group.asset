@@ -285,6 +285,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da804b6b375e9fb4d9116d7eb75ba229
+    m_Address: ShopGoldFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eff4a9ad093411d4dbe49b126e79ce06
     m_Address: HeroCardPop
     m_ReadOnly: 0

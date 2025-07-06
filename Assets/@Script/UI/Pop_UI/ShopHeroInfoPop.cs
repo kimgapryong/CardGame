@@ -76,6 +76,12 @@ public class ShopHeroInfoPop : UI_Popup
 
         BindEvent(GetObject((int)Objects.BuyButton), () => { OnClickBuyButton?.Invoke(); });
 
+        int currentCount = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
+        int currentLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        int needCount = Manager.Data.UpgradeDatas[_heroRating].Levels[currentLevel].RequiredCardNumber;
+        GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
+        GetObject((int)Objects.CurrentCountSlider).GetComponent<Slider>().value = (float)currentCount / needCount;
+
         return true;
     }
 
@@ -85,8 +91,5 @@ public class ShopHeroInfoPop : UI_Popup
         _heroRating = _heroData.Hero_Rating;
         _rewardCount = rewardCount;
         _priceGold = Manager.Data.HeroRatingPriceDatas[_heroRating].gold;
-
-        //int currentCount = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
-        //GetText((int)Texts.CurrentCountText).text = $"{currentCount}";
     }
 }

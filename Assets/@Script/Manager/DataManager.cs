@@ -32,7 +32,6 @@ public class DataManager
         LoadJson<HeroRatingPriceDataLoader, Define.HeroRating, HeroRatingPriceData>("HeroRatingPriceData.json", (loader) => { HeroRatingPriceDatas = loader.MakeDic(); });
 
         Manager.Resource.LoadAsync<TextAsset>("HeroRatingPriceData.json", (textAsset) => Debug.Log(textAsset.text));
-        Debug.Log(HeroRatingPriceDatas);
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {

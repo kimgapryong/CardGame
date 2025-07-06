@@ -12,6 +12,8 @@ public class AllContentCanvas : UI_Scene
         Card_Content,
         Chest, 
         Hero,
+        Gold,
+        Gem,
     }
     enum Buttons
     {
@@ -117,6 +119,33 @@ public class AllContentCanvas : UI_Scene
 
                             };
                         });
+
+                    });
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                });
+        }
+
+        // 상점에 골드 ui들 생성
+        for (int i = 0; i < 3; i++)
+        {
+            Manager.UI.MakeSubItem<ShopGoldFragment>(
+                GetObject((int)Objects.Gold).transform,
+                callback: (goldFragment) =>
+                {
+                    goldFragment.SetInfo(50, 500);
+                    // UI 눌렀을 때
+                    BindEvent(goldFragment.gameObject, () =>
+                    {
+                        //// 팝업창 띄우기
+                        //Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
+                        //{
+                        //    heroPop.SetInfo(heroData, 10);
+                        //    // 팝업 창에서 구매 버튼 눌렀을 때
+                        //    heroPop.OnClickBuyButton += () =>
+                        //    {
+
+                        //    };
+                        //});
 
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);

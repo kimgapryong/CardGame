@@ -1,5 +1,6 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static Define;
 
 public class ShopHeroFragment : UI_Base
@@ -7,6 +8,10 @@ public class ShopHeroFragment : UI_Base
     public enum Images
     {
         ProfileImage,
+    }
+
+    public enum Sliders
+    {
         CurrentCountSlider,
     }
 
@@ -32,6 +37,7 @@ public class ShopHeroFragment : UI_Base
 
         BindImage(typeof(Images));
         BindText(typeof(Texts));
+        BindSlider(typeof(Sliders));
 
         return true;
     }
@@ -70,11 +76,14 @@ public class ShopHeroFragment : UI_Base
         });
     }
 
-    private void LateUpdate()
+    public void LateUpdate()
     {
         GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _priceGold ? Color.white : Color.red;
 
-        //int currentCount = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
-        //GetText((int)Texts.CurrentCountText).text = $"{currentCount}";
+        int currentCount = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
+        int currentLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        int needCount = Manager.Data.UpgradeDatas[_heroRating].Levels[currentLevel].RequiredCardNumber;
+        GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
+        GetSlider((int)Sliders.CurrentCountSlider).value = (float)currentCount / needCount;
     }
 }
