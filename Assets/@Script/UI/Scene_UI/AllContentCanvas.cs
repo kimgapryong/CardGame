@@ -18,6 +18,12 @@ public class ShopGoldData
     public int priceGem;
 }
 
+public class ShopGemData
+{
+    public int rewardCount;
+    public int priceGold;
+}
+
 public class AllContentCanvas : UI_Scene
 {
     enum Objects
@@ -84,7 +90,7 @@ public class AllContentCanvas : UI_Scene
 
         #region shop ui
 
-        // 상점에 상자 ui들 생성
+        // 상자
         foreach (ChestData chestData in Manager.Data.ChestDatas.Values)
         {
             Manager.UI.MakeSubItem<ShopChestFragment>(
@@ -110,7 +116,7 @@ public class AllContentCanvas : UI_Scene
                 });
         }
 
-        // 상점에 영웅 ui들 생성
+        // 영웅
         for (int i = 0; i < Manager.Data.HeroDatas.Count; i++)
         {
             HeroData heroData = Manager.Data.HeroDatas[i + 1];
@@ -155,13 +161,13 @@ public class AllContentCanvas : UI_Scene
                 });
         }
 
-        // 상점에 골드 ui들 생성
+        // 골드
         for (int i = 0; i < 3; i++)
         {
             ShopGoldData shopGoldData = new ShopGoldData()
             {
                 rewardCount = (i + 1) * 100,
-                priceGem = (i + 1) * 5 - i,
+                priceGem = (i + 1) * 1,
             };
 
             Manager.UI.MakeSubItem<ShopGoldFragment>(
@@ -184,6 +190,44 @@ public class AllContentCanvas : UI_Scene
 
                                 Manager.Game.SaveData.Gem -= shopGoldData.priceGem;
                                 Manager.Game.SaveData.Gold += shopGoldData.rewardCount;
+                                Manager.UI.ClosePopupUI(goldPop);
+                            };
+                        });
+
+                    });
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                });
+        }
+
+        // 보석
+        for (int i = 0; i < 3; i++)
+        {
+            ShopGemData shopGemData = new ShopGemData()
+            {
+                rewardCount = (i + 1) * 1,
+                priceGold = (i + 1) * 100,
+            };
+
+            Manager.UI.MakeSubItem<ShopGemFragment>(
+                GetObject((int)Objects.Gem).transform,
+                callback: (gemFragment) =>
+                {
+                    gemFragment.SetInfo(shopGemData);
+                    // UI 눌렀을 때
+                    BindEvent(gemFragment.gameObject, () =>
+                    {
+                        // 팝업창 띄우기
+                        Manager.UI.ShowPopupUI<ShopGemPop>(callback: (goldPop) =>
+                        {
+                            goldPop.SetInfo(shopGemData);
+                            // 팝업 창에서 구매 버튼 눌렀을 때
+                            goldPop.OnClickBuyButton += () =>
+                            {
+                                if (Manager.Game.SaveData.Gold < shopGemData.priceGold)
+                                    return;
+
+                                Manager.Game.SaveData.Gold -= shopGemData.priceGold;
+                                Manager.Game.SaveData.Gem += shopGemData.rewardCount;
                                 Manager.UI.ClosePopupUI(goldPop);
                             };
                         });

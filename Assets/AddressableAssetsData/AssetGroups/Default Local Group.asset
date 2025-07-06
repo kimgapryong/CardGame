@@ -75,6 +75,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e150522d7fcda54cb94329bc5adb682
+    m_Address: ShopGemPop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4362abc02672486409c42f56a91a59ee
     m_Address: Panther
     m_ReadOnly: 0
@@ -237,6 +242,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f4390db109eecd4cbcc3a1f5c7a1deb
     m_Address: AnimData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3e177318f500fd459a4a14326c12d89
+    m_Address: ShopGemFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
