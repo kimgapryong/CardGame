@@ -16,8 +16,7 @@ public class ShopGoldFragment : UI_Base
         PriceText,
     }
 
-    private int _rewardCount;
-    private int _priceCount;
+    ShopGoldData _shopGoldData;
 
     public override bool Init()
     {
@@ -27,21 +26,21 @@ public class ShopGoldFragment : UI_Base
         BindImage(typeof(Images));
         BindText(typeof(Texts));
 
+        GetText((int)Texts.NameText).text = $"{_shopGoldData.rewardCount}골드";
+        GetText((int)Texts.RewardCountText).text = $"x{_shopGoldData.rewardCount}";
+        GetText((int)Texts.PriceText).text = $"{_shopGoldData.priceGem}";
+
         return true;
     }
 
-    public void SetInfo(int rewardCount, int priceCount)
+    public void SetInfo(ShopGoldData shopGoldData)
     {
-        _rewardCount = rewardCount;
-        _priceCount = priceCount;
+        _shopGoldData = shopGoldData;
 
-        GetText((int)Texts.NameText).text = $"{_rewardCount}골드";
-        GetText((int)Texts.RewardCountText).text = $"{_rewardCount}";
-        GetText((int)Texts.PriceText).text = $"{_priceCount}";
     }
 
     private void LateUpdate()
     {
-        GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _priceCount ? Color.white : Color.red;
+        GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _shopGoldData.priceGem ? Color.white : Color.red;
     }
 }

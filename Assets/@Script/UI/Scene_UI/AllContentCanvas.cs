@@ -12,6 +12,12 @@ public class ShopHeroData
     public int priceGold;
 }
 
+public class ShopGoldData
+{
+    public int rewardCount;
+    public int priceGem;
+}
+
 public class AllContentCanvas : UI_Scene
 {
     enum Objects
@@ -152,24 +158,35 @@ public class AllContentCanvas : UI_Scene
         // 상점에 골드 ui들 생성
         for (int i = 0; i < 3; i++)
         {
+            ShopGoldData shopGoldData = new ShopGoldData()
+            {
+                rewardCount = (i + 1) * 100,
+                priceGem = (i + 1) * 5 - i,
+            };
+
             Manager.UI.MakeSubItem<ShopGoldFragment>(
                 GetObject((int)Objects.Gold).transform,
                 callback: (goldFragment) =>
                 {
-                    goldFragment.SetInfo(50, 500);
+                    goldFragment.SetInfo(shopGoldData);
                     // UI 눌렀을 때
                     BindEvent(goldFragment.gameObject, () =>
                     {
-                        //// 팝업창 띄우기
-                        //Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
-                        //{
-                        //    heroPop.SetInfo(heroData, 10);
-                        //    // 팝업 창에서 구매 버튼 눌렀을 때
-                        //    heroPop.OnClickBuyButton += () =>
-                        //    {
+                        // 팝업창 띄우기
+                        Manager.UI.ShowPopupUI<ShopGoldPop>(callback: (goldPop) =>
+                        {
+                            goldPop.SetInfo(shopGoldData);
+                            // 팝업 창에서 구매 버튼 눌렀을 때
+                            goldPop.OnClickBuyButton += () =>
+                            {
+                                if (Manager.Game.SaveData.Gem < shopGoldData.priceGem)
+                                    return;
 
-                        //    };
-                        //});
+                                Manager.Game.SaveData.Gem -= shopGoldData.priceGem;
+                                Manager.Game.SaveData.Gold += shopGoldData.rewardCount;
+                                Manager.UI.ClosePopupUI(goldPop);
+                            };
+                        });
 
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);

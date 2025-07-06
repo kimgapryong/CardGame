@@ -250,11 +250,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b1fc2e8c3bdbc894ea78af8dc13d1844
-    m_Address: HeroRatingPriceData.json
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b20f1fc0b8c948c4aa111334d2a216f6
     m_Address: ChestData.json
     m_ReadOnly: 0
@@ -287,6 +282,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da804b6b375e9fb4d9116d7eb75ba229
     m_Address: ShopGoldFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
+    m_Address: ShopGoldPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
