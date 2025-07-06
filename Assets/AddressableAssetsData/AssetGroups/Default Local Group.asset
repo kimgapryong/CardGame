@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cb2bf3587aa3f1419903b4511c136b5
+    m_Address: Bear_1.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ce75343ad9c57f4ab4318462e36dbca
     m_Address: MoneyParticle
     m_ReadOnly: 0
@@ -262,6 +267,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d93594a3d7fd5f744b55fae35184ae25
     m_Address: CardFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de29eff3972088a46889522b9b37b2b8
+    m_Address: WhiteWolf_3.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
