@@ -327,39 +327,3 @@ public class ChestDataLoader : ILoader<int, ChestData>
         return true;
     }
 }
-
-[Serializable]
-public class HeroRatingPriceData
-{
-    public string heroRating;
-    public int gold;
-
-    public HeroRating HeroRating => ParseEnumOrDefault(heroRating, HeroRating.Common);
-
-    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
-    {
-        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
-            return result;
-        return defaultValue;
-    }
-}
-[Serializable]
-public class HeroRatingPriceDataLoader : ILoader<HeroRating, HeroRatingPriceData>
-{
-    public List<HeroRatingPriceData> HeroRatingPriceDatas = new List<HeroRatingPriceData>();
-    public Dictionary<HeroRating, HeroRatingPriceData> MakeDic()
-    {
-        Dictionary<HeroRating, HeroRatingPriceData> dict = new Dictionary<HeroRating, HeroRatingPriceData>();
-
-        foreach (HeroRatingPriceData data in HeroRatingPriceDatas)
-            dict.Add(data.HeroRating, data);
-
-        return dict;
-    }
-
-    public bool Validate()
-    {
-        return true;
-    }
-}
-

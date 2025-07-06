@@ -17,7 +17,6 @@ public class DataManager
     public Dictionary<int, ChestData> ChestDatas { get; private set; }
     public Dictionary<Define.HeroRating, UpgradeData> UpgradeDatas { get; private set; }
     public Dictionary<int, HeroUpgradeData> HeroUpgradeDatas { get; private set; }
-    public Dictionary<Define.HeroRating, HeroRatingPriceData> HeroRatingPriceDatas { get; private set; }
 
 
     public void Init()
@@ -29,7 +28,6 @@ public class DataManager
         LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); });
         LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => HeroUpgradeDatas = loader.MakeDic());
         LoadJson<ChestDataLoader, int, ChestData>("ChestData.json", (loader) => { ChestDatas = loader.MakeDic(); });
-        LoadJson<HeroRatingPriceDataLoader, Define.HeroRating, HeroRatingPriceData>("HeroRatingPriceData.json", (loader) => { HeroRatingPriceDatas = loader.MakeDic(); });
 
         Manager.Resource.LoadAsync<TextAsset>("HeroRatingPriceData.json", (textAsset) => Debug.Log(textAsset.text));
     }

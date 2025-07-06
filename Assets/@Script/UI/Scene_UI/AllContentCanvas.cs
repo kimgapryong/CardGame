@@ -1,8 +1,16 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Define;
+
+public class ShopHeroData
+{
+    public HeroData heroData;
+    public int rewardCount;
+    public int priceGold;
+}
 
 public class AllContentCanvas : UI_Scene
 {
@@ -101,21 +109,37 @@ public class AllContentCanvas : UI_Scene
         {
             HeroData heroData = Manager.Data.HeroDatas[i + 1];
 
+            ShopHeroData shopHeroData = new ShopHeroData()
+            {
+                heroData = heroData,
+                rewardCount = 10,
+                priceGold = 10,
+            };
+
             Manager.UI.MakeSubItem<ShopHeroFragment>(
                 GetObject((int)Objects.Hero).transform,
                 callback: (heroFragment) =>
                 {
-                    heroFragment.SetInfo(heroData, 10);
+                    heroFragment.SetInfo(shopHeroData);
                     // UI 눌렀을 때
                     BindEvent(heroFragment.gameObject, () =>
                     {
                         // 팝업창 띄우기
                         Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
                         {
-                            heroPop.SetInfo(heroData, 10);
+                            heroPop.SetInfo(shopHeroData);
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             heroPop.OnClickBuyButton += () =>
                             {
+                                if (Manager.Game.SaveData.Gold < shopHeroData.priceGold)
+                                    return;
+
+                                Manager.Game.SaveData.Gold -= shopHeroData.priceGold;
+                                CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
+                                cardData.qnt += shopHeroData.rewardCount;
+                                Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+
+                                Manager.UI.ClosePopupUI(heroPop);
 
                             };
                         });
