@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      battle-lion_0: 8483514842115839464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

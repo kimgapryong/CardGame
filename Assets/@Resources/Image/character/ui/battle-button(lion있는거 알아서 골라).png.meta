@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "battle-button(lion\uC788\uB294\uAC70 \uC54C\uC544\uC11C \uACE8\uB77C)_0": 6633250188376553822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

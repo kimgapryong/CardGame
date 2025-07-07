@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      zombi bear_0: -3464712995600970075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

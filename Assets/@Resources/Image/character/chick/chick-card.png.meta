@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chick-card_0: 7424685442567331920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

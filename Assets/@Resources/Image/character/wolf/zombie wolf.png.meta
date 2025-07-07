@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      zombie wolf_0: 3694943001335816634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

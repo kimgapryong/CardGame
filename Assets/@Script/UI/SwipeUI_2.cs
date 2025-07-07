@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SwipeUI_2 : MonoBehaviour
 {
     [SerializeField] private Scrollbar scrollBar;
-    [SerializeField] private FocusButton[] circleContents;
+    [SerializeField] private FocusButton[] focusButtons;
     [SerializeField] private float swipeTime = 0.2f;
 
     private float swipeDistance = 20f;
@@ -25,7 +25,7 @@ public class SwipeUI_2 : MonoBehaviour
 
     private void Awake()
     {
-        if (circleContents.Length < 0)
+        if (focusButtons.Length < 0)
             return;
 
         scrollPageValues = new float[transform.childCount];
@@ -39,7 +39,7 @@ public class SwipeUI_2 : MonoBehaviour
 
     private void Start()
     {
-        if (circleContents.Length <= 0)
+        if (focusButtons.Length <= 0)
             return;
 
         SetScrollBarValue(1);
@@ -55,10 +55,10 @@ public class SwipeUI_2 : MonoBehaviour
     public void SetCircelContents(List<FocusButton> circleTrans, int myNunm)
     {
         this.myNum = myNunm;
-        circleContents = new FocusButton[circleTrans.Count];
+        focusButtons = new FocusButton[circleTrans.Count];
 
         for (int i = 0; i < circleTrans.Count; i++)
-            circleContents[i] = circleTrans[i];
+            focusButtons[i] = circleTrans[i];
 
         scrollPageValues = new float[circleTrans.Count];
         valueDistance = 1f / (scrollPageValues.Length - 1f);
@@ -74,18 +74,15 @@ public class SwipeUI_2 : MonoBehaviour
 
     private void RegisterCircleClickEvents()
     {
-        for (int i = 0; i < circleContents.Length; i++)
+        for (int i = 0; i < focusButtons.Length; i++)
         {
             int index = i;
-            Button btn = circleContents[i].GetComponent<Button>();
-            if (btn == null) btn = circleContents[i].gameObject.AddComponent<Button>();
-
-            btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() =>
+            focusButtons[i].OnClickAction += () =>
             {
+                Debug.Log("!");
                 if (!isSwipeMode)
                     StartCoroutine(OnSwipeOneStep(index));
-            });
+            };
         }
     }
 
@@ -180,15 +177,12 @@ public class SwipeUI_2 : MonoBehaviour
     {
         for (int i = 0; i < scrollPageValues.Length; ++i)
         {
-            //circleContents[i].localScale = Vector2.one;
-            //circleContents[i].GetComponent<Image>().color = Color.white;
-
-            //if (scrollBar.value < scrollPageValues[i] + (valueDistance / 2) &&
-            //    scrollBar.value > scrollPageValues[i] - (valueDistance / 2))
-            //{
-            //    circleContents[i].localScale = Vector2.one * circleContentScale;
-            //    circleContents[i].GetComponent<Image>().color = Color.white;
-            //}
+            focusButtons[i].SetInfo(false);
+            if (scrollBar.value < scrollPageValues[i] + (valueDistance / 2) &&
+                scrollBar.value > scrollPageValues[i] - (valueDistance / 2))
+            {
+                focusButtons[i].SetInfo(true);
+            }
         }
     }
 }

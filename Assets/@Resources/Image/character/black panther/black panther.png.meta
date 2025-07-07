@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      black panther_0: 768917534733441076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
