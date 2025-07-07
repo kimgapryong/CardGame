@@ -101,7 +101,7 @@ public class HeroController : CretureController
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
 
-        if (scope.transform.position != transform.position)
+        if (scope.transform.position != transform.position && _heroData.LevelData[curLevel].Size == 0)
             scope.transform.position = transform.position;
 
         if (scope == null)
@@ -226,6 +226,7 @@ public class HeroController : CretureController
 
         isAttacking = false;
         State = Define.State.Idle;
+        scope.transform.position = transform.position;
     }
     private IEnumerator CoMoneyTick()
     {

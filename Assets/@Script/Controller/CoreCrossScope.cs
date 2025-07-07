@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class CoreCrossScope : Scope
 {
-    private void Start()
-    {
-        CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
-        crossMeshData.aRange = 10;
-        crossMeshData.Size = 2;
-
-        GenerateMesh(crossMeshData);
-        
-        SetMeshActive(true);
-    }
     public override void GenerateMesh(MeshData data)
     {
         base.GenerateMesh(data);
