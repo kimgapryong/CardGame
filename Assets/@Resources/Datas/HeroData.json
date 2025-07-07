@@ -283,6 +283,8 @@
           "Sprite": "Possessed_1.sprite",
           "HeroInduce": "차가운 눈빛 속 숨겨진 따뜻함.\n\n매기는 정확한 사격으로 적을 단번에 무력화시킨다.\n그녀의 움직임은 물처럼 부드럽지만\n필요할 땐 차가운 칼날처럼 날카롭다.\n상처 입은 동료를 돌보는 천사 같은 마음,\n전장을 지배하는 냉혹한 전사, 두 얼굴을 가진 존재다.\n그녀가 나타나면 희망이 보인다.",
           "HeroSprite": "Possessed",
+          "AtkArange": "Aoe",
+          "Size" : 2,
           "HeroLevelData": {
             "Attack": 0,
             "Arange": 8,
