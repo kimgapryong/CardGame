@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea69d41f90c6ea4fa55c27c1d60c145, type: 3}
-  m_Name: AddressableAssetGroupSortSettings
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: hyowon-addressable-group_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  sortOrder:
-  - bb906ea3d338df04b8d45539fdf078e3
-  - aaba48d0b9e98ac4189df853744195d1
-  - 706cf52625e7dd24ab7ad56cd55ae90a
-  - d7871ecba31d722498c63701852ae3ae
+  m_Group: {fileID: 11400000, guid: 3ac81744494f3fc40aba8fa8e6e40371, type: 2}
+  m_StaticContent: 0

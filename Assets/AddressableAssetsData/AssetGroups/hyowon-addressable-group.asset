@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: hyowon-addressable-group
+  m_EditorClassIdentifier: 
+  m_GroupName: hyowon-addressable-group
+  m_GUID: d7871ecba31d722498c63701852ae3ae
+  m_SerializeEntries:
+  - m_GUID: 77377187a5515a9439cb140809cc35e3
+    m_Address: Sector-Scope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7f6f2131b8c2904e934372d0f213dd7
+    m_Address: CoreCross-Scope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 80bf1cb28a22f3043ab090d3c028771c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 63c34729ad787794bb4663d92d6ecde1, type: 2}
+    - {fileID: 11400000, guid: 8a027106fa2d32244adeb28304a1a791, type: 2}
