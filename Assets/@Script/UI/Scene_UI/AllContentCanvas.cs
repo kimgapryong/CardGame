@@ -38,6 +38,7 @@ public class AllContentCanvas : UI_Scene
     enum Buttons
     {
         GameBtn,
+        PartyBtn,
         GamePreBtn,
         RankingBtn,
     }
@@ -81,7 +82,7 @@ public class AllContentCanvas : UI_Scene
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.SetCard).transform);
                 });
         }
-        GetButton((int)Buttons.GameBtn).gameObject.BindEvent(() => SceneManager.LoadScene("GameScene"));
+        GetButton((int)Buttons.PartyBtn).gameObject.BindEvent(InfinityAlarm);
         GetButton((int)Buttons.GamePreBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Pre_Pop>());
         GetButton((int)Buttons.RankingBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Ranking_Pop>(callback: (pop) =>
         {
@@ -276,4 +277,14 @@ public class AllContentCanvas : UI_Scene
         if (Input.GetKeyDown(KeyCode.F2))
             Manager.Game.SaveData.Gem += 100;
     }
+    private void InfinityAlarm()
+    {
+        if (Manager.Game.Heros.Count <= 0)
+        {
+            Manager.UI.ShowWarning("카드을 1개 이상 장착하신 후 게임을 플레이해주세요");
+            return;
+        }
+        SceneManager.LoadScene("GameScene");
+    }
 }
+

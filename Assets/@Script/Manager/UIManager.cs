@@ -141,4 +141,12 @@ public class UIManager
     {
         throw new NotImplementedException();
     }
+
+	public void ShowWarning(string alarm)
+	{
+		ShowPopupUI<Warning_Pop>("Warning_Pop", callback:(pop) =>
+		{
+			pop.SetAlarm(alarm);
+		});
+	}
 }

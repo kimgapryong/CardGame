@@ -9,10 +9,12 @@ public class CardFragment : UI_Base
     {
         TextImage,
         HeroImage,
+        Upgrade_Slider,
     }
     enum Texts
     {
         CardName,
+        Update_Txt,
     }
     enum Objects
     {

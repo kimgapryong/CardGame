@@ -79,7 +79,7 @@ public class GameManager
 
         if (SaveData.GotCard.Count == 0)
         {
-            for (int i = 1; i <= 12; i++)
+            for (int i = 1; i <= Manager.Data.HeroDatas.Values.Count; i++)
             {
                 CardData cData = new CardData();
                 cData.cardId = i;

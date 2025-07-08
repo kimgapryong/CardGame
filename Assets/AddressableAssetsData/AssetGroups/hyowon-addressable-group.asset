@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: hyowon-addressable-group
   m_GUID: d7871ecba31d722498c63701852ae3ae
   m_SerializeEntries:
-  - m_GUID: 77377187a5515a9439cb140809cc35e3
-    m_Address: Sector-Scope
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7f6f2131b8c2904e934372d0f213dd7
     m_Address: CoreCross-Scope
     m_ReadOnly: 0
