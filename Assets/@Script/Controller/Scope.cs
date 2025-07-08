@@ -11,8 +11,9 @@ public class Scope : MonoBehaviour
     protected MeshRenderer meshRenderer;
     protected MeshFilter meshFilter;
     protected PolygonCollider2D polygonCollider;
-
+    public HeroController Owner;
     public Mesh mesh;
+
     public virtual void GenerateMesh(MeshData data)
     {
         polygonCollider = GetComponent<PolygonCollider2D>();

@@ -53,6 +53,7 @@ public class HeroController : CretureController
                 go = await Manager.Resource.Instantiate("Sector-Scope", null);
                 scope = go.GetComponent<Scope>();
                 scope.transform.position = transform.position;
+                scope.Owner = this;
 
                 SectorMeshData sectorMeshData = new SectorMeshData();
                 sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
@@ -65,6 +66,7 @@ public class HeroController : CretureController
                 go = await Manager.Resource.Instantiate("CoreCross-Scope", null);
                 scope = go.GetComponent<Scope>();
                 scope.transform.position = transform.position;
+                scope.Owner = this;
 
                 CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
                 crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
@@ -106,9 +108,6 @@ public class HeroController : CretureController
 
         if (scope == null)
             return;
-        if (curTarget == null)
-            return;
-        
         scope.LookAt(curTarget.transform);
     }
     public void UpgradeLevel()

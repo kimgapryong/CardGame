@@ -41,7 +41,6 @@ public class MonsterController : CretureController
     public virtual void OnDamage(BaseController controller, float damage)
     {
         CurHp -= damage;
-        Debug.Log($"원래 체력 : {CurHp + damage}, 현재 남은 체력 : {CurHp}");
         if(CurHp <= 0)
             OnDie();
     }

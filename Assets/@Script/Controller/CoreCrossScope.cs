@@ -47,7 +47,8 @@ public class CoreCrossScope : Scope
     }
     public override void LookAt(Transform target)
     {
-        transform.position = target.position;
+        transform.position = Owner.transform.position;
+        transform.Rotate(0,0,90 * Time.deltaTime);
     }
     public override List<MonsterController> GetTargets()
     {
