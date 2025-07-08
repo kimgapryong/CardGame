@@ -247,16 +247,15 @@ public class HeroController : CretureController
     private void Attack(MonsterController target)
     {
         
-        if (target == null) return;
-
-        
+        if (target == null)
+            return;
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
         Debug.LogWarning(go);
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
-        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);        
+        //todo : 스킬
     }
 
     private void AoeAttack()
