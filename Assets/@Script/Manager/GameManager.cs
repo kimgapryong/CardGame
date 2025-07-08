@@ -40,7 +40,7 @@ public class GameManager
         Heros.Add(4);
         Heros.Add(6);
 
-        for (int i = 1; i <= 12; i++)
+        for (int i = 1; i <= Manager.Data.HeroDatas.Values.Count; i++)
         {
             CardData cData = new CardData();
             cData.cardId = i;
