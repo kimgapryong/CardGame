@@ -45,10 +45,37 @@ public class HeroController : CretureController
     }
     async void SetScope()
     {
-        GameObject go = await Manager.Resource.Instantiate("Scope", null);
-        scope = go.GetComponent<Scope>();
-        scope.transform.position = transform.position;
-        scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
+        GameObject go = null;
+        if (_heroData.LevelData[curLevel].Atk_Arange == Define.AtkArange.Aoe)
+        {
+            if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
+            {
+                go = await Manager.Resource.Instantiate("Sector-Scope", null);
+                scope = go.GetComponent<Scope>();
+                scope.transform.position = transform.position;
+                scope.Owner = this;
+
+                SectorMeshData sectorMeshData = new SectorMeshData();
+                sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+                sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+
+                scope.GenerateMesh(sectorMeshData);
+            }
+            else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
+            {
+                go = await Manager.Resource.Instantiate("CoreCross-Scope", null);
+                scope = go.GetComponent<Scope>();
+                scope.transform.position = transform.position;
+                scope.Owner = this;
+
+                CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
+                crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                crossMeshData.Size = _heroData.LevelData[curLevel].Size;
+
+                scope.GenerateMesh(crossMeshData);
+            }
+        }
+        
     }
     private void Update()
     {
@@ -76,14 +103,11 @@ public class HeroController : CretureController
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
 
-        if (scope.transform.position != transform.position)
+        if (scope.transform.position != transform.position && _heroData.LevelData[curLevel].Size == 0)
             scope.transform.position = transform.position;
 
         if (scope == null)
             return;
-        if (curTarget == null)
-            return;
-        
         scope.LookAt(curTarget.transform);
     }
     public void UpgradeLevel()
@@ -114,8 +138,22 @@ public class HeroController : CretureController
         float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
         argTrans.localScale = new Vector2(curSize, curSize);
         transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
-        scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
+        if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
+        {
+            SectorMeshData sectorMeshData = new SectorMeshData();
+            sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+            sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
 
+            scope.GenerateMesh(sectorMeshData);
+        }
+        else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
+        {
+            CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
+            crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+            crossMeshData.Size = _heroData.LevelData[curLevel].Size;
+
+            scope.GenerateMesh(crossMeshData);
+        }
     }
     public void CurLevelUp(int level)
     {
@@ -187,6 +225,7 @@ public class HeroController : CretureController
 
         isAttacking = false;
         State = Define.State.Idle;
+        scope.transform.position = transform.position;
     }
     private IEnumerator CoMoneyTick()
     {

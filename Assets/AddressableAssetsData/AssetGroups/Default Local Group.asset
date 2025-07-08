@@ -150,11 +150,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 77377187a5515a9439cb140809cc35e3
-    m_Address: Scope
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81f7c1b152b3bc749a7d023777a295e2
     m_Address: Upgrade_Pop
     m_ReadOnly: 0

@@ -76,3 +76,18 @@ public class Define
     public const int HERO_COUNT = 10;
     public const int GAME_LIST_COUNT = 8;
 }
+
+public class MeshData
+{
+
+}
+public class SectorMeshData : MeshData
+{
+    public float angle;
+    public float aRange;
+}
+public class CoreCrossMeshData : MeshData
+{
+    public float aRange;
+    public float Size;
+}

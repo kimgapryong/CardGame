@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6802069181094908810}
-  - component: {fileID: 6173956302154108517}
   - component: {fileID: 6327453625045086874}
   - component: {fileID: 4902459560297718041}
   - component: {fileID: 8281828515733725931}
   - component: {fileID: 4424293860095429497}
+  - component: {fileID: 8557838176028389914}
   m_Layer: 0
-  m_Name: Scope
+  m_Name: Sector-Scope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,20 +36,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6173956302154108517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338845271225849801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68d5828aa12bdc4cb5d127f53166db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScopeMaterial: {fileID: 2100000, guid: dde8bc093cd1f49418d727c8b22e413b, type: 2}
-  mesh: {fileID: 0}
 --- !u!33 &6327453625045086874
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -182,3 +168,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8557838176028389914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338845271225849801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35a233ff6e4edd40b6e982361ded107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScopeMaterial: {fileID: 2100000, guid: dde8bc093cd1f49418d727c8b22e413b, type: 2}
+  mesh: {fileID: 0}
