@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20f4f1ff160f1114b9f1eafaf38e5319
+    m_Address: ShopHeroInfoPop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2141e368bcc45a14c9253cc5a8ef5b76
     m_Address: Eye-2
     m_ReadOnly: 0
@@ -72,6 +77,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ce75343ad9c57f4ab4318462e36dbca
     m_Address: MoneyParticle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e150522d7fcda54cb94329bc5adb682
+    m_Address: ShopGemPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -140,6 +150,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72260d444a28f6a47a1549a968fcdcd9
+    m_Address: ShopChestInfoPop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73c5838bbb780e642931ba3f2619eeb3
     m_Address: Chick-2
     m_ReadOnly: 0
@@ -147,6 +162,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76919299059707044816bdea0e039b30
     m_Address: Wolf-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77377187a5515a9439cb140809cc35e3
+    m_Address: Scope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d5c45a4847f62c4896f7c09c4313460
+    m_Address: ShopHeroFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -206,7 +231,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bdb2eedf7a612648a615e45fa445044
-    m_Address: ChestFragment
+    m_Address: ShopChestFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -222,6 +247,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f4390db109eecd4cbcc3a1f5c7a1deb
     m_Address: AnimData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3e177318f500fd459a4a14326c12d89
+    m_Address: ShopGemFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -262,6 +292,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d93594a3d7fd5f744b55fae35184ae25
     m_Address: CardFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da804b6b375e9fb4d9116d7eb75ba229
+    m_Address: ShopGoldFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
+    m_Address: ShopGoldPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

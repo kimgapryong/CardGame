@@ -32,7 +32,7 @@ public class GameManager
         _path = Application.persistentDataPath + "/savefile.json";
         if (LoadGame())
             return;
-        Debug.Log("°ÔÀÓ ¸Å´ÏÀú ÃÊ±âÈ­");
+        Debug.Log("ê²Œì„ ë§¤ë‹ˆì € ì´ˆê¸°í™”");
         if (Heros == null)
             Heros = new List<int>();
 
@@ -40,7 +40,7 @@ public class GameManager
         Heros.Add(4);
         Heros.Add(6);
 
-        for (int i = 1; i < 12; i++)
+        for (int i = 1; i <= 12; i++)
         {
             CardData cData = new CardData();
             cData.cardId = i;
@@ -65,11 +65,11 @@ public class GameManager
         
         if (File.Exists(_path) == false)
             return false;
-        //Debug.Log("¼¼ÀÌºê ÆÄÀÏ Á¸Àç");
+        Debug.Log("ì„¸ì´ë¸Œ íŒŒì¼ ì¡´ì¬");
         string fileStr = File.ReadAllText(_path);
         if (fileStr == "" || fileStr == null)
         {
-            //Debug.Log("¼¼ÀÌºê ÆÄÀÏ ºñ¿öÁü");
+            Debug.Log("ì„¸ì´ë¸Œ íŒŒì¼ ë¹„ì›Œì§");
             SaveGame();
             fileStr = File.ReadAllText(_path);
         }
@@ -79,7 +79,7 @@ public class GameManager
 
         if (SaveData.GotCard.Count == 0)
         {
-            for (int i = 1; i < 12; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 CardData cData = new CardData();
                 cData.cardId = i;
@@ -99,10 +99,10 @@ public class GameManager
 [Serializable]
 public struct CardData
 {
-    //Ä«µå ¾ÆÀÌµğ
+    //ì¹´ë“œ ì•„ì´ë””
     public int cardId;
-    //Ä«µå ·¹º§
+    //ì¹´ë“œ ë ˆë²¨
     public int level;
-    //Ä«µå °³¼ö
+    //ì¹´ë“œ ê°œìˆ˜
     public int qnt;
 }

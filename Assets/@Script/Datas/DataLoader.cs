@@ -309,7 +309,6 @@ public class HeroRatingProbabilitiesData
     public float Epic;
     public float Legendary;
 }
-
 [Serializable]
 public class ChestDataLoader : ILoader<int, ChestData>
 {
