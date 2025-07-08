@@ -42,9 +42,18 @@ public class ResourceManager
 			HandlesCount--;
 		};
 	}
-	public async UniTask<T> LoadAsync<T>(string key)
+	public async UniTask<T> LoadAsync<T>(string key) where T : UnityEngine.Object
 	{
-		var task = Addressables.LoadAssetAsync<T>(key);
+        // 캐시 확인.
+        if (_resources.TryGetValue(key, out Object resource))
+            return resource as T;
+
+        if (_handles.ContainsKey(key))
+        {
+            await _handles[key];
+            return _handles[key].Result as T;
+        }
+        var task = Addressables.LoadAssetAsync<T>(key);
 
         _handles.Add(key, task);
 

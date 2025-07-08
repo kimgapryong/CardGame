@@ -22,7 +22,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 1,
+            "SkillID": 19,
             "AnimationID": 1
           }
         },
@@ -39,7 +39,7 @@
             "Upgrade": 500
           },
           "SkillMapData": {
-            "SkillID": 1,
+            "SkillID": 18,
             "AnimationID": 1
           }
         },
@@ -58,7 +58,7 @@
             "Upgrade": 12500
           },
           "SkillMapData": {
-            "SkillID": 11,
+            "SkillID": 20,
             "AnimationID": 11
           }
         }
@@ -112,7 +112,7 @@
             "Upgrade": 0
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 17,
             "AnimationID": 3
           }
         },
@@ -129,7 +129,7 @@
             "Upgrade": 3200
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 16,
             "AnimationID": 3
           }
         },
@@ -146,7 +146,7 @@
             "Upgrade": 15000
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 15,
             "AnimationID": 3
           }
         }
@@ -167,13 +167,13 @@
           "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
           "HeroSprite": "Chick",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 100,
             "Arange": 11.5,
             "AtkSpeed": 2,
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 4,
+            "SkillID": 14,
             "AnimationID": 4
           }
         },
@@ -184,13 +184,13 @@
           "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
           "HeroSprite": "Chick-2",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 2000,
             "Arange": 11.5,
             "AtkSpeed": 2,
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 4,
+            "SkillID": 13,
             "AnimationID": 4
           }
         }
@@ -217,7 +217,7 @@
             "Upgrade": 550
           },
           "SkillMapData": {
-            "SkillID": 5,
+            "SkillID": 12,
             "AnimationID": 5
           }
         },
@@ -234,7 +234,7 @@
             "Upgrade": 1800
           },
           "SkillMapData": {
-            "SkillID": 5,
+            "SkillID": 11,
             "AnimationID": 5
           }
         }
@@ -255,15 +255,15 @@
           "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
           "HeroSprite": "Pug",
           "AtkArange": "Aoe",
-          "AngleOffsset" : 15,
+          "AngleOffset" : 15,
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 1000,
             "Arange": 5.6,
             "AtkSpeed": 2.5,
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 10,
             "AnimationID": 6
           }
         }
@@ -283,6 +283,8 @@
           "Sprite": "Possessed_1.sprite",
           "HeroInduce": "차가운 눈빛 속 숨겨진 따뜻함.\n\n매기는 정확한 사격으로 적을 단번에 무력화시킨다.\n그녀의 움직임은 물처럼 부드럽지만\n필요할 땐 차가운 칼날처럼 날카롭다.\n상처 입은 동료를 돌보는 천사 같은 마음,\n전장을 지배하는 냉혹한 전사, 두 얼굴을 가진 존재다.\n그녀가 나타나면 희망이 보인다.",
           "HeroSprite": "Possessed",
+          "AtkArange": "Aoe",
+          "Size" : 2,
           "HeroLevelData": {
             "Attack": 0,
             "Arange": 8,
@@ -290,7 +292,7 @@
             "Upgrade": 320
           },
           "SkillMapData": {
-            "SkillID": 7,
+            "SkillID": 9,
             "AnimationID": 7
           }
         },
@@ -307,7 +309,7 @@
             "Upgrade": 2000
           },
           "SkillMapData": {
-            "SkillID": 7,
+            "SkillID": 8,
             "AnimationID": 7
           }
         },
@@ -351,7 +353,7 @@
             "Upgrade": 1000
           },
           "SkillMapData": {
-            "SkillID": 8,
+            "SkillID": 6,
             "AnimationID": 8
           }
         },
@@ -368,7 +370,7 @@
             "Upgrade": 1000
           },
           "SkillMapData": {
-            "SkillID": 8,
+            "SkillID": 6,
             "AnimationID": 8
           }
         }
@@ -397,7 +399,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 5,
             "AnimationID": 6
           }
         }
@@ -424,7 +426,7 @@
             "Upgrade": 300
           },
           "SkillMapData": {
-            "SkillID": 3,
+            "SkillID": 4,
             "AnimationID": 3
           }
         },
@@ -468,7 +470,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 2,
             "AnimationID": 6
           }
         }
@@ -495,7 +497,7 @@
             "Upgrade": 100
           },
           "SkillMapData": {
-            "SkillID": 6,
+            "SkillID": 1,
             "AnimationID": 6
           }
         }

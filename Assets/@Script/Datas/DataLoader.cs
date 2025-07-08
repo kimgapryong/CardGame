@@ -35,6 +35,7 @@ public class LevelData
     public string HeroInduce;
     public string HeroSprite;
     public float AngleOffset;
+    public float Size;
     
     public HeroLevelData HeroLevelData;
     public SkillMapping SkillMapData;

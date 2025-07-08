@@ -41,7 +41,7 @@ public class MonsterController : CretureController
     public virtual void OnDamage(BaseController controller, float damage)
     {
         CurHp -= damage;
-        if(CurHp <= 0 )
+        if(CurHp <= 0)
             OnDie();
     }
 
@@ -65,7 +65,6 @@ public class MonsterController : CretureController
     {
         
         Vector3 normalizePos = (nextPos - curPos).normalized;
-        Debug.Log(normalizePos);
         direct = normalizePos;
     }
 

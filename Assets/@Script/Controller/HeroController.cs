@@ -45,9 +45,37 @@ public class HeroController : CretureController
     }
     async void SetScope()
     {
-        GameObject go = await Manager.Resource.Instantiate("Scope", transform);
-        scope = go.GetComponent<Scope>();
-        scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
+        GameObject go = null;
+        if (_heroData.LevelData[curLevel].Atk_Arange == Define.AtkArange.Aoe)
+        {
+            if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
+            {
+                go = await Manager.Resource.Instantiate("Sector-Scope", null);
+                scope = go.GetComponent<Scope>();
+                scope.transform.position = transform.position;
+                scope.Owner = this;
+
+                SectorMeshData sectorMeshData = new SectorMeshData();
+                sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+                sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+
+                scope.GenerateMesh(sectorMeshData);
+            }
+            else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
+            {
+                go = await Manager.Resource.Instantiate("CoreCross-Scope", null);
+                scope = go.GetComponent<Scope>();
+                scope.transform.position = transform.position;
+                scope.Owner = this;
+
+                CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
+                crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                crossMeshData.Size = _heroData.LevelData[curLevel].Size;
+
+                scope.GenerateMesh(crossMeshData);
+            }
+        }
+        
     }
     private void Update()
     {
@@ -60,6 +88,7 @@ public class HeroController : CretureController
     {
         _tile = tile;
         tile.hero = gameObject;
+        SetTile = true;
     }
     protected override void UpdateMethod()
     {
@@ -74,9 +103,10 @@ public class HeroController : CretureController
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
 
+        if (scope.transform.position != transform.position && _heroData.LevelData[curLevel].Size == 0)
+            scope.transform.position = transform.position;
+
         if (scope == null)
-            return;
-        if (curTarget == null)
             return;
         scope.LookAt(curTarget.transform);
     }
@@ -101,14 +131,29 @@ public class HeroController : CretureController
             {
                 pop.SetInfo(hc._heroData, hc, hc._tile);
             });
+            Destroy(scope.gameObject);
             Destroy(gameObject);
         });
 
         float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
         argTrans.localScale = new Vector2(curSize, curSize);
         transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
-        scope.GenerateMesh(_heroData.LevelData[curLevel].HeroLevelData.Arange, _heroData.LevelData[curLevel].AngleOffset);
+        if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
+        {
+            SectorMeshData sectorMeshData = new SectorMeshData();
+            sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+            sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
 
+            scope.GenerateMesh(sectorMeshData);
+        }
+        else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
+        {
+            CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
+            crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+            crossMeshData.Size = _heroData.LevelData[curLevel].Size;
+
+            scope.GenerateMesh(crossMeshData);
+        }
     }
     public void CurLevelUp(int level)
     {
@@ -145,12 +190,12 @@ public class HeroController : CretureController
             return;
 
         curTarget = atkArg.targets[0];
-        Debug.Log(curTarget);
         StartCoroutine(CoAttack(curTarget));
     }
 
     private IEnumerator CoAttack(MonsterController target)
     {
+        Debug.LogWarning(target);
         State = Define.State.Attack;
         isAttacking = true;
 
@@ -180,6 +225,7 @@ public class HeroController : CretureController
 
         isAttacking = false;
         State = Define.State.Idle;
+        scope.transform.position = transform.position;
     }
     private IEnumerator CoMoneyTick()
     {
@@ -203,8 +249,10 @@ public class HeroController : CretureController
         
         if (target == null) return;
 
-        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        
 
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        Debug.LogWarning(go);
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
@@ -215,23 +263,28 @@ public class HeroController : CretureController
     {
         if (atkArg.targets.Count <= 0)
             return;
-
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+
         if (_heroData.LevelData[curLevel].AngleOffset == 0)
         {
             for (int i = 0; i < atkArg.targets.Count; i++)
             {
                 var monster = atkArg.targets[i];
                 if (monster != null)
-                    monster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+                    monster.OnDamage(this, attack);
             }
         }
         else
         {
+            
             List<MonsterController> targetMonsters = scope.GetTargets();
+            AoeProjectile proj = go.GetComponent<AoeProjectile>();
+            proj.SetTarget(this, _heroData.LevelData[curLevel].HeroLevelData.Arange, (curTarget.transform.position - transform.position).normalized);
             foreach (var targetMonster in targetMonsters)
             {
-                targetMonster.OnDamage(this, _heroData.LevelData[curLevel].HeroLevelData.Attack);
+                targetMonster.OnDamage(this, attack);
             }
         }
     }
@@ -252,9 +305,11 @@ public class HeroController : CretureController
 
     private IEnumerator CoWaitForSkill()
     {
+        
         while (skillPre == null)
             yield return null;
 
+        Debug.LogWarning("공격을 시작하지" + _heroData.LevelData[curLevel].HeroName);
         isLoaded = true;
     }
    
