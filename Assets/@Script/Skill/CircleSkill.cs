@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class CircleSkill : Skill
 {
-    public override void UseSkill(Vector2 targetPos, float attack)
+    public override void UseSkill(SkillData skillData)
     {
-        this.attack = attack;
-        MoveProjectile(targetPos).Forget();
+        attack = skillData.Attack;
+        MoveProjectile(skillData.TargetPos).Forget();
     }
     async UniTaskVoid MoveProjectile(Vector3 targetPos)
     {
@@ -15,7 +15,7 @@ public class CircleSkill : Skill
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        while (Vector2.Distance(transform.position, targetPos) <= 0.1f)
+        while (Vector2.Distance(transform.position, targetPos) >= 0.1f)
         {
             transform.position += dir * Time.deltaTime * Speed;
             await UniTask.Yield();

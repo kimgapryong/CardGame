@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Projectile : Skill
 {
-    public override void UseSkill(Transform targetTransform, float attack, float distance = 0)
+    public override void UseSkill(SkillData data)
     {
-        target = targetTransform;
-        this.attack = attack;
+        target = data.TargetTransform;
+        attack = data.Attack;
     }
     private void Update()
     {

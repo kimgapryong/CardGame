@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class CoreCrossSkill : Skill
 {
-    public override void UseSkill(Vector2 targetPos, float attack)
+    public override void UseSkill(SkillData data)
     {
-        this.attack = attack;
-        MoveProjectile(targetPos).Forget();
+        attack = data.Attack;
+        MoveProjectile(data.TargetPos).Forget();
     }
     async UniTaskVoid MoveProjectile(Vector3 targetPos)
     {
@@ -22,5 +22,13 @@ public class CoreCrossSkill : Skill
         }
 
         Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        MonsterController monsterController = collision.GetComponent<MonsterController>();
+        if (monsterController == null)
+            return;
+
+        monsterController.OnDamage(Owner, attack);
     }
 }

@@ -22,8 +22,6 @@ public class HeroController : CretureController
     private Tile _tile;
     Scope scope;
 
-   
-
     protected override bool Init()
     {
         if (!base.Init())
@@ -46,36 +44,36 @@ public class HeroController : CretureController
     async void SetScope()
     {
         GameObject go = null;
-        if (_heroData.LevelData[curLevel].Atk_Arange == Define.AtkArange.Aoe)
+        MeshData meshData = new MeshData();
+        switch (_heroData.LevelData[curLevel].Atk_Arange)
         {
-            if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
-            {
+            case Define.AtkArange.Single:
+                break;
+            case Define.AtkArange.Aoe:
+                break;
+            case Define.AtkArange.Rectangle:
+                break;
+            case Define.AtkArange.Sector:
                 go = await Manager.Resource.Instantiate("Sector-Scope", null);
+
                 scope = go.GetComponent<Scope>();
                 scope.transform.position = transform.position;
                 scope.Owner = this;
 
-                SectorMeshData sectorMeshData = new SectorMeshData();
-                sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
-                sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-
-                scope.GenerateMesh(sectorMeshData);
-            }
-            else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
-            {
+                meshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+                meshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                scope.GenerateMesh(meshData);
+                break;
+            case Define.AtkArange.CoreCross:
                 go = await Manager.Resource.Instantiate("CoreCross-Scope", null);
                 scope = go.GetComponent<Scope>();
                 scope.transform.position = transform.position;
                 scope.Owner = this;
 
-                CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
-                crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-                crossMeshData.Size = _heroData.LevelData[curLevel].Size;
-
-                scope.GenerateMesh(crossMeshData);
-            }
+                meshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                meshData.Size = _heroData.LevelData[curLevel].Size;
+                break;
         }
-        
     }
     private void Update()
     {
@@ -102,12 +100,11 @@ public class HeroController : CretureController
             case Define.State.Attack:
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
+        if (scope == null)
+            return;
 
         if (scope.transform.position != transform.position && _heroData.LevelData[curLevel].Size == 0)
             scope.transform.position = transform.position;
-
-        if (scope == null)
-            return;
         scope.LookAt(curTarget.transform);
     }
     public void UpgradeLevel()
@@ -140,19 +137,19 @@ public class HeroController : CretureController
         transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
         if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
         {
-            SectorMeshData sectorMeshData = new SectorMeshData();
-            sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
-            sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+            MeshData data = new MeshData();
+            data.angle = _heroData.LevelData[curLevel].AngleOffset;
+            data.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
 
-            scope.GenerateMesh(sectorMeshData);
+            scope.GenerateMesh(data);
         }
         else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
         {
-            CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
-            crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-            crossMeshData.Size = _heroData.LevelData[curLevel].Size;
+            MeshData data = new MeshData();
+            data.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+            data.Size = _heroData.LevelData[curLevel].Size;
 
-            scope.GenerateMesh(crossMeshData);
+            scope.GenerateMesh(data);
         }
     }
     public void CurLevelUp(int level)
@@ -214,8 +211,11 @@ public class HeroController : CretureController
             case Define.AtkArange.Aoe:
                 AoeAttack();
                 break;
-            default:
-                Attack(target);
+            case Define.AtkArange.Sector:
+                break;
+            case Define.AtkArange.Rectangle:
+                break;
+            case Define.AtkArange.CoreCross:
                 break;
         }
         
@@ -256,6 +256,11 @@ public class HeroController : CretureController
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
         //todo : 스킬
+        //히어로가 가진 스킬임
+        Skill skill = go.GetComponent<Skill>();
+        SkillData skillData = new SkillData();
+        skillData.Attack = attack;
+        skill.UseSkill(skillData);
     }
 
     private void AoeAttack()

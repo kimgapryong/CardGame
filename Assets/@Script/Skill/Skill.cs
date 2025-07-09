@@ -7,11 +7,7 @@ public class Skill : MonoBehaviour
 
     protected float attack;
     public float Speed;
-    public virtual void UseSkill(Transform targetTransform, float attack, float distance = 0)
-    {
-
-    }
-    public virtual void UseSkill(Vector2 targetPos, float attack)
+    public virtual void UseSkill(SkillData data)
     {
 
     }
