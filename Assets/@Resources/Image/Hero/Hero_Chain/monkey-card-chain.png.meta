@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      monkey-card-chain_0: 6942090643423920093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
