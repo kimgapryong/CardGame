@@ -9,7 +9,6 @@ public class ShopHeroData
 {
     public HeroData heroData;
     public int rewardCount;
-    public int priceGold;
 }
 
 public class ShopGoldData
@@ -130,7 +129,6 @@ public class AllContentCanvas : UI_Scene
             {
                 heroData = heroData,
                 rewardCount = 10,
-                priceGold = priceData.Price,
             };
 
             Manager.UI.MakeSubItem<ShopHeroFragment>(
@@ -148,22 +146,32 @@ public class AllContentCanvas : UI_Scene
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             heroPop.OnClickBuyButton += () =>
                             {
-                                if (Manager.Game.SaveData.Gold < shopHeroData.priceGold)
-                                    return;
-
                                 if (Manager.Game.CardDataDict[shopHeroData.heroData.HeroID].had == false)
                                 {
+                                    int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
+                                    int unlockPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnlockPrice;
+                                    int price = unitPrice * shopHeroData.rewardCount + unlockPrice;
+                                    if (Manager.Game.SaveData.Gold < price)
+                                        return;
+
                                     CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
                                     cardData.had = true;
-                                    cardData.qnt = 0;
+                                    cardData.qnt = shopHeroData.rewardCount;
                                     Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+                                    Manager.Game.SaveData.Gold -= price;
                                 }
                                 else
                                 {
-                                    Manager.Game.SaveData.Gold -= shopHeroData.priceGold;
+                                    int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
+                                    int price = unitPrice * shopHeroData.rewardCount;
+                                    if (Manager.Game.SaveData.Gold < price)
+                                        return;
+
+                                    Manager.Game.SaveData.Gold -= price;
                                     CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
                                     cardData.qnt += shopHeroData.rewardCount;
                                     Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+                                    Manager.Game.SaveData.Gold -= price;
                                 }
                                 RefreshSetCard();
                                 Manager.UI.ClosePopupUI(heroPop);

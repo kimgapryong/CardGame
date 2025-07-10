@@ -65,41 +65,42 @@ public class ShopHeroInfoPop : UI_Popup
                 break;
         }
 
+        GetText((int)Texts.RewardCountText).text = $"x{_shopHeroData.rewardCount}";
         if (Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].had == false)
         {
-            GetText((int)Texts.CurrentCountText).gameObject.SetActive(false);
-            GetObject((int)Objects.CurrentCountSlider).SetActive(false);
-
             Manager.Resource.LoadAsync<Sprite>(_shopHeroData.heroData.LevelData[0].HeroSprite + "_Chain", sprite =>
             {
                 GetObject((int)Objects.ProfileImage).GetComponent<Image>().sprite = sprite;
+
+                GetText((int)Texts.CurrentCountText).text = $"NEW";
+                GetObject((int)Objects.CurrentCountSlider).GetComponent<Slider>().value = 0f;
+
+                int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
+                int unlockPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnlockPrice;
+                int price = unitPrice * _shopHeroData.rewardCount + unlockPrice;
+                GetText((int)Texts.BuyCostText).text = $"{price}";
+                GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
             });
-            GetText((int)Texts.RewardCountText).text = $"NEW!";
-            int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
-            int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
-            int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
-            GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
-            GetObject((int)Objects.CurrentCountSlider).GetComponent<Slider>().value = (float)currentCount / needCount;
-            GetText((int)Texts.BuyCostText).text = $"{_shopHeroData.priceGold}";
-            GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gold >= _shopHeroData.priceGold ? Color.white : Color.red;
+
         }
         else
         {
-            GetText((int)Texts.CurrentCountText).gameObject.SetActive(true);
-            GetObject((int)Objects.CurrentCountSlider).SetActive(true);
-
             Manager.Resource.LoadAsync<Sprite>(_shopHeroData.heroData.LevelData[0].Sprite, sprite =>
             {
                 GetObject((int)Objects.ProfileImage).GetComponent<Image>().sprite = sprite;
+
+                int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
+                int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
+                int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
+                GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
+                GetObject((int)Objects.CurrentCountSlider).GetComponent<Slider>().value = (float)currentCount / needCount;
+
+                int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
+                int price = unitPrice * _shopHeroData.rewardCount;
+                GetText((int)Texts.BuyCostText).text = $"{price}";
+                GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
             });
-            GetText((int)Texts.RewardCountText).text = $"x{_shopHeroData.rewardCount}";
-            int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
-            int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
-            int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
-            GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
-            GetObject((int)Objects.CurrentCountSlider).GetComponent<Slider>().value = (float)currentCount / needCount;
-            GetText((int)Texts.BuyCostText).text = $"{_shopHeroData.priceGold}";
-            GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gold >= _shopHeroData.priceGold ? Color.white : Color.red;
+
         }
         return true;
     }

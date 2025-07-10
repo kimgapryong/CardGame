@@ -71,42 +71,42 @@ public class ShopHeroFragment : UI_Base
                 break;
         }
 
+        GetText((int)Texts.RewardCountText).text = $"{_shopHeroData.rewardCount}";
 
-
-
-        string spritePath = _shopHeroData.heroData.LevelData[0].HeroSprite; 
         if (Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].had == false)
         {
-            GetText((int)Texts.CurrentCountText).gameObject.SetActive(false);
-            GetSlider((int)Sliders.CurrentCountSlider).gameObject.SetActive(false);
-
             GetText((int)Texts.NameText).text = _shopHeroData.heroData.LevelData[0].HeroName;
             Manager.Resource.LoadAsync<Sprite>(_shopHeroData.heroData.LevelData[0].HeroSprite + "_Chain", (sprite) =>
             {
                 GetImage((int)Images.ProfileImage).sprite = sprite;
+                GetText((int)Texts.CurrentCountText).text = $"NEW";
+                GetSlider((int)Sliders.CurrentCountSlider).value = 0f;
+
+                int unlockPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnlockPrice;
+                int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
+                int price = unitPrice * _shopHeroData.rewardCount + unlockPrice;
+                GetText((int)Texts.PriceText).text = $"{price}";
+                GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
             });
-            GetText((int)Texts.RewardCountText).text = $"NEW!";
-            GetText((int)Texts.PriceText).text = $"{_shopHeroData.priceGold}";
-            GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _shopHeroData.priceGold ? Color.white : Color.red;
         }
         else
         {
-            GetText((int)Texts.CurrentCountText).gameObject.SetActive(true);
-            GetSlider((int)Sliders.CurrentCountSlider).gameObject.SetActive(true);
-
             GetText((int)Texts.NameText).text = _shopHeroData.heroData.LevelData[0].HeroName;
             Manager.Resource.LoadAsync<Sprite>(_shopHeroData.heroData.LevelData[0].Sprite, (sprite) =>
             {
                 GetImage((int)Images.ProfileImage).sprite = sprite;
+
+                int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
+                int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
+                int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
+                GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
+                GetSlider((int)Sliders.CurrentCountSlider).value = (float)currentCount / needCount;
+
+                int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
+                int price = unitPrice * _shopHeroData.rewardCount;
+                GetText((int)Texts.PriceText).text = $"{price}";
+                GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
             });
-            GetText((int)Texts.RewardCountText).text = $"x{_shopHeroData.rewardCount}";
-            int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
-            int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
-            int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
-            GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
-            GetSlider((int)Sliders.CurrentCountSlider).value = (float)currentCount / needCount;
-            GetText((int)Texts.PriceText).text = $"{_shopHeroData.priceGold}";
-            GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _shopHeroData.priceGold ? Color.white : Color.red;
         }
 
     }

@@ -3,22 +3,22 @@
     {
       "Grade": "Common",
       "UnlockPrice": 10,
-      "Price": 1
+      "UnitPrice": 1
     },
     {
       "Grade": "Normal",
       "UnlockPrice": 20,
-      "Price": 2
+      "UnitPrice": 2
     },
     {
       "Grade": "Epic",
       "UnlockPrice": 50,
-      "Price": 5
+      "UnitPrice": 5
     },
     {
       "Grade": "Legend",
       "UnlockPrice": 150,
-      "Price": 15
+      "UnitPrice": 15
     }
   ]
 }

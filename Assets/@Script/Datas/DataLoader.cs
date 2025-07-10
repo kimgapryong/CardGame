@@ -334,7 +334,7 @@ public class PriceData
 {
     public string Grade;
     public int UnlockPrice;
-    public int Price;
+    public int UnitPrice;
 
     public HeroRating HeroGrade { get { return ParseEnumOrDefault<HeroRating>(Grade, HeroRating.Common); } }
 
