@@ -1,4 +1,3 @@
-ï»¿
 
 using System;
 using System.Collections.Generic;
@@ -47,7 +46,9 @@ public class HeroCardPop : UI_Popup
     GameObject upgrade_Content;
 
     List<HeroCardPop_Fragment> heroCardPop_Fragments;
-    
+
+    int requiredCardNumber;
+    int currentGainCardNumber;
     public override bool Init()
     {
         if (base.Init() == false)
@@ -96,7 +97,7 @@ public class HeroCardPop : UI_Popup
             Manager.UI.ClosePopupUI(this);
         });
 
-        // ë²„íŠ¼ ì²´í¬
+        
         foreach(var card in Manager.Game.Heros)
         {
             if(card == _heroData.HeroID)
@@ -109,7 +110,7 @@ public class HeroCardPop : UI_Popup
         if( checkBtn)
         {
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = Color.red;
-            GetText((int)Texts.Equir_Txt).text = "ì¥ì°©í•´ì œ";
+            GetText((int)Texts.Equir_Txt).text = "ÀåÂøÇıÁ¦";
         }
         else
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = new Color(72f / 255f, 1f, 0f);
@@ -136,7 +137,6 @@ public class HeroCardPop : UI_Popup
 
                 Manager.Game.SaveGame();
 
-                // UI ê°±ì‹ 
                 _all?.RefreshSetCard();
             });
 
@@ -178,26 +178,26 @@ public class HeroCardPop : UI_Popup
                 {
                     fragment.Refresh();
                 }
-                UpdateUI();
+
                 requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
                 currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
-                
+
 
                 UpgradeSystem.CheckFullAction((cur, full) =>
                 {
-                    if(cur >= full)
+                    if (cur >= full)
                     {
                         GetText((int)Texts.Upgrade_Txt).text = "Max";
                         fullCheck = true;
                     }
                     else
-                        GetText((int)Texts.Upgrade_Txt).text = $"ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½({cur}/{requiredCardNumber})";
+                        GetText((int)Texts.Upgrade_Txt).text = $"¾÷±×·¹ÀÌµå({cur}/{requiredCardNumber})";
                 });
 
                 _myCard.UpdateSlider(currentGainCardNumber, requiredCardNumber, fullCheck);
             }
         });
-       
+
 
         return true;
     }
