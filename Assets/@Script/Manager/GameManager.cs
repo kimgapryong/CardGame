@@ -56,7 +56,7 @@ public class GameManager
         {
             Heros.Add(i);
 
-            CardData myCard = CardDataDict[4];
+            CardData myCard = CardDataDict[i];
             myCard.had = true;
             CardDataDict[i] = myCard; 
         }

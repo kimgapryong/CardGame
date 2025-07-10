@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lion-card-chain_0: 7007494182314241452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

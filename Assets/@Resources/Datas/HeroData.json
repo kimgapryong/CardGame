@@ -218,7 +218,6 @@
           "Level": 1,
           "Sprite": "Chicken_1.sprite",
           "HeroInduce": "바람처럼 빠르고 치명적인 심판자!\n\n모의부인은 적의 허를 찌르는 공격으로 전장을 지배한다.\n그녀의 한 마디면 모두가 조용해지고,\n그녀의 발걸음은 사뿐하지만 위험 천만하다.\n정의감 넘치는 그녀는 혼돈 속에서도 질서를 세우며,\n누구도 그녀의 심판을 피할 수 없다.\n그녀의 눈빛은 차갑지만 마음은 뜨겁다.",
-          "HeroSprite": "Mo_1",
           "AtkArange": "Single",
           "HeroSprite": "Chicken",
           "HeroLevelData": {

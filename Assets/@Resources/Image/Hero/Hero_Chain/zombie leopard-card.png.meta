@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      zombie leopard-card_0: 6914177406543296262
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
