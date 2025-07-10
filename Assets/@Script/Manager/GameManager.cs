@@ -105,4 +105,6 @@ public struct CardData
     public int level;
     //카드 개수
     public int qnt;
+    //최대 강화 확인
+    public bool full;
 }

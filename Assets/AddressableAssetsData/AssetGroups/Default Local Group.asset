@@ -320,6 +320,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f30a810e25d55a3489b0b23509677138
+    m_Address: Bear_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4b4969cbc940b840a738b9d92227e81
     m_Address: HeroUpgradeData.json
     m_ReadOnly: 0

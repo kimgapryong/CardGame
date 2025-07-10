@@ -1,11 +1,12 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HeroCardPop : UI_Popup
 {
-
+    bool fullCheck = false;
     bool checkBtn = false;
     SwipeUI swip_UI;
     List<Transform> upgrade_Trans = new List<Transform>();
@@ -29,6 +30,7 @@ public class HeroCardPop : UI_Popup
 
     AllContentCanvas _all;
     HeroData _heroData;
+    CardFragment _myCard;
     GameObject status_Content;
     GameObject upgrade_Content;
 
@@ -132,7 +134,7 @@ public class HeroCardPop : UI_Popup
 
         GetButton((int)Buttons.Upgrade_Btn).gameObject.BindEvent(() =>
         {
-            if (UpgradeSystem.UpGrade(_heroData.HeroID))
+            if (UpgradeSystem.UpGrade(_heroData.HeroID, this))
             {
                 foreach(HeroCardPop_Fragment fragment in heroCardPop_Fragments)
                 {
@@ -140,17 +142,31 @@ public class HeroCardPop : UI_Popup
                 }
                 requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
                 currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
-                GetText((int)Texts.Upgrade_Txt).text = $"업그레이드({currentGainCardNumber}/{requiredCardNumber})";
+                
+
+                UpgradeSystem.CheckFullAction((cur, full) =>
+                {
+                    if(cur >= full)
+                    {
+                        GetText((int)Texts.Upgrade_Txt).text = "Max";
+                        fullCheck = true;
+                    }
+                    else
+                        GetText((int)Texts.Upgrade_Txt).text = $"업그레이드({cur}/{requiredCardNumber})";
+                });
+
+                _myCard.UpdateSlider(currentGainCardNumber, requiredCardNumber, fullCheck);
             }
         });
        
 
         return true;
     }
-    public void SetInfo(HeroData heroData, AllContentCanvas all)
+    public void SetInfo(HeroData heroData, AllContentCanvas all, CardFragment myCard)
     {
         _all = all;
         _heroData = heroData;
+        _myCard  = myCard;
 
         heroCardPop_Fragments = new List<HeroCardPop_Fragment>();
     }
