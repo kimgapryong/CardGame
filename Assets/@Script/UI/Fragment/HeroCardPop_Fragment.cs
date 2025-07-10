@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using static Define;
 
@@ -50,39 +50,39 @@ public class HeroCardPop_Fragment : UI_Base
     public void Refresh()
     {
         GetText((int)Texts.HeroName).text = _level.HeroName;
-        #region µî±Ş
+        #region ë“±ê¸‰
         switch (_heroData.Hero_Rating)
         {
             case HeroRating.Common:
                 heroRating_Image.color = Color.gray;
-                rating_Txt.text = $"µî±Ş: ÀÏ¹İ";
+                rating_Txt.text = $"ë“±ê¸‰: ì¼ë°˜";
                 break;
             case HeroRating.Normal:
                 heroRating_Image.color = Color.yellow;
-                rating_Txt.text = $"µî±Ş: Èñ±Í";
+                rating_Txt.text = $"ë“±ê¸‰: í¬ê·€";
                 break;
             case HeroRating.Epic:
                 heroRating_Image.color = new Color(160f / 255f, 32f / 255f, 240f / 255f);
-                rating_Txt.text = $"µî±Ş: ¿µ¿õ";
+                rating_Txt.text = $"ë“±ê¸‰: ì˜ì›…";
                 break;
             case HeroRating.Legend:
                 heroRating_Image.color = Color.red;
-                rating_Txt.text = $"µî±Ş: Àü¼³";
+                rating_Txt.text = $"ë“±ê¸‰: ì „ì„¤";
                 break;
         }
         #endregion
 
-        #region À¯Çü
+        #region ìœ í˜•
         switch (_heroData.Arange_Type)
         {
             case HeroType.Close:
-                heroT_Txt.text = $"À¯Çü: ´Ü°Å¸®";
+                heroT_Txt.text = $"ìœ í˜•: ë‹¨ê±°ë¦¬";
                 break;
             case HeroType.Medium:
-                heroT_Txt.text = $"À¯Çü: Áß°Å¸®";
+                heroT_Txt.text = $"ìœ í˜•: ì¤‘ê±°ë¦¬";
                 break;
             case HeroType.Long:
-                heroT_Txt.text = $"À¯Çü: ¿ø°Å¸®";
+                heroT_Txt.text = $"ìœ í˜•: ì›ê±°ë¦¬";
                 break;
         }
         #endregion
