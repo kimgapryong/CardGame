@@ -147,13 +147,22 @@ public class AllContentCanvas : UI_Scene
                                 if (Manager.Game.SaveData.Gold < shopHeroData.priceGold)
                                     return;
 
-                                Manager.Game.SaveData.Gold -= shopHeroData.priceGold;
-                                CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
-                                cardData.qnt += shopHeroData.rewardCount;
-                                Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
-
+                                if (Manager.Game.CardDataDict[shopHeroData.heroData.HeroID].had == false)
+                                {
+                                    CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
+                                    cardData.had = true;
+                                    cardData.qnt = 1;
+                                    Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+                                }
+                                else
+                                {
+                                    Manager.Game.SaveData.Gold -= shopHeroData.priceGold;
+                                    CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
+                                    cardData.qnt += shopHeroData.rewardCount;
+                                    Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+                                }
+                                RefreshSetCard();
                                 Manager.UI.ClosePopupUI(heroPop);
-
                             };
                         });
 
