@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a1831d99cb39f2468467c126ffda630
+    m_Address: Pug_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c6816ebb4929fc4c93da83e83d81adf
     m_Address: EventSystem
     m_ReadOnly: 0
@@ -37,6 +42,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2141e368bcc45a14c9253cc5a8ef5b76
     m_Address: Eye-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21a468e5a41ff104087780fcee4548e0
+    m_Address: Eye_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -85,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ee26a254bb321c4cbcf874a1acc5669
+    m_Address: Monkey_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4362abc02672486409c42f56a91a59ee
     m_Address: Panther
     m_ReadOnly: 0
@@ -125,13 +140,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 596952e7080b1e74c86efa437d8ea1b3
-    m_Address: ProductData.json
+  - m_GUID: 5b26f8e8401d22d43bb3bbde0972b474
+    m_Address: Possessed_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5dcbda03e361dff498d79e357186ec9e
     m_Address: SpwanFragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dcff923b24ae7242bed5fbb10411fc3
+    m_Address: Wolf_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -147,6 +167,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f826a4945d401e4e83e5f98f0c07001
     m_Address: Monster_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 713c97809e5eddb409fa673c8cc2eb25
+    m_Address: Piggy_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -215,6 +240,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9043f6279bdab3544a2f5cba920051c4
+    m_Address: Chicken_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91597a59afa9b7948ab4821d97578224
     m_Address: Lion
     m_ReadOnly: 0
@@ -227,6 +257,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9733049522a5aa04cbf5de102044099a
     m_Address: SkillData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98fee205406e1b444a447bee5bf8ad25
+    m_Address: Panther_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -247,6 +282,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f4390db109eecd4cbcc3a1f5c7a1deb
     m_Address: AnimData.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2466d3e041087741babef54bfc3d1ec
+    m_Address: Lion_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -307,6 +347,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de29eff3972088a46889522b9b37b2b8
     m_Address: WhiteWolf_3.sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2da46ad554e691468f54201fafad4e0
+    m_Address: WhiteWolf_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec4ba6caf6dda5643b18ed37ea45af30
+    m_Address: Chick_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

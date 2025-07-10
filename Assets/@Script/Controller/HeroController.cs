@@ -103,11 +103,13 @@ public class HeroController : CretureController
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
 
+        if (scope == null)
+            return;
+
         if (scope.transform.position != transform.position && _heroData.LevelData[curLevel].Size == 0)
             scope.transform.position = transform.position;
 
-        if (scope == null)
-            return;
+        
         scope.LookAt(curTarget.transform);
     }
     public void UpgradeLevel()
@@ -131,7 +133,9 @@ public class HeroController : CretureController
             {
                 pop.SetInfo(hc._heroData, hc, hc._tile);
             });
-            Destroy(scope.gameObject);
+            if (scope != null)
+                Destroy(scope.gameObject);
+
             Destroy(gameObject);
         });
 

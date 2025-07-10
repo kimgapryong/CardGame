@@ -27,19 +27,19 @@ public class GameManager
 
     public Dictionary<int, CardData> CardDataDict = new Dictionary<int, CardData>();
 
+    private List<int> startData = new List<int>() {4, 6};
     public void Init()
     {
         _path = Application.persistentDataPath + "/savefile.json";
         if (LoadGame())
             return;
-        Debug.Log("게임 매니저 초기화");
+        
         if (Heros == null)
             Heros = new List<int>();
 
         IsLoaded = true;
-        Heros.Add(4);
-        Heros.Add(6);
 
+        Debug.Log(Manager.Data.HeroDatas);
         for (int i = 1; i <= Manager.Data.HeroDatas.Values.Count; i++)
         {
             CardData cData = new CardData();
@@ -50,6 +50,17 @@ public class GameManager
         foreach (CardData cardData in SaveData.GotCard)
             if (!CardDataDict.ContainsKey(cardData.cardId))
                 CardDataDict.Add(cardData.cardId, cardData);
+
+        //히어로 초기 세팅
+        foreach(int i in startData)
+        {
+            Heros.Add(i);
+
+            CardData myCard = CardDataDict[4];
+            myCard.had = true;
+            CardDataDict[i] = myCard; 
+        }
+        
         SaveGame();
     }
 
@@ -107,4 +118,6 @@ public struct CardData
     public int qnt;
     //최대 강화 확인
     public bool full;
+    //카드 보유 여부
+    public bool had;
 }

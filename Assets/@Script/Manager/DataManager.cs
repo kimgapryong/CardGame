@@ -19,17 +19,31 @@ public class DataManager
     public Dictionary<int, HeroUpgradeData> HeroUpgradeDatas { get; private set; }
 
 
-    public void Init()
+    public void Init(Action onComplete = null)
     {
-        LoadJson<HeroLoader, int, HeroData>("HeroData.json", (loader) => { HeroDatas = loader.MakeDic(); });
-        LoadJson<SkillLoader, int, Skills>("SkillData.json", (loader) => { SkillDatas = loader.MakeDic(); });
-        LoadJson<AnimationLoader, int, AnimationData>("AnimData.json", (loader) => { AnimDatas = loader.MakeDic(); });
-        LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); });
-        LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); });
-        LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => HeroUpgradeDatas = loader.MakeDic());
-        LoadJson<ChestDataLoader, int, ChestData>("ChestData.json", (loader) => { ChestDatas = loader.MakeDic(); });
+        var loadActions = new List<Action<Action>>()
+    {
+        (cb) => LoadJson<HeroLoader, int, HeroData>("HeroData.json", (loader) => { HeroDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<SkillLoader, int, Skills>("SkillData.json", (loader) => { SkillDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<AnimationLoader, int, AnimationData>("AnimData.json", (loader) => { AnimDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => { HeroUpgradeDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<ChestDataLoader, int, ChestData>("ChestData.json", (loader) => { ChestDatas = loader.MakeDic(); cb(); })
+    };
 
-        Manager.Resource.LoadAsync<TextAsset>("HeroRatingPriceData.json", (textAsset) => Debug.Log(textAsset.text));
+        int count = 0;
+        int total = loadActions.Count;
+
+        foreach (var load in loadActions)
+        {
+            load(() =>
+            {
+                count++;
+                if (count == total)
+                    onComplete?.Invoke();
+            });
+        }
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {
@@ -49,10 +63,8 @@ public class DataManager
         if (AnimDatas == null)
             return false;
         if (MonDatas == null)
-        {
-            Debug.Log("너녀");
             return false;
-        }
+
             
 
         return true;

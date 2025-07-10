@@ -86,12 +86,12 @@ public class CardFragment : UI_Base
         CardData myCardData = Manager.Game.CardDataDict[_heroData.HeroID];
         UpdateSlider(myCardData.qnt, Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[myCardData.level].RequiredCardNumber, myCardData.full);
         GetImage((int)Images.Chain_Image).gameObject.SetActive(false);
-        /* Manager.Resource.LoadAsync<Sprite>($"{_level[0].HeroSprite}_Chain", (sprite) =>
+        Manager.Resource.LoadAsync<Sprite>($"{_level[0].HeroSprite}_Chain", (sprite) =>
          {
              GetImage((int)Images.Chain_Image).sprite = sprite;
              if(Manager.Game.CardDataDict.TryGetValue(_heroData.HeroID, out CardData cardData))
              {
-                 if(cardData.qnt <= 0)
+                 if(!cardData.had)
                      GetImage((int)Images.Chain_Image).gameObject.SetActive(true);
                  else
                  {
@@ -100,16 +100,16 @@ public class CardFragment : UI_Base
                  }
 
              }   
-         });*/
+         });
     }
 
     void ShowCardPop()
     {
-        /*if (!canCheck)
+        if (!canCheck)
         {
             Manager.UI.ShowWarning("아직 획득하지 못한 카드입니다");
             return;
-        }*/
+        }
             
 
         Manager.UI.ShowPopupUI<HeroCardPop>(callback: (card) =>

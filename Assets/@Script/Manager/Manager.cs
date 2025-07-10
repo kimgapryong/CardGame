@@ -37,7 +37,9 @@ public class Manager : MonoBehaviour
         _instance = go.GetComponent<Manager>();
         DontDestroyOnLoad(go);
 
-        _instance._data.Init();
-        _instance._game.Init();
+        _instance._data.Init(() =>
+        {
+            _instance._game.Init();
+        });
     }
 }
