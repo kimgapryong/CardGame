@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Define;
 
 public class HeroCardPop : UI_Popup
 {
@@ -32,6 +33,10 @@ public class HeroCardPop : UI_Popup
     {
         Count_Slider
     }
+    enum Images
+    {
+        Bg_Img
+    }
 
     AllContentCanvas _all;
     HeroData _heroData;
@@ -49,6 +54,7 @@ public class HeroCardPop : UI_Popup
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));
         BindSlider(typeof(Sliders));
+        BindImage(typeof(Images));
 
         status_Content = GetObject((int)Objects.Status_Content);
         upgrade_Content = GetObject((int)Objects.Upgrade_Count);
@@ -131,6 +137,33 @@ public class HeroCardPop : UI_Popup
                 _all?.RefreshSetCard();
             });
 
+        switch (_heroData.Hero_Rating)
+        {
+            case HeroRating.Common:
+                Manager.Resource.LoadSprite("card-up1", (sprite) =>
+                {
+                    GetImage((int)Images.Bg_Img).sprite = sprite;
+                });
+                break;
+            case HeroRating.Normal:
+                Manager.Resource.LoadSprite("card-up2", (sprite) =>
+                {
+                    GetImage((int)Images.Bg_Img).sprite = sprite;
+                });
+                break;
+            case HeroRating.Epic:
+                Manager.Resource.LoadSprite("card-up3", (sprite) =>
+                {
+                    GetImage((int)Images.Bg_Img).sprite = sprite;
+                });
+                break;
+            case HeroRating.Legend:
+                Manager.Resource.LoadSprite("card-up4", (sprite) =>
+                {
+                    GetImage((int)Images.Bg_Img).sprite = sprite;
+                });
+                break;
+        }
 
         UpdateUI();
 
