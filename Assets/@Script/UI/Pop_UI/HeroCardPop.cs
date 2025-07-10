@@ -1,4 +1,4 @@
-
+ï»¿
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,8 +23,14 @@ public class HeroCardPop : UI_Popup
     }
     enum Texts
     {
+        Level_Txt,
+        Count_Txt,
         Equir_Txt,
         Upgrade_Txt
+    }
+    enum Sliders
+    {
+        Count_Slider
     }
 
     AllContentCanvas _all;
@@ -32,21 +38,17 @@ public class HeroCardPop : UI_Popup
     GameObject status_Content;
     GameObject upgrade_Content;
 
-    int requiredCardNumber;
-    int currentGainCardNumber;
     List<HeroCardPop_Fragment> heroCardPop_Fragments;
+    
     public override bool Init()
     {
         if (base.Init() == false)
             return false;
 
-        //¾÷±×·¹ÀÌµå¿¡ ÇÊ¿äÇÑ Ä«µå °³¼ö¸¦ °¡Á®¿È
-        requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
-        currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
-
         BindObject(typeof(Objects));
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));
+        BindSlider(typeof(Sliders));
 
         status_Content = GetObject((int)Objects.Status_Content);
         upgrade_Content = GetObject((int)Objects.Upgrade_Count);
@@ -85,7 +87,7 @@ public class HeroCardPop : UI_Popup
             Manager.UI.ClosePopupUI(this);
         });
 
-        // ¹öÆ° Ã¼Å©
+        // ë²„íŠ¼ ì²´í¬
         foreach(var card in Manager.Game.Heros)
         {
             if(card == _heroData.HeroID)
@@ -98,7 +100,7 @@ public class HeroCardPop : UI_Popup
         if( checkBtn)
         {
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = Color.red;
-            GetText((int)Texts.Equir_Txt).text = "ÀåÂøÇØÁ¦";
+            GetText((int)Texts.Equir_Txt).text = "ì¥ì°©í•´ì œ";
         }
         else
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = new Color(72f / 255f, 1f, 0f);
@@ -125,10 +127,12 @@ public class HeroCardPop : UI_Popup
 
                 Manager.Game.SaveGame();
 
-                // UI °»½Å
+                // UI ê°±ì‹ 
                 _all?.RefreshSetCard();
             });
-        GetText((int)Texts.Upgrade_Txt).text = $"¾÷±×·¹ÀÌµå({currentGainCardNumber}/{requiredCardNumber})";
+
+
+        UpdateUI();
 
         GetButton((int)Buttons.Upgrade_Btn).gameObject.BindEvent(() =>
         {
@@ -138,9 +142,7 @@ public class HeroCardPop : UI_Popup
                 {
                     fragment.Refresh();
                 }
-                requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
-                currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
-                GetText((int)Texts.Upgrade_Txt).text = $"¾÷±×·¹ÀÌµå({currentGainCardNumber}/{requiredCardNumber})";
+                UpdateUI();
             }
         });
        
@@ -153,5 +155,25 @@ public class HeroCardPop : UI_Popup
         _heroData = heroData;
 
         heroCardPop_Fragments = new List<HeroCardPop_Fragment>();
+    }
+    public void UpdateUI()
+    {
+        int requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
+        int currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
+        int price = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].Price;
+
+        GetText((int)Texts.Level_Txt).text = $"{Manager.Game.CardDataDict[_heroData.HeroID].level}";
+        GetText((int)Texts.Count_Txt).text = $"{currentGainCardNumber}/{requiredCardNumber}";
+        GetSlider((int)Sliders.Count_Slider).value = (float) currentGainCardNumber / requiredCardNumber;
+        GetText((int)Texts.Upgrade_Txt).text = $"{price}";
+
+        if (Manager.Game.SaveData.Gold >= price && currentGainCardNumber >= requiredCardNumber)
+        {
+            GetButton((int)Buttons.Upgrade_Btn).GetComponent<Image>().color = new Color(85, 255, 0, 255) / 255f;
+        }
+        else
+        {
+            GetButton((int)Buttons.Upgrade_Btn).GetComponent<Image>().color = new Color(204, 204, 204, 255) / 255f;
+        }
     }
 }
