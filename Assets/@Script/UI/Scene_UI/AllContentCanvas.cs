@@ -166,8 +166,8 @@ public class AllContentCanvas : UI_Scene
         {
             ShopGoldData shopGoldData = new ShopGoldData()
             {
-                rewardCount = (i + 1) * 100,
-                priceGem = (i + 1) * 1,
+                rewardCount = (i + 1) * 1000,
+                priceGem = (i + 1) * 10,
             };
 
             Manager.UI.MakeSubItem<ShopGoldFragment>(
@@ -204,8 +204,8 @@ public class AllContentCanvas : UI_Scene
         {
             ShopGemData shopGemData = new ShopGemData()
             {
-                rewardCount = (i + 1) * 1,
-                priceGold = (i + 1) * 100,
+                rewardCount = (i + 1) * 10,
+                priceGold = (i + 1) * 1000,
             };
 
             Manager.UI.MakeSubItem<ShopGemFragment>(
