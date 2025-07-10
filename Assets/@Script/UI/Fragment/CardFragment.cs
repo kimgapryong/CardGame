@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static Define;
@@ -16,6 +16,7 @@ public class CardFragment : UI_Base
     {
         CardName,
         Update_Txt,
+        Level_Txt
     }
     enum Objects
     {
@@ -107,7 +108,7 @@ public class CardFragment : UI_Base
     {
         if (!canCheck)
         {
-            Manager.UI.ShowWarning("¾ÆÁ÷ È¹µæÇÏÁö ¸øÇÑ Ä«µåÀÔ´Ï´Ù");
+            Manager.UI.ShowWarning("ì•„ì§ íšë“í•˜ì§€ ëª»í•œ ì¹´ë“œì…ë‹ˆë‹¤");
             return;
         }
             
@@ -135,6 +136,7 @@ public class CardFragment : UI_Base
         else
             GetImage((int)Images.Upgrade_Slider).color = new Color(224, 215, 215);
 
+        GetText((int)Texts.Level_Txt).text = $"{Manager.Game.CardDataDict[_heroData.HeroID].level}";
         GetText((int)Texts.Update_Txt).text = $"{qnt} / {upgradeQnt}";
     }
 
