@@ -12,21 +12,23 @@ public class SectorSkill : Skill
     }
     async UniTaskVoid MoveProjectile(Vector3 targetPos, float angleOffset)
     {
-        transform.position = targetPos + new Vector3(-10, -20);
         Vector3 dir = (targetPos - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         
         float distance = Vector2.Distance(transform.position, targetPos);
-        float scale = angleOffset / 360 * 2 * Mathf.PI * distance;
+        float dist = Vector2.Distance(Owner.transform.position, transform.position);
+        float scale = angleOffset / 360 * 2 * Mathf.PI * dist;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        transform.localScale = new Vector3(scale, scale, scale);
+        transform.localScale = new Vector3(scale * transform.localScale.x, scale * transform.localScale.y, scale * transform.localScale.z);
         while (distance >= 0.1f)
         {
             transform.position += dir * Time.deltaTime * Speed;
 
+            dist = Vector2.Distance(Owner.transform.position, transform.position);
+            scale = angleOffset / 360 * 2 * Mathf.PI * dist;
             distance = Vector2.Distance(transform.position, targetPos);
-            transform.localScale = new Vector3(scale, scale, scale);
+            transform.localScale = new Vector3(scale * 0.2f, scale * 0.2f, scale * 0.2f);
             await UniTask.Yield();
         }
 

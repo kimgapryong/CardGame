@@ -29,7 +29,7 @@ public class DataManager
         LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => HeroUpgradeDatas = loader.MakeDic());
         LoadJson<ChestDataLoader, int, ChestData>("ChestData.json", (loader) => { ChestDatas = loader.MakeDic(); });
 
-        Manager.Resource.LoadAsync<TextAsset>("HeroRatingPriceData.json", (textAsset) => Debug.Log(textAsset.text));
+        //Manager.Resource.LoadAsync<TextAsset>("HeroRatingPriceData.json", (textAsset) => Debug.Log(textAsset.text));
     }
     void LoadJson<Loader, Key, Value>(string key, Action<Loader> callback) where Loader : ILoader<Key, Value>
     {

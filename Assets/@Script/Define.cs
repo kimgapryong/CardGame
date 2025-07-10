@@ -59,6 +59,7 @@ public class Define
         CoreCross,
         Rectangle,
         Sector,
+        Circle,
     }
     public enum HeroAbility
     {

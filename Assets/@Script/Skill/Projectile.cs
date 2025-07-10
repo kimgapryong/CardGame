@@ -17,8 +17,7 @@ public class Projectile : Skill
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MonsterController monsterController = GetComponent<MonsterController>();
-
+        MonsterController monsterController = collision.GetComponent<MonsterController>();
         if (collision.transform != target)
             return;
         if (monsterController == null)

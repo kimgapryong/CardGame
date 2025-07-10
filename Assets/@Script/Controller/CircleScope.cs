@@ -57,6 +57,8 @@ public class CircleScope : Scope
     }
     public override void LookAt(Transform target)
     {
+        if (target == null)
+            return;
         transform.position = target.position;
     }
 }

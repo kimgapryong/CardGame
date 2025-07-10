@@ -107,7 +107,8 @@
           "Sprite": "Wolf_1.sprite",
           "HeroInduce": "게으른 가장? 이제는 분노의 야수!\n\n가족을 위협하는 적이라면 어떤 것이든 분쇄한다.\n불타는 주먹은 적의 방어를 무력화시키고\n그의 눈빛 하나로 적들이 물러난다!\n도넛보다 강한 힘을 가진 그 이름, 호머!",
           "HeroSprite": "Wolf",
-          "AtkArange": "Single",
+          "AtkArange": "Sector",
+          "AngleOffset": 15,
           "HeroLevelData": {
             "Attack": 0,
             "Arange": 2.5,
@@ -115,7 +116,7 @@
             "Upgrade": 0
           },
           "SkillMapData": {
-            "SkillID": 17,
+            "SkillID": 16,
             "AnimationID": 3
           }
         },
@@ -126,6 +127,7 @@
           "HeroInduce": "도넛이 연료! 분노가 무기!\n\n폭발적인 힘으로 적을 산산조각낸다.\n무시무시한 돌진은 누구도 막지 못하고\n불꽃처럼 타오르는 전장의 광란.\n무적의 괴력을 지금 확인하라!",
           "HeroSprite": "Wolf-2",
           "AtkArange": "Sector",
+          "AngleOffset" : 30,
           "HeroLevelData": {
             "Attack": 200,
             "Arange": 4.2,
@@ -133,7 +135,7 @@
             "Upgrade": 3200
           },
           "SkillMapData": {
-            "SkillID": 16,
+            "SkillID": 15,
             "AnimationID": 3
           }
         },
@@ -151,7 +153,7 @@
             "Upgrade": 15000
           },
           "SkillMapData": {
-            "SkillID": 15,
+            "SkillID": 17,
             "AnimationID": 3
           }
         }
@@ -264,7 +266,6 @@
           "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
           "HeroSprite": "Pug",
           "AtkArange": "Single",
-          "AngleOffset" : 15,
           "HeroLevelData": {
             "Attack": 1000,
             "Arange": 5.6,

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7660422730636251347}
   - component: {fileID: 1950874998849527494}
   - component: {fileID: 3839423411243774694}
+  - component: {fileID: 1290148931795873366}
   m_Layer: 0
   m_Name: Skill_16
   m_TagString: Untagged
@@ -176,3 +177,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1290148931795873366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534665855805975360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a556ddc981eec4583455a43f3aa83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  Speed: 5

@@ -165,11 +165,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 77377187a5515a9439cb140809cc35e3
-    m_Address: Scope
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d5c45a4847f62c4896f7c09c4313460
     m_Address: ShopHeroFragment
     m_ReadOnly: 0
@@ -300,13 +295,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
-    m_Address: ShopGoldPop
+  - m_GUID: de29eff3972088a46889522b9b37b2b8
+    m_Address: WhiteWolf_3.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de29eff3972088a46889522b9b37b2b8
-    m_Address: WhiteWolf_3.sprite
+  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
+    m_Address: ShopGoldPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

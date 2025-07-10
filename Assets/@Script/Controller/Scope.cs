@@ -22,6 +22,7 @@ public class Scope : MonoBehaviour
     }
     public void SetMeshActive(bool isActive)
     {
+        if (meshRenderer)
         if (isActive)
         {
             meshFilter.mesh = mesh;
@@ -35,6 +36,7 @@ public class Scope : MonoBehaviour
     {
         if (target == null)
             return;
+        transform.position = Owner.transform.position;
         Vector2 destPos = target.position - transform.position;
         float angle = Mathf.Atan2(destPos.y, destPos.x) * Mathf.Rad2Deg;
 
@@ -62,3 +64,4 @@ public class Scope : MonoBehaviour
     }
 
 }
+

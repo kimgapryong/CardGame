@@ -4,13 +4,13 @@ using UnityEngine.Rendering;
 
 public class RectangleScope : Scope
 {
-    private void Start()
-    {
-        //MeshData meshData = new MeshData();
-        //meshData.Size = 1f;
-        //GenerateMesh(meshData);
-        //SetMeshActive(true);
-    }
+    //private void Start()
+    //{
+    //    MeshData meshData = new MeshData();
+    //    meshData.Size = 1f;
+    //    GenerateMesh(meshData);
+    //    SetMeshActive(true);
+    //}
     public override void GenerateMesh(MeshData data)
     {
         base.GenerateMesh(data);
@@ -18,10 +18,10 @@ public class RectangleScope : Scope
 
         List<Vector3> vertices = new List<Vector3>();
 
-        vertices.Add(new Vector3(0, -0.1f) * data.Size);
-        vertices.Add(new Vector3(0, 0.1f) * data.Size);
-        vertices.Add(new Vector3(1, 0.1f) * data.Size);
-        vertices.Add(new Vector3(1, -0.1f) * data.Size);
+        vertices.Add(new Vector3(0, -0.1f));
+        vertices.Add(new Vector3(0, 0.1f));
+        vertices.Add(new Vector3(data.aRange/2, 0.1f));
+        vertices.Add(new Vector3(data.aRange/2, -0.1f));
 
         List<int> triangles = new List<int>()
         {
@@ -39,5 +39,11 @@ public class RectangleScope : Scope
         }
         polygonCollider.points = points.ToArray();
         meshRenderer.material = ScopeMaterial;
+    }
+    public override void LookAt(Transform target)
+    {
+        Debug.Log("스코프 조준");
+        base.LookAt(target);
+
     }
 }

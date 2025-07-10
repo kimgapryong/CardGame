@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4573638479931862444}
   - component: {fileID: 2137266483959775971}
   - component: {fileID: -6278139754331644031}
+  - component: {fileID: 3488291701264980784}
   m_Layer: 0
   m_Name: Skill_8
   m_TagString: Untagged
@@ -176,3 +177,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &3488291701264980784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601378641360094664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25754163b6c49ce4c8002fabf3ca581b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  Speed: 5
