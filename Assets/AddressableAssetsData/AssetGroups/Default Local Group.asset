@@ -55,10 +55,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2574432ad87d2764aa1b248826fd68c9
-    m_Address: card-up2
   - m_GUID: 21a468e5a41ff104087780fcee4548e0
     m_Address: Eye_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2574432ad87d2764aa1b248826fd68c9
+    m_Address: card-up2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -149,6 +152,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55fb45b8d1962b841b018bf63c0db897
     m_Address: card-up3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57ed9cb39c69058448c08da7a1f2c6e3
+    m_Address: PriceData.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -277,10 +285,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99aac9f3572038e478452f5348489985
-    m_Address: label_3
   - m_GUID: 98fee205406e1b444a447bee5bf8ad25
     m_Address: Panther_Chain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99aac9f3572038e478452f5348489985
+    m_Address: label_3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -374,28 +385,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ec1174dd0a562b041b76b0b784e3f1c3
-    m_Address: label_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
-    m_Address: ShopGoldPop
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2da46ad554e691468f54201fafad4e0
     m_Address: WhiteWolf_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ec4ba6caf6dda5643b18ed37ea45af30
-    m_Address: Chick_Chain
+  - m_GUID: ec1174dd0a562b041b76b0b784e3f1c3
+    m_Address: label_1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
-    m_Address: ShopGoldPop
+  - m_GUID: ec4ba6caf6dda5643b18ed37ea45af30
+    m_Address: Chick_Chain
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

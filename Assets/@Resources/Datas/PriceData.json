@@ -1,0 +1,24 @@
+﻿{
+  "priceDatas": [
+    {
+      "Grade": "Common",
+      "UnlockPrice": 10,
+      "Price": 1
+    },
+    {
+      "Grade": "Normal",
+      "UnlockPrice": 20,
+      "Price": 2
+    },
+    {
+      "Grade": "Epic",
+      "UnlockPrice": 50,
+      "Price": 5
+    },
+    {
+      "Grade": "Legend",
+      "UnlockPrice": 150,
+      "Price": 15
+    }
+  ]
+}

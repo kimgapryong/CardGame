@@ -122,11 +122,15 @@ public class AllContentCanvas : UI_Scene
         {
             HeroData heroData = Manager.Data.HeroDatas[i + 1];
 
+
+            PriceData priceData = Manager.Data.PriceDatas[heroData.Hero_Rating];
+
+
             ShopHeroData shopHeroData = new ShopHeroData()
             {
                 heroData = heroData,
                 rewardCount = 10,
-                priceGold = 10,
+                priceGold = priceData.Price,
             };
 
             Manager.UI.MakeSubItem<ShopHeroFragment>(
@@ -151,7 +155,7 @@ public class AllContentCanvas : UI_Scene
                                 {
                                     CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
                                     cardData.had = true;
-                                    cardData.qnt = 1;
+                                    cardData.qnt = 0;
                                     Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
                                 }
                                 else
