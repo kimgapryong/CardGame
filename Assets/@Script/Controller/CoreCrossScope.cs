@@ -7,7 +7,6 @@ public class CoreCrossScope : Scope
     public override void GenerateMesh(MeshData data)
     {
         base.GenerateMesh(data);
-        CoreCrossMeshData meshData = data as CoreCrossMeshData;
         CombineInstance[] combine = new CombineInstance[4];
         for (int i = 0; i < 4; i++)
         {
@@ -21,10 +20,10 @@ public class CoreCrossScope : Scope
             Vector3 y = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             Vector3 x = new Vector3(Mathf.Cos((angle + 90) * Mathf.Deg2Rad), Mathf.Sin((angle + 90) * Mathf.Deg2Rad)) * .1f;
 
-            vertices.Add((-y - x) * meshData.Size);
-            vertices.Add((y - x) * meshData.Size);
-            vertices.Add((y + x) * meshData.Size);
-            vertices.Add((-y + x) * meshData.Size);
+            vertices.Add((-y * data.aRange/2 - x));
+            vertices.Add((y * data.aRange/2 - x));
+            vertices.Add((y * data.aRange/2 + x));
+            vertices.Add((-y * data.aRange/2 + x));
 
             _mesh.SetVertices(vertices);
             List<int> triangles = new List<int>()
@@ -48,7 +47,6 @@ public class CoreCrossScope : Scope
     public override void LookAt(Transform target)
     {
         transform.position = Owner.transform.position;
-        transform.Rotate(0,0,90 * Time.deltaTime);
     }
     public override List<MonsterController> GetTargets()
     {

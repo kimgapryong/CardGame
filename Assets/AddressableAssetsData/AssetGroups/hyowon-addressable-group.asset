@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: hyowon-addressable-group
   m_GUID: d7871ecba31d722498c63701852ae3ae
   m_SerializeEntries:
+  - m_GUID: 363ccf6f431255449a68d4562de7f908
+    m_Address: Rectangle-Scope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77377187a5515a9439cb140809cc35e3
+    m_Address: Sector-Scope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7f6f2131b8c2904e934372d0f213dd7
     m_Address: CoreCross-Scope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2126667a88180440a439c90f539e607
+    m_Address: Circle-Scope
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

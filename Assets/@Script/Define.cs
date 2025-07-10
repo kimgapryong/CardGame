@@ -1,6 +1,7 @@
 
 
 using Newtonsoft.Json;
+using UnityEngine;
 
 public class Define
 {
@@ -28,7 +29,6 @@ public class Define
         Unknown,
         MainScene,
         GameScene,
-        
     }
     public enum TileType
     {
@@ -45,7 +45,6 @@ public class Define
         Down, 
         Left, 
         Right
-
     }
     public enum State
     {
@@ -57,6 +56,10 @@ public class Define
     {
         Aoe,
         Single,
+        CoreCross,
+        Rectangle,
+        Sector,
+        Circle,
     }
     public enum HeroAbility
     {
@@ -79,15 +82,18 @@ public class Define
 
 public class MeshData
 {
-
-}
-public class SectorMeshData : MeshData
-{
     public float angle;
     public float aRange;
-}
-public class CoreCrossMeshData : MeshData
-{
-    public float aRange;
     public float Size;
+}
+public class SkillData
+{
+    public float Angle;
+    public float Attack;
+    public float Damage;
+    public float Distance;
+
+    public Vector3 TargetPos;
+    public Transform TargetTransform;
+    
 }

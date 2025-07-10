@@ -3,11 +3,12 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public BaseController Owner;
+    protected Transform target;
 
     protected float attack;
-    public virtual void UseSkill(Transform targetTransform, float attack, float aRange)
+    public float Speed;
+    public virtual void UseSkill(SkillData data)
     {
 
     }
-
 }

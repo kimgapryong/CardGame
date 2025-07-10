@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class HeroController : CretureController
 {
@@ -21,8 +23,6 @@ public class HeroController : CretureController
     private MonsterController curTarget;
     private Tile _tile;
     Scope scope;
-
-   
 
     protected override bool Init()
     {
@@ -46,36 +46,55 @@ public class HeroController : CretureController
     async void SetScope()
     {
         GameObject go = null;
-        if (_heroData.LevelData[curLevel].Atk_Arange == Define.AtkArange.Aoe)
+        MeshData meshData = new MeshData();
+        switch (_heroData.LevelData[curLevel].Atk_Arange)
         {
-            if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
-            {
-                go = await Manager.Resource.Instantiate("Sector-Scope", null);
+            case Define.AtkArange.Single:
+                break;
+            case Define.AtkArange.Aoe:
+                break;
+            case Define.AtkArange.Rectangle:
+                go = await Manager.Resource.Instantiate("Rectangle-Scope", null);
+
                 scope = go.GetComponent<Scope>();
                 scope.transform.position = transform.position;
                 scope.Owner = this;
 
-                SectorMeshData sectorMeshData = new SectorMeshData();
-                sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
-                sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                meshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                break;
+            case Define.AtkArange.Sector:
+                go = await Manager.Resource.Instantiate("Sector-Scope", null);
 
-                scope.GenerateMesh(sectorMeshData);
-            }
-            else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
-            {
+                scope = go.GetComponent<Scope>();
+                scope.transform.position = transform.position;
+                scope.Owner = this;
+
+                meshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+                meshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                break;
+            case Define.AtkArange.CoreCross:
                 go = await Manager.Resource.Instantiate("CoreCross-Scope", null);
                 scope = go.GetComponent<Scope>();
                 scope.transform.position = transform.position;
                 scope.Owner = this;
 
-                CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
-                crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-                crossMeshData.Size = _heroData.LevelData[curLevel].Size;
+                meshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                break;
+            case Define.AtkArange.Circle:
+                go = await Manager.Resource.Instantiate("Circle-Scope", null);
 
-                scope.GenerateMesh(crossMeshData);
-            }
+                scope = go.GetComponent<Scope>();
+                scope.transform.position = transform.position;
+                scope.Owner = this;
+
+                meshData.angle = _heroData.LevelData[curLevel].AngleOffset;
+                meshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+                break;
         }
-        
+        if (scope == null)
+            return;
+        scope.GenerateMesh(meshData);
+        //scope.SetMeshActive(atkArg.gameObject.activeSelf);
     }
     private void Update()
     {
@@ -102,13 +121,10 @@ public class HeroController : CretureController
             case Define.State.Attack:
                 break; // 코루틴으로 처리되므로 여기선 대기
         }
-
         if (scope == null)
             return;
-
-        if (scope.transform.position != transform.position && _heroData.LevelData[curLevel].Size == 0)
-            scope.transform.position = transform.position;
-
+        if (curTarget == null)
+            return;
         
         scope.LookAt(curTarget.transform);
     }
@@ -125,7 +141,6 @@ public class HeroController : CretureController
             hc.CurLevelUp(curLevel);
             hc.SetTileCell(_tile);
             hc.SetInfo(_heroData);
-            
             obj.transform.position = transform.position;
 
             Manager.UI.CloseAllPopupUI();
@@ -135,29 +150,8 @@ public class HeroController : CretureController
             });
             if (scope != null)
                 Destroy(scope.gameObject);
-
             Destroy(gameObject);
         });
-
-        float curSize = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-        argTrans.localScale = new Vector2(curSize, curSize);
-        transform.Find("AtkArange").localScale = new Vector2(curSize, curSize);
-        if (_heroData.LevelData[curLevel].Size == 0 && _heroData.LevelData[curLevel].AngleOffset != 0)
-        {
-            SectorMeshData sectorMeshData = new SectorMeshData();
-            sectorMeshData.angle = _heroData.LevelData[curLevel].AngleOffset;
-            sectorMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-
-            scope.GenerateMesh(sectorMeshData);
-        }
-        else if (_heroData.LevelData[curLevel].Size != 0 && _heroData.LevelData[curLevel].AngleOffset == 0)
-        {
-            CoreCrossMeshData crossMeshData = new CoreCrossMeshData();
-            crossMeshData.aRange = _heroData.LevelData[curLevel].HeroLevelData.Arange;
-            crossMeshData.Size = _heroData.LevelData[curLevel].Size;
-
-            scope.GenerateMesh(crossMeshData);
-        }
     }
     public void CurLevelUp(int level)
     {
@@ -213,13 +207,22 @@ public class HeroController : CretureController
         switch (_heroData.LevelData[curLevel].Atk_Arange)
         {
             case Define.AtkArange.Single:
-                Attack(target);
+                AttackProjectile(target);
                 break;
             case Define.AtkArange.Aoe:
                 AoeAttack();
                 break;
-            default:
-                Attack(target);
+            case Define.AtkArange.Sector:
+                AttackSector(target);
+                break;
+            case Define.AtkArange.Rectangle:
+                AttackRectangle(target);
+                break;
+            case Define.AtkArange.CoreCross:
+                AttackCoreCross();
+                break;
+            case Define.AtkArange.Circle:
+                AttackCircle(target);
                 break;
         }
         
@@ -229,7 +232,6 @@ public class HeroController : CretureController
 
         isAttacking = false;
         State = Define.State.Idle;
-        scope.transform.position = transform.position;
     }
     private IEnumerator CoMoneyTick()
     {
@@ -248,21 +250,109 @@ public class HeroController : CretureController
             yield return new WaitForSeconds(delay);
         }
     }
-    private void Attack(MonsterController target)
+    private void AttackProjectile(MonsterController target)
     {
-        
-        if (target == null) return;
-
-        
+        if (target == null)
+            return;
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        go.transform.position = transform.position;
         Debug.LogWarning(go);
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
-        go.GetOrAddComponent<SkillProjectile>().SetTarget(target.transform, attack);        
+
+        Skill skill = go.GetComponent<Skill>();
+        SkillData skillData = new SkillData();
+        skillData.Attack = attack;
+        skillData.TargetTransform = target.transform;
+        skill.UseSkill(skillData);
+    }
+    private void AttackCoreCross()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            Vector3 dir = new Vector2(Mathf.Cos(i * 45 * Mathf.Deg2Rad), Mathf.Sin(i * 45 * Mathf.Deg2Rad));
+            float distance = _heroData.LevelData[curLevel].HeroLevelData.Arange;
+
+            GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+            go.transform.position = transform.position;
+            Debug.LogWarning(go);
+            int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+            float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
+            Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
+
+            Skill skill = go.GetComponent<Skill>();
+            SkillData skillData = new SkillData();
+            skillData.Attack = attack;
+            skillData.TargetPos = transform.position + dir * distance/2;
+
+            skill.UseSkill(skillData);
+        }
+    }
+    void AttackRectangle(MonsterController target)
+    {
+        if (target == null)
+            return;
+
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        go.transform.position = transform.position;
+        Debug.LogWarning(go);
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
+        Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
+        Skill skill = go.GetComponent<Skill>();
+
+        SkillData skillData = new SkillData();
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+        skillData.TargetPos = transform.position + dir * (_heroData.LevelData[curLevel].HeroLevelData.Arange / 2);
+        skillData.Attack = attack;
+
+        skill.UseSkill(skillData);
     }
 
+    void AttackSector(MonsterController target)
+    {
+        if (target == null)
+            return;
+
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        go.transform.position = transform.position;
+        Debug.LogWarning(go);
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
+        Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
+        Skill skill = go.GetComponent<Skill>();
+        
+        SkillData skillData = new SkillData();
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+        skillData.TargetPos = transform.position + dir * _heroData.LevelData[curLevel].HeroLevelData.Arange / 2;
+        skillData.Angle = _heroData.LevelData[curLevel].AngleOffset;
+        skillData.Attack =  attack;
+
+        skill.Owner = this;
+        skill.UseSkill(skillData);
+    }
+    void AttackCircle(MonsterController target)
+    {
+        if (target == null)
+            return;
+
+        GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
+        go.transform.position = transform.position;
+        Debug.LogWarning(go);
+        int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
+        float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
+        Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
+        Skill skill = go.GetComponent<Skill>();
+
+        SkillData skillData = new SkillData();
+        skillData.Attack = attack;
+        skillData.TargetPos = target.transform.position;
+
+        skill.Owner = this;
+        skill.UseSkill(skillData);
+    }
     private void AoeAttack()
     {
         if (atkArg.targets.Count <= 0)
