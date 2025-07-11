@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Unity.VisualScripting.Antlr3.Runtime;
@@ -335,6 +335,42 @@ public class PlacementData
     public string Grade;
     public int PlaceCount;
 
+[Serializable]
+public class PriceData
+{
+    public string Grade;
+    public int UnlockPrice;
+    public int UnitPrice;
+
+    public HeroRating HeroGrade { get { return ParseEnumOrDefault<HeroRating>(Grade, HeroRating.Common); } }
+
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
+            return result;
+        return defaultValue;
+    }
+}
+[Serializable]
+public class PriceDataLoader : ILoader<HeroRating, PriceData>
+{
+    public List<PriceData> priceDatas = new List<PriceData>();
+    public Dictionary<HeroRating, PriceData> MakeDic()
+    {
+        Dictionary<HeroRating, PriceData> dict = new Dictionary<HeroRating, PriceData>();
+
+        foreach (PriceData data in priceDatas)
+        {
+            dict.Add(data.HeroGrade, data);
+        }
+        return dict;
+    }
+
+    public bool Validate()
+    {
+        return true;
+    }
+}
     public HeroRating HeroRating { get { return ParseEnumOrDefault<HeroRating>(Grade, HeroRating.Common); } }
     private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
     {

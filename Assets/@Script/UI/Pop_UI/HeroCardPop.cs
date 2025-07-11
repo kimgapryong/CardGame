@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -110,7 +110,7 @@ public class HeroCardPop : UI_Popup
         if( checkBtn)
         {
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = Color.red;
-            GetText((int)Texts.Equir_Txt).text = "ÀåÂøÇıÁ¦";
+            GetText((int)Texts.Equir_Txt).text = "ì¥ì°©í˜œì œ";
         }
         else
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = new Color(72f / 255f, 1f, 0f);
@@ -182,7 +182,6 @@ public class HeroCardPop : UI_Popup
                 requiredCardNumber = Manager.Data.UpgradeDatas[_heroData.Hero_Rating].Levels[Manager.Game.CardDataDict[_heroData.HeroID].level].RequiredCardNumber;
                 currentGainCardNumber = Manager.Game.CardDataDict[_heroData.HeroID].qnt;
 
-
                 UpgradeSystem.CheckFullAction((cur, full) =>
                 {
                     if (cur >= full)
@@ -191,10 +190,12 @@ public class HeroCardPop : UI_Popup
                         fullCheck = true;
                     }
                     else
-                        GetText((int)Texts.Upgrade_Txt).text = $"¾÷±×·¹ÀÌµå({cur}/{requiredCardNumber})";
+                        GetText((int)Texts.Upgrade_Txt).text = $"ì—…ê·¸ë ˆì´ë“œ({cur}/{requiredCardNumber})";
                 });
 
                 _myCard.UpdateSlider(currentGainCardNumber, requiredCardNumber, fullCheck);
+
+                UpdateUI();
             }
         });
 

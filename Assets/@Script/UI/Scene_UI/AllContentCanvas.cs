@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -9,7 +9,6 @@ public class ShopHeroData
 {
     public HeroData heroData;
     public int rewardCount;
-    public int priceGold;
 }
 
 public class ShopGoldData
@@ -30,6 +29,8 @@ public class AllContentCanvas : UI_Scene
     {
         SetCard,
         Card_Content,
+
+        ShopContent,
         Chest, 
         Hero,
         Gold,
@@ -59,31 +60,9 @@ public class AllContentCanvas : UI_Scene
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));
 
-        for (int i = 0; i < HERO_COUNT; i++)
-        {
-            HeroData _heroData = Manager.Data.HeroDatas[i + 1];
+        RefreshSetCard();
+        RefreshCard_Content();
 
-            Manager.UI.MakeSubItem<CardFragment>(
-                GetObject((int)Objects.Card_Content).transform,
-                callback: (card) =>
-                {
-                    card.SetInfo(_heroData,this);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Card_Content).transform);
-                });
-        }
-
-        for(int i = 0; i < Manager.Game.Heros.Count; i++)
-        {
-            HeroData _heroData = Manager.Data.HeroDatas[Manager.Game.Heros[i]];
-
-            Manager.UI.MakeSubItem<CardFragment>(
-                GetObject((int)Objects.SetCard).transform,
-                callback: (card) =>
-                {
-                    card.SetInfo(_heroData,this);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.SetCard).transform);
-                });
-        }
         GetButton((int)Buttons.PartyBtn).gameObject.BindEvent(InfinityAlarm);
         GetButton((int)Buttons.GamePreBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Pre_Pop>());
         GetButton((int)Buttons.RankingBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Ranking_Pop>(callback: (pop) =>
@@ -91,14 +70,66 @@ public class AllContentCanvas : UI_Scene
             pop.SetInfo(Manager.Rank.LoadRankings());
         }));
 
-        #region shop ui
+        RefreshShopChest();
+        RefreshShopHero();
+        RefreshShopGold();
+        RefreshShopGem();
 
-        // 상자
+        return true;
+    }
+
+    public void RefreshCard_Content()
+    {
+        Transform root = GetObject((int)Objects.Card_Content).transform;
+
+        // 기존 카드 제거
+        foreach (Transform child in root)
+            GameObject.Destroy(child.gameObject);
+
+        // 장착된 카드들
+        for (int i = 0; i < HERO_COUNT; i++)
+        {
+            HeroData _heroData = Manager.Data.HeroDatas[i + 1];
+            Manager.UI.MakeSubItem<CardFragment>( 
+                root, 
+                callback: (card) =>
+                {
+                    card.SetInfo(_heroData,this);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Card_Content).transform);
+                });
+        }
+    }
+    public void RefreshSetCard()
+    {
+        Transform setCardRoot = GetObject((int)Objects.SetCard).transform;
+
+        // 기존 카드 제거
+        foreach (Transform child in setCardRoot)
+            GameObject.Destroy(child.gameObject);
+
+        // 다시 추가
+        for (int i = 0; i < Manager.Game.Heros.Count; i++)
+        {
+            HeroData _heroData = Manager.Data.HeroDatas[Manager.Game.Heros[i]];
+            Manager.UI.MakeSubItem<CardFragment>(
+                setCardRoot,
+                callback: (card) =>
+                {
+                    card.SetInfo(_heroData, this);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)setCardRoot);
+                });
+        }
+    }
+
+    public void RefreshShopChest()
+    {
+        Transform root = GetObject((int)Objects.Chest).transform;
+        foreach (Transform child in root)
+            Destroy(child.gameObject);
+
         foreach (ChestData chestData in Manager.Data.ChestDatas.Values)
         {
-            Manager.UI.MakeSubItem<ShopChestFragment>(
-                GetObject((int)Objects.Chest).transform,
-                callback: (chestFragment) =>
+            Manager.UI.MakeSubItem<ShopChestFragment>( root, callback: (chestFragment) =>
                 {
                     chestFragment.SetInfo(chestData);
                     // UI 눌렀을 때
@@ -116,24 +147,26 @@ public class AllContentCanvas : UI_Scene
                         });
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
+    }
+    public void RefreshShopHero()
+    {
+        Transform root = GetObject((int)Objects.Hero).transform;
+        foreach (Transform child in root)
+            Destroy(child.gameObject);
 
-        // 영웅
         for (int i = 0; i < Manager.Data.HeroDatas.Count; i++)
         {
             HeroData heroData = Manager.Data.HeroDatas[i + 1];
-
+            PriceData priceData = Manager.Data.PriceDatas[heroData.Hero_Rating];
             ShopHeroData shopHeroData = new ShopHeroData()
             {
                 heroData = heroData,
                 rewardCount = 10,
-                priceGold = 10,
             };
-
-            Manager.UI.MakeSubItem<ShopHeroFragment>(
-                GetObject((int)Objects.Hero).transform,
-                callback: (heroFragment) =>
+            Manager.UI.MakeSubItem<ShopHeroFragment>( root, callback: (heroFragment) =>
                 {
                     heroFragment.SetInfo(shopHeroData);
                     // UI 눌렀을 때
@@ -146,26 +179,50 @@ public class AllContentCanvas : UI_Scene
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             heroPop.OnClickBuyButton += () =>
                             {
-                                if (Manager.Game.SaveData.Gold < shopHeroData.priceGold)
-                                    return;
-
-                                Manager.Game.SaveData.Gold -= shopHeroData.priceGold;
-                                CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
-                                cardData.qnt += shopHeroData.rewardCount;
-                                Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
-
+                                if (Manager.Game.CardDataDict[shopHeroData.heroData.HeroID].had == false)
+                                {
+                                    int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
+                                    int unlockPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnlockPrice;
+                                    int price = unitPrice * shopHeroData.rewardCount + unlockPrice;
+                                    if (Manager.Game.SaveData.Gold < price)
+                                        return;
+                                    CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
+                                    cardData.had = true;
+                                    cardData.qnt = shopHeroData.rewardCount;
+                                    Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+                                    Manager.Game.SaveData.Gold -= price;
+                                }
+                                else
+                                {
+                                    int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
+                                    int price = unitPrice * shopHeroData.rewardCount;
+                                    if (Manager.Game.SaveData.Gold < price)
+                                        return;
+                                    Manager.Game.SaveData.Gold -= price;
+                                    CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
+                                    cardData.qnt += shopHeroData.rewardCount;
+                                    Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
+                                    Manager.Game.SaveData.Gold -= price;
+                                }
+                                RefreshSetCard();
+                                RefreshCard_Content();
                                 Manager.UI.ClosePopupUI(heroPop);
                                 Manager.Game.SaveGame();
 
                             };
                         });
-
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
+    }
+    public void RefreshShopGold()
+    {
+        Transform root = GetObject((int)Objects.Gold).transform;
+        foreach (Transform child in root)
+            Destroy(child);
 
-        // 골드
         for (int i = 0; i < 3; i++)
         {
             ShopGoldData shopGoldData = new ShopGoldData()
@@ -173,10 +230,7 @@ public class AllContentCanvas : UI_Scene
                 rewardCount = (i + 1) * 1000,
                 priceGem = (i + 1) * 10,
             };
-
-            Manager.UI.MakeSubItem<ShopGoldFragment>(
-                GetObject((int)Objects.Gold).transform,
-                callback: (goldFragment) =>
+            Manager.UI.MakeSubItem<ShopGoldFragment>( root, callback: (goldFragment) =>
                 {
                     goldFragment.SetInfo(shopGoldData);
                     // UI 눌렀을 때
@@ -191,7 +245,6 @@ public class AllContentCanvas : UI_Scene
                             {
                                 if (Manager.Game.SaveData.Gem < shopGoldData.priceGem)
                                     return;
-
                                 Manager.Game.SaveData.Gem -= shopGoldData.priceGem;
                                 Manager.Game.SaveData.Gold += shopGoldData.rewardCount;
                                 Manager.UI.ClosePopupUI(goldPop);
@@ -200,11 +253,17 @@ public class AllContentCanvas : UI_Scene
                         });
 
                     });
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Gold).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
+    }
+    public void RefreshShopGem()
+    {
+        Transform root = GetObject((int)Objects.Gem).transform;
+        foreach (Transform child in root)
+            Destroy(child);
 
-        // 보석
         for (int i = 0; i < 3; i++)
         {
             ShopGemData shopGemData = new ShopGemData()
@@ -212,10 +271,7 @@ public class AllContentCanvas : UI_Scene
                 rewardCount = (i + 1) * 10,
                 priceGold = (i + 1) * 1000,
             };
-
-            Manager.UI.MakeSubItem<ShopGemFragment>(
-                GetObject((int)Objects.Gem).transform,
-                callback: (gemFragment) =>
+            Manager.UI.MakeSubItem<ShopGemFragment>( root, callback: (gemFragment) =>
                 {
                     gemFragment.SetInfo(shopGemData);
                     // UI 눌렀을 때
@@ -230,7 +286,6 @@ public class AllContentCanvas : UI_Scene
                             {
                                 if (Manager.Game.SaveData.Gold < shopGemData.priceGold)
                                     return;
-
                                 Manager.Game.SaveData.Gold -= shopGemData.priceGold;
                                 Manager.Game.SaveData.Gem += shopGemData.rewardCount;
                                 Manager.UI.ClosePopupUI(goldPop);
@@ -238,33 +293,8 @@ public class AllContentCanvas : UI_Scene
                         });
 
                     });
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
-                });
-        }
-        #endregion
-
-        return true;
-    }
-
-    public void RefreshSetCard()
-    {
-        Transform setCardRoot = GetObject((int)Objects.SetCard).transform;
-
-        // 기존 카드 제거
-        foreach (Transform child in setCardRoot)
-            GameObject.Destroy(child.gameObject);
-
-        // 다시 추가
-        for (int i = 0; i < Manager.Game.Heros.Count; i++)
-        {
-            HeroData _heroData = Manager.Data.HeroDatas[Manager.Game.Heros[i]];
-
-            Manager.UI.MakeSubItem<CardFragment>(
-                setCardRoot,
-                callback: (card) =>
-                {
-                    card.SetInfo(_heroData, this);
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)setCardRoot);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Gem).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
     }

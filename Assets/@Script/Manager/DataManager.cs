@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +17,7 @@ public class DataManager
     public Dictionary<int, ChestData> ChestDatas { get; private set; }
     public Dictionary<Define.HeroRating, UpgradeData> UpgradeDatas { get; private set; }
     public Dictionary<int, HeroUpgradeData> HeroUpgradeDatas { get; private set; }
+    public Dictionary<Define.HeroRating, PriceData> PriceDatas { get; private set; }
     public Dictionary<Define.HeroRating, PlacementData> PlacementData { get; private set; }
 
 
@@ -30,6 +31,7 @@ public class DataManager
         (cb) => LoadJson<MonsterLoader, int, MonsterData>("MonData.json", (loader) => { MonDatas = loader.MakeDic(); cb(); }),
         (cb) => LoadJson<UpgradeDataLoader, Define.HeroRating, UpgradeData>("UpgradeData.json", (loader) => { UpgradeDatas = loader.MakeDic(); cb(); }),
         (cb) => LoadJson<HeroUpgradeDataLoader, int, HeroUpgradeData>("HeroUpgradeData.json", (loader) => { HeroUpgradeDatas = loader.MakeDic(); cb(); }),
+        (cb) => LoadJson<PriceDataLoader, Define.HeroRating, PriceData>("PriceData.json", (loader) => { PriceDatas = loader.MakeDic(); cb(); }),
         (cb) => LoadJson<ChestDataLoader, int, ChestData>("ChestData.json", (loader) => { ChestDatas = loader.MakeDic(); cb(); }),
         (cb) => LoadJson<PlacementDataLoader, Define.HeroRating, PlacementData>("PlacementData.json", (loader) => { PlacementData = loader.MakeDic(); cb(); })
     };
