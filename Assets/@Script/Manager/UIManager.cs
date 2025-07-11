@@ -149,4 +149,11 @@ public class UIManager
 			pop.SetAlarm(alarm);
 		});
 	}
+	public void WarningText(string message)
+	{
+        ShowPopupUI<WarningText_Pop>("WarningText_Pop", callback: (pop) =>
+        {
+            pop.Warning(message);
+        });
+    }
 }
