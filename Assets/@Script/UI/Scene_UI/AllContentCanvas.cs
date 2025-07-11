@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Define;
+using static PlacementData;
 
 public class ShopHeroData
 {
