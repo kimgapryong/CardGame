@@ -300,13 +300,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
-    m_Address: ShopGoldPop
+  - m_GUID: de29eff3972088a46889522b9b37b2b8
+    m_Address: WhiteWolf_3.sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de29eff3972088a46889522b9b37b2b8
-    m_Address: WhiteWolf_3.sprite
+  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
+    m_Address: ShopGoldPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
