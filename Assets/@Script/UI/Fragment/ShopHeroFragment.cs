@@ -22,6 +22,7 @@ public class ShopHeroFragment : UI_Base
         PriceText,
         RewardCountText,
         CurrentCountText,
+        CurrentLevelText,
     }
 
     //private Sprite _sprite;
@@ -79,6 +80,8 @@ public class ShopHeroFragment : UI_Base
             Manager.Resource.LoadAsync<Sprite>(_shopHeroData.heroData.LevelData[0].HeroSprite + "_Chain", (sprite) =>
             {
                 GetImage((int)Images.ProfileImage).sprite = sprite;
+
+                GetText((int)Texts.CurrentLevelText).text = $"!";
                 GetText((int)Texts.CurrentCountText).text = $"NEW";
                 GetSlider((int)Sliders.CurrentCountSlider).value = 0f;
 
@@ -96,9 +99,10 @@ public class ShopHeroFragment : UI_Base
             {
                 GetImage((int)Images.ProfileImage).sprite = sprite;
 
-                int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
                 int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
+                int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
                 int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
+                GetText((int)Texts.CurrentLevelText).text = $"{currentLevel}";
                 GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
                 GetSlider((int)Sliders.CurrentCountSlider).value = (float)currentCount / needCount;
 

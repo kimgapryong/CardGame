@@ -29,6 +29,8 @@ public class AllContentCanvas : UI_Scene
     {
         SetCard,
         Card_Content,
+
+        ShopContent,
         Chest, 
         Hero,
         Gold,
@@ -89,7 +91,6 @@ public class AllContentCanvas : UI_Scene
         }));
 
         #region shop ui
-
         // 상자
         foreach (ChestData chestData in Manager.Data.ChestDatas.Values)
         {
@@ -113,9 +114,9 @@ public class AllContentCanvas : UI_Scene
                         });
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Chest).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
-
         // 영웅
         for (int i = 0; i < Manager.Data.HeroDatas.Count; i++)
         {
@@ -180,9 +181,9 @@ public class AllContentCanvas : UI_Scene
 
                     });
                     LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
-
         // 골드
         for (int i = 0; i < 3; i++)
         {
@@ -217,10 +218,10 @@ public class AllContentCanvas : UI_Scene
                         });
 
                     });
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Gold).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
-
         // 보석
         for (int i = 0; i < 3; i++)
         {
@@ -255,7 +256,8 @@ public class AllContentCanvas : UI_Scene
                         });
 
                     });
-                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Hero).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.Gem).transform);
+                    LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)GetObject((int)Objects.ShopContent).transform);
                 });
         }
         #endregion
