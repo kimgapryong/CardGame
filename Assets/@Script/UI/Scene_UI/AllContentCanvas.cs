@@ -153,6 +153,7 @@ public class AllContentCanvas : UI_Scene
                                 Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
 
                                 Manager.UI.ClosePopupUI(heroPop);
+                                Manager.Game.SaveGame();
 
                             };
                         });
@@ -192,6 +193,7 @@ public class AllContentCanvas : UI_Scene
                                 Manager.Game.SaveData.Gem -= shopGoldData.priceGem;
                                 Manager.Game.SaveData.Gold += shopGoldData.rewardCount;
                                 Manager.UI.ClosePopupUI(goldPop);
+                                Manager.Game.SaveGame();
                             };
                         });
 
