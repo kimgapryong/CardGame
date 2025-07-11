@@ -29,8 +29,9 @@ public class ShopHeroInfoPop : UI_Popup
         HeroNameText2,
         HeroRatingText,
         BuyCostText,
-        CurrentCountText,
         RewardCountText,
+        CurrentCountText,
+        CurrentLevelText,
     }
 
     public override bool Init()
@@ -78,6 +79,7 @@ public class ShopHeroInfoPop : UI_Popup
                 int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
                 int unlockPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnlockPrice;
                 int price = unitPrice * _shopHeroData.rewardCount + unlockPrice;
+                GetText((int)Texts.CurrentLevelText).text = $"!";
                 GetText((int)Texts.BuyCostText).text = $"{price}";
                 GetText((int)Texts.BuyCostText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
             });
@@ -89,9 +91,10 @@ public class ShopHeroInfoPop : UI_Popup
             {
                 GetObject((int)Objects.ProfileImage).GetComponent<Image>().sprite = sprite;
 
-                int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
                 int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
+                int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
                 int needCount = Manager.Data.UpgradeDatas[_shopHeroData.heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber;
+                GetText((int)Texts.CurrentLevelText).text = $"{currentLevel}";
                 GetText((int)Texts.CurrentCountText).text = $"{currentCount}/{needCount}";
                 GetObject((int)Objects.CurrentCountSlider).GetComponent<Slider>().value = (float)currentCount / needCount;
 
