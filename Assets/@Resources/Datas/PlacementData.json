@@ -1,0 +1,20 @@
+{
+  "PlacementDatas": [
+    {
+      "Grade": "Common",
+      "PlaceCount": 12
+    },
+    {
+      "Grade": "Normal",
+      "PlaceCount": 10
+    },
+    {
+      "Grade": "Epic",
+      "PlaceCount": 6
+    },
+    {
+      "Grade": "Legend",
+      "PlaceCount": 4
+    }
+  ]
+}

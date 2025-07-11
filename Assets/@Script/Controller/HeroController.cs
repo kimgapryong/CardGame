@@ -403,7 +403,6 @@ public class HeroController : CretureController
         while (skillPre == null)
             yield return null;
 
-        Debug.LogWarning("공격을 시작하지" + _heroData.LevelData[curLevel].HeroName);
         isLoaded = true;
     }
    
