@@ -72,7 +72,7 @@ public class ShopHeroFragment : UI_Base
                 break;
         }
 
-        GetText((int)Texts.RewardCountText).text = $"{_shopHeroData.rewardCount}";
+        GetText((int)Texts.RewardCountText).text = $"x{_shopHeroData.rewardCount}";
 
         if (Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].had == false)
         {
