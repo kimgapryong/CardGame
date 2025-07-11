@@ -67,7 +67,7 @@ public class GameScene : BaseScene
 
         if (Manager.Data.PlacementData[rating].PlaceCount <= heroCount[rating])
         {
-            Manager.UI.ShowWarning("이 카드를 더 이상 배치 할 수 없습니다.");
+            Manager.UI.WarningText("이 카드를 더 이상 배치 할 수 없습니다.");
             return false;
         }
 
