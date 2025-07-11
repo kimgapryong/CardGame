@@ -53,6 +53,8 @@ public class AllContentCanvas : UI_Scene
         if (base.Init() == false)
             return false;
 
+        Manager.Sound.PlayBGM("Main_Bg");
+        
         BindObject(typeof(Objects));
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));

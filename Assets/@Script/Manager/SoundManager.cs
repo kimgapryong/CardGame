@@ -23,13 +23,21 @@ public class SoundManager
         {
             Manager.Resource.Instantiate("soundPlayer", null, (go) =>
             {
-                BGMPlayer = go.GetComponent<SoundPlayController>();
+                BGMPlayer = go.GetOrAddComponent<SoundPlayController>();
                 BGMPlayer.IsBGM = true;
                 BGMPlayer.Init();
+
+                Manager.Resource.LoadAsync<AudioClip>(key, (clip) =>
+                {
+                    Debug.Log(key);
+                    BGMPlayer.PlaySound(clip);
+                });
             });
+            return;
         }
         Manager.Resource.LoadAsync<AudioClip>(key, (clip) =>
         {
+            Debug.Log(key);
             BGMPlayer.PlaySound(clip);
         });
     }

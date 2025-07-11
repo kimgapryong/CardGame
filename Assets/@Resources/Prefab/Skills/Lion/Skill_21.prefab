@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1305796378383338665}
   - component: {fileID: 3927991405287777855}
   m_Layer: 0
-  m_Name: MoneyParticle
+  m_Name: Skill_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

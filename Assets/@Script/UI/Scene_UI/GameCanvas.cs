@@ -29,6 +29,8 @@ public class GameCanvas : UI_Scene
         if (base.Init() == false)
             return false;
 
+        Manager.Sound.PlayBGM("Game_Bg");
+
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));
         BindImage(typeof(Images));

@@ -22,7 +22,10 @@ public class Manager : MonoBehaviour
     public static ObjectManager Obj { get { return Instance._obj; } }
 
     private RankingManager _rank = new RankingManager();
-    public static RankingManager Rank { get { return Instance._rank; } }    
+    public static RankingManager Rank { get { return Instance._rank; } }   
+    
+    private SoundManager _sound = new SoundManager();
+    public static SoundManager Sound { get { return Instance._sound; } }
     public static void Init()
     {
         if(_instance != null)
