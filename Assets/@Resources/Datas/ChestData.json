@@ -19,7 +19,7 @@
       "ChestID": 1,
       "ChestName": "골드 상자",
       "Sprite": "Chest/Silver",
-      "OpenSprite": "Chest/Silver_Open",
+      "OpenSprite": "Chest_Gold_Open",
       "BuyCost": 500,
       "CoinRange": [ 30, 100 ],
       "CardCount": 5,
