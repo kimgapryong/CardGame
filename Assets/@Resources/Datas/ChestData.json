@@ -2,9 +2,9 @@
   "ChestDatas": [
     {
       "ChestID": 0,
-      "ChestName": "브론즈 상자",
-      "Sprite": "Chest/Bronze",
-      "OpenSprite": "Chest/Bronze_Open",
+      "ChestName": "나무 상자",
+      "Sprite": "Chest_Wood",
+      "OpenSprite": "Chest_Wood_Open",
       "BuyCost": 200,
       "CoinRange": [ 10, 50 ],
       "CardCount": 3,
@@ -17,7 +17,7 @@
     },
     {
       "ChestID": 1,
-      "ChestName": "실버 상자",
+      "ChestName": "골드 상자",
       "Sprite": "Chest/Silver",
       "OpenSprite": "Chest/Silver_Open",
       "BuyCost": 500,
@@ -32,9 +32,9 @@
     },
     {
       "ChestID": 2,
-      "ChestName": "골드 상자",
-      "Sprite": "Chest/Gold",
-      "OpenSprite": "Chest/Gold_Open",
+      "ChestName": "프리미엄 상자",
+      "Sprite": "Chest_Premium",
+      "OpenSprite": "Chest_Premium_Open",
       "BuyCost": 900,
       "CoinRange": [ 80, 300 ],
       "CardCount": 9,
