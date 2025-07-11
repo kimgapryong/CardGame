@@ -9,6 +9,8 @@ public class Projectile : Skill
     }
     private void Update()
     {
+        if (target == null)
+            Destroy(gameObject);
         Vector3 dir = (target.position - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 

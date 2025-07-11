@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using static Define;
 
@@ -320,6 +321,38 @@ public class ChestDataLoader : ILoader<int, ChestData>
         foreach (ChestData chestData in ChestDatas)
             dict.Add(chestData.ChestID, chestData);
 
+        return dict;
+    }
+
+    public bool Validate()
+    {
+        return true;
+    }
+}
+[Serializable]
+public class PlacementData
+{
+    public string Grade;
+    public int PlaceCount;
+
+    public HeroRating HeroRating { get { return ParseEnumOrDefault<HeroRating>(Grade, HeroRating.Common); } }
+    private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
+    {
+        if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
+            return result;
+        return defaultValue;
+    }
+}
+public class PlacementDataLoader : ILoader<HeroRating, PlacementData>
+{
+    public List<PlacementData> PlacementDatas = new List<PlacementData>();
+
+    public Dictionary<HeroRating, PlacementData> MakeDic()
+    {
+        Dictionary<HeroRating, PlacementData> dict = new Dictionary<HeroRating, PlacementData>();
+
+        foreach(var item in PlacementDatas)
+            dict.Add(item.HeroRating, item);
         return dict;
     }
 

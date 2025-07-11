@@ -71,7 +71,9 @@ public class ClickCotroller : MonoBehaviour
             DeleteCurHero();
             return;
         }
-
+        GameScene scene = GameObject.Find("newGameStarter").GetComponent<GameScene>();
+        if (!scene.PlaceHero(curHero.GetComponent<HeroController>()))
+            return;
         // 히어로 배치 처리
         Vector3 worldOrigin = tilemap.CellToWorld((Vector3Int)cellPos);
         curHero.transform.position = new Vector3(worldOrigin.x, worldOrigin.y, 0f);
@@ -80,8 +82,8 @@ public class ClickCotroller : MonoBehaviour
         HeroController hero = curHero.GetComponent<HeroController>();
         
         hero.SetTileCell(tile);
-        
 
+        
         Manager.Time.Money -= _heroData.LevelData[0].HeroLevelData.Upgrade;
 
         heroCur = false;
