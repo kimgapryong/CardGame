@@ -79,9 +79,9 @@
           "Level": 1,
           "Sprite": "Lion_1.sprite",
           "HeroInduce": "똑똑함은 최고의 무기!\n\n리사는 상황을 분석하고 적의 허점을 꿰뚫는 천재 지휘관.\n빠른 판단과 정확한 명령으로 전장을 지배한다.\n단순한 소녀가 아니다, 모두의 두뇌다!\n패배를 원하지 않는다면 그녀를 따르라.",
-          "HeroSprite": "Lion",
+          "HeroSprite": "MoneyParticle",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 200,
             "Arange": 10,
             "AtkSpeed": 10,
             "Upgrade": 350
