@@ -12,12 +12,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: sungmin-addressable-group
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
-  m_GUID: ec90a02734ecc234aacc505141519500
-  m_SerializeEntries: []
+  m_GroupName: sungmin-addressable-group
+  m_GUID: 6e053d0908b2ceb4f9fc6c1297bc6337
+  m_SerializeEntries:
+  - m_GUID: 0213b81ea8f7da54cadd00332d014ad3
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Wood.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 487a76f12263ce44f9f3c06fc5df7ff2
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Premium_Open.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c603dccb8ecd9345994d72729fd79e7
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Premium.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f6bc8ae6fd5ea9449dfeb836343de18
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Skull.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 772fe028cefbc094eb81a735f0ab3e67
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Skull_Open.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f72f9e91d162c1478a7d62f18e356a9
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Wood_Open.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a991ae1279ae3c340926829fbd99d945
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2ebc05c6ada87d4ab442f75b5a4722a
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Gem.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfebc7528dc383e44b95173fa85bc44f
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Gem_Open.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef4b283f8a771d54595822ca50e8d85a
+    m_Address: Assets/@Resources/Image/Icon_Chest/Chest_Gold_Open.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 80bf1cb28a22f3043ab090d3c028771c, type: 2}
   m_SchemaSet:
-    m_Schemas:
-    - {fileID: 11400000, guid: af956726c5c06764eb039ab8564a4bb8, type: 2}
-    - {fileID: 11400000, guid: 39fb3bdd51390f443b4d3376889038e1, type: 2}
+    m_Schemas: []
