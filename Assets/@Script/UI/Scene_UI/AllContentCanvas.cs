@@ -64,6 +64,9 @@ public class AllContentCanvas : UI_Scene
         RefreshShopGold();
         RefreshShopGem();
 
+        GetObject((int)Objects.Hero).SetActive(false);
+        GetObject((int)Objects.Hero).SetActive(true);
+
         return true;
     }
 
