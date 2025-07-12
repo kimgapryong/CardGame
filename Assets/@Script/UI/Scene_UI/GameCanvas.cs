@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static Define;
 
 public class GameCanvas : UI_Scene
@@ -11,7 +12,10 @@ public class GameCanvas : UI_Scene
     enum Texts
     {
         Money_Txts,
+        Gold_Price_Txt,
+        Gem_Price_Txt
     }
+     
     enum Images
     {
         Hp_Slider,
@@ -135,6 +139,14 @@ public class GameCanvas : UI_Scene
         Manager.Time.Stop();
         Manager.UI.CloseAllPopupUI();
         GetImage((int)Images.DeathImage).gameObject.SetActive(true);
+        int gold = (int)Mathf.Pow((float)Manager.Time.PlayDuration.TotalSeconds, .5f);
+        int gem = (int)(Mathf.Pow((float)Manager.Time.PlayDuration.TotalSeconds, .5f) / 5);
+        GetText((int)Texts.Gem_Price_Txt).text = $"{gem}";
+        GetText((int)Texts.Gold_Price_Txt).text = $"{gold}";
+
+        Manager.Game.SaveData.Gold += gold;
+        Manager.Game.SaveData.Gem += gem;
+        Manager.Game.SaveGame();
 
         Manager.UI.ShowPopupUI<NameInputPopup>(callback: (popup) =>
         {
