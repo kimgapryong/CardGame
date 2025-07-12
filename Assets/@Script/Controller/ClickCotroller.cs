@@ -78,7 +78,7 @@ public class ClickCotroller : MonoBehaviour
         Vector3 worldOrigin = tilemap.CellToWorld((Vector3Int)cellPos);
         curHero.transform.position = new Vector3(worldOrigin.x, worldOrigin.y, 0f);
         curHero.transform.Find("Arange").gameObject.SetActive(false);
-
+        Manager.Sound.PlaySFX("Place");
         HeroController hero = curHero.GetComponent<HeroController>();
         
         hero.SetTileCell(tile);

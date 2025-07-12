@@ -225,8 +225,8 @@ public class HeroController : CretureController
                 AttackCircle(target);
                 break;
         }
-        
-
+        Skills skillData = Manager.Data.SkillDatas[_heroData.HeroID];
+        Manager.Sound.PlaySFX(skillData.Sound);
         float delay = _heroData.LevelData[curLevel].HeroLevelData.AtkSpeed;
         yield return new WaitForSeconds(delay);
 
