@@ -330,11 +330,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a3e177318f500fd459a4a14326c12d89
-    m_Address: ShopGemFragment
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a98b371bb462c6b4c967a77c1583cd27
     m_Address: Bear
     m_ReadOnly: 0
@@ -382,11 +377,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d93594a3d7fd5f744b55fae35184ae25
     m_Address: CardFragment
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: da804b6b375e9fb4d9116d7eb75ba229
-    m_Address: ShopGoldFragment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -255,31 +255,31 @@ public class AllContentCanvas : UI_Scene
         foreach (Transform child in root)
             Destroy(child);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 1; i <= 3; i++)
         {
-            ShopGoldData shopGoldData = new ShopGoldData()
+            ShopGoodsData shopGoodsData = new ShopGoodsData()
             {
-                rewardCount = (i + 1) * 1000,
-                priceGem = (i + 1) * 10,
+                rewardType = PayType.Gold,
+                reward = i * 1000,
+                priceType = PayType.Gem,
+                price = i * 10,
             };
-            Manager.UI.MakeSubItem<ShopGoldFragment>( root, callback: (goldFragment) =>
+            Manager.UI.MakeSubItem<ShopGoodsFragment>( root, callback: (goldFragment) =>
                 {
-                    goldFragment.SetInfo(shopGoldData);
-                    // UI 눌렀을 때
+                    goldFragment.SetInfo(shopGoodsData);
                     BindEvent(goldFragment.gameObject, () =>
                     {
-                        // 팝업창 띄우기
-                        Manager.UI.ShowPopupUI<ShopGoldPop>(callback: (goldPop) =>
+                        Manager.UI.ShowPopupUI<ShopGoodsPop>(callback: (pop) =>
                         {
-                            goldPop.SetInfo(shopGoldData);
+                            pop.SetInfo(shopGoodsData);
                             // 팝업 창에서 구매 버튼 눌렀을 때
-                            goldPop.OnClickBuyButton += () =>
+                            pop.OnClickBuyButton += () =>
                             {
-                                if (Manager.Game.SaveData.Gem < shopGoldData.priceGem)
+                                if (Manager.Game.SaveData.Gem < shopGoodsData.price)
                                     return;
-                                Manager.Game.SaveData.Gem -= shopGoldData.priceGem;
-                                Manager.Game.SaveData.Gold += shopGoldData.rewardCount;
-                                Manager.UI.ClosePopupUI(goldPop);
+                                Manager.Game.SaveData.Gem -= shopGoodsData.price;
+                                Manager.Game.SaveData.Gold += shopGoodsData.reward;
+                                Manager.UI.ClosePopupUI(pop);
                                 Manager.Game.SaveGame();
                             };
                         });
@@ -296,31 +296,31 @@ public class AllContentCanvas : UI_Scene
         foreach (Transform child in root)
             Destroy(child);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 1; i <= 3; i++)
         {
-            ShopGemData shopGemData = new ShopGemData()
+            ShopGoodsData shopGoodsData = new ShopGoodsData()
             {
-                rewardCount = (i + 1) * 10,
-                priceGold = (i + 1) * 1000,
+                rewardType = PayType.Gem,
+                reward = i * 10,
+                priceType = PayType.Gold,
+                price = i * 1000,
             };
-            Manager.UI.MakeSubItem<ShopGemFragment>( root, callback: (gemFragment) =>
+            Manager.UI.MakeSubItem<ShopGoodsFragment>( root, callback: (gemFragment) =>
                 {
-                    gemFragment.SetInfo(shopGemData);
-                    // UI 눌렀을 때
+                    gemFragment.SetInfo(shopGoodsData);
                     BindEvent(gemFragment.gameObject, () =>
                     {
-                        // 팝업창 띄우기
-                        Manager.UI.ShowPopupUI<ShopGemPop>(callback: (goldPop) =>
+                        Manager.UI.ShowPopupUI<ShopGoodsPop>(callback: (pop) =>
                         {
-                            goldPop.SetInfo(shopGemData);
+                            pop.SetInfo(shopGoodsData);
                             // 팝업 창에서 구매 버튼 눌렀을 때
-                            goldPop.OnClickBuyButton += () =>
+                            pop.OnClickBuyButton += () =>
                             {
-                                if (Manager.Game.SaveData.Gold < shopGemData.priceGold)
+                                if (Manager.Game.SaveData.Gold < shopGoodsData.price)
                                     return;
-                                Manager.Game.SaveData.Gold -= shopGemData.priceGold;
-                                Manager.Game.SaveData.Gem += shopGemData.rewardCount;
-                                Manager.UI.ClosePopupUI(goldPop);
+                                Manager.Game.SaveData.Gold -= shopGoodsData.price;
+                                Manager.Game.SaveData.Gem += shopGoodsData.reward;
+                                Manager.UI.ClosePopupUI(pop);
                             };
                         });
 
