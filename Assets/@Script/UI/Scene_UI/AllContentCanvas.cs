@@ -176,14 +176,12 @@ public class AllContentCanvas : UI_Scene
             Manager.UI.MakeSubItem<ShopHeroFragment>(root, callback: (heroFragment) =>
             {
                 heroFragment.SetInfo(shopHeroData);
-                // UI 눌렀을 때
                 BindEvent(heroFragment.gameObject, () =>
                 {
                     // 팝업창 띄우기
                     Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
                     {
                         heroPop.SetInfo(shopHeroData);
-                        // 팝업 창에서 구매 버튼 눌렀을 때
                         heroPop.OnClickBuyButton += () =>
                         {
                             int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
@@ -223,14 +221,12 @@ public class AllContentCanvas : UI_Scene
             Manager.UI.MakeSubItem<ShopHeroFragment>(root, callback: (heroFragment) =>
             {
                 heroFragment.SetInfo(shopHeroData);
-                // UI 눌렀을 때
                 BindEvent(heroFragment.gameObject, () =>
                 {
                     // 팝업창 띄우기
                     Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
                     {
                         heroPop.SetInfo(shopHeroData);
-                        // 팝업 창에서 구매 버튼 눌렀을 때
                         heroPop.OnClickBuyButton += () =>
                         {
                             int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
