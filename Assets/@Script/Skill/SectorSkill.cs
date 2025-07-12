@@ -1,6 +1,4 @@
 using Cysharp.Threading.Tasks;
-using Mono.Cecil;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class SectorSkill : Skill
