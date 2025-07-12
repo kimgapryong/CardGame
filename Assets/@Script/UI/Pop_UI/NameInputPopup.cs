@@ -5,7 +5,14 @@ public class NameInputPopup : UI_Popup
 {
     enum Inputs { NameInput }
     enum Buttons { ConfirmBtn }
+    enum Texts
+    {
+        Dia_Txt,
+        Money_Txt
+    }
 
+    int gem;
+    int money;
     public System.Action<string> onConfirm;
 
     private InputField nameInput;
@@ -16,6 +23,10 @@ public class NameInputPopup : UI_Popup
 
         BindInput(typeof(Inputs));
         BindButton(typeof(Buttons));
+        BindText(typeof(Texts));
+
+        GetText((int)Texts.Dia_Txt).text = gem.ToString();
+        GetText((int)Texts.Money_Txt).text = money.ToString();
 
         nameInput = GetInput((int)Inputs.NameInput);
         nameInput.characterLimit = 6; // 최대 6글자 제한
@@ -43,5 +54,14 @@ public class NameInputPopup : UI_Popup
         });
 
         return true;
+    }
+    public void GetMoneyDia(int mon ,int dia)
+    {
+        money = mon;
+        gem = dia;
+
+        Manager.Game.SaveData.Gold += mon;
+        Manager.Game.SaveData.Gem += dia;
+        Manager.Game.SaveGame();
     }
 }

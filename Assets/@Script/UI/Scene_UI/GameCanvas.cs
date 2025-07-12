@@ -139,19 +139,15 @@ public class GameCanvas : UI_Scene
         Manager.Time.Stop();
         Manager.UI.CloseAllPopupUI();
         GetImage((int)Images.DeathImage).gameObject.SetActive(true);
+
         int gold = (int)Mathf.Pow((float)Manager.Time.PlayDuration.TotalSeconds, .5f);
         int gem = (int)(Mathf.Pow((float)Manager.Time.PlayDuration.TotalSeconds, .5f) / 5);
-        GetText((int)Texts.Gem_Price_Txt).text = $"{gem}";
-        GetText((int)Texts.Gold_Price_Txt).text = $"{gold}";
-
-        Manager.Game.SaveData.Gold += gold;
-        Manager.Game.SaveData.Gem += gem;
-        Manager.Game.SaveGame();
 
         Manager.UI.ShowPopupUI<NameInputPopup>(callback: (popup) =>
         {
             popup.onConfirm = (playerName) =>
             {
+                popup.GetMoneyDia(gold, gem);
                 Manager.Rank.SaveRanking(playerName, Manager.Time.PlayDuration);
             };
         });
