@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -143,7 +143,11 @@ public class AllContentCanvas : UI_Scene
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             chestPop.OnClickBuyButton += () =>
                             {
+                                // 상자깡 팝업 띄우기
+                                Manager.UI.ShowPopupUI<ChestPop>(callback: (chestPop) =>
+                                {
 
+                                });
                             };
                         });
                     });
