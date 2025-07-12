@@ -4,7 +4,6 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Define;
-using static PlacementData;
 
 public class ShopHeroData
 {
@@ -24,6 +23,8 @@ public class AllContentCanvas : UI_Scene
         Hero,
         Gold,
         Gem,
+
+        Click_Pop,
     }
     enum Buttons
     {
@@ -31,6 +32,8 @@ public class AllContentCanvas : UI_Scene
         PartyBtn,
         GamePreBtn,
         RankingBtn,
+        ExitBtn,
+        Click_Btn
     }
     enum Texts
     {
@@ -52,13 +55,28 @@ public class AllContentCanvas : UI_Scene
         RefreshSetCard();
         RefreshCard_Content();
 
+        
+
         GetButton((int)Buttons.PartyBtn).gameObject.BindEvent(InfinityAlarm);
         GetButton((int)Buttons.GamePreBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Pre_Pop>());
         GetButton((int)Buttons.RankingBtn).gameObject.BindEvent(() => Manager.UI.ShowPopupUI<Ranking_Pop>(callback: (pop) =>
         {
             pop.SetInfo(Manager.Rank.LoadRankings());
         }));
+        GetButton((int)Buttons.Click_Btn).gameObject.BindEvent(() => {
+            GameObject obj = GetObject((int)Objects.Click_Pop).gameObject;
+            if (obj.activeSelf == true)
+            {
+                obj.SetActive(false);
+            }
+            else
+            {
+                obj.SetActive(true);
+            }
+        });  
+        GetButton((int)Buttons.ExitBtn).gameObject.BindEvent(() => Application.Quit());
 
+        GetObject((int)Objects.Click_Pop).gameObject.SetActive(false);
         RefreshShopChest();
         RefreshShopHero();
         RefreshShopGold();

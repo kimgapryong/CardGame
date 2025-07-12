@@ -110,11 +110,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3e150522d7fcda54cb94329bc5adb682
-    m_Address: ShopGemPop
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ee26a254bb321c4cbcf874a1acc5669
     m_Address: Monkey_Chain
     m_ReadOnly: 0
@@ -397,11 +392,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec4ba6caf6dda5643b18ed37ea45af30
     m_Address: Chick_Chain
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef490477423eb6b4a9bb5abbf627674a
-    m_Address: ShopGoldPop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
