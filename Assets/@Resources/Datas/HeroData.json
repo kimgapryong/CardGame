@@ -13,11 +13,11 @@
           "HeroName": "사나운 늑대",
           "Level": 1,
           "Sprite": "WhiteWolf_1.sprite",
-          "HeroInduce": "숙제? 그게 뭐야. 난 스케이트보드만 탄다고!\n\n공격보다 장난이 특기인 반항 소년!\n적진을 휘젓고 도망치는 속도는 선생님도 못 따라잡는다.\n가끔은 치명적인 슬링샷 한 방도 날린다!\n규칙은 깨라고 있는 거지, 지키라고 있는 게 아냐!",
+          "HeroInduce": "규칙은 깨라고 있는 거야!\n\n사나운 늑대는 거칠고 자유분방한 교란 전문가.\n적진을 종횡무진 누비며 적을 혼란에 빠뜨린다.\n날렵한 움직임으로 상대의 허를 찌르고 재빨리 사라진다.\n누구도 그의 장난을 쉽게 막을 수 없다.",
           "HeroSprite": "WhiteWolf",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 1000,
             "Arange": 7,
             "AtkSpeed": 1.5,
             "Upgrade": 100
@@ -31,11 +31,11 @@
           "HeroName": "차가운 늑대",
           "Level": 2,
           "Sprite": "WhiteWolf_2.sprite",
-          "HeroInduce": "더 빠르고, 더 영리하게 장난치는 법을 터득했다!\n\n번개처럼 교실을 가로지르며 적을 교란하고\n치고 빠지는 전술에 있어서는 누구도 그를 따라올 수 없다.\n스케이트보드 위에서 펼쳐지는 장난의 향연!\n그의 미소는 문제의 전조다!",
+          "HeroInduce": "차가움이 가장 날카로운 무기!\n\n차가운 늑대는 침착하고 냉철한 전략가.\n적의 움직임을 읽고 빈틈을 꿰뚫는다.\n날렵한 기동으로 교란하며 상대를 압도한다.\n결코 쉽게 잡히지 않는 교란의 달인이다.",
           "HeroSprite": "WhiteWolf-2",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 200.2,
+            "Attack": 1200,
             "Arange": 9.7,
             "AtkSpeed": 1.3,
             "Upgrade": 500
@@ -49,12 +49,12 @@
           "HeroName": "절대 영도 늑대",
           "Level": 3,
           "Sprite": "WhiteWolf_3.sprite",
-          "HeroInduce": "지옥에서 튀어나온 장난꾸러기, 이제는 진심이다!\n\n불꽃이 이는 슬링샷과 유령처럼 질주하는 스케이트보드.\n그가 나타나면 전장은 혼돈 그 자체가 된다.\n규칙 따윈 이미 불태워버린지 오래!\n세상에서 가장 위험한 장난감이 돌아왔다!",
+          "HeroInduce": "모든 것을 얼려버리는 냉기의 권위자!\n\n절대 영도 늑대는 냉혹하고 무자비한 사냥꾼.\n적을 얼어붙게 만드는 위협적인 존재.\n전장을 차갑게 지배하며 상대의 숨통을 조인다.\n그 앞에서 살아남을 자는 없다.",
           "HeroSprite": "WhiteWolf-3",
           "AtkArange": "Aoe",
           "AngleOffsset" : 15,
           "HeroLevelData": {
-            "Attack": 1200.7,
+            "Attack": 1400,
             "Arange": 21,
             "AtkSpeed": 3.4,
             "Upgrade": 12500
@@ -78,7 +78,7 @@
           "HeroName": "황금의 사자",
           "Level": 1,
           "Sprite": "Lion_1.sprite",
-          "HeroInduce": "똑똑함은 최고의 무기!\n\n리사는 상황을 분석하고 적의 허점을 꿰뚫는 천재 지휘관.\n빠른 판단과 정확한 명령으로 전장을 지배한다.\n단순한 소녀가 아니다, 모두의 두뇌다!\n패배를 원하지 않는다면 그녀를 따르라.",
+          "HeroInduce": "황금이 곧 전략이다!\n\n황금의 사자는 전장을 누비며 재화를 모은다.\n탁월한 계산으로 아군의 자원을 풍족하게 한다.\n그의 한 수는 전력의 기반을 마련한다.\n함께한다면 언제나 넉넉한 전투가 보장된다.",
           "HeroSprite": "Lion",
           "HeroLevelData": {
             "Attack": 200,
@@ -105,12 +105,12 @@
           "HeroName": "강아지",
           "Level": 1,
           "Sprite": "Wolf_1.sprite",
-          "HeroInduce": "게으른 가장? 이제는 분노의 야수!\n\n가족을 위협하는 적이라면 어떤 것이든 분쇄한다.\n불타는 주먹은 적의 방어를 무력화시키고\n그의 눈빛 하나로 적들이 물러난다!\n도넛보다 강한 힘을 가진 그 이름, 호머!",
+          "HeroInduce": "분노가 곧 힘이다!\n\n강아지는 폭발적인 돌진으로 적을 분쇄한다.\n가족을 지키기 위해 주저함이 없다.\n불타는 주먹으로 방어를 무너뜨린다.\n전장을 지배하는 분노의 야수다.",
           "HeroSprite": "Wolf",
           "AtkArange": "Sector",
           "AngleOffset": 15,
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 800,
             "Arange": 2.5,
             "AtkSpeed": 0.3,
             "Upgrade": 0
@@ -124,12 +124,12 @@
           "HeroName": "각성 강아지",
           "Level": 2,
           "Sprite": "Wolf_2.sprite",
-          "HeroInduce": "도넛이 연료! 분노가 무기!\n\n폭발적인 힘으로 적을 산산조각낸다.\n무시무시한 돌진은 누구도 막지 못하고\n불꽃처럼 타오르는 전장의 광란.\n무적의 괴력을 지금 확인하라!",
+          "HeroInduce": "분노가 극에 달했다!\n\n각성 강아지는 거침없는 돌진으로 적을 압도한다.\n무시무시한 힘으로 모든 것을 파괴한다.\n불꽃처럼 타오르는 전장의 광란.\n그 누구도 그의 분노를 막을 수 없다.!",
           "HeroSprite": "Wolf-2",
           "AtkArange": "Sector",
           "AngleOffset" : 30,
           "HeroLevelData": {
-            "Attack": 200,
+            "Attack": 960,
             "Arange": 4.2,
             "AtkSpeed": 0.3,
             "Upgrade": 3200
@@ -143,11 +143,11 @@
           "HeroName": "케르베로스",
           "Level": 3,
           "Sprite": "Wolf_3.sprite",
-          "HeroInduce": "멈출 수 없는 힘! 돌진의 화신!\n\n기관차처럼 전장을 가로지르며 모든 것을 파괴한다.\n적들은 그가 다가오는 소리만으로도 후퇴한다.\n호머의 진화는 끝이 없다!\n이제 그 누구도 그의 분노를 막을 수 없다!",
+          "HeroInduce": "분노가 완전히 폭발했다!\n\n케르베로스는 무자비한 돌진으로 적을 쓸어버린다.\n극한의 힘으로 전장을 지배한다.\n가족을 지키려는 그의 분노는 멈추지 않는다.\n이제 누구도 그의 길을 막을 수 없다.",
           "HeroSprite": "Wolf-3",
           "AtkArange": "Circle",
           "HeroLevelData": {
-            "Attack": 430,
+            "Attack": 1140,
             "Arange": 8,
             "AtkSpeed": 0.05,
             "Upgrade": 15000
@@ -171,7 +171,7 @@
           "HeroName": "치킨이 될자",
           "Level": 1,
           "Sprite": "Chick_1.sprite",
-          "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
+          "HeroInduce": "불꽃처럼 타오르는 열정!\n\n치킨이 될자는 뜨거운 마음으로 전장을 누빈다.\n적을 향해 거침없이 달려들며 불길을 일으킨다.\n가족과 친구를 위해 싸우는 따뜻한 전사.\n한 번 불붙으면 쉽게 꺼지지 않는다.",
           "HeroSprite": "Chick",
           "AtkArange": "Single",
           "HeroLevelData": {
@@ -189,11 +189,11 @@
           "HeroName": "치킨이 되어버린 자",
           "Level": 1,
           "Sprite": "Chick_2.sprite",
-          "HeroInduce": "뜨거운 열정으로 세상을 태우는 그녀!\n\n마지는 언제나 불꽃처럼 뜨겁고 강렬하다.\n적들을 향해 달려들 때마다 주변은 불길에 휩싸인다.\n하지만 그 불꽃 뒤에는 가족과 친구를 위한 따뜻한 마음이 숨겨져 있다.\n한 번 불붙으면 쉽게 꺼지지 않는 그 불길처럼, 그녀의 의지도 단단하다.\n절대 포기하지 않는 불사조 같은 존재!",
+          "HeroInduce": "끝까지 타오르는 불굴의 불꽃!\n\n치킨이 되어버린 자는 더욱 뜨겁게 전장을 불사른다.\n무서운 집념으로 적을 태우며 앞으로 나아간다.\n가족과 친구를 지키기 위한 결의가 불길이 된다.\n그 의지는 결코 꺼지지 않는다.",
           "HeroSprite": "Chick-2",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 2000,
+            "Attack": 120,
             "Arange": 11.5,
             "AtkSpeed": 2,
             "Upgrade": 100
@@ -217,11 +217,11 @@
           "HeroName": "꼬꼬댁",
           "Level": 1,
           "Sprite": "Chicken_1.sprite",
-          "HeroInduce": "바람처럼 빠르고 치명적인 심판자!\n\n모의부인은 적의 허를 찌르는 공격으로 전장을 지배한다.\n그녀의 한 마디면 모두가 조용해지고,\n그녀의 발걸음은 사뿐하지만 위험 천만하다.\n정의감 넘치는 그녀는 혼돈 속에서도 질서를 세우며,\n누구도 그녀의 심판을 피할 수 없다.\n그녀의 눈빛은 차갑지만 마음은 뜨겁다.",
+          "HeroInduce": "바람처럼 빠른 심판자!\n\n꼬꼬댁은 날렵한 움직임으로 적을 제압한다.\n틈을 놓치지 않고 정확히 찌른다.\n정의감을 품고 전장을 누비는 날카로운 전사.\n그 누구도 그녀의 심판을 피할 수 없다.",
           "AtkArange": "Single",
           "HeroSprite": "Chicken",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 50,
             "Arange": 25,
             "AtkSpeed": 2.5,
             "Upgrade": 550
@@ -235,11 +235,11 @@
           "HeroName": "칠면조",
           "Level": 2,
           "Sprite": "Chicken_2.sprite",
-          "HeroInduce": "더 강해지고 더 빠르게 진화한 심판자!\n\n그녀의 발걸음은 바람보다 빠르고,\n그녀의 결의는 강철처럼 단단하다.\n적들은 그녀가 나타난 순간부터 이미 패배를 예감한다.\n그녀는 냉철한 판단력으로 동료들을 보호하고,\n전장의 주인이 되어 적을 무자비하게 응징한다.\n심판의 바람이 다시 불어온다!",
+          "HeroInduce": "심판의 바람이 더욱 거세졌다!\n\n칠면조는 바람보다 빠르게 적을 꿰뚫는다.\n단단한 결의로 전장을 지배한다.\n정확하고 냉철한 판단으로 동료를 이끈다.\n그녀의 심판에서 벗어날 자는 없다.",
           "HeroSprite": "Chicken-2",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 2200,
+            "Attack": 60,
             "Arange": 35,
             "AtkSpeed": 5,
             "Upgrade": 1800
@@ -263,11 +263,11 @@
           "HeroName": "똥개",
           "Level": 1,
           "Sprite": "Pug_1.sprite",
-          "HeroInduce": "오랜 세월을 견뎌낸 전쟁의 노장!\n\n그랜파는 말수가 적지만, 행동 하나하나에 무게가 느껴진다.\n전장의 풍파를 다 겪은 그는\n후손들에게 지혜와 용기를 전해준다.\n힘은 느리지만 확실하며,\n그의 충고는 언제나 옳다.\n싸움터에서 배운 인생의 교훈을 가슴에 품은 전사.",
+          "HeroInduce": "묵직함이 무기다!\n\n똥개는 느리지만 단단한 힘을 가진 전사다.\n오랜 경험으로 전장을 읽고 움직인다.\n한 방 한 방이 묵직하게 적을 제압한다.\n신뢰할 수 있는 든든한 동료다.",
           "HeroSprite": "Pug",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 1000,
+            "Attack": 120,
             "Arange": 5.6,
             "AtkSpeed": 2.5,
             "Upgrade": 100
@@ -291,12 +291,12 @@
           "HeroName": "과적합 생물 (1단계)",
           "Level": 1,
           "Sprite": "Possessed_1.sprite",
-          "HeroInduce": "차가운 눈빛 속 숨겨진 따뜻함.\n\n매기는 정확한 사격으로 적을 단번에 무력화시킨다.\n그녀의 움직임은 물처럼 부드럽지만\n필요할 땐 차가운 칼날처럼 날카롭다.\n상처 입은 동료를 돌보는 천사 같은 마음,\n전장을 지배하는 냉혹한 전사, 두 얼굴을 가진 존재다.\n그녀가 나타나면 희망이 보인다.",
+          "HeroInduce": "날카로운 눈빛 속 숨겨진 따뜻함!\n\n과적합 생물은 정확한 사격으로 적을 제압한다.\n부드러운 움직임과 냉철한 판단을 겸비했다.\n필요할 땐 누구보다 차가운 전사.\n전장을 지배하는 신비로운 존재다.",
           "HeroSprite": "Possessed",
           "AtkArange": "Single",
           "Size" : 2,
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 1000,
             "Arange": 8,
             "AtkSpeed": 6.2,
             "Upgrade": 320
@@ -310,11 +310,11 @@
           "HeroName": "과적합 생물 (2단계)",
           "Level": 2,
           "Sprite": "Possessed_2.sprite",
-          "HeroInduce": "더욱 날카로워진 천사의 화살!\n\n매기는 적진 한가운데서도 흔들리지 않는다.\n그녀의 사격은 더욱 정밀해지고,\n움직임은 더욱 부드러워졌다.\n그녀는 전장의 빛이 되어\n동료들에게 용기와 희망을 선사한다.\n적들은 그녀를 두려워하고, 동료들은 그녀를 따른다.",
+          "HeroInduce": "더 날카로워진 냉철함!\n\n과적합 생물은 한층 정밀해진 사격으로 적을 꿰뚫는다.\n차분한 움직임으로 전장을 누빈다.\n동료들에게는 희망이자 방패.\n적에게는 두려운 심판자다.",
           "HeroSprite": "Possessed-2",
           "AtkArange": "Rectangle",
           "HeroLevelData": {
-            "Attack": 2500,
+            "Attack": 1200,
             "Arange": 11,
             "AtkSpeed": 4.5,
             "Upgrade": 2000
@@ -328,11 +328,11 @@
           "HeroName": "과적합 생물 (3단계)",
           "Level": 3,
           "Sprite": "Possessed_3.sprite",
-          "HeroInduce": "더욱 날카로워진 천사의 화살!\n\n매기는 적진 한가운데서도 흔들리지 않는다.\n그녀의 사격은 더욱 정밀해지고,\n움직임은 더욱 부드러워졌다.\n그녀는 전장의 빛이 되어\n동료들에게 용기와 희망을 선사한다.\n적들은 그녀를 두려워하고, 동료들은 그녀를 따른다.",
+          "HeroInduce": "완벽해진 냉혹한 심판자!\n\n과적합 생물은 극한의 정밀함으로 적을 무력화한다.\n부드러운 움직임 속에 숨겨진 살기.\n동료를 지키는 강철 같은 의지.\n그녀가 나타나면 전장은 곧 끝난다.",
           "HeroSprite": "Possessed-3",
           "AtkArange": "CoreCross",
           "HeroLevelData": {
-            "Attack": 2500,
+            "Attack": 1400,
             "Arange": 11,
             "AtkSpeed": 4.5,
             "Upgrade": 2000
@@ -356,11 +356,11 @@
           "HeroName": "데빌 아이",
           "Level": 1,
           "Sprite": "Eye_1.sprite",
-          "HeroInduce": "주먹과 조롱으로 세상을 뒤흔든다.\n\n넬슨은 누구보다 강한 카리스마를 가졌고,\n그의 반항 정신은 모두에게 경외심을 불러일으킨다.\n싸움이 일어나면 항상 앞장서서 돌진하며,\n그의 주먹 한 방은 적들에게 큰 상처를 남긴다.\n친구든 적이든 그 앞에서는 누구도 무시할 수 없다.\n거친 도시의 전사, 반항의 아이콘!",
+          "HeroInduce": "거칠고 당당한 반항아!\n\n데빌 아이는 누구보다 앞장서 싸운다.\n강한 카리스마로 적을 위협한다.\n거침없는 주먹 한 방이 전장을 흔든다.\n도시를 지배하는 반항의 아이콘이다.",
           "HeroSprite": "Eye",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 60,
             "Arange": 5.6,
             "AtkSpeed": 2.1,
             "Upgrade": 1000
@@ -372,13 +372,13 @@
         },
         {
           "HeroName": "붉은 데빌",
-          "Level": 1,
+          "Level": 2,
           "Sprite": "Eye_2.sprite",
-          "HeroInduce": "주먹과 조롱으로 세상을 뒤흔든다.\n\n넬슨은 누구보다 강한 카리스마를 가졌고,\n그의 반항 정신은 모두에게 경외심을 불러일으킨다.\n싸움이 일어나면 항상 앞장서서 돌진하며,\n그의 주먹 한 방은 적들에게 큰 상처를 남긴다.\n친구든 적이든 그 앞에서는 누구도 무시할 수 없다.\n거친 도시의 전사, 반항의 아이콘!",
+          "HeroInduce": "타오르는 분노의 주먹!\n\n붉은 데빌은 한층 거칠고 강력해졌다.\n적을 압도하는 불같은 카리스마.\n주저하지 않는 돌진으로 상대를 제압한다.\n반항의 상징이자 두려움의 대상이다.",
           "HeroSprite": "Eye-2",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 70,
             "Arange": 5.6,
             "AtkSpeed": 2.1,
             "Upgrade": 1000
@@ -402,12 +402,12 @@
           "HeroName": "블랙팬서",
           "Level": 1,
           "Sprite": "Panther_1.sprite",
-          "HeroInduce": "비밀과 미스터리의 소년.\n\n밀하우스는 항상 어딘가 모르게 특별하다.\n그가 가진 힘의 근원은 아무도 모른다.\n위기의 순간에만 빛나는 숨겨진 능력은\n동료들에게 희망과 혼란을 동시에 준다.\n그의 존재는 미지의 영역,\n어둠 속에서 빛나는 작은 별이다.",
+          "HeroInduce": "어둠 속의 날카로운 시선!\n\n블랙팬서는 은밀하고 날렵하게 움직인다.\n상대가 눈치채기도 전에 허점을 찌른다.\n미스터리한 분위기로 전장을 긴장시킨다.\n어둠 속에서 빛나는 위험한 존재다.",
           "HeroSprite": "Panther",
           "AtkArange": "Single",
           "AngleOffsset" : 15,
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 40,
             "Arange": 1.6,
             "AtkSpeed": 1.4,
             "Upgrade": 100
@@ -431,11 +431,11 @@
           "HeroName": "사나운 불곰",
           "Level": 1,
           "Sprite": "Bear_1.sprite",
-          "HeroInduce": "광대의 웃음 뒤에 숨겨진 광기와 힘!\n\n크러스티는 아무리 맞아도 다시 일어난다.\n불사신 같은 그의 존재는 적들에게 공포 그 자체.\n폭발적인 개그와 전투력으로 적들을 무너뜨리고,\n그의 웃음소리는 전장에 울려 퍼진다.\n무대 위의 스타, 전장의 전설!",
+          "HeroInduce": "폭발적인 힘과 광기!\n\n사나운 불곰은 거침없이 적을 박살낸다.\n터질 듯한 분노가 전장을 뒤흔든다.\n끈질기게 달라붙어 적의 숨통을 조인다.\n적들에게 공포를 심어주는 광란의 전사다.",
           "HeroSprite": "Bear",
           "AtkArange": "Rectangle",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 300,
             "Arange": 2.7,
             "AtkSpeed": 4.5,
             "Upgrade": 300
@@ -449,11 +449,11 @@
           "HeroName": "검은색 불곰",
           "Level": 2,
           "Sprite": "Bear_2.sprite",
-          "HeroInduce": "광대의 웃음 뒤에 숨겨진 광기와 힘!\n\n크러스티는 아무리 맞아도 다시 일어난다.\n불사신 같은 그의 존재는 적들에게 공포 그 자체.\n폭발적인 개그와 전투력으로 적들을 무너뜨리고,\n그의 웃음소리는 전장에 울려 퍼진다.\n무대 위의 스타, 전장의 전설!",
+          "HeroInduce": "광기가 더욱 깊어졌다!\n\n검은색 불곰은 한층 거칠고 위험하다.\n끝없이 타오르는 분노로 적을 짓밟는다.\n전장을 지배하는 압도적인 위력.\n그의 광란은 누구도 막을 수 없다.",
           "HeroSprite": "Bear-2",
           "AtkArange": "Rectangle",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 330,
             "Arange": 2.7,
             "AtkSpeed": 4.5,
             "Upgrade": 300
@@ -477,11 +477,11 @@
           "HeroName": "꿀꿀이",
           "Level": 1,
           "Sprite": "Piggy_1.sprite",
-          "HeroInduce": "비밀과 미스터리의 소년.\n\n밀하우스는 항상 어딘가 모르게 특별하다.\n그가 가진 힘의 근원은 아무도 모른다.\n위기의 순간에만 빛나는 숨겨진 능력은\n동료들에게 희망과 혼란을 동시에 준다.\n그의 존재는 미지의 영역,\n어둠 속에서 빛나는 작은 별이다.",
+          "HeroInduce": "묵묵히 버티는 든든함!\n\n꿀꿀이는 느리지만 흔들리지 않는다.\n단단한 몸으로 적의 공격을 받아낸다.\n한 번 정하면 물러서지 않는 고집.\n동료들에게 믿음을 주는 든든한 전사다.",
           "HeroSprite": "Piggy",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack": 100,
             "Arange": 1.6,
             "AtkSpeed": 1.4,
             "Upgrade": 100
@@ -505,11 +505,11 @@
           "HeroName": "이주원",
           "Level": 1,
           "Sprite": "Monkey_1.sprite",
-          "HeroInduce": "비밀과 미스터리의 소년.\n\n밀하우스는 항상 어딘가 모르게 특별하다.\n그가 가진 힘의 근원은 아무도 모른다.\n위기의 순간에만 빛나는 숨겨진 능력은\n동료들에게 희망과 혼란을 동시에 준다.\n그의 존재는 미지의 영역,\n어둠 속에서 빛나는 작은 별이다.",
+          "HeroInduce": "예측할 수 없는 재능!\n\n이주원은 날렵하고 영리하게 움직인다.\n기발한 아이디어로 적을 혼란시킨다.\n상대가 따라오기 힘든 변칙 전술.\n어디서든 빛나는 독특한 존재다.",
           "HeroSprite": "Monkey",
           "AtkArange": "Single",
           "HeroLevelData": {
-            "Attack": 0,
+            "Attack":75,
             "Arange": 1.6,
             "AtkSpeed": 1.4,
             "Upgrade": 100
