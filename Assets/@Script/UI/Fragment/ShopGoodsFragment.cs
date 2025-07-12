@@ -6,10 +6,10 @@ using static Define;
 public class ShopGoodsData
 {
     public PayType rewardType;
-    public int reward;
+    public int rewardCount;
 
     public PayType priceType;
-    public int price;
+    public int priceCount;
 }
 
 public class ShopGoodsFragment : UI_Base
@@ -41,8 +41,8 @@ public class ShopGoodsFragment : UI_Base
         switch (_shopGoodsData.rewardType)
         {
             case PayType.Gold:
-                GetText((int)Texts.NameText).text = $"{_shopGoodsData.reward}골드";
-                GetText((int)Texts.RewardCountText).text = $"x{_shopGoodsData.reward}";
+                GetText((int)Texts.NameText).text = $"{_shopGoodsData.rewardCount}골드";
+                GetText((int)Texts.RewardCountText).text = $"x{_shopGoodsData.rewardCount}";
                 GetText((int)Texts.RewardCountText).color = new Color(1.0f, 1.0f, 0.5f);
                 Manager.Resource.LoadSprite("Coin", (sprite) =>
                 {
@@ -50,8 +50,8 @@ public class ShopGoodsFragment : UI_Base
                 });
                 break;
             case PayType.Gem:
-                GetText((int)Texts.NameText).text = $"{_shopGoodsData.reward}보석";
-                GetText((int)Texts.RewardCountText).text = $"x{_shopGoodsData.reward}";
+                GetText((int)Texts.NameText).text = $"{_shopGoodsData.rewardCount}보석";
+                GetText((int)Texts.RewardCountText).text = $"x{_shopGoodsData.rewardCount}";
                 GetText((int)Texts.RewardCountText).color = new Color(1.0f, 0.5f, 1.0f);
                 Manager.Resource.LoadSprite("Gem", (sprite) =>
                 {
@@ -73,16 +73,16 @@ public class ShopGoodsFragment : UI_Base
         switch (_shopGoodsData.priceType)
         {
             case PayType.Gold:
-                GetText((int)Texts.PriceText).text = $"{_shopGoodsData.price:N0}".Replace(',', ' ');
-                GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _shopGoodsData.price ? Color.white : Color.red;
+                GetText((int)Texts.PriceText).text = $"{_shopGoodsData.priceCount:N0}".Replace(',', ' ');
+                GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= _shopGoodsData.priceCount ? Color.white : Color.red;
                 Manager.Resource.LoadSprite("Coin", (sprite) =>
                 {
                     GetImage((int)Images.PriceImage).sprite = sprite;
                 });
                 break;
             case PayType.Gem:
-                GetText((int)Texts.PriceText).text = $"{_shopGoodsData.price:N0}".Replace(',', ' ');
-                GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _shopGoodsData.price ? Color.white : Color.red;
+                GetText((int)Texts.PriceText).text = $"{_shopGoodsData.priceCount:N0}".Replace(',', ' ');
+                GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gem >= _shopGoodsData.priceCount ? Color.white : Color.red;
                 Manager.Resource.LoadSprite("Gem", (sprite) =>
                 {
                     GetImage((int)Images.PriceImage).sprite = sprite;

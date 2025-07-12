@@ -9,19 +9,7 @@ using static PlacementData;
 public class ShopHeroData
 {
     public HeroData heroData;
-    public int rewardCount;
-}
-
-public class ShopGoldData
-{
-    public int rewardCount;
-    public int priceGem;
-}
-
-public class ShopGemData
-{
-    public int rewardCount;
-    public int priceGold;
+    public int addCount;
 }
 
 public class AllContentCanvas : UI_Scene
@@ -168,7 +156,7 @@ public class AllContentCanvas : UI_Scene
             ShopHeroData shopHeroData = new ShopHeroData()
             {
                 heroData = Manager.Data.HeroDatas[i],
-                rewardCount = 10,
+                addCount = 10,
             };
             Manager.UI.MakeSubItem<ShopHeroFragment>(root, callback: (heroFragment) =>
             {
@@ -183,12 +171,12 @@ public class AllContentCanvas : UI_Scene
                         {
                             int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
                             int unlockPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnlockPrice;
-                            int price = unitPrice * shopHeroData.rewardCount + unlockPrice;
+                            int price = unitPrice * shopHeroData.addCount + unlockPrice;
                             if (Manager.Game.SaveData.Gold < price)
                                 return;
                             CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
                             cardData.had = true;
-                            cardData.qnt = shopHeroData.rewardCount;
+                            cardData.qnt = shopHeroData.addCount;
                             Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
                             Manager.Game.SaveData.Gold -= price;
 
@@ -213,7 +201,7 @@ public class AllContentCanvas : UI_Scene
             ShopHeroData shopHeroData = new ShopHeroData()
             {
                 heroData = Manager.Data.HeroDatas[i],
-                rewardCount = 10,
+                addCount = 10,
             };
             Manager.UI.MakeSubItem<ShopHeroFragment>(root, callback: (heroFragment) =>
             {
@@ -227,12 +215,12 @@ public class AllContentCanvas : UI_Scene
                         heroPop.OnClickBuyButton += () =>
                         {
                             int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
-                            int price = unitPrice * shopHeroData.rewardCount;
+                            int price = unitPrice * shopHeroData.addCount;
                             if (Manager.Game.SaveData.Gold < price)
                                 return;
                             Manager.Game.SaveData.Gold -= price;
                             CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
-                            cardData.qnt += shopHeroData.rewardCount;
+                            cardData.qnt += shopHeroData.addCount;
                             Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
                             Manager.Game.SaveData.Gold -= price;
 
@@ -260,9 +248,9 @@ public class AllContentCanvas : UI_Scene
             ShopGoodsData shopGoodsData = new ShopGoodsData()
             {
                 rewardType = PayType.Gold,
-                reward = i * 1000,
+                rewardCount = i * 1000,
                 priceType = PayType.Gem,
-                price = i * 10,
+                priceCount = i * 10,
             };
             Manager.UI.MakeSubItem<ShopGoodsFragment>( root, callback: (goldFragment) =>
                 {
@@ -275,10 +263,10 @@ public class AllContentCanvas : UI_Scene
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             pop.OnClickBuyButton += () =>
                             {
-                                if (Manager.Game.SaveData.Gem < shopGoodsData.price)
+                                if (Manager.Game.SaveData.Gem < shopGoodsData.priceCount)
                                     return;
-                                Manager.Game.SaveData.Gem -= shopGoodsData.price;
-                                Manager.Game.SaveData.Gold += shopGoodsData.reward;
+                                Manager.Game.SaveData.Gem -= shopGoodsData.priceCount;
+                                Manager.Game.SaveData.Gold += shopGoodsData.rewardCount;
                                 Manager.UI.ClosePopupUI(pop);
                                 Manager.Game.SaveGame();
                             };
@@ -301,9 +289,9 @@ public class AllContentCanvas : UI_Scene
             ShopGoodsData shopGoodsData = new ShopGoodsData()
             {
                 rewardType = PayType.Gem,
-                reward = i * 10,
+                rewardCount = i * 10,
                 priceType = PayType.Gold,
-                price = i * 1000,
+                priceCount = i * 1000,
             };
             Manager.UI.MakeSubItem<ShopGoodsFragment>( root, callback: (gemFragment) =>
                 {
@@ -316,10 +304,10 @@ public class AllContentCanvas : UI_Scene
                             // 팝업 창에서 구매 버튼 눌렀을 때
                             pop.OnClickBuyButton += () =>
                             {
-                                if (Manager.Game.SaveData.Gold < shopGoodsData.price)
+                                if (Manager.Game.SaveData.Gold < shopGoodsData.priceCount)
                                     return;
-                                Manager.Game.SaveData.Gold -= shopGoodsData.price;
-                                Manager.Game.SaveData.Gem += shopGoodsData.reward;
+                                Manager.Game.SaveData.Gold -= shopGoodsData.priceCount;
+                                Manager.Game.SaveData.Gem += shopGoodsData.rewardCount;
                                 Manager.UI.ClosePopupUI(pop);
                             };
                         });

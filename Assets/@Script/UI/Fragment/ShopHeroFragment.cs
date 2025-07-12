@@ -91,14 +91,14 @@ public class ShopHeroFragment : UI_Base
                 GetImage((int)Images.ProfileImage).sprite = sprite;
             });
             GetText((int)Texts.RewardCountText).text = $"잠금 해제";
-            if (_shopHeroData.rewardCount != 0)
-                GetText((int)Texts.RewardCountText).text += $"\n+{_shopHeroData.rewardCount}";
+            if (_shopHeroData.addCount != 0)
+                GetText((int)Texts.RewardCountText).text += $"\n+{_shopHeroData.addCount}";
 
             GetObject((int)Objects.SliderArea).SetActive(false);
 
             int unlockPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnlockPrice;
             int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
-            int price = unitPrice * _shopHeroData.rewardCount + unlockPrice;
+            int price = unitPrice * _shopHeroData.addCount + unlockPrice;
             GetText((int)Texts.PriceText).text = $"{price}";
             GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
         }
@@ -109,7 +109,7 @@ public class ShopHeroFragment : UI_Base
             {
                 GetImage((int)Images.ProfileImage).sprite = sprite;
             });
-            GetText((int)Texts.RewardCountText).text = $"+{_shopHeroData.rewardCount}";
+            GetText((int)Texts.RewardCountText).text = $"+{_shopHeroData.addCount}";
             
             int currentLevel = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].level;
             int currentCount = Manager.Game.CardDataDict[_shopHeroData.heroData.HeroID].qnt;
@@ -120,7 +120,7 @@ public class ShopHeroFragment : UI_Base
             GetObject((int)Objects.SliderArea).SetActive(true);
 
             int unitPrice = Manager.Data.PriceDatas[_shopHeroData.heroData.Hero_Rating].UnitPrice;
-            int price = unitPrice * _shopHeroData.rewardCount;
+            int price = unitPrice * _shopHeroData.addCount;
             GetText((int)Texts.PriceText).text = $"{price}";
             GetText((int)Texts.PriceText).color = Manager.Game.SaveData.Gold >= price ? Color.white : Color.red;
         }
