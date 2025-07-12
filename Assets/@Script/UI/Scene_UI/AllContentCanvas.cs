@@ -129,10 +129,10 @@ public class AllContentCanvas : UI_Scene
                             chestPop.SetInfo(chestData);
                             chestPop.OnClickBuyButton += () =>
                             {
-                                Manager.UI.ShowPopupUI<ChestPop>(callback: (chestPop) =>
-                                {
+                                //Manager.UI.ShowPopupUI<ChestPop>(callback: (chestPop) =>
+                                //{
 
-                                });
+                                //});
                             };
                         });
                     });
