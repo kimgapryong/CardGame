@@ -133,17 +133,14 @@ public class AllContentCanvas : UI_Scene
             Manager.UI.MakeSubItem<ShopChestFragment>( root, callback: (chestFragment) =>
                 {
                     chestFragment.SetInfo(chestData);
-                    // UI 눌렀을 때
                     BindEvent(chestFragment.gameObject, () =>
                     {
                         // 팝업창 띄우기
                         Manager.UI.ShowPopupUI<ShopChestInfoPop>(callback: (chestPop) =>
                         {
                             chestPop.SetInfo(chestData);
-                            // 팝업 창에서 구매 버튼 눌렀을 때
                             chestPop.OnClickBuyButton += () =>
                             {
-                                // 상자깡 팝업 띄우기
                                 Manager.UI.ShowPopupUI<ChestPop>(callback: (chestPop) =>
                                 {
 
