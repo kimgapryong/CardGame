@@ -95,6 +95,7 @@ public class Skills
 {
     public int SkillID;
     public string SkillPre;
+    public string Sound;
     private T ParseEnumOrDefault<T>(string value, T defaultValue) where T : struct
     {
         if (Enum.TryParse<T>(value, ignoreCase: true, out var result))
