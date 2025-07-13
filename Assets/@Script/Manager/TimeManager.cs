@@ -84,7 +84,7 @@ public class TimeManager
 
     public int GetSpawnMultiplier()
     {
-        return (int)Mathf.Pow(3, (int)(elapsedTime / 5f));
+        return (int)Mathf.Pow(3, (int)(elapsedTime / 30f));
     }
 
     private async void RunAsync(CancellationToken token)
@@ -102,7 +102,7 @@ public class TimeManager
                 moneyTimer += 1f;
 
                 float baseGrowth = growthRate; // ex: 0.007f
-                float growthStep = Mathf.Pow(3, (int)(elapsedTime / 5f)); // 1분마다 3배 증가
+                float growthStep = Mathf.Pow(3, (int)(elapsedTime / 30f)); // 1분마다 3배 증가
                 float increase = baseGrowth * growthStep;
                 healthMultiplier += increase;
 

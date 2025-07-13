@@ -257,7 +257,7 @@ public class HeroController : CretureController
 
         GameObject go = Object.Instantiate(skillPre, transform.position, Quaternion.identity);
         go.transform.position = transform.position;
-        Debug.LogWarning(go);
+        Debug.Log(go.name);
         int cardLevel = Manager.Game.CardDataDict[_heroData.HeroID].level;
         float attack = _heroData.LevelData[curLevel].HeroLevelData.Attack + Manager.Data.HeroUpgradeDatas[_heroData.HeroID].AttackIncreaseAmount * cardLevel + _heroData.BaseAttack;
         Skills skills = Manager.Data.SkillDatas[_heroData.LevelData[curLevel].SkillMapData.SkillID];
@@ -265,6 +265,7 @@ public class HeroController : CretureController
         Skill skill = go.GetComponent<Skill>();
         SkillData skillData = new SkillData();
         skillData.Attack = attack;
+        skill.Owner = this;
         skillData.TargetTransform = target.transform;
         skill.UseSkill(skillData);
     }

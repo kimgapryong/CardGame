@@ -39,12 +39,13 @@ public class GameManager
 
         IsLoaded = true;
 
-        Debug.Log(Manager.Data.HeroDatas);
+        Debug.Log(Manager.Data.HeroDatas[12].HeroID);
         for (int i = 1; i <= Manager.Data.HeroDatas.Values.Count; i++)
         {
             CardData cData = new CardData();
             cData.cardId = i;
             SaveData.GotCard.Add(cData);
+            Debug.Log(i);
         }
 
         foreach (CardData cardData in SaveData.GotCard)
@@ -95,6 +96,7 @@ public class GameManager
                 CardData cData = new CardData();
                 cData.cardId = i;
                 SaveData.GotCard.Add(cData);
+                Debug.Log(i);
             }
             SaveGame();
         }

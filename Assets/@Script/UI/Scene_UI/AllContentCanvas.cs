@@ -97,9 +97,9 @@ public class AllContentCanvas : UI_Scene
             GameObject.Destroy(child.gameObject);
 
         // 장착된 카드들
-        for (int i = 0; i < HERO_COUNT; i++)
+        for (int i = 1; i <= Manager.Data.HeroDatas.Count; i++)
         {
-            HeroData _heroData = Manager.Data.HeroDatas[i + 1];
+            HeroData _heroData = Manager.Data.HeroDatas[i];
             Manager.UI.MakeSubItem<CardFragment>( 
                 root, 
                 callback: (card) =>

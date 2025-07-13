@@ -76,7 +76,7 @@ public class Define
         Gold,
         Gem
     }
-    public const int HERO_COUNT = 10;
+    public const int HERO_COUNT = 11;
     public const int GAME_LIST_COUNT = 8;
 }
 
