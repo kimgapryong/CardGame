@@ -10,6 +10,8 @@ public class SectorSkill : Skill
     }
     async UniTaskVoid MoveProjectile(Vector3 targetPos, float angleOffset)
     {
+        if (Owner == null)
+            return;
         Vector3 dir = (targetPos - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         

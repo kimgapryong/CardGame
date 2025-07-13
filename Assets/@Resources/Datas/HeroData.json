@@ -112,7 +112,7 @@
           "HeroLevelData": {
             "Attack": 800,
             "Arange": 2.5,
-            "AtkSpeed": 0.3,
+            "AtkSpeed": 3,
             "Upgrade": 0
           },
           "SkillMapData": {
@@ -131,7 +131,7 @@
           "HeroLevelData": {
             "Attack": 960,
             "Arange": 4.2,
-            "AtkSpeed": 0.3,
+            "AtkSpeed": 3,
             "Upgrade": 3200
           },
           "SkillMapData": {
@@ -149,7 +149,7 @@
           "HeroLevelData": {
             "Attack": 1140,
             "Arange": 8,
-            "AtkSpeed": 0.05,
+            "AtkSpeed": 5,
             "Upgrade": 15000
           },
           "SkillMapData": {

@@ -6,12 +6,12 @@ using System.Security.Cryptography;
 
 public class ObjectManager
 {
-    private float firstDelay = 10f;
+    private float firstDelay = 1f;
     private bool waitingFirst = true;
 
-    private float phaseDuration = 20f;
-    private float restDuration = 5f;
-    private float spawnDelay = 1f;
+    private float phaseDuration = 2f;
+    private float restDuration = .5f;
+    private float spawnDelay = .7f;
 
     private float totalTimer = 0f;
     private float spawnTimer = 0f;
