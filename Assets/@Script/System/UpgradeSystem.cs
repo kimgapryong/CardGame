@@ -41,7 +41,7 @@ public class UpgradeSystem
         Debug.Log($"남은 돈 : {Manager.Game.SaveData.Gold}");
         Debug.Log($"남은 카드 수 : {Manager.Game.CardDataDict[HeroID].qnt - Manager.Data.UpgradeDatas[heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber}");
 
-        CardData newCard = new CardData() { cardId = HeroID, level = currentLevel + 1, qnt = Manager.Game.CardDataDict[HeroID].qnt - Manager.Data.UpgradeDatas[heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber };
+        CardData newCard = new CardData() { cardId = HeroID, level = currentLevel + 1, qnt = Manager.Game.CardDataDict[HeroID].qnt - Manager.Data.UpgradeDatas[heroData.Hero_Rating].Levels[currentLevel].RequiredCardNumber, had = true };
         Manager.Game.CardDataDict[HeroID] = newCard;
 
         if (currentLevel + 1 >= fullLevel)

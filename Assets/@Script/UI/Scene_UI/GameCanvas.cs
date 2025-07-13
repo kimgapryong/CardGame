@@ -145,9 +145,9 @@ public class GameCanvas : UI_Scene
 
         Manager.UI.ShowPopupUI<NameInputPopup>(callback: (popup) =>
         {
+            popup.GetMoneyDia(gold, gem);
             popup.onConfirm = (playerName) =>
             {
-                popup.GetMoneyDia(gold, gem);
                 Manager.Rank.SaveRanking(playerName, Manager.Time.PlayDuration);
             };
         });

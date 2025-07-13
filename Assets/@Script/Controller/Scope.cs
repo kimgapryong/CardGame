@@ -19,6 +19,7 @@ public class Scope : MonoBehaviour
         polygonCollider = GetComponent<PolygonCollider2D>();
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
+        meshRenderer.sortingOrder = 5;
     }
     public void SetMeshActive(bool isActive)
     {

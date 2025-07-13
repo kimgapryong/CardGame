@@ -5,10 +5,7 @@ public class CircleScope : Scope
 {
     private void Start()
     {
-        MeshData meshData = new MeshData();
-        meshData.Size = 1f;
-        GenerateMesh(meshData);
-        SetMeshActive(true);
+        
     }
     public override void GenerateMesh(MeshData data)
     {

@@ -21,9 +21,9 @@ public class NameInputPopup : UI_Popup
     {
         if (!base.Init()) return false;
 
+        BindText(typeof(Texts));
         BindInput(typeof(Inputs));
         BindButton(typeof(Buttons));
-        BindText(typeof(Texts));
 
         GetText((int)Texts.Dia_Txt).text = gem.ToString();
         GetText((int)Texts.Money_Txt).text = money.ToString();

@@ -11,7 +11,7 @@ public class SectorSkill : Skill
     async UniTaskVoid MoveProjectile(Vector3 targetPos, float angleOffset)
     {
         if (Owner == null)
-            return;
+            Destroy(gameObject);
         Vector3 dir = (targetPos - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         
@@ -24,7 +24,8 @@ public class SectorSkill : Skill
         while (distance >= 0.1f)
         {
             transform.position += dir * Time.deltaTime * Speed;
-
+            if (Owner == null)
+                Destroy(gameObject);
             dist = Vector2.Distance(Owner.transform.position, transform.position);
             scale = angleOffset / 360 * 2 * Mathf.PI * dist;
             distance = Vector2.Distance(transform.position, targetPos);

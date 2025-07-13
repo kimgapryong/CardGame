@@ -188,6 +188,7 @@ public class AllContentCanvas : UI_Scene
                     Manager.UI.ShowPopupUI<ShopHeroInfoPop>(callback: (heroPop) =>
                     {
                         heroPop.SetInfo(shopHeroData);
+
                         heroPop.OnClickBuyButton += () =>
                         {
                             int unitPrice = Manager.Data.PriceDatas[shopHeroData.heroData.Hero_Rating].UnitPrice;
@@ -200,8 +201,8 @@ public class AllContentCanvas : UI_Scene
                             cardData.qnt = shopHeroData.addCount;
                             Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
                             Manager.Game.SaveData.Gold -= price;
-
                             RefreshSetCard();
+                            RefreshShopHero();
                             RefreshCard_Content();
                             Manager.UI.ClosePopupUI(heroPop);
                             Manager.Game.SaveGame();
@@ -243,7 +244,6 @@ public class AllContentCanvas : UI_Scene
                             CardData cardData = Manager.Game.CardDataDict[shopHeroData.heroData.HeroID];
                             cardData.qnt += shopHeroData.addCount;
                             Manager.Game.CardDataDict[shopHeroData.heroData.HeroID] = cardData;
-                            Manager.Game.SaveData.Gold -= price;
 
                             RefreshSetCard();
                             RefreshCard_Content();

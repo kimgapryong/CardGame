@@ -110,7 +110,7 @@ public class HeroCardPop : UI_Popup
         if( checkBtn)
         {
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = Color.red;
-            GetText((int)Texts.Equir_Txt).text = "장착혜제";
+            GetText((int)Texts.Equir_Txt).text = "장착해제";
         }
         else
             GetButton((int)Buttons.Equir_Btn).GetComponent<Image>().color = new Color(72f / 255f, 1f, 0f);
